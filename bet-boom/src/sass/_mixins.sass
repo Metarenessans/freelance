@@ -1,0 +1,55 @@
+=lg
+  @media (max-width: 1240px)
+    @content
+
+=md
+  @media (max-width: 992px)
+    @content
+
+=sm
+  @media (max-width: 768px)
+    @content
+
+=xs
+  @media (max-width: 576px)
+    @content
+
+=xxs
+  @media (max-width: 360px)
+    @content
+
+=separator
+  display: block
+  background: currentColor
+  width:  3.81837rem
+  height:      .1rem
+  transform: rotate(-45deg)
+
+=no-select
+  user-select: none
+  pointer-events: none
+
+=dot
+  flex-shrink: 0
+
+  position: relative
+  margin-right: .7rem
+  background: url(../img/round_empty.svg) no-repeat center / contain !important
+  width:  1.4rem
+  height: 1.4rem
+
+  +sm
+    width:  2rem
+    height: 2rem
+
+  &.active
+    background-image: url(../img/round_filled.svg) !important
+
+=dot-white
+  +dot
+  background-image: url(../img/round_empty_white.svg) !important
+
+  &.active
+    background-image: url(../img/round_filled_white.svg) !important
+
+

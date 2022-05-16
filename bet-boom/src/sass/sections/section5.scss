@@ -1,0 +1,9 @@
+@import "../components/gallery";
+
+.section5 {
+  padding: 1.5rem 0 5rem;
+
+  @include sm {
+    padding-top: 4.5rem;
+  }
+}

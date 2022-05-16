@@ -1,0 +1,64 @@
+$fonts: '../fonts/';
+
+/* Roboto */
+
+@font-face {
+  font-family: 'Roboto';
+  src: 
+    local('Roboto'),
+    local('Roboto-Regular'),
+    url($fonts + 'Roboto-Regular.woff2') format('woff2'),
+    url($fonts + 'Roboto-Regular.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Roboto';
+  src: 
+    local('Roboto Thin'),
+    local('Roboto-Thin'),
+    url($fonts + 'Roboto-Thin.woff2') format('woff2'),
+    url($fonts + 'Roboto-Thin.woff') format('woff');
+  font-weight: 100;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Roboto';
+  src: 
+    local('Roboto Bold'),
+    local('Roboto-Bold'),
+    url($fonts + 'Roboto-Bold.woff2') format('woff2'),
+    url($fonts + 'Roboto-Bold.woff') format('woff');
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Giorgio Sans LC */
+@font-face {
+  font-family: 'Giorgio Sans LCG';
+  src: 
+    local('Giorgio Sans LCG Bold'),
+    local('GiorgioSansLCG-Bold'),
+    url($fonts + 'GiorgioSansLCG-Bold.woff2') format('woff2'),
+    url($fonts + 'GiorgioSansLCG-Bold.woff') format('woff');
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Giorgio Sans LCG';
+  src: 
+    local('Giorgio Sans LCG Regular'),
+    local('GiorgioSansLCG-Regular'),
+    url($fonts + 'GiorgioSansLCG-Regular.woff2') format('woff2'),
+    url($fonts + 'GiorgioSansLCG-Regular.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}

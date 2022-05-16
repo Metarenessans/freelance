@@ -1,0 +1,98 @@
+.gallery {
+
+  .owl {
+
+    &-stage {
+      &-outer {
+        height: 49rem;
+      }
+    }
+
+    &-item {
+      transition: all .3s ease;
+    }
+
+    &-dot {
+      position: relative;
+
+      @include dot();
+
+      &:last-child {
+        margin-right: 0;
+      }
+
+      &s {
+        margin: 2.5rem 0;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+
+        @include sm {
+          margin-top: 0;
+        }
+      }
+    }
+
+  }
+  
+  .owl-item.active {
+    width: 96.6rem - 1rem !important;
+
+    @include sm {
+      width: 79rem !important;
+    }
+
+    & ~ .owl-item.active {
+      width: 31.4rem - 1rem !important;
+
+      @include sm {
+        width: 79rem !important;
+      }
+
+      figcaption {
+        @include visually-hidden();
+      }
+    }
+  }
+  
+
+  &-item {
+    overflow-x: hidden;
+    position: relative;
+    z-index: 0;
+    width:  100%;
+    min-height: 48.1rem;
+
+    img {
+      position: absolute;
+      left: 0;
+      top:  0;
+
+      max-width: none !important;
+      max-width: initial !important;
+      width:  96.6rem !important;
+      height: 40.1rem;
+    }
+
+    figcaption {
+      position: absolute;
+      left:   0;
+      bottom: 0;
+
+      padding: 1.7rem 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+
+      .separator {
+        display: block;
+        background: currentColor;
+        margin: 0 1.25rem;
+        width:  3.81837rem;
+        height:      .1rem;
+        transform: rotate(-45deg);
+      }
+    }
+  }
+}

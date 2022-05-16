@@ -1,0 +1,21 @@
+.btn {
+  min-width: 23rem;
+  justify-content: center;
+  background-color: #ff0025;
+  border-radius: 0.6rem;
+  padding: 1.8rem 3rem;
+  border: none;
+
+  color: white;
+  font-family: "Roboto", sans-serif;
+  font-size: 1.6rem;
+  line-height: 1;
+  font-weight: 400;
+  font-style: normal;
+  text-align: center;
+
+  &--o {
+    background: white;
+    color: #2b2d2d;
+  }
+}

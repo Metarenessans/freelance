@@ -1,0 +1,66 @@
+.section6 {
+  position: relative;
+  z-index: 1;
+  background-color: #f8e800;
+  padding: 10rem 0 6.3rem;
+
+  text-align: center;
+
+  @include sm {
+    overflow: hidden;
+    padding: 6.5rem 0 9rem;
+  }
+
+  &__time {
+    margin: 6rem 0;
+
+    font-family: "Giorgio Sans LCG", sans-serif;
+    font-size: 4.8rem;
+    font-weight: 700;
+    line-height: 1;
+    text-transform: uppercase;
+
+    @include sm {
+      margin: 0rem 0 4rem;
+    }
+  }
+
+  &__read-more {
+    margin-top: 6.5rem;
+  }
+
+  .decor1 {
+    position: absolute;
+    left: -6.2rem;
+    top:  -6rem;
+
+    height: 90.3rem;
+
+    @include no-select();
+
+    @include sm {
+      top: auto;
+      left:  -4.1rem;
+      bottom:   8rem;
+
+      height: 56.5rem;
+    }
+  }
+  
+  .decor2 {
+    position: absolute;
+    right: 12.8rem;
+    top:    -15rem;
+
+    height: 32.3rem;
+    
+    @include no-select();
+
+    @include sm {
+      top:    16.1rem;
+      right: -14.5rem;
+
+      height: 32.3rem;
+    }
+  }
+}

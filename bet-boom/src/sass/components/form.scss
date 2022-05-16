@@ -1,0 +1,316 @@
+.form {
+
+  text-align: center;
+
+  &__title {
+    margin: 0;
+    margin-bottom: 1rem;
+
+    font-size: 1em;
+    font-weight: normal;
+  }
+
+  &-step {
+    margin-top: 6.5rem;
+    flex-grow: 1;
+    height: 100%;
+    
+    &-content {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      height: 100%;
+
+      &1 {
+        .stack {
+          height: 10rem;
+          flex-wrap: wrap;
+          align-self: stretch;
+          justify-content: space-between;
+          align-content: space-between;
+
+          @include sm {
+            --space: 2.5rem;
+
+            flex-wrap: nowrap;
+            align-items: center;
+            justify-content: flex-start;
+            height: auto;
+            height: initial;
+
+            > * {
+              margin-top: 2.5rem;
+              margin-top: var(--space);
+            }
+          }
+  
+          > *:nth-child(2n + 1) {
+            margin-top: 0;
+
+            @include sm {
+              margin-top: 2.5rem;
+              margin-top: var(--space);
+
+              &:first-child {
+                margin-top: 0;
+              }
+            }
+          }
+        }
+      }
+
+      &2 {
+        .spaced-content {
+          --space: 9rem;
+          
+          height: 12rem;
+          align-self: stretch;
+          display: flex;
+          flex-wrap: wrap;
+          justify-content: center;
+          align-items: flex-start;
+          align-content: space-between;
+
+          @include sm {
+            height: auto;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            align-content: center;
+          }
+
+          > * {
+            width: 32rem;
+
+            @include sm {
+              margin-left: 0;
+
+              & + * {
+                margin-top: 2.5rem;
+              }
+            }
+          }
+        }
+      }
+
+      &3 {
+        &__inner {
+          margin: 3rem 0;
+          width: 100%;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+
+          @include sm {
+            margin: 0;
+            flex-direction: column;
+          }
+
+          > * {
+            position: relative;
+            width: 33%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+
+            text-align: center;
+
+            &::after {
+              content: '';
+              position: absolute;
+              left: 100%;
+              top:   50%;
+
+              @include separator();
+
+              @include sm {
+                position: static;
+                margin: 4rem 0;
+              }
+            }
+
+            &:last-of-type::after {
+              display: none;
+            }
+          }
+        }
+      }
+
+      &4 {
+        &__inner {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+
+          input {
+            margin-top: 2.35rem;
+            margin-bottom: 3rem;
+          }
+        }
+      }
+
+      &5 {
+        &__inner {
+          text-align: center;
+        }
+
+        &__icon {
+          background: url(../img/section3/done.svg) no-repeat center / 3.2rem;
+          margin: 0 auto;
+          margin-bottom: 10rem;
+          border: .4rem solid currentColor;
+          border-radius: 50%;
+
+          flex-shrink: 0;
+          width:  7.4rem !important;
+          height: 7.4rem;
+        }
+      }
+
+      label {
+        position: relative;
+      }
+
+      input {
+        width: 33rem;
+        padding: .8rem 1.7rem;
+        background-color: white;
+        border: 0.1rem solid rgba(30, 30, 32, 0);
+        border-radius: 0.4rem;
+
+        line-height: 1;
+
+        &[type="number"] {
+          -moz-appearance: textfield;
+
+          &::-webkit-outer-spin-button,
+          &::-webkit-inner-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+          }
+        }
+
+        &[type=file] {
+          @include visually-hidden();
+
+          &:required:valid + span::before {
+            content: '';
+            display: block;
+            position: absolute;
+            z-index: 2;
+            right: 1rem;
+            top:   50%;
+            transform: translateY(-50%);
+
+            width:  2.5rem;
+            height: 2.5rem;
+            background: var(--secondary-color) url(../img/section3/done.svg) no-repeat center / 45%;
+            border-radius: 50%;
+          }
+
+          + span {
+            position: relative;
+
+            white-space: nowrap;
+            text-overflow: ellipsis;
+            overflow: hidden;
+
+            display: inline-block;
+            width: 33rem;
+            padding: 1rem 1.7rem;
+            padding-right: 4rem;
+            background-color: white;
+            border: 0.1rem solid rgba(30, 30, 32, 0);
+            border-radius: 0.4rem;
+
+            line-height: 1;
+            text-align: left;
+          }
+        }
+      }
+
+      &__btn {
+        margin-top: 5.5rem;
+      }
+
+      &__prev,
+      &__important {
+        position: relative;
+        display: inline-block;
+        margin-top: 1.5rem;
+
+        background: none;
+        padding: 0;
+        border: none;
+
+        opacity: 0.5;
+        font-size: 1.2rem;
+
+        a {
+          text-decoration: underline;
+
+          &:focus {
+            text-decoration: none;
+          }
+        }
+      }
+
+      &__important::before {
+        content: '*';
+        position: absolute;
+        left: 0;
+        top:  0;
+        margin-left: -.75rem;
+      }
+
+    }
+
+    &s {
+      position: relative;
+
+      list-style: none;
+      padding: 0;
+      margin: 0;
+
+      .owl {
+
+        &-dot {
+          background: currentColor !important;
+          width:  2.5rem;
+          height: 0.5rem;
+
+          margin-right: .4rem;
+
+          &:last-child {
+            margin-right: 0;
+          }
+
+          &.active ~ * {
+            background: white !important;
+          }
+
+          &:nth-last-child(4) ~ * {
+            display: none;
+          }
+
+          &s {
+            position: absolute;
+            bottom: 100%;
+            left:      0;
+            width: 100%;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            &[hidden] {
+              display: none;
+            }
+          }
+        }
+
+      }
+    }
+  }
+}

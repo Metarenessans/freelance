@@ -1,0 +1,166 @@
+.schools {
+
+  .owl {
+
+    &-carousel {
+      position: relative;
+    }
+
+    &-prev,
+    &-next {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      margin-top: -4rem;
+
+      background: url(../img/section4/arrow.svg) no-repeat 1.1rem center / 35% !important;
+      border: .1rem solid currentColor !important;
+      border-radius: 50%;
+      width:  4.2rem;
+      height: 4.2rem;
+
+      &.disabled {
+        opacity: .25;
+        cursor: not-allowed;
+      }
+    }
+
+    &-prev {
+      right: 100%;
+      margin-right: 8rem;
+    }
+
+    &-next {
+      left: 100%;
+      margin-left: 8rem;
+      transform: translateY(-50%) rotate(180deg);
+    }
+
+    &-dot {
+      position: relative;
+
+      @include dot-white();
+
+      &:last-child {
+        margin-right: 0;
+      }
+
+      &s {
+        margin-top: 6rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+    }
+  }
+  
+  &-item {
+    $gap:  3rem;
+    --gap: #{$gap};
+    margin: -$gap;
+    margin: calc(-1 * var(--gap));
+    padding: 0 2rem;
+
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+
+    @include sm {
+      padding: 0 12rem;
+    }
+
+    > * {
+      margin: $gap;
+      margin: calc(var(--gap));
+    }
+
+    &-row {
+      --space: 1.7rem;
+
+      width: 40%;
+      display: flex;
+      align-items: center;
+
+      &.standalone {
+        margin-left:  6rem;
+        margin-right: 6rem;
+        width: none;
+        width: initial;
+
+        .schools-item-row__loc-btn {
+          visibility: hidden !important;
+        }
+      }
+
+      @include sm {
+        width: 100%;
+        justify-content: center;
+      }
+
+      > button {
+        background: none;
+        border: none;
+        padding: 0;
+      }
+
+      &.no-photos &__photos-btn {
+        visibility: hidden;
+        user-select: none;
+        pointer-events: none;
+      }
+
+      &__photos-btn {
+        color: inherit;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        
+        svg {
+          width:  5.2rem !important;
+          height: 3.9rem;
+          fill: currentColor;
+        }
+      }
+
+      &__loc-btn {
+        img {
+          width:  2.7rem !important;
+          height: 3.5rem;
+        }
+      }
+
+      &__info {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        > * {
+          display: flex;
+          flex-direction: column;
+          align-items: flex-start;
+
+          &:first-child {
+            position: relative;
+            margin-right: 7rem;
+
+            &::after {
+              content: '';
+              position: absolute;
+              left: 100%;
+              top:   50%;
+              transform: translateY(-50%);
+              margin-left: 1.5rem;
+
+              @include separator();
+            }
+          }
+        }
+
+      }
+
+      &-images {
+        display: none;
+      }
+    }
+  }
+}

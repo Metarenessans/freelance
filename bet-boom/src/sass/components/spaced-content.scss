@@ -1,0 +1,12 @@
+.spaced-content {
+  --space: 1rem;
+
+  > * {
+    margin-left:  0;
+    margin-right: 0;
+
+    + * {
+      margin-left: var(--space);
+    }
+  }
+}
