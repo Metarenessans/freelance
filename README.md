@@ -1,2 +1,2 @@
 # frilance
-A couple of saved jobs from freelancing
+A couple of saved jobs from freelance.
