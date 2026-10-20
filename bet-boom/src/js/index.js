@@ -11,7 +11,7 @@ $('a[href^="#"]').click(function (e) {
   scrollToElement($(this).attr('href'));
 });
 
-// Подать заявку
+// Apply now
 
 const fileinputs = document.querySelectorAll('input[type="file"]');
 Array.prototype.forEach.call(fileinputs, function (input) {
@@ -98,7 +98,7 @@ $(".form").submit(function (e) {
   onFormSubmit();
 });
 
-// Галерея
+// Gallery
 
 const $gallery = $('.gallery');
 
@@ -132,7 +132,7 @@ $gallery
 let prevPosition = 0;
 $(document).on('click', '.gallery .owl-item > *', function () {
 
-  // BUG: решить, что делать, когда position < prevPosition
+  // BUG: decide what to do when position < prevPosition
 
   let position = $(this).data('position');
   let len = position - prevPosition;
@@ -153,7 +153,7 @@ $(document).on('click', '.gallery .owl-item > *', function () {
 });
 
 
-// секция слайдер начало
+// slider section start
 
 $(".owl-carousel").owlCarousel({
   nav: true,
@@ -181,9 +181,9 @@ $(".owl-carousel").owlCarousel({
 
 });
 
-// секция слайдер конец
+// slider section end
 
-// Школы
+// Schools
 
 const $schoolSlider = $(".schools");
 

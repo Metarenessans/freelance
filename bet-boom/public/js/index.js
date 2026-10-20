@@ -17,7 +17,7 @@ function scrollToElement(selector, callback) {
 $('a[href^="#"]').click(function (e) {
   e.preventDefault();
   scrollToElement($(this).attr('href'));
-}); // Подать заявку
+}); // Apply now
 
 var fileinputs = document.querySelectorAll('input[type="file"]');
 Array.prototype.forEach.call(fileinputs, function (input) {
@@ -92,7 +92,7 @@ $(".js-form-prev").click(function (e) {
 $(".form").submit(function (e) {
   e.preventDefault();
   onFormSubmit();
-}); // Галерея
+}); // Gallery
 
 var $gallery = $('.gallery');
 $gallery.children().each(function (index) {
@@ -119,7 +119,7 @@ $gallery.addClass("owl-carousel").owlCarousel({
 });
 var prevPosition = 0;
 $(document).on('click', '.gallery .owl-item > *', function () {
-  // BUG: решить, что делать, когда position < prevPosition
+  // BUG: decide what to do when position < prevPosition
   var position = $(this).data('position');
   var len = position - prevPosition; // console.warn(prevPosition, position, len);
 
@@ -137,7 +137,7 @@ $(document).on('click', '.gallery .owl-item > *', function () {
   for (var i = 0; i < len; i++) {
     $gallery.trigger('next.owl.carousel', [300]);
   }
-}); // секция слайдер начало
+}); // slider section start
 
 $(".owl-carousel").owlCarousel({
   nav: true,
@@ -158,8 +158,8 @@ $(".owl-carousel").owlCarousel({
       touchDrag: false
     }
   }
-}); // секция слайдер конец
-// Школы
+}); // slider section end
+// Schools
 
 var $schoolSlider = $(".schools");
 
