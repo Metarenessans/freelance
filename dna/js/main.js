@@ -29,20 +29,20 @@ $(function() {
 
     $formFooter.show();
 
-    var title = "Заказать DNA DROP";
+    var title = "Order DNA DROP";
 
     if (item == 6 || item == 7 || item == 9) {
       $formFooter.hide();
     }
 
     if (item >= 7) {
-      title = "Оформление подарочного сертификата";
+      title = "Gift certificate order";
     }
     else if (item == 6) {
-      title = "Оформление заказа завершено";
+      title = "Order complete";
     }
     else if (item >= 2) {
-      title = "Заказ Кулона";
+      title = "Pendant order";
     }
 
     currentStep = item;
@@ -50,7 +50,7 @@ $(function() {
     $(".js-form-title").text(title);
   }
 
-  // Слайдер формы заказа
+  // Order form slider
   const $formSlider = $(".js-form-slider");
   $formSlider
     .addClass("owl-carousel")
@@ -83,7 +83,7 @@ $(function() {
   $(".js-form-next").click(function(e) {
     e.preventDefault();
 
-    // Проверяем, заполнены ли все required поля
+    // Check that all required fields are complete
     var $currentStepContainer = $(".form-step-" + currentStep);
     var requiredElements = $currentStepContainer.find("[required]");
 
@@ -123,7 +123,7 @@ $(function() {
   });
   // custom-radiogroup end
 
-  // Блок с зазумленной картинкой START
+  // Enlarged image panel START
   var $zoomImage     = $(".js-zoom-img");
   var $zoomContainer = $(".js-zoom-container");
   var $zoomCloseBtn =  $(".js-zoom-close");
@@ -147,9 +147,9 @@ $(function() {
     $zoomImage.prop("src", $image.prop("src"));
     $zoomImage.prop("alt", $image.prop("alt"));
   });
-  // Блок с зазумленной картинкой START
+  // Enlarged image panel START
 
-  // Слайдер выобра формы кулона
+  // Pendant shape selection slider
   $(".js-pedant-type-slider")
     .addClass("owl-carousel")
     .owlCarousel({
@@ -162,7 +162,7 @@ $(function() {
       touchDrag: false,
     });
 
-  // Радио-кнопки, связанные с кулоном
+  // Pendant radio buttons
   $(".js-pedant-type-radio").click(function() {
     $(".js-pedant-type").text(this.value);
     $(".js-pedant-price").text(this.dataset.price);
@@ -176,7 +176,7 @@ $(function() {
     $(".js-pedant-material").text(this.value);
   });
 
-  // Радио-кнопки, связанные с сертификатом
+  // Gift certificate radio buttons
   $(".js-certificate-type-radio").click(function() {
     $(".js-certificate-type").text(this.value);
     $(".js-certificate-price").text(this.dataset.price);
