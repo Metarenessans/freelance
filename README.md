@@ -77,6 +77,20 @@ flowchart LR
 
 ---
 
+### ⚡ Comprehensive REST API Suite (Django REST Framework)
+
+The backend provides a structured, modular API architecture covering the full e-commerce and operational lifecycle:
+
+| Module | Endpoints | Method | Description |
+| :--- | :--- | :--- | :--- |
+| **Catalog** | `/api/v1/catalog/products/`<br/>`/api/v1/catalog/sections/`<br/>`/api/v1/catalog/categories/` | `GET` | Paginated product catalog with dynamic filtering, image previews, section hierarchies, and dietary options. |
+| **Orders** | `/api/v1/orders/` | `POST` | Transactional cart checkout: resolves prices from authoritative catalog models, enforces database constraints, and dispatches Telegram notifications. |
+| **Event Inquiries** | `/api/v1/menu-requests/`<br/>`/api/v1/menu-requests/formats/`<br/>`/api/v1/menu-requests/services/` | `GET` / `POST` | Event budget calculator and custom catering inquiries (banquets, weddings, buffets, cocktail bars). |
+| **Brand & Content** | `/api/v1/company/`<br/>`/api/v1/faq/`<br/>`/api/v1/blog/articles/` | `GET` | Brand metadata, contact details, working hours, categorized FAQ items, and editorial catering articles. |
+| **SEO & Security** | `/api/v1/seo-settings/`<br/>`/api/v1/auth/token/` | `GET` / `POST` | Dynamic OpenGraph metadata, structured JSON-LD schemas, and JWT authentication tokens for staff. |
+
+---
+
 ### 🔔 Real-Time Telegram Notification Engine
 
 The backend features an asynchronous notification dispatcher designed so customer transactions never stall waiting on external messaging APIs:
