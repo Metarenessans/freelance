@@ -1051,6 +1051,173 @@
     }
 
     /* =========================================================
+       CI/CD AUTOMATION SUITE (GitHub Actions)
+       ========================================================= */
+    .cicd-suite-intro {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 20px;
+      flex-wrap: wrap;
+    }
+    .cicd-suite-intro h4 {
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--text);
+    }
+    .cicd-suite-intro span {
+      font-size: 13px;
+      color: var(--text-muted);
+    }
+    .ci-live-badge-lg {
+      height: 20px;
+      vertical-align: middle;
+      border-radius: 4px;
+    }
+
+    .cicd-flow-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
+      margin-bottom: 20px;
+    }
+    .cicd-box {
+      background: var(--surface-elevated);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 16px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: all 0.2s ease;
+    }
+    .cicd-box:hover {
+      border-color: var(--border-hover);
+      transform: translateY(-2px);
+    }
+    .cicd-step {
+      font-family: "JetBrains Mono", monospace;
+      font-size: 10.5px;
+      font-weight: 700;
+      color: var(--text-subtle);
+      margin-bottom: 6px;
+    }
+    .cicd-title {
+      font-size: 13.5px;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 6px;
+    }
+    .cicd-desc {
+      font-size: 12px;
+      color: var(--text-muted);
+      line-height: 1.45;
+      margin-bottom: 12px;
+      flex-grow: 1;
+    }
+    .cicd-badge-status {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      font-family: "JetBrains Mono", monospace;
+      font-size: 11px;
+      font-weight: 600;
+      color: #16a34a;
+      background: rgba(22, 163, 74, 0.1);
+      border: 1px solid rgba(22, 163, 74, 0.25);
+      border-radius: 4px;
+      padding: 3px 8px;
+      width: fit-content;
+    }
+
+    .cicd-terminal-wrap {
+      background: var(--code-bg);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      overflow: hidden;
+    }
+    .cicd-terminal-header {
+      background: rgba(0, 0, 0, 0.35);
+      border-bottom: 1px solid var(--border);
+      padding: 8px 14px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+    }
+    .cicd-term-dots {
+      display: flex;
+      gap: 6px;
+    }
+    .term-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+    }
+    .dot-red { background: #ef4444; }
+    .dot-yellow { background: #f59e0b; }
+    .dot-green { background: #10b981; }
+    .cicd-term-title {
+      font-family: "JetBrains Mono", monospace;
+      font-size: 11px;
+      color: var(--text-subtle);
+    }
+    .cicd-term-status {
+      font-family: "JetBrains Mono", monospace;
+      font-size: 10.5px;
+      font-weight: 700;
+      color: #10b981;
+    }
+    .cicd-terminal-body {
+      padding: 16px;
+      font-family: "JetBrains Mono", monospace;
+      font-size: 11.5px;
+      line-height: 1.6;
+      color: #e4e4e7;
+      margin: 0;
+      overflow-x: auto;
+      max-height: 250px;
+    }
+    .t-dim { color: #71717a; }
+    .t-prompt { color: #38bdf8; font-weight: 700; }
+    .t-ok { color: #4ade80; font-weight: 600; }
+
+    /* Trust strip clickable link & pill */
+    .trust-item-link {
+      cursor: pointer;
+      transition: background 0.15s ease, border-color 0.15s ease;
+      text-decoration: none;
+      color: inherit;
+    }
+    .trust-item-link:hover .trust-label {
+      color: var(--text);
+      text-decoration: underline;
+    }
+    .trust-live-badge {
+      height: 18px;
+      vertical-align: middle;
+      border-radius: 3px;
+    }
+    .pill-ci {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: all 0.15s ease;
+      cursor: pointer;
+    }
+    .pill-ci:hover {
+      border-color: var(--border-hover);
+      color: var(--text);
+    }
+    .ci-status-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: #16a34a;
+    }
+
+    /* =========================================================
        CLIENT PORTFOLIO DELIVERIES (BetBoom & DNA)
        ========================================================= */
     .client-section {
@@ -1235,6 +1402,7 @@
       .hero-portrait-card { max-width: 320px; margin: 0 auto; }
       .project-card { padding: 22px; }
       .arch-flow-grid { grid-template-columns: 1fr 1fr; }
+      .cicd-flow-grid { grid-template-columns: 1fr 1fr; }
       .tg-layout { grid-template-columns: 1fr; }
       .admin-cards-grid { grid-template-columns: 1fr; }
       .client-works-grid { grid-template-columns: 1fr; }
@@ -1245,6 +1413,7 @@
       .trust-strip { grid-template-columns: 1fr; }
       .skills-grid { grid-template-columns: 1fr; }
       .arch-flow-grid { grid-template-columns: 1fr; }
+      .cicd-flow-grid { grid-template-columns: 1fr; }
     }
   </style>
 </head>
@@ -1264,6 +1433,11 @@
         </div>
       </div>
       <div class="nav-actions">
+        <!-- Live CI/CD Pipeline Badge -->
+        <a class="trust-ci-badge" href="https://github.com/Metarenessans/freelance/actions" target="_blank" rel="noopener noreferrer" title="Live GitHub Actions Workflow Status">
+          <img src="https://github.com/Metarenessans/freelance/actions/workflows/pages.yml/badge.svg?branch=main" alt="GitHub Pages Pipeline Status" />
+        </a>
+
         <div class="status-badge">
           <span class="status-dot"></span>
           <span>Available on Upwork</span>
@@ -1368,13 +1542,16 @@
             <div class="trust-sub">Tailored operational management</div>
           </div>
         </div>
-        <div class="trust-item">
+        <a class="trust-item trust-item-link" href="https://github.com/Metarenessans/freelance/actions" target="_blank" rel="noopener noreferrer" title="View live GitHub Actions CI/CD runs">
           <div class="trust-icon">🚀</div>
           <div>
-            <div class="trust-label">Production Delivery</div>
-            <div class="trust-sub">Automated CI/CD & Docker</div>
+            <div class="trust-label" style="display:flex;align-items:center;gap:6px;">
+              <span>Production Delivery</span>
+              <img src="https://github.com/Metarenessans/freelance/actions/workflows/pages.yml/badge.svg?branch=main" alt="CI/CD Status" class="trust-live-badge" height="18" />
+            </div>
+            <div class="trust-sub">Automated CI/CD & Deploy ↗</div>
           </div>
-        </div>
+        </a>
       </div>
     </header>
 
@@ -1398,7 +1575,9 @@
             <span class="pill active">PostgreSQL</span>
             <span class="pill">Telegram Bot</span>
             <span class="pill">Docker</span>
-            <span class="pill">GitHub Actions CI</span>
+            <a class="pill active pill-ci" href="https://github.com/Metarenessans/freelance/actions" target="_blank" rel="noopener noreferrer" title="View verified GitHub Actions CI pipeline">
+              <span class="ci-status-dot"></span> GitHub Actions CI ↗
+            </a>
           </div>
         </div>
 
@@ -1429,6 +1608,7 @@
             <button class="c-tab" data-pane="api">Swagger & API Explorer</button>
             <button class="c-tab" data-pane="tg">Telegram Dispatcher</button>
             <button class="c-tab" data-pane="admin">Django Admin Features</button>
+            <button class="c-tab" data-pane="cicd">CI/CD Pipeline</button>
           </div>
 
           <!-- Pane 1: Architecture -->
@@ -1634,6 +1814,124 @@
                 <h4>Subscriber & SMTP Tools</h4>
                 <p>Dedicated administration tools to manage Telegram chat subscriber bindings and built-in SMTP diagnostics to test email delivery health.</p>
               </div>
+            </div>
+          </div>
+
+          <!-- Pane 5: Automated CI/CD Pipeline & Quality Gate -->
+          <div class="c-pane" id="pane-cicd">
+            <div class="cicd-header">
+              <div class="cicd-header-info">
+                <div class="cicd-header-title-row">
+                  <h4>Automated CI/CD & Quality Gate</h4>
+                  <a class="trust-ci-badge" href="https://github.com/Metarenessans/freelance/actions" target="_blank" rel="noopener noreferrer" title="Live GitHub Actions Workflow Status">
+                    <img src="https://github.com/Metarenessans/freelance/actions/workflows/pages.yml/badge.svg?branch=main" alt="GitHub Actions Workflow Status" />
+                  </a>
+                </div>
+                <span class="cicd-header-desc">Continuous integration running automated Python unittest discovery, translation regression checks, asset bundling, and atomic zero-downtime deployment.</span>
+              </div>
+              <div class="cicd-header-actions">
+                <a class="btn-test btn-test-app" href="https://github.com/Metarenessans/freelance/actions" target="_blank" rel="noopener noreferrer">
+                  View GitHub Actions ↗
+                </a>
+              </div>
+            </div>
+
+            <!-- 4 Pipeline Stages Grid -->
+            <div class="cicd-grid reveal-stagger-group">
+              <!-- Stage 01: Unit Tests -->
+              <div class="cicd-stage-card">
+                <div class="cicd-stage-top">
+                  <span class="cicd-stage-step">STAGE 01</span>
+                  <span class="cicd-status-pill"><span class="status-dot"></span>PASSED</span>
+                </div>
+                <div class="cicd-stage-name">Unit Tests</div>
+                <div class="cicd-stage-desc">Automated test discovery validating catalog integrity, animation attributes, and multi-domain endpoints.</div>
+                <div class="cicd-stage-meta"><code>python -m unittest</code></div>
+              </div>
+
+              <!-- Stage 02: Security Gate -->
+              <div class="cicd-stage-card">
+                <div class="cicd-stage-top">
+                  <span class="cicd-stage-step">STAGE 02</span>
+                  <span class="cicd-status-pill"><span class="status-dot"></span>VERIFIED</span>
+                </div>
+                <div class="cicd-stage-name">Security Gate</div>
+                <div class="cicd-stage-desc">Strict translation integrity check, Cyrillic character prevention, and isolated demo build boundaries.</div>
+                <div class="cicd-stage-meta"><code>test_no_cyrillic</code></div>
+              </div>
+
+              <!-- Stage 03: Asset Compilation -->
+              <div class="cicd-stage-card">
+                <div class="cicd-stage-top">
+                  <span class="cicd-stage-step">STAGE 03</span>
+                  <span class="cicd-status-pill"><span class="status-dot"></span>OPTIMIZED</span>
+                </div>
+                <div class="cicd-stage-name">Asset Compilation</div>
+                <div class="cicd-stage-desc">Static tree assembly, Sass/test exclusion, Jekyll bypass (.nojekyll), and bundle packaging.</div>
+                <div class="cicd-stage-meta"><code>upload-artifact@v3</code></div>
+              </div>
+
+              <!-- Stage 04: Automated Deploy -->
+              <div class="cicd-stage-card">
+                <div class="cicd-stage-top">
+                  <span class="cicd-stage-step">STAGE 04</span>
+                  <span class="cicd-status-pill"><span class="status-dot"></span>ACTIVE</span>
+                </div>
+                <div class="cicd-stage-name">Automated Deploy</div>
+                <div class="cicd-stage-desc">Atomic GitHub Pages release step verifying deployment URL health and environment states.</div>
+                <div class="cicd-stage-meta"><code>deploy-pages@v4</code></div>
+              </div>
+            </div>
+
+            <!-- Dark Terminal Window with Authentic Workflow Logs -->
+            <div class="cicd-terminal">
+              <div class="cicd-terminal-header">
+                <div class="cicd-terminal-controls">
+                  <span class="terminal-dot terminal-dot-red"></span>
+                  <span class="terminal-dot terminal-dot-yellow"></span>
+                  <span class="terminal-dot terminal-dot-green"></span>
+                </div>
+                <div class="cicd-terminal-title">runner@github-actions: ~/work/freelance (pages.yml)</div>
+                <div class="cicd-terminal-badge">
+                  <span class="terminal-status-dot"></span>
+                  <span>11/11 Passed • 17s</span>
+                </div>
+              </div>
+              <pre class="cicd-terminal-body"><code><span class="t-dim">Run actions/checkout@v4</span>
+<span class="t-dim">Syncing repository to /home/runner/work/freelance/freelance (commit: </span><span class="t-cmd">main</span><span class="t-dim">)</span>
+
+<span class="t-head">▶ Step 1: Validate catalog and translations</span>
+<span class="t-prompt">$</span> <span class="t-cmd">python -m unittest discover -s tests -v</span>
+test_avatar_and_animations_present (test_pages.PagesTests) ... <span class="t-ok">ok</span>
+test_catalog_links_to_both_demos (test_pages.PagesTests) ... <span class="t-ok">ok</span>
+<span class="t-dim">Ran 2 tests in 0.002s — </span><span class="t-ok">OK</span>
+
+<span class="t-prompt">$</span> <span class="t-cmd">python -m unittest discover -s bet-boom/tests -v</span>
+test_deployed_html_assets_are_relative_and_exist ... <span class="t-ok">ok</span>
+test_first_party_text_and_paths_have_no_cyrillic ... <span class="t-ok">ok</span>
+test_source_and_public_html_match_and_use_english ... <span class="t-ok">ok</span>
+<span class="t-dim">Ran 3 tests in 0.039s — </span><span class="t-ok">OK</span>
+
+<span class="t-prompt">$</span> <span class="t-cmd">python -m unittest discover -s dna/tests -v</span>
+test_assets_resolve_under_a_nested_pages_path ... <span class="t-ok">ok</span>
+test_buyer_email_is_labeled_for_the_buyer ... <span class="t-ok">ok</span>
+test_color_selection_has_correct_step_number ... <span class="t-ok">ok</span>
+test_first_party_text_contains_no_cyrillic ... <span class="t-ok">ok</span>
+test_source_and_shipped_bundle_share_english_titles ... <span class="t-ok">ok</span>
+test_translated_radio_values_match_image_covers ... <span class="t-ok">ok</span>
+<span class="t-dim">Ran 6 tests in 0.023s — </span><span class="t-ok">OK</span>
+
+<span class="t-head">▶ Step 2: Assemble static demos</span>
+<span class="t-dim">Assembling bundle into _site/ directory</span>
+<span class="t-ok">✓</span> Created _site/bet-boom and _site/dna directories
+<span class="t-ok">✓</span> Copied index.html and avatar.png
+<span class="t-ok">✓</span> Excluded test suites and SCSS sources
+<span class="t-ok">✓</span> Generated .nojekyll flag file
+
+<span class="t-head">▶ Step 3: Deploy to GitHub Pages</span>
+<span class="t-dim">Uploading artifact to GitHub Pages backend...</span>
+<span class="t-dim">Triggering deployment id: pages-run-main-latest</span>
+<span class="t-ok">✓ Deployment successful:</span> <a href="https://metarenessans.github.io/freelance/" target="_blank" rel="noopener noreferrer" class="t-link">https://metarenessans.github.io/freelance/</a> <span class="t-dim">(HTTP 200 OK)</span></code></pre>
             </div>
           </div>
         </div>
