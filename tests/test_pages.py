@@ -21,6 +21,18 @@ class PagesTests(unittest.TestCase):
         self.assertIn('cicd-section', text)
         self.assertIn('badge.svg', text)
 
+    def test_flagship_catering_source_present(self):
+        self.assertTrue((ROOT / 'catering').is_dir(), 'catering folder must exist in root')
+        self.assertTrue((ROOT / 'catering/frontend').is_dir(), 'catering frontend must exist')
+        self.assertTrue((ROOT / 'catering/backend').is_dir(), 'catering backend must exist')
+        self.assertTrue((ROOT / 'catering/telegram-bot').is_dir(), 'catering telegram-bot must exist')
+
+    def test_favicon_present(self):
+        self.assertTrue((ROOT / 'favicon.svg').is_file(), 'favicon.svg must exist')
+        self.assertTrue((ROOT / 'favicon.ico').is_file(), 'favicon.ico must exist')
+        text = (ROOT / 'index.html').read_text(encoding='utf-8') if (ROOT / 'index.html').exists() else ''
+        self.assertIn('favicon.svg', text)
+
 
 if __name__ == '__main__':
     unittest.main()

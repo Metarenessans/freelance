@@ -1,0 +1,102 @@
+@use "@/styles/variables" as *;
+@use "@/styles/mixins" as *;
+
+.floatingFilter {
+  position: fixed;
+  left: auto;
+  right: calc(14vw + var(--scrollbar-width, 0px));
+  bottom: 20px;
+  z-index: 998;
+  color: $white;
+  border: 2px solid $white;
+  border-radius: 14px;
+  height: 56px;
+  padding: 0 24px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  transition: opacity 0.3s ease, transform 0.3s ease, background-color 0.2s ease;
+  opacity: 0;
+  pointer-events: none;
+  transform: translate(50%, 20px);
+  backdrop-filter: $backdrop-blur;
+  background-color: $transparent-bg;
+
+  &.visible {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translate(50%, 0);
+  }
+
+  &.hasCart {
+    // Keep right exactly the same as without cart to avoid right-property animation!
+    right: calc(14vw + var(--scrollbar-width, 0px));
+    transform: translate(-170px, 20px);
+
+    &.visible {
+      transform: translate(-170px, 0);
+    }
+  }
+
+  @include hover {
+    background-color: $primary;
+    transition: all 0.2s ease;
+  }
+
+  .text {
+    font-size: 1.1rem;
+    font-weight: 500;
+
+    @include mobile {
+      display: none;
+    }
+  }
+
+  .iconWrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 28px;
+    height: 28px;
+    position: relative;
+  }
+
+  .arrowUp {
+    display: none;
+    position: absolute;
+    top: -12px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 12px;
+    height: 12px;
+    color: $gray-text;
+  }
+
+  @include mobile {
+    bottom: $bottom-buttons-position;
+    left: 15px;
+    right: auto;
+    width: 82px;
+    height: 56px;
+    justify-content: center;
+    padding: 0;
+    border-radius: 14px;
+    transform: translateY(20px);
+
+    &.visible {
+      transform: translateY(0);
+    }
+
+    &.hasCart {
+      left: 15px;
+      right: auto;
+      transform: translateY(20px);
+
+      &.visible {
+        transform: translateY(0);
+      }
+    }
+  }
+}

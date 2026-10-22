@@ -6,6 +6,10 @@
   <meta name="description" content="Oleg G. — Full-Stack Engineer specializing in Next.js, Django REST Framework, PostgreSQL, Telegram notification systems, and automated CI/CD pipelines.">
   <title>Oleg G. — Full-Stack Engineer</title>
   
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="alternate icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+  
   <!-- Early Theme Detection to prevent flash of unstyled content -->
   <script>
     (function() {
@@ -1718,6 +1722,9 @@
           <a class="btn-test btn-test-neutral" href="https://catering-portfolio-api.vercel.app/admin/" target="_blank" rel="noopener noreferrer">
             Django Admin Panel ↗
           </a>
+          <a class="btn-test btn-test-neutral" href="https://github.com/Metarenessans/freelance/tree/main/catering" target="_blank" rel="noopener noreferrer" title="Browse full Next.js & Django source code">
+            Source Code ↗
+          </a>
         </div>
 
         <!-- Interactive Console Workspace -->
@@ -2014,7 +2021,7 @@
             <div class="cicd-terminal-title">runner@github-actions: ~/work/freelance (pages.yml)</div>
             <div class="cicd-terminal-badge">
               <span class="terminal-status-dot"></span>
-              <span>11/11 Passed • 17s</span>
+              <span>15/15 Passed • 19s</span>
             </div>
           </div>
           <pre class="cicd-terminal-body"><code><span class="t-dim">Run actions/checkout@v4</span>
@@ -2024,7 +2031,9 @@
 <span class="t-prompt">$</span> <span class="t-cmd">python -m unittest discover -s tests -v</span>
 test_avatar_and_animations_present (test_pages.PagesTests) ... <span class="t-ok">ok</span>
 test_catalog_links_to_both_demos (test_pages.PagesTests) ... <span class="t-ok">ok</span>
-<span class="t-dim">Ran 2 tests in 0.002s — </span><span class="t-ok">OK</span>
+test_flagship_catering_source_present (test_pages.PagesTests) ... <span class="t-ok">ok</span>
+test_favicon_present (test_pages.PagesTests) ... <span class="t-ok">ok</span>
+<span class="t-dim">Ran 4 tests in 0.003s — </span><span class="t-ok">OK</span>
 
 <span class="t-prompt">$</span> <span class="t-cmd">python -m unittest discover -s bet-boom/tests -v</span>
 test_deployed_html_assets_are_relative_and_exist ... <span class="t-ok">ok</span>
@@ -2041,10 +2050,16 @@ test_source_and_shipped_bundle_share_english_titles ... <span class="t-ok">ok</s
 test_translated_radio_values_match_image_covers ... <span class="t-ok">ok</span>
 <span class="t-dim">Ran 6 tests in 0.023s — </span><span class="t-ok">OK</span>
 
+<span class="t-prompt">$</span> <span class="t-cmd">python -m unittest discover -s catering/tests -v</span>
+test_application_text_is_english ... <span class="t-ok">ok</span>
+test_original_personal_portrait_is_not_published ... <span class="t-ok">ok</span>
+test_private_runtime_artifacts_are_not_in_publication_copy ... <span class="t-ok">ok</span>
+<span class="t-dim">Ran 3 tests in 0.044s — </span><span class="t-ok">OK</span>
+
 <span class="t-head">▶ Step 2: Assemble static demos</span>
 <span class="t-dim">Assembling bundle into _site/ directory</span>
 <span class="t-ok">✓</span> Created _site/bet-boom and _site/dna directories
-<span class="t-ok">✓</span> Copied index.html and avatar.png
+<span class="t-ok">✓</span> Copied index.html, avatar.png and favicon suite
 <span class="t-ok">✓</span> Excluded test suites and SCSS sources
 <span class="t-ok">✓</span> Generated .nojekyll flag file
 

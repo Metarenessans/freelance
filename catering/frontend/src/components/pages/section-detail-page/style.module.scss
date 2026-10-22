@@ -1,0 +1,27 @@
+@use "sass:color";
+@use "../../../styles/mixins" as *;
+@use "../../../styles/variables" as *;
+
+.main {
+  background-color: $page-bg;
+  color: $white;
+  min-height: 100vh;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 5rem;
+  padding-top: 7rem;
+  padding-bottom: 4rem;
+
+  padding-left: $side-gap-l;
+  padding-right: $side-gap-l;
+
+  @include mobile {
+    padding-top: 5.5rem;
+    padding-left: $side-gap-m;
+    padding-right: $side-gap-m;
+    gap: 3rem;
+  }
+}

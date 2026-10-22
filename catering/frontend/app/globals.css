@@ -1,0 +1,93 @@
+@import "tailwindcss";
+
+html {
+  scroll-behavior: smooth;
+  background-color: var(--background);
+}
+
+html.lock-scroll {
+  overflow: hidden !important;
+  touch-action: none;
+}
+
+/* Compensation for body content to prevent jump */
+html.lock-scroll body {
+  padding-right: var(--scrollbar-width, 0px);
+}
+
+/* Global utility for fixed elements to prevent jump */
+.lock-scroll [data-fixed="true"] {
+  padding-right: var(--scrollbar-width, 0px) !important;
+}
+
+:root {
+  --background: #0a0a0a;
+  --foreground: #ffffff;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* ===== iOS Safari keyboard & input fixes ===== */
+
+/* Prevent iOS auto-zoom on input focus (iOS zooms if font-size < 16px) */
+@supports (-webkit-touch-callout: none) {
+  input[type="text"],
+  input[type="number"],
+  input[type="tel"],
+  input[type="email"],
+  input[type="date"],
+  input[type="search"],
+  select,
+  textarea {
+    font-size: 16px !important;
+  }
+}
+
+/* Fix vaul drawer background on iOS — prevent white flash behind keyboard */
+[data-vaul-drawer-wrapper] {
+  background: var(--background) !important;
+}
+
+/* Ensure smooth overflow scrolling in drawers on iOS */
+[data-vaul-drawer] {
+  -webkit-overflow-scrolling: touch;
+}
+
+.bump-animation {
+  transform: scale(1.15);
+}
+
+.price-transition {
+  display: inline-block;
+  transition: transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+/* Hide Next.js Dev Indicator/Overlay */
+nextjs-portal,
+#nextjs-portal,
+nextjs-dev-overlay,
+[data-nextjs-toast],
+[data-nextjs-dialog-overlay],
+[data-nextjs-scroll-lock-overlay],
+.nextjs-static-indicator-container {
+  display: none !important;
+}
+
+/* Prevent layout shift compensation (padding-right) on mobile screens */
+@media (max-width: 768px) {
+  body[style] {
+    padding-right: 0px !important;
+  }
+}
+

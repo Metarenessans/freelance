@@ -1,0 +1,43 @@
+# Generated and local-only files
+.git/
+node_modules/
+.next/
+out/
+dist/
+build/
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+*.tsbuildinfo
+.ruff_cache/
+.pytest_cache/
+.vscode/
+.qodo/
+.vercel/
+
+# Secrets, sessions, private data and database exports
+.env
+.env.*
+!.env.example
+!.env.*.example
+*.pem
+*.key
+*.p12
+*.pfx
+*.session
+*.session-*
+*.sqlite
+*.sqlite3
+*.sqlite3-*
+*.db
+*.sql
+*.dump
+*.bak
+*.log
+dump/
+scratch/
+
+# System files
+.DS_Store
+Thumbs.db

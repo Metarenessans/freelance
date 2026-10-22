@@ -1,0 +1,1056 @@
+@use "sass:color";
+@use "../../../styles/variables" as *;
+@use "../../../styles/mixins" as *;
+
+.overlay {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(2px);
+  z-index: 999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: fadeIn 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+
+  @include mobile {
+    align-items: flex-end;
+    backdrop-filter: none;
+    background-color: rgba(0, 0, 0, 0.5);
+  }
+}
+
+.modal {
+  position: relative;
+  background-color: $white;
+  color: $block-bg;
+  width: 100%;
+  max-width: 600px;
+  border-radius: 20px;
+  overflow: hidden;
+  max-height: 90vh;
+  display: flex;
+  flex-direction: column;
+  animation: scaleUp 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: transform;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+
+  @include mobile {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 1001;
+    max-width: 100%;
+    border-radius: 32px 32px 0 0;
+    max-height: 88vh;
+    overflow: visible;
+    touch-action: pan-y;
+    animation: slideUpModal 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+}
+
+.innerModal {
+  display: contents;
+
+  @include mobile {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-height: 85vh;
+    overflow: hidden;
+    border-radius: 24px 24px 0 0;
+  }
+}
+
+.dragHandle {
+  display: none;
+
+  @include mobile {
+    display: block;
+    position: absolute;
+    top: -16px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 48px;
+    height: 6px;
+    border-radius: 3px;
+    background: rgba(255, 255, 255, 0.8);
+    pointer-events: none;
+  }
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 18px 32px 16px;
+  position: relative;
+
+  h2 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin: 0;
+    color: $block-bg;
+    letter-spacing: -0.02em;
+
+    @include mobile {
+      font-size: 1.2rem;
+    }
+  }
+
+  @include mobile {
+    padding: 14px 24px 12px;
+  }
+}
+
+.headerActions {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.rightActions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.clearBtn {
+  background: none;
+  border: none;
+  color: #ff3b30;
+  font-size: 0.95rem;
+  font-weight: 500;
+  cursor: pointer;
+  padding: 8px 12px;
+  border-radius: 12px;
+  transition: all 0.2s ease;
+
+  &:hover {
+    background-color: rgba(255, 59, 48, 0.1);
+  }
+
+  &:disabled {
+    color: $gray-text-light;
+    cursor: not-allowed;
+    opacity: 0.5;
+    background: none;
+  }
+}
+
+.shareBtn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  // background-color: #f0f0f5;
+  border: none;
+  color: $block-bg;
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  padding: 8px 14px;
+  border-radius: 12px;
+
+  transition: all 0.3s ease-in-out;
+
+  @include mobile {
+    padding: 8px 10px;
+
+    span {
+      display: none;
+    }
+
+    &.copied span {
+      display: inline;
+      position: absolute;
+      top: 100%;
+      right: 0;
+      background: #34c759;
+      padding: 4px 8px;
+      border-radius: 4px;
+      font-size: 0.7rem;
+      margin-top: 4px;
+      whiteSpace: nowrap;
+    }
+  }
+}
+
+.empty {
+  padding: 60px 32px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+
+  .emptyIcon {
+    font-size: 4rem;
+    margin-bottom: 24px;
+    opacity: 0.8;
+    filter: grayscale(0.5);
+  }
+
+  h3 {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: $block-bg;
+    margin: 0 0 8px 0;
+  }
+
+  p {
+    font-size: 0.95rem;
+    color: $gray-text;
+    margin: 0;
+    line-height: 1.4;
+  }
+}
+
+.body {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  overflow: hidden;
+}
+
+.itemsList {
+  flex: 1;
+  overflow-y: auto;
+  overscroll-behavior: none;
+  padding: 8px 32px 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+
+  @include mobile {
+    padding: 8px 24px 10px;
+  }
+
+  &::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: rgba(0, 0, 0, 0.1);
+    border-radius: 3px;
+
+    @include mobile {
+      background-color: $primary;
+      
+      &:hover {
+        background-color: $primary-hover;
+      }
+    }
+  }
+}
+
+.swipeContainer {
+  position: relative;
+  overflow: hidden;
+  border-radius: 20px;
+  width: 100%;
+  flex-shrink: 0;
+}
+
+.swipeDeleteBtn {
+  position: absolute;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  width: 80px;
+  background-color: #ff3b30;
+  color: $white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  z-index: 1;
+
+  svg {
+    width: 24px;
+    height: 24px;
+    stroke: $white;
+  }
+}
+
+.item {
+  position: relative;
+  display: flex;
+  gap: 16px;
+  padding: 8px 16px;
+  background-color: #fcfcfc;
+  border: 1px solid rgba(0, 0, 0, 0.04);
+  border-radius: 20px;
+  cursor: pointer;
+  z-index: 2;
+  flex-shrink: 0;
+  transition: background-color 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease, transform 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+
+  &:hover {
+    background-color: $white;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+    transform: translateY(-2px);
+    border-color: rgba(0, 0, 0, 0.08);
+
+    .deleteBtn {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+
+  @include mobile {
+    background-color: #fcfcfc !important;
+    &:hover {
+      box-shadow: none !important;
+      border-color: rgba(0, 0, 0, 0.04) !important;
+      background-color: #fcfcfc !important;
+    }
+  }
+}
+
+.deleteBtn {
+  position: absolute;
+  top: -8px;
+  right: -8px;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  border: none;
+  background-color: $white;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  color: $gray-text;
+  font-size: 1.2rem;
+  line-height: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  opacity: 0;
+  transform: scale(0.8);
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  z-index: 2;
+
+  &:hover {
+    color: #ff3b30;
+    background-color: #fff0f0;
+  }
+
+  @include mobile {
+    opacity: 1;
+    transform: scale(1);
+    top: 8px;
+    right: 8px;
+    box-shadow: none;
+    background-color: transparent;
+    width: 24px;
+    height: 24px;
+  }
+}
+
+.imageWrapper {
+  width: 95px;
+  height: 95px;
+  min-height: 95px;
+  min-width: 95px;
+  flex-shrink: 0;
+  border-radius: 14px;
+  overflow: hidden;
+  background-color: #f5f5f7;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}
+
+.info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 12px;
+}
+
+.name {
+  font-weight: 600;
+  font-size: 0.95rem;
+  line-height: 1.3;
+  color: $block-bg;
+  max-width: 80%;
+}
+
+.priceRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.price {
+  font-weight: 700;
+  font-size: 1.1rem;
+  color: $block-bg;
+}
+
+.priceUnit {
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: $gray-text;
+  margin-left: 6px;
+}
+
+.quantityControls {
+  display: flex;
+  align-items: center;
+  background-color: #f5f5f7;
+  border-radius: 100px;
+  padding: 4px;
+  transition: background-color 0.2s;
+
+  &:hover {
+    background-color: #ebebef;
+  }
+
+  .qtyBtn {
+    background: $white;
+    border: none;
+    font-size: 1.1rem;
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    color: $block-bg;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+    transition: transform 0.1s cubic-bezier(0.16, 1, 0.3, 1), color 0.2s;
+
+    @media (hover: hover) {
+      &:hover {
+        color: $primary;
+      }
+    }
+
+    &:active {
+      color: $primary !important;
+      transform: scale(0.85);
+    }
+  }
+
+  .qtyInput {
+    margin: 0 4px;
+    font-weight: 600;
+    width: 32px;
+    text-align: center;
+    border: none;
+    background: transparent;
+    font-size: 0.95rem;
+    color: $block-bg;
+    border: 1px solid rgba(0, 0, 0, 0.15);
+    border-radius: 4px;
+
+    &:focus {
+
+      outline: none;
+    }
+  }
+}
+
+.footer {
+  padding: 12px 32px 18px;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(20px);
+  border-top: 1px solid rgba(0, 0, 0, 0.06);
+  position: sticky;
+  bottom: 0;
+
+  @include mobile {
+    padding: 8px 24px 12px;
+  }
+}
+
+.progressSection {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-bottom: 14px;
+
+  @include mobile {
+    margin-bottom: 8px;
+  }
+}
+
+.progressBlock {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+
+  &.success {
+    .progressStatus {
+      color: #34c759;
+      font-weight: 600;
+      animation: pulseText 2s infinite;
+    }
+
+    .progressBarFill {
+      background-color: #34c759;
+    }
+  }
+
+  &.warning {
+    .progressStatus {
+      color: #ff3b30;
+      font-weight: 500;
+    }
+
+    .progressBarFill {
+      background-color: #ff3b30;
+    }
+  }
+
+  &.info {
+    .progressStatus {
+      color: $gray-text;
+      font-weight: 500;
+    }
+
+    .progressBarFill {
+      background-color: $gray-text;
+    }
+  }
+
+  &.disabled {
+    .progressStatus {
+      color: $gray-text;
+    }
+
+    .progressBarFill {
+      background-color: $gray-text;
+    }
+  }
+}
+
+.progressHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.85rem;
+
+  @include mobile {
+    flex-direction: column;
+    justify-content: center;
+  }
+}
+
+.progressLabel {
+  color: $gray-text;
+  font-weight: 500;
+}
+
+.progressStatus {
+  transition: color 0.3s ease;
+}
+
+.progressBarBg {
+  width: 100%;
+  height: 6px;
+  background-color: #f0f0f5;
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.progressBarFill {
+  height: 100%;
+  border-radius: 3px;
+  transition: width 0.6s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.3s ease;
+}
+
+.totalRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.totalLabel {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: $block-bg;
+}
+
+.totalPrice {
+  font-size: 1.8rem;
+  font-weight: 800;
+  color: $block-bg;
+  letter-spacing: -0.02em;
+
+  @include mobile {
+    font-size: 1.4rem;
+  }
+}
+
+.checkoutBtn {
+  width: 100%;
+  padding: 18px 24px;
+  border: none;
+  border-radius: 16px;
+  background-color: $block-bg;
+  color: $white;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+
+  @media (hover: hover) {
+    &:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+      background-color: color.adjust($block-bg, $lightness: 10%);
+    }
+  }
+
+  &:active {
+    transform: scale(0.96) !important;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  }
+}
+
+.checkoutBtnDisabled {
+  background-color: #f5f5f7;
+  color: $gray-text;
+  cursor: not-allowed;
+  box-shadow: none;
+
+  &:hover {
+    transform: none;
+    box-shadow: none;
+    background-color: #f5f5f7;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes scaleUp {
+  from {
+    transform: scale(0.95) translateY(20px);
+    opacity: 0;
+  }
+
+  to {
+    transform: scale(1) translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideUpModal {
+  from {
+    transform: translateY(100%);
+  }
+
+  to {
+    transform: translateY(0);
+  }
+}
+
+@keyframes pulseText {
+  0% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0.7;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+.backButton {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  width: 40px;
+  height: 40px;
+  border: none;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.9);
+  backdrop-filter: $backdrop-blur;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  z-index: 10;
+  color: $block-bg;
+  transition: background-color 0.2s, color 0.2s;
+
+  &:hover {
+    background: #f0f0f0;
+  }
+
+  @include mobile {
+    top: 12px;
+    left: 12px;
+    width: 36px;
+    height: 36px;
+  }
+}
+
+.successMessage {
+  text-align: center;
+  padding: 60px 32px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+  animation: fadeIn 0.4s ease;
+
+  .successIcon {
+    width: 80px;
+    height: 80px;
+    background-color: #34c759;
+    color: white;
+    font-size: 2.5rem;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 24px;
+    box-shadow: 0 12px 24px rgba(52, 199, 89, 0.3);
+  }
+
+  h3 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin: 0 0 12px 0;
+    color: $block-bg;
+  }
+
+  p {
+    font-size: 1rem;
+    color: $gray-text;
+    line-height: 1.5;
+    margin: 0 0 32px 0;
+    max-width: 320px;
+  }
+}
+
+.successCloseBtn {
+  background-color: $block-bg;
+  color: $white;
+  border: none;
+  border-radius: 14px;
+  padding: 14px 40px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+
+  @media (hover: hover) {
+    &:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+      background-color: color.adjust($block-bg, $lightness: 10%);
+    }
+  }
+
+  &:active {
+    transform: scale(0.96) !important;
+  }
+}
+
+// Step 2 Form Styles
+.step {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  animation: fadeIn 0.3s ease;
+  padding: 8px 32px 24px;
+  flex: 1;
+  overflow-y: auto;
+
+  @include mobile {
+    padding: 8px 24px 14px;
+    gap: 0.8rem;
+  }
+}
+
+.contactRow {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+
+  @include mobile {
+    grid-template-columns: 1fr;
+    gap: .8rem;
+  }
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+
+  label {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: $block-bg;
+  }
+
+  .requiredAsterisk {
+    color: #ff3b30;
+    margin-left: 2px;
+    font-weight: bold;
+    display: inline-block;
+  }
+
+  input[type="text"],
+  input[type="tel"],
+  input[type="number"],
+  input[type="date"] {
+    width: 100%;
+    padding: 0.5rem 1rem;
+    background-color: rgba(0, 0, 0, 0.03);
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    border-radius: 14px;
+    color: $block-bg;
+    font-family: inherit;
+    font-size: 1rem;
+    transition: all 0.2s ease-in-out;
+
+    &:focus {
+      outline: none;
+      border-color: $primary;
+      background-color: $white;
+      box-shadow: 0 0 0 3px rgba($primary, 0.1);
+    }
+
+    &::placeholder {
+      color: rgba(0, 0, 0, 0.3);
+    }
+
+    @include mobile {
+      padding: 0.5rem .8rem;
+    }
+  }
+
+  &.hasError {
+
+    input[type="text"],
+    input[type="tel"] {
+      border: 2px solid #ff2d20 !important;
+      background-color: rgba(255, 45, 32, 0.08) !important;
+      padding: calc(0.5rem - 1px) calc(1rem - 1px) !important;
+
+      @include mobile {
+        padding: calc(0.5rem - 1px) calc(0.8rem - 1px) !important;
+      }
+
+      &:focus {
+        background-color: rgba(255, 45, 32, 0.06) !important;
+        box-shadow: 0 0 0 3px rgba(255, 45, 32, 0.2) !important;
+      }
+    }
+
+    :global([class*="trigger"]) {
+      border: 2px solid #ff2d20 !important;
+      background-color: rgba(255, 45, 32, 0.08) !important;
+      padding: calc(0.5rem - 1px) calc(1rem - 1px) !important;
+
+      @include mobile {
+        padding: calc(0.5rem - 1px) calc(0.8rem - 1px) !important;
+      }
+    }
+  }
+}
+
+.errorText {
+  color: #e02e22;
+  font-size: 0.78rem;
+  font-weight: 500;
+  line-height: 1.2;
+  margin-top: 2px;
+  animation: errorFadeIn 0.2s ease-out;
+
+  @include mobile {
+    font-size: 0.74rem;
+  }
+}
+
+@keyframes errorFadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.consentLabel {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  cursor: pointer;
+  margin-top: 0.5rem;
+  width: fit-content;
+
+  input[type="checkbox"] {
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    border: 2px solid rgba(0, 0, 0, 0.2);
+    border-radius: 6px;
+    background-color: transparent;
+    cursor: pointer;
+    position: relative;
+    flex-shrink: 0;
+    margin-top: 2px;
+    transition: all 0.2s;
+
+    &:checked {
+      background-color: $primary;
+      border-color: $primary;
+
+      &::after {
+        content: "";
+        position: absolute;
+        left: 5px;
+        top: 2px;
+        width: 5px;
+        height: 10px;
+        border: solid white;
+        border-width: 0 2px 2px 0;
+        transform: rotate(45deg);
+      }
+    }
+  }
+
+  .checkboxText {
+    font-size: 0.85rem;
+    color: $gray-text;
+    line-height: 1.4;
+
+    @include mobile {
+      font-size: .85rem;
+    }
+  }
+}
+
+.privacyPolicy {
+  width: fit-content;
+
+  @include mobile {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+.link {
+  color: $primary;
+  text-decoration: underline;
+
+  &:hover {
+    color: $primary-hover;
+  }
+}
+
+.actions {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 1rem;
+  margin-top: .5rem;
+
+  @include mobile {
+    grid-template-columns: 1fr;
+    margin-top: .5rem;
+  }
+}
+
+.backBtn {
+  background-color: $white;
+  color: $block-bg;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 12px;
+  padding: 1rem;
+  font-size: 1.05rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  &:hover {
+    background-color: rgba(0, 0, 0, 0.03);
+    border-color: rgba(0, 0, 0, 0.2);
+  }
+
+  @include mobile {
+    order: 2;
+  }
+}
+
+.submitBtn {
+  background-color: $primary;
+  color: $white;
+  border: none;
+  border-radius: 12px;
+  padding: 1rem;
+  font-size: 1.05rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  box-shadow: 0 4px 12px rgba($primary, 0.3);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  &:hover:not(:disabled) {
+    background-color: color.adjust($primary, $lightness: 5%);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba($primary, 0.4);
+  }
+
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    box-shadow: none;
+    transform: none;
+  }
+
+  @include mobile {
+    order: 1;
+  }
+}
+
+.optionLabel {
+  display: inline-block;
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: $primary;
+  background-color: rgba($primary, 0.08);
+  padding: 2px 8px;
+  border-radius: 6px;
+  width: fit-content;
+  margin-top: -4px;
+  margin-bottom: 2px;
+}

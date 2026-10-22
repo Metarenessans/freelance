@@ -1,0 +1,164 @@
+@use "sass:color";
+@use "../../../../styles/mixins" as *;
+@use "../../../../styles/variables" as *;
+
+.heroSection {
+  padding-top: 80px;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  @include mobile {
+    padding: 80px 16px 40px;
+    min-height: 50vh;
+  }
+}
+
+.container {
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  height: 85vh;
+  gap: 1.5rem;
+  max-width: 1400px;
+  width: 100%;
+  margin: 0 auto;
+
+  @include mobile {
+    grid-template-columns: 1fr;
+    height: auto;
+    background-color: $hero-bg;
+    border-radius: 30px;
+    padding: 24px;
+    gap: 24px;
+  }
+}
+
+.textCard {
+  background-color: $hero-bg;
+  border-radius: $border-radius;
+  padding: 4rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  @include mobile {
+    padding: 0;
+    background: transparent;
+  }
+}
+
+.titleWrapper {
+  margin-bottom: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.subtitleWrapper {
+  margin-bottom: 3rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+
+  @include mobile {
+    display: none;
+  }
+}
+
+.photoRow {
+  display: none;
+
+  @include mobile {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+    margin-bottom: 1.5rem;
+  }
+}
+
+.photoWrapper {
+  flex-shrink: 0;
+}
+
+.description {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  flex: 1;
+  padding-top: 40px;
+}
+
+.actionArea {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  margin-bottom: 4rem;
+
+  @include mobile {
+    margin-bottom: 2rem;
+  }
+}
+
+.actionItem {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+
+  @include mobile {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+    width: 100%;
+  }
+}
+
+.actionButton {
+  width: 180px;
+
+  @include mobile {
+    width: 100%;
+  }
+}
+
+.helperText {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+
+  @include mobile {
+    display: none;
+  }
+}
+
+.features {
+  display: flex;
+  gap: 2rem;
+  margin-top: auto;
+  border-top: 1px solid rgba($white, 0.1);
+  padding-top: 2rem;
+
+  > :last-child {
+    @include mobile {
+      display: none;
+    }
+  }
+
+  @include mobile {
+    justify-content: space-between;
+    gap: 1rem;
+    border: none;
+    padding: 0;
+  }
+}
+
+.imageColumn {
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+  gap: 1.5rem;
+  height: 100%;
+
+  @include mobile {
+    display: none;
+  }
+}

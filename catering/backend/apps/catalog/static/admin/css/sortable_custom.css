@@ -1,0 +1,502 @@
+/* Custom styling to shrink and center the django-admin-sortable2 drag handles */
+
+/* Target list view reorder column headers and cells */
+.change-list table thead th.column-_reorder_,
+.change-list table tbody td.field-_reorder_ {
+    width: 115px !important;
+    min-width: 115px !important;
+    max-width: 130px !important;
+    text-align: center !important;
+    padding: 6px 6px !important;
+    vertical-align: middle !important;
+}
+
+/* Format header of reorder column */
+.change-list table thead th.column-_reorder_ .text a {
+    display: inline-block !important;
+    font-size: 11px !important;
+    font-weight: 700 !important;
+    text-transform: uppercase !important;
+}
+
+/* Increase the size of the drag handle to 25px by 25px for comfortable hovering and grab target */
+.change-list table tbody td.field-_reorder_ .drag.handle {
+    width: 25px !important;
+    height: 25px !important;
+    background-size: 20px 20px !important; /* Scale up the grab dots icon */
+    background-position: center !important;
+    background-repeat: no-repeat !important;
+    margin: 0 auto !important;
+    opacity: 0.65 !important;
+    transition: opacity 0.2s ease, transform 0.2s ease !important;
+    cursor: move !important;
+}
+
+/* Highlight drag handle on hover */
+.change-list table tbody td.field-_reorder_ .drag.handle:hover {
+    opacity: 1.0 !important;
+    transform: scale(1.15) !important;
+}
+
+/* Target Inline Tabular/Stacked drag handle column and icon */
+.inline-group .tabular td.field-_reorder_ {
+    width: 42px !important;
+    min-width: 42px !important;
+    padding: 4px !important;
+}
+
+.inline-group .tabular td.field-_reorder_ .drag.handle {
+    width: 25px !important;
+    height: 25px !important;
+    background-size: 20px 20px !important;
+    background-position: center !important;
+    background-repeat: no-repeat !important;
+    margin: 0 auto !important;
+    opacity: 0.65 !important;
+    cursor: move !important;
+}
+
+.inline-group .tabular td.field-_reorder_ .drag.handle:hover {
+    opacity: 1.0 !important;
+    transform: scale(1.15) !important;
+}
+
+/* Sticky paginator / submit row at the bottom of changelist tables to avoid scrolling all the way down */
+#changelist-form .paginator {
+    position: -webkit-sticky !important;
+    position: sticky !important;
+    bottom: 0 !important;
+    z-index: 999 !important;
+    background: var(--body-bg, #fff) !important;
+    border-top: 1px solid var(--hairline-color, #eee) !important;
+    box-shadow: 0 -6px 18px rgba(0, 0, 0, 0.15) !important;
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+    padding: 12px 20px !important;
+}
+
+/* Sticky submit row at the bottom of edit/change forms */
+.change-form .submit-row {
+    position: -webkit-sticky !important;
+    position: sticky !important;
+    bottom: 0 !important;
+    z-index: 999 !important;
+    background: var(--body-bg, #fff) !important;
+    border-top: 1px solid var(--hairline-color, #eee) !important;
+    box-shadow: 0 -6px 18px rgba(0, 0, 0, 0.15) !important;
+    margin-top: 20px !important;
+    margin-bottom: 0 !important;
+    padding: 12px 20px !important;
+}
+
+/* /* --- Styling the Deletion Checkbox as a Premium "Delete" Button --- */
+
+/* Align delete column header and cells to the right */
+.inline-group .tabular th.delete {
+    color: transparent !important;
+    font-size: 0 !important;
+    text-align: right !important;
+    padding-right: 16px !important;
+    width: 110px !important;
+    min-width: 110px !important;
+}
+
+.inline-group .tabular th.delete::before {
+    content: "Delete" !important;
+    color: var(--body-quiet-color, #666) !important;
+    font-size: 11px !important;
+    text-transform: uppercase !important;
+    font-weight: 700 !important;
+    letter-spacing: 0.5px !important;
+    display: block !important;
+    text-align: right !important;
+}
+
+.inline-group .tabular tr td.delete {
+    text-align: right !important;
+    vertical-align: middle !important;
+    padding: 8px 16px 8px 4px !important;
+}
+
+/* Transform the standard checkbox into a premium solid red button directly */
+.inline-group .tabular tr td.delete input[type="checkbox"] {
+    -webkit-appearance: none !important;
+    -moz-appearance: none !important;
+    appearance: none !important;
+    display: inline-block !important;
+    vertical-align: middle !important;
+    width: auto !important;
+    height: auto !important;
+    padding: 6px 14px !important;
+    background-color: #dc2626 !important; /* Solid red background */
+    color: #ffffff !important; /* White text */
+    border: 1px solid #dc2626 !important;
+    border-radius: 6px !important;
+    font-size: 12px !important;
+    font-family: inherit !important;
+    font-weight: 600 !important;
+    cursor: pointer !important;
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1) !important;
+    outline: none !important;
+    text-align: center !important;
+    margin: 0 !important;
+    box-shadow: 0 1px 2px rgba(220, 38, 38, 0.1) !important;
+    width: 82px !important;
+    box-sizing: border-box !important;
+}
+
+/* Insert "Delete" text inside the checkbox container */
+.inline-group .tabular tr td.delete input[type="checkbox"]::before {
+    content: "Delete" !important;
+    display: block !important;
+    color: #ffffff !important;
+    text-align: center !important;
+}
+
+/* Hover state */
+.inline-group .tabular tr td.delete input[type="checkbox"]:hover {
+    background-color: #b91c1c !important;
+    border-color: #b91c1c !important;
+    box-shadow: 0 4px 6px rgba(220, 38, 38, 0.15) !important;
+}
+
+/* Active / Pressed state */
+.inline-group .tabular tr td.delete input[type="checkbox"]:active {
+    transform: scale(0.96) !important;
+}
+
+/* Checked state (Marked for Deletion) - Turns into a neutral gray "Restore" button */
+.inline-group .tabular tr td.delete input[type="checkbox"]:checked {
+    background-color: #f3f4f6 !important; /* Cool gray background */
+    color: #4b5563 !important; /* Dark gray text */
+    border-color: #d1d5db !important;
+    box-shadow: none !important;
+    width: 106px !important; /* slightly wider for "Restore" text */
+}
+
+/* Change text when checked to indicate "Restore" */
+.inline-group .tabular tr td.delete input[type="checkbox"]:checked::before {
+    content: "Restore" !important;
+    color: #4b5563 !important;
+}
+
+/* Hover state on checked button - turns active green to restore */
+.inline-group .tabular tr td.delete input[type="checkbox"]:checked:hover {
+    background-color: #10b981 !important; /* Emerald green */
+    color: #ffffff !important;
+    border-color: #10b981 !important;
+    box-shadow: 0 4px 6px rgba(16, 185, 129, 0.15) !important;
+}
+
+.inline-group .tabular tr td.delete input[type="checkbox"]:checked:hover::before {
+    color: #ffffff !important;
+}
+
+/* --- Row-level visual deletion effect and input locking --- */
+
+/* Strike-through and fade out the entire row when marked for deletion */
+.inline-group .tabular tr:has(td.delete input[type="checkbox"]:checked) {
+    opacity: 0.45 !important;
+    background-color: #f9fafb !important;
+    transition: all 0.25s ease !important;
+}
+
+/* Gray out and lock all inputs and select fields in the row */
+.inline-group .tabular tr:has(td.delete input[type="checkbox"]:checked) input:not([type="checkbox"]),
+.inline-group .tabular tr:has(td.delete input[type="checkbox"]:checked) select,
+.inline-group .tabular tr:has(td.delete input[type="checkbox"]:checked) td {
+    color: #9ca3af !important;
+    background-color: #f3f4f6 !important;
+    pointer-events: none !important; /* Lock the row from inputs */
+}
+
+/* Add strike-through to static text cells */
+.inline-group .tabular tr:has(td.delete input[type="checkbox"]:checked) td:not(.delete) {
+    text-decoration: line-through !important;
+}
+
+/* Keep delete column active and prevent background overrides */
+.inline-group .tabular tr:has(td.delete input[type="checkbox"]:checked) td.delete {
+    pointer-events: auto !important;
+    background-color: transparent !important;
+    text-decoration: none !important;
+}
+
+/* Style the dynamic remove link for newly added rows to look identical */
+.inline-group .tabular tr td.delete a.inline-deletelink,
+.inline-group .tabular tr td.delete .inline-deletelink {
+    display: inline-block !important;
+    vertical-align: middle !important;
+    padding: 6px 14px !important;
+    background-color: #dc2626 !important; /* Solid red background */
+    color: #ffffff !important; /* White text */
+    border: 1px solid #dc2626 !important;
+    border-radius: 6px !important;
+    font-size: 12px !important;
+    font-weight: 600 !important;
+    text-decoration: none !important;
+    cursor: pointer !important;
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1) !important;
+    text-align: center !important;
+    box-shadow: 0 1px 2px rgba(220, 38, 38, 0.1) !important;
+    width: 82px !important;
+    box-sizing: border-box !important;
+    background-image: none !important; /* Remove the default grey cross icon! */
+    text-indent: 0 !important; /* Render the text content instead of shifting it out */
+    height: auto !important;
+}
+
+
+.inline-group .tabular tr td.delete a.inline-deletelink:hover,
+.inline-group .tabular tr td.delete .inline-deletelink:hover {
+    background-color: #b91c1c !important;
+    border-color: #b91c1c !important;
+    box-shadow: 0 4px 6px rgba(220, 38, 38, 0.15) !important;
+    text-decoration: none !important;
+}
+
+.inline-group .tabular tr td.delete a.inline-deletelink:active,
+.inline-group .tabular tr td.delete .inline-deletelink:active {
+    background-color: #991b1b !important;
+}
+
+/* --- Reorder Cell: Drag Handle, Number Badge, and Up/Down Arrows --- */
+.change-list table td.field-_reorder_,
+.inline-group .tabular td.field-_reorder_ {
+    width: 115px !important;
+    min-width: 115px !important;
+    white-space: nowrap !important;
+    vertical-align: middle !important;
+    text-align: center !important;
+    padding: 6px 6px !important;
+}
+
+/* Drag Handle Button */
+.drag-handle-btn {
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    width: 26px !important;
+    height: 26px !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    border-radius: 5px !important;
+    cursor: grab !important;
+    color: #94a3b8 !important;
+    background: #212529 !important;
+    border: 1px solid #343a40 !important;
+    transition: all 0.15s ease !important;
+    user-select: none !important;
+}
+
+.drag-handle-btn:hover {
+    color: #60a5fa !important;
+    background: #2b3035 !important;
+    border-color: #3b82f6 !important;
+    transform: scale(1.08) !important;
+}
+
+.drag-handle-btn:active,
+.drag-handle-btn.is-grabbing {
+    cursor: grabbing !important;
+    background: #1e3a8a !important;
+    border-color: #60a5fa !important;
+}
+
+.drag-handle-btn:hover {
+    color: #2563eb !important;
+    background: rgba(37, 99, 235, 0.16) !important;
+    border-color: rgba(37, 99, 235, 0.35) !important;
+    transform: scale(1.1) !important;
+}
+
+.drag-handle-btn:active,
+.drag-handle-btn.is-grabbing {
+    cursor: grabbing !important;
+    background: rgba(37, 99, 235, 0.25) !important;
+}
+
+[data-theme="dark"] .drag-handle-btn,
+.theme-dark .drag-handle-btn {
+    color: #94a3b8 !important;
+    background: rgba(255, 255, 255, 0.06) !important;
+    border-color: rgba(255, 255, 255, 0.12) !important;
+}
+
+[data-theme="dark"] .drag-handle-btn:hover,
+.theme-dark .drag-handle-btn:hover {
+    color: #60a5fa !important;
+    background: rgba(96, 165, 250, 0.2) !important;
+    border-color: rgba(96, 165, 250, 0.4) !important;
+}
+
+/* Dark Theme Support for Badges & Buttons */
+[data-theme="dark"] .order-badge,
+.theme-dark .order-badge {
+    background: #1e2430 !important;
+    color: #93c5fd !important;
+    border-color: #3b4252 !important;
+}
+
+[data-theme="dark"] .btn-order-move,
+.theme-dark .btn-order-move {
+    background: #25282c !important;
+    color: #cbd5e1 !important;
+    border-color: #41454c !important;
+}
+
+[data-theme="dark"] .btn-order-move:hover,
+.theme-dark .btn-order-move:hover {
+    background: #2563eb !important;
+    border-color: #3b82f6 !important;
+    color: #ffffff !important;
+}
+
+[data-theme="dark"] .btn-order-move:disabled,
+.theme-dark .btn-order-move:disabled {
+    opacity: 0.2 !important;
+    background: #1e2022 !important;
+    color: #64748b !important;
+    border-color: #2e3238 !important;
+}
+
+/* Row Drag Feedback */
+tr.is-dragging {
+    opacity: 0.4 !important;
+    background: rgba(37, 99, 235, 0.15) !important;
+}
+
+tr.drag-over-top {
+    border-top: 3px solid #2563eb !important;
+}
+
+tr.drag-over-bottom {
+    border-bottom: 3px solid #2563eb !important;
+}
+
+.reorder-cell-content {
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 6px !important;
+}
+
+.order-badge {
+    display: inline-block !important;
+    min-width: 24px !important;
+    height: 24px !important;
+    line-height: 22px !important;
+    text-align: center !important;
+    background: #181b1e !important;
+    color: #93c5fd !important;
+    font-size: 12px !important;
+    font-weight: 700 !important;
+    border-radius: 5px !important;
+    border: 1px solid #343a40 !important;
+    user-select: none !important;
+    box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.4) !important;
+}
+
+.order-arrows-wrapper {
+    display: inline-flex !important;
+    flex-direction: column !important;
+    gap: 2px !important;
+}
+
+.btn-order-move {
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    width: 22px !important;
+    height: 14px !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    font-size: 8px !important;
+    line-height: 1 !important;
+    color: #94a3b8 !important;
+    background: #212529 !important;
+    border: 1px solid #343a40 !important;
+    border-radius: 3px !important;
+    cursor: pointer !important;
+    transition: all 0.15s ease !important;
+}
+
+.btn-order-move:hover {
+    background-color: #2563eb !important;
+    border-color: #3b82f6 !important;
+    color: #ffffff !important;
+}
+
+.btn-order-move:active {
+    background-color: #1d4ed8 !important;
+    transform: scale(0.92) !important;
+}
+
+.btn-order-move:disabled {
+    opacity: 0.2 !important;
+    cursor: not-allowed !important;
+    background-color: #181a1d !important;
+    color: #4b5563 !important;
+    border-color: #272a2e !important;
+}
+
+@keyframes rowMovedFlash {
+    0% { background-color: rgba(37, 99, 235, 0.22); }
+    100% { background-color: transparent; }
+}
+
+.row-moved-highlight {
+    animation: rowMovedFlash 0.5s ease-out !important;
+}
+
+/* --- Slug Auto Update & Refresh Button --- */
+.slug-input-wrapper {
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 8px !important;
+    max-width: 100% !important;
+    vertical-align: middle !important;
+}
+
+.slug-input-wrapper input {
+    margin: 0 !important;
+}
+
+.btn-refresh-slug {
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    width: 35px !important;
+    height: 35px !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    background: #25282c !important;
+    border: 1px solid #41454c !important;
+    border-radius: 6px !important;
+    cursor: pointer !important;
+    color: #e2e8f0 !important;
+    transition: all 0.15s ease !important;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.4) !important;
+    flex-shrink: 0 !important;
+}
+
+.btn-refresh-slug:hover {
+    background-color: #1e3a8a !important;
+    border-color: #3b82f6 !important;
+    color: #ffffff !important;
+}
+
+.btn-refresh-slug:active {
+    background-color: #2563eb !important;
+}
+
+@keyframes slugFlash {
+    0% { background-color: rgba(59, 130, 246, 0.4); border-color: #3b82f6; color: #93c5fd; }
+    100% { background-color: #25282c; border-color: #41454c; color: #e2e8f0; }
+}
+
+.slug-updated-flash {
+    animation: slugFlash 0.6s ease-out !important;
+}
+
+

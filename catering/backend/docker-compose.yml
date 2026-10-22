@@ -1,0 +1,14 @@
+services:
+  db:
+    image: postgres:16-alpine
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: ${DB_NAME:-catering_demo}
+      POSTGRES_USER: ${DB_USER:-catering_demo}
+      POSTGRES_PASSWORD: ${DB_PASSWORD:?Set a new local database password}
+    ports:
+      - "127.0.0.1:5432:5432"
+    volumes:
+      - demo_postgres_data:/var/lib/postgresql/data
+volumes:
+  demo_postgres_data:

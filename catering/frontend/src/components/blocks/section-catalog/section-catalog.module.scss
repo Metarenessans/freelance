@@ -1,0 +1,166 @@
+@use "sass:color";
+@use "../../../styles/mixins" as *;
+@use "../../../styles/variables" as *;
+
+.catalogSection {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  width: 100%;
+
+  @include mobile {
+    gap: 0.5rem;
+  }
+}
+
+.titleRow {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0;
+  width: 85%;
+  margin: 0 auto;
+
+  @include mobile {
+    width: 100%;
+    margin-bottom: 0.25rem;
+    padding: 0 4px;
+    gap: 0.5rem;
+  }
+}
+
+.breadcrumbsWrapper {
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+
+  @include mobile {
+    justify-content: center;
+  }
+}
+
+.catalogSubtitle {
+  font-family: var(--font-golos-text), "Golos Text", sans-serif;
+  font-size: 1.05rem;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.72);
+  text-align: center;
+  max-width: 740px;
+  margin: -8px auto 24px;
+  padding: 0 1rem;
+  letter-spacing: 0.01em;
+
+  @include mobile {
+    font-size: 0.92rem;
+    line-height: 1.45;
+    margin: -8px auto 16px;
+    padding: 0 0.75rem;
+    max-width: 100%;
+    color: rgba(255, 255, 255, 0.68);
+  }
+}
+
+.categoriesFeed {
+  display: flex;
+  flex-direction: column;
+  gap: 3.5rem;
+  width: 85%;
+  margin: 0 auto;
+
+  @include mobile {
+    width: 100%;
+    gap: 2.25rem;
+  }
+}
+
+.categoryGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  scroll-margin-top: 146px;
+
+  @include mobile {
+    gap: 0.85rem;
+    scroll-margin-top: 142px;
+  }
+}
+
+.categoryHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  padding-bottom: 0.75rem;
+
+  @include mobile {
+    padding-bottom: 0.5rem;
+  }
+}
+
+.categoryTitle {
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin: 0;
+  margin-left: 8px;
+  letter-spacing: -0.01em;
+
+  @include mobile {
+    font-size: 1.25rem;
+  }
+}
+
+.productGrid {
+  display: flex;
+  flex-wrap: wrap;
+  margin: -0.75rem;
+
+  @include mobile {
+    margin: -0.25rem;
+  }
+}
+
+.itemWrapper {
+  width: 33.333%;
+  padding: 0.75rem;
+  box-sizing: border-box;
+
+  @include mobile {
+    width: 50%;
+    padding: 0.25rem;
+  }
+}
+
+.emptyState {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 6rem 2rem;
+  border-radius: 1.5rem;
+  background-color: #161616;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  width: 85%;
+  margin: 0 auto;
+
+  @include mobile {
+    width: 100%;
+    padding: 3rem 1.5rem;
+  }
+
+  h3 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: #ffffff;
+  }
+
+  p {
+    color: #a0a0a0;
+    font-size: 1rem;
+    max-width: 450px;
+    margin: 0;
+  }
+}

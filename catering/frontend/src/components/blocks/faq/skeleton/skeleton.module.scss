@@ -1,0 +1,23 @@
+@use "../../../../styles/variables" as *;
+@use "../../../../styles/mixins" as *;
+
+.faqSkeleton {
+  width: 80%;
+  margin: 0 auto;
+  border-radius: $border-radius;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+
+  @include mobile {
+    width: 95%;
+  }
+}
+
+.faqItemSkeleton {
+  border-bottom: 2px solid rgba($white, 0.1);
+
+  &:last-child {
+    border-bottom: none;
+  }
+}

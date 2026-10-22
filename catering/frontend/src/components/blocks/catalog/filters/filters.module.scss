@@ -1,0 +1,73 @@
+@use "@/styles/variables" as *;
+@use "@/styles/mixins" as *;
+
+.filtersContainer {
+  display: flex;
+  align-items: center;
+  align-content: center;
+  gap: 8px 10px;
+  margin: 0 auto 24px auto;
+  scrollbar-width: none;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: 80%;
+
+  @include mobile {
+    width: 100%;
+    gap: 6px 8px;
+    margin-bottom: 16px;
+  }
+
+  /* Firefox */
+  -ms-overflow-style: none;
+
+  /* Internet Explorer 10+ */
+  &::-webkit-scrollbar {
+    display: none;
+    /* WebKit */
+  }
+}
+
+.filterButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 13.5px;
+  line-height: 1.2;
+  white-space: nowrap;
+  padding: 7px 14px;
+  border-radius: 8px;
+  background-color: #242424;
+  color: rgba(255, 255, 255, 0.95);
+  font-weight: 500;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  cursor: pointer;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+  transition: background-color 0.2s ease-in-out, border-color 0.2s ease-in-out, color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+
+  @include mobile {
+    font-size: 12.5px;
+    padding: 6px 11px;
+    border-radius: 7px;
+  }
+
+  @include hover {
+    background-color: #303030;
+    border-color: rgba(255, 255, 255, 0.32);
+    color: #ffffff;
+  }
+
+  &.active {
+    background-color: $primary;
+    color: $white;
+    border-color: $primary;
+    box-shadow: 0 4px 16px rgba(219, 73, 0, 0.45);
+
+    @include hover {
+      background-color: $primary-hover;
+      border-color: $primary-hover;
+    }
+  }
+}

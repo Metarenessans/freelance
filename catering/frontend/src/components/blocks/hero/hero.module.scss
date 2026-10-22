@@ -1,0 +1,19 @@
+@use "../../../styles/mixins" as *;
+
+.desktopOnly {
+  display: block;
+  min-height: 100vh;
+
+  @include mobile {
+    display: none !important;
+  }
+}
+
+.mobileOnly {
+  display: none;
+  min-height: 50vh;
+
+  @include mobile {
+    display: block !important;
+  }
+}
