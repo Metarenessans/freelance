@@ -3,10 +3,14 @@
   "version": "1.0.0",
   "description": "Portfolio of Oleg G. — Full-Stack Engineer & System Architect",
   "scripts": {
+    "test": "node tests/e2e_portfolio.js",
+    "test:e2e": "node tests/e2e_portfolio.js",
+    "test:maestro": "maestro test e2e/maestro-flow.yaml",
     "build:css": "sass scss/main.scss css/style.css --no-source-map && sass scss/main.scss css/style.min.css --style=compressed --no-source-map",
     "watch:css": "sass scss/main.scss css/style.css --watch"
   },
   "devDependencies": {
+    "playwright": "^1.64.1",
     "sass": "^1.80.0"
   }
 }

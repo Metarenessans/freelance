@@ -97,3 +97,16 @@
     }
   }
 }
+
+@media (max-width: 640px) {
+  .reveal {
+    &-slide-left,
+    &-slide-right {
+      transform: translateY(20px);
+
+      &.is-revealed {
+        transform: translateY(0);
+      }
+    }
+  }
+}
