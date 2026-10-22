@@ -372,11 +372,11 @@ export async function getCachedCalculateConfig(): Promise<CalculatePageConfig> {
       { id: 3, icon: "🍽️", title: "Options for every budget", subtitle: "From a light buffet to a lavish banquet", order: 3 },
     ],
     budget_options: [
-      "Not sure — please advise",
+      "Not sure - please advise",
       "Under 15,000 ₽",
-      "15 000 – 30 000 ₽",
-      "30 000 – 50 000 ₽",
-      "50 000 – 100 000 ₽",
+      "15 000 - 30 000 ₽",
+      "30 000 - 50 000 ₽",
+      "50 000 - 100 000 ₽",
       "Over 100,000 ₽",
     ],
     food_options: [

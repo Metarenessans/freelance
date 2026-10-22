@@ -58,7 +58,7 @@ class Section(models.Model):
         blank=True,
         default="",
         verbose_name="SEO title (Title)",
-        help_text="Leave blank to generate automatically (for example: Buffet dishes and appetizers — order delivery in your area)",
+        help_text="Leave blank to generate automatically (for example: Buffet dishes and appetizers - order delivery in your area)",
     )
     seo_description = models.TextField(
         blank=True,
@@ -142,7 +142,7 @@ class Category(models.Model):
 
 class SectionCategory(models.Model):
     """
-    Intermediate model for the Section — Category relationship.
+    Intermediate model for the Section - Category relationship.
     Allows category display order to be configured separately for each section.
     """
     section = models.ForeignKey(
@@ -170,7 +170,7 @@ class SectionCategory(models.Model):
         unique_together = [("section", "category")]
 
     def __str__(self):
-        return f"{self.section.name} — {self.category.name}"
+        return f"{self.section.name} - {self.category.name}"
 
 
 class ProductExtraInfo(models.Model):

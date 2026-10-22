@@ -56,7 +56,7 @@ Content-Type: application/json. Existing flat contact fields remain supported:
   `optionId: 456`. The option must be active and belong to that product. Omitting
   an option is rejected if the product has any options. If both aliases are sent,
   they must match. Omit options for products without them.
-- Quantity: integer 1–999, at least the option minimum (if set), otherwise the
+- Quantity: integer 1-999, at least the option minimum (if set), otherwise the
   product minimum. Duplicate product/option lines are rejected. Up to 50 lines.
 - Names, images and prices are snapshots from the database, never from the client.
   Client `totalPrice`, `finalPrice`, item `priceInfo.price`, etc. cannot control

@@ -64,17 +64,17 @@ export const formatCategoryList = (items: string[]): string => {
  */
 export const buildSectionTitle = (sectionName: string, maxLen = 43): string => {
   const clean = sectionName.trim();
-  const suffix = " — buffet food catalog";
+  const suffix = " - buffet food catalog";
   if (clean.length + suffix.length <= maxLen) {
     if (clean.length + suffix.length < 33) {
-      const setSuffix = " — buffet platter and food catalog";
+      const setSuffix = " - buffet platter and food catalog";
       if (clean.length + setSuffix.length <= maxLen) {
         return `${clean}${setSuffix}`;
       }
     }
     return `${clean}${suffix}`;
   }
-  const shortSuffix = " — food catalog";
+  const shortSuffix = " - food catalog";
   if (clean.length + shortSuffix.length <= maxLen) {
     return `${clean}${shortSuffix}`;
   }
@@ -211,7 +211,7 @@ export const buildProductFullTitle = (name: string, categoryName?: string): stri
   if (clean.includes("Chef Meal Catering")) {
     if (clean.length >= 50 && clean.length <= 62) return clean;
     if (clean.length > 62) return truncateToWord(clean, 60);
-    for (const pad of [" — order in Chelny", " — delivery", " — menu"]) {
+    for (const pad of [" - order in Chelny", " - delivery", " - menu"]) {
       const cand = `${clean}${pad}`;
       if (cand.length >= 50 && cand.length <= 62) return cand;
     }
@@ -236,14 +236,14 @@ export const buildProductFullTitle = (name: string, categoryName?: string): stri
   // 3. Add a natural descriptive suffix to shorter names.
   if (clean.length >= 22 && clean.length <= 32) {
     const mediumSuffixes = [
-      " — order for delivery",
-      " — buffet delivery",
-      " — buffet dish",
-      " — order in Chelny",
-      " — made to order for delivery",
-      " — order for a buffet",
-      " — order now",
-      " — delivery",
+      " - order for delivery",
+      " - buffet delivery",
+      " - buffet dish",
+      " - order in Chelny",
+      " - made to order for delivery",
+      " - order for a buffet",
+      " - order now",
+      " - delivery",
       " made to order",
       " for a buffet",
       " for a celebration",
@@ -252,21 +252,21 @@ export const buildProductFullTitle = (name: string, categoryName?: string): stri
       const cand = `${clean}${s}${brand}`;
       if (cand.length >= 50 && cand.length <= 62) return cand;
     }
-    return `${clean} — delivery${brand}`;
+    return `${clean} - delivery${brand}`;
   }
 
   // 4. Expand very short names with relevant search phrases.
   const shortSuffixes = [
-    " — order delivery in Chelny",
-    " — order for prompt delivery",
-    " — order for a buffet in Chelny",
-    " — ready-made buffet dish",
-    " — buffet dishes for delivery",
-    " — order for delivery",
-    " — buffet delivery",
-    " — catering in Chelny",
-    " — buffet dish",
-    " — order for a celebration",
+    " - order delivery in Chelny",
+    " - order for prompt delivery",
+    " - order for a buffet in Chelny",
+    " - ready-made buffet dish",
+    " - buffet dishes for delivery",
+    " - order for delivery",
+    " - buffet delivery",
+    " - catering in Chelny",
+    " - buffet dish",
+    " - order for a celebration",
   ];
   for (const s of shortSuffixes) {
     const cand = `${clean}${s}${brand}`;
@@ -274,10 +274,10 @@ export const buildProductFullTitle = (name: string, categoryName?: string): stri
   }
 
   // Guaranteed fallback.
-  const fallback = `${clean} — order for delivery${brand}`;
+  const fallback = `${clean} - order for delivery${brand}`;
   if (fallback.length >= 50 && fallback.length <= 62) return fallback;
   if (fallback.length < 50) {
-    return `${clean} — order delivery in Chelny${brand}`.slice(0, 62);
+    return `${clean} - order delivery in Chelny${brand}`.slice(0, 62);
   }
   return fallback.slice(0, 62);
 };
@@ -461,13 +461,13 @@ export const getProductAltText = (
   const city = "in Naberezhnye Chelny";
 
   if (!product) {
-    return `Buffet dish — catering delivery ${city} by ${brand}`;
+    return `Buffet dish - catering delivery ${city} by ${brand}`;
   }
 
   const rawName = typeof product === "string" ? product : product.name || "";
   const cleanName = rawName.replace(/[\u{1F300}-\u{1FAFF}]/gu, "").trim();
   if (!cleanName) {
-    return `Buffet dish — catering delivery ${city} by ${brand}`;
+    return `Buffet dish - catering delivery ${city} by ${brand}`;
   }
 
   // Extract the selected option or weight and quantity details.
@@ -495,10 +495,10 @@ export const getProductAltText = (
   const dishType = isSetOrBox ? "ready-made platters" : "buffet dishes";
 
   if (detail) {
-    return `«${cleanName}» (${detail}) — delivery of ${dishType} ${city} by ${brand}`;
+    return `«${cleanName}» (${detail}) - delivery of ${dishType} ${city} by ${brand}`;
   }
 
-  return `«${cleanName}» — catering and delivery of ${dishType} ${city} by ${brand}`;
+  return `«${cleanName}» - catering and delivery of ${dishType} ${city} by ${brand}`;
 };
 
 export const buildProductAltText = getProductAltText;
@@ -517,7 +517,7 @@ export const getSectionAltText = (sectionName?: string): string => {
   }
 
   const clean = sectionName.replace(/[\u{1F300}-\u{1FAFF}]/gu, "").trim();
-  return `Section “${clean}” — buffet food and catering catalog ${city} by ${brand}`;
+  return `Section “${clean}” - buffet food and catering catalog ${city} by ${brand}`;
 };
 
 export const buildSectionAltText = getSectionAltText;

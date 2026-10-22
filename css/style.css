@@ -1382,7 +1382,7 @@ header,
   padding-left: 14px;
 }
 .skill-list li::before {
-  content: "–";
+  content: "-";
   color: var(--text-subtle);
   position: absolute;
   left: 0;

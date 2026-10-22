@@ -105,7 +105,7 @@ export async function generateMetadata(): Promise<Metadata> {
           url: ogImageUrl,
           width: 1200,
           height: 630,
-          alt: `${brandName} — catering and buffet delivery ${inCityPhrase}`,
+          alt: `${brandName} - catering and buffet delivery ${inCityPhrase}`,
         },
       ],
     },

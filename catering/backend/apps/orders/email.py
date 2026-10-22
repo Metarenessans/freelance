@@ -24,7 +24,7 @@ def _get_contact_links_html(phone):
     """Generate WhatsApp and Telegram links without calling Telethon."""
     clean_phone = _clean_phone_number(phone)
     if not clean_phone:
-        return "—"
+        return "-"
     wa_link = f'<a href="https://wa.me/{clean_phone}">WhatsApp</a>'
     tg_link = f'<a href="https://t.me/+{clean_phone}">Telegram (by phone number)</a>'
     return f"{wa_link}, {tg_link}"
@@ -137,24 +137,24 @@ def _send_order_email_notification_bg(order_id):
         if outbound_disabled() or os.getenv("EMAIL_ENABLED", "false").lower() != "true":
             return
 
-        name = order.name or "—"
-        phone = order.phone or "—"
-        contact_method = order.contact_method or "—"
-        guests = order.guests or "—"
+        name = order.name or "-"
+        phone = order.phone or "-"
+        contact_method = order.contact_method or "-"
+        guests = order.guests or "-"
         event_date_str = format_russian_date_and_days(order.event_date)
-        cart_link = order.cart_link or "—"
+        cart_link = order.cart_link or "-"
 
         admin_base_url = _get_admin_base_url()
         admin_link = f"{admin_base_url}/admin/orders/order/{order.id}/change/"
 
-        total_price = f"{int(order.total_price)} ₽" if order.total_price is not None else "—"
+        total_price = f"{int(order.total_price)} ₽" if order.total_price is not None else "-"
 
         contact_links = _get_contact_links_html(phone)
 
-        phone_formatted = f"<code>{phone}</code>" if phone != "—" else "—"
-        guests_formatted = f"<code>{guests}</code>" if guests != "—" else "—"
+        phone_formatted = f"<code>{phone}</code>" if phone != "-" else "-"
+        guests_formatted = f"<code>{guests}</code>" if guests != "-" else "-"
 
-        cart_line = f"Cart:\n{cart_link}" if cart_link != "—" else "Cart: —"
+        cart_line = f"Cart:\n{cart_link}" if cart_link != "-" else "Cart: -"
         admin_line = f'Request in admin: <a href="{admin_link}">open</a>'
 
         message = (
@@ -186,25 +186,25 @@ def _send_menu_request_email_notification_bg(menu_request_id):
         if outbound_disabled() or os.getenv("EMAIL_ENABLED", "false").lower() != "true":
             return
 
-        name = menu_request.name or "—"
-        phone = menu_request.phone or "—"
-        contact_method = menu_request.contact_method or "—"
-        guests = menu_request.guests or "—"
+        name = menu_request.name or "-"
+        phone = menu_request.phone or "-"
+        contact_method = menu_request.contact_method or "-"
+        guests = menu_request.guests or "-"
         event_date_str = format_russian_date_and_days(menu_request.date)
-        event_format = menu_request.format or "—"
+        event_format = menu_request.format or "-"
 
         # Food preferences
         food_prefs = menu_request.food_preferences or []
         if food_prefs:
-            food_prefs_lines = [f"— {pref}" for pref in food_prefs]
+            food_prefs_lines = [f"- {pref}" for pref in food_prefs]
             food_prefs_str = "\n" + "\n".join(food_prefs_lines)
         else:
-            food_prefs_str = " —"
+            food_prefs_str = " -"
 
         admin_base_url = _get_admin_base_url()
 
         # Additional services (look up by ID)
-        services_str = "—"
+        services_str = "-"
         service_ids = menu_request.additional_services or []
         if service_ids:
             try:
@@ -222,9 +222,9 @@ def _send_menu_request_email_notification_bg(menu_request_id):
                         for s in services:
                             if s.linked_product:
                                 prod_url = f"{admin_base_url}/admin/catalog/product/{s.linked_product.id}/change/"
-                                service_lines.append(f'— {s.label} (<a href="{prod_url}">linked product</a>)')
+                                service_lines.append(f'- {s.label} (<a href="{prod_url}">linked product</a>)')
                             else:
-                                service_lines.append(f"— {s.label}")
+                                service_lines.append(f"- {s.label}")
                         services_str = "\n" + "\n".join(service_lines)
             except Exception as e:
                 logger.error(f"Error fetching additional services for email notification: {type(e).__name__}")
@@ -233,8 +233,8 @@ def _send_menu_request_email_notification_bg(menu_request_id):
 
         contact_links = _get_contact_links_html(phone)
 
-        phone_formatted = f"<code>{phone}</code>" if phone != "—" else "—"
-        guests_formatted = f"<code>{guests}</code>" if guests != "—" else "—"
+        phone_formatted = f"<code>{phone}</code>" if phone != "-" else "-"
+        guests_formatted = f"<code>{guests}</code>" if guests != "-" else "-"
 
         admin_line = f'Request in admin: <a href="{admin_link}">open</a>'
 
@@ -287,24 +287,24 @@ def send_order_email_notification_sync(order_id, raise_exception=True):
     if outbound_disabled() or os.getenv("EMAIL_ENABLED", "false").lower() != "true":
         return
 
-    name = order.name or "—"
-    phone = order.phone or "—"
-    contact_method = order.contact_method or "—"
-    guests = order.guests or "—"
+    name = order.name or "-"
+    phone = order.phone or "-"
+    contact_method = order.contact_method or "-"
+    guests = order.guests or "-"
     event_date_str = format_russian_date_and_days(order.event_date)
-    cart_link = order.cart_link or "—"
+    cart_link = order.cart_link or "-"
 
     admin_base_url = _get_admin_base_url()
     admin_link = f"{admin_base_url}/admin/orders/order/{order.id}/change/"
 
-    total_price = f"{int(order.total_price)} ₽" if order.total_price is not None else "—"
+    total_price = f"{int(order.total_price)} ₽" if order.total_price is not None else "-"
 
     contact_links = _get_contact_links_html(phone)
 
-    phone_formatted = f"<code>{phone}</code>" if phone != "—" else "—"
-    guests_formatted = f"<code>{guests}</code>" if guests != "—" else "—"
+    phone_formatted = f"<code>{phone}</code>" if phone != "-" else "-"
+    guests_formatted = f"<code>{guests}</code>" if guests != "-" else "-"
 
-    cart_line = f"Cart:\n{cart_link}" if cart_link != "—" else "Cart: —"
+    cart_line = f"Cart:\n{cart_link}" if cart_link != "-" else "Cart: -"
     admin_line = f'Request in admin: <a href="{admin_link}">open</a>'
 
     message = (
@@ -331,25 +331,25 @@ def send_menu_request_email_notification_sync(menu_request_id, raise_exception=T
     if outbound_disabled() or os.getenv("EMAIL_ENABLED", "false").lower() != "true":
         return
 
-    name = menu_request.name or "—"
-    phone = menu_request.phone or "—"
-    contact_method = menu_request.contact_method or "—"
-    guests = menu_request.guests or "—"
+    name = menu_request.name or "-"
+    phone = menu_request.phone or "-"
+    contact_method = menu_request.contact_method or "-"
+    guests = menu_request.guests or "-"
     event_date_str = format_russian_date_and_days(menu_request.date)
-    event_format = menu_request.format or "—"
+    event_format = menu_request.format or "-"
 
     # Food preferences
     food_prefs = menu_request.food_preferences or []
     if food_prefs:
-        food_prefs_lines = [f"— {pref}" for pref in food_prefs]
+        food_prefs_lines = [f"- {pref}" for pref in food_prefs]
         food_prefs_str = "\n" + "\n".join(food_prefs_lines)
     else:
-        food_prefs_str = " —"
+        food_prefs_str = " -"
 
     admin_base_url = _get_admin_base_url()
 
     # Additional services (look up by ID)
-    services_str = "—"
+    services_str = "-"
     service_ids = menu_request.additional_services or []
     if service_ids:
         try:
@@ -367,9 +367,9 @@ def send_menu_request_email_notification_sync(menu_request_id, raise_exception=T
                     for s in services:
                         if s.linked_product:
                             prod_url = f"{admin_base_url}/admin/catalog/product/{s.linked_product.id}/change/"
-                            service_lines.append(f'— {s.label} (<a href="{prod_url}">linked product</a>)')
+                            service_lines.append(f'- {s.label} (<a href="{prod_url}">linked product</a>)')
                         else:
-                            service_lines.append(f"— {s.label}")
+                            service_lines.append(f"- {s.label}")
                     services_str = "\n" + "\n".join(service_lines)
         except Exception as e:
             logger.error(f"Error fetching additional services for email notification: {type(e).__name__}")
@@ -378,13 +378,13 @@ def send_menu_request_email_notification_sync(menu_request_id, raise_exception=T
 
     contact_links = _get_contact_links_html(phone)
 
-    phone_formatted = f"<code>{phone}</code>" if phone != "—" else "—"
-    guests_formatted = f"<code>{guests}</code>" if guests != "—" else "—"
+    phone_formatted = f"<code>{phone}</code>" if phone != "-" else "-"
+    guests_formatted = f"<code>{guests}</code>" if guests != "-" else "-"
 
     admin_line = f'Request in admin: <a href="{admin_link}">open</a>'
 
-    budget = menu_request.budget or "—"
-    budget_line = f"Estimated budget: {budget}\n" if budget != "—" else ""
+    budget = menu_request.budget or "-"
+    budget_line = f"Estimated budget: {budget}\n" if budget != "-" else ""
 
     message = (
         f"<b>- Menu request -</b>\n\n"

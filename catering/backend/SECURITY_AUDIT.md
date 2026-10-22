@@ -1,4 +1,4 @@
-# Security and privacy audit — sanitized copy
+# Security and privacy audit - sanitized copy
 
 Audit date: 2026-10-20. Scope: only `catering-public/backend` and
 `catering-public/telegram-bot`. The original repository was not edited.
@@ -14,7 +14,7 @@ Removed from the copy:
 
 - `backend/.env`
 - `telegram-bot/.env`
-- `backend/anon.session` — an authenticated Telegram session database, not a harmless cache
+- `backend/anon.session` - an authenticated Telegram session database, not a harmless cache
 - `backend/db.sqlite3`
 - `backend/dump/catering_db_prod.sql.gz`
 - `backend/dump/local_backup_before_prod_sync.sql`

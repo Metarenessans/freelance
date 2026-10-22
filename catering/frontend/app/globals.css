@@ -54,7 +54,7 @@ body {
   }
 }
 
-/* Fix vaul drawer background on iOS — prevent white flash behind keyboard */
+/* Fix vaul drawer background on iOS - prevent white flash behind keyboard */
 [data-vaul-drawer-wrapper] {
   background: var(--background) !important;
 }
