@@ -85,15 +85,18 @@
         <!-- Stylized Developer Portrait Card -->
         <aside class="hero-portrait-card hero-animate-card" aria-label="Engineer Profile Card">
           <div class="portrait-frame">
-            <img 
-              src="avatar.png" 
-              alt="Oleg G. — Full-Stack Engineer" 
-              class="portrait-img"
-              width="280"
-              height="280"
-              loading="eager"
-              onerror="this.onerror=null;this.src='https://avatars.githubusercontent.com/u/74054519?v=4';"
-            />
+            <picture>
+              <source srcset="avatar.webp" type="image/webp">
+              <img 
+                src="avatar.png" 
+                alt="Oleg G. — Full-Stack Engineer" 
+                class="portrait-img"
+                width="280"
+                height="280"
+                loading="eager"
+                decoding="async"
+              />
+            </picture>
             <div class="portrait-status-tag">
               <span class="status-dot"></span>
               <span>Available for Hire</span>
@@ -794,14 +797,19 @@ test_private_runtime_artifacts_are_not_in_publication_copy ... <span class="t-ok
           }
         });
       }, {
-        rootMargin: '0px 0px -40px 0px',
-        threshold: 0.08
+        rootMargin: '0px 0px 100px 0px',
+        threshold: 0.02
       });
 
       revealElements.forEach(el => revealObserver.observe(el));
     } else {
       revealElements.forEach(el => el.classList.add('is-revealed'));
     }
+
+    // Fail-safe unblock: Ensure everything reveals promptly even if connection is slow
+    setTimeout(() => {
+      revealElements.forEach(el => el.classList.add('is-revealed'));
+    }, 1200);
 
     // 6. Interactive Scroll Progress Bar
     const scrollProgress = document.getElementById('scroll-progress');
