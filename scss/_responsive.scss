@@ -336,6 +336,10 @@
 }
 
 @media (max-width: 480px) {
+  body {
+    padding-top: 56px;
+  }
+
   .container {
     padding: 0 16px;
   }
