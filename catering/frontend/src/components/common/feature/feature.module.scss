@@ -1,0 +1,38 @@
+@use "../../../styles/_variables" as *;
+@use "../../../styles/mixins" as *;
+
+.featureItem {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex: 1;
+}
+
+.iconWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  background-color: rgba($white, 0.1);
+  border-radius: 50%;
+  flex-shrink: 0;
+
+  svg {
+    width: 20px;
+    height: 20px;
+    fill: $gray-text;
+  }
+}
+
+.featureText {
+  font-size: 0.85rem;
+  color: $white;
+  line-height: 1.35;
+  font-weight: 400;
+
+  @include mobile {
+    font-size: 0.7rem;
+    line-height: 1.2;
+  }
+}

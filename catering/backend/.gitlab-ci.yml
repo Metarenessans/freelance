@@ -1,0 +1,5 @@
+# Deployment is intentionally disabled in this sanitized copy.
+# Configure a new isolated environment; never reuse the original deployment target.
+workflow:
+  rules:
+    - when: never

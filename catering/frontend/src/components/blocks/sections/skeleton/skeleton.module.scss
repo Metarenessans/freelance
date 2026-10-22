@@ -1,0 +1,38 @@
+@use "../../../../styles/mixins" as *;
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+  width: 85%;
+  margin: 0 auto;
+
+  @include mobile {
+    display: flex;
+    flex-direction: column;
+    width: 95%;
+    gap: 1rem;
+  }
+}
+
+.cardSkeleton {
+  aspect-ratio: 16 / 12;
+  border-radius: 14px;
+  background: linear-gradient(90deg, #1c1c1c 25%, #282828 50%, #1c1c1c 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+
+  @include mobile {
+    aspect-ratio: 16 / 12.5;
+    border-radius: 12px;
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}

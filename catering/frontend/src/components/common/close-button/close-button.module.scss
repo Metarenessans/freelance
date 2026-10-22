@@ -1,0 +1,32 @@
+.closeBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: #ffffff;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  border: none;
+  cursor: pointer;
+  font-size: 14px;
+  color: #000;
+  transition:
+    background 0.2s,
+    transform 0.2s;
+  line-height: 1;
+  z-index: 10;
+
+  @media (hover: hover) {
+    &:hover {
+      background: rgba(0, 0, 0, 0.15);
+    }
+  }
+}
+
+// Absolute positioning utility used by most modals.
+.absolute {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+}

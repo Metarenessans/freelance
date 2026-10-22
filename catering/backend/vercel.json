@@ -1,0 +1,11 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "framework": "django",
+  "buildCommand": "python manage.py check && python manage.py migrate --noinput && python manage.py load_portfolio_data",
+  "rewrites": [
+    { "source": "/media/:path*", "destination": "/static/demo-media/:path*" }
+  ],
+  "headers": [
+    { "source": "/(.*)", "headers": [{ "key": "X-Robots-Tag", "value": "noindex, nofollow" }] }
+  ]
+}

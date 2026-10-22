@@ -1,0 +1,13 @@
+# Original production deployment automation removed from this public copy.
+# Configure a new isolated environment explicitly before adding deployment jobs.
+stages:
+  - validate
+frontend_validation:
+  stage: validate
+  image: node:22
+  script:
+    - npm ci --ignore-scripts --no-audit --no-fund
+    - node --test tests/*.test.mjs
+    - npm run build
+  rules:
+    - when: manual

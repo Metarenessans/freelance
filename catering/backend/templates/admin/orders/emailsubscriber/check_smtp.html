@@ -1,0 +1,109 @@
+{% extends "admin/base_site.html" %}
+
+{% block content %}
+<div id="content-main" style="max-width: 1000px; margin: 0 auto; padding: 20px; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;">
+    <div style="background: linear-gradient(135deg, #2b3a4a 0%, #1e2836 100%); color: #fff; padding: 24px 32px; border-radius: 12px; margin-bottom: 30px; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
+        <h1 style="margin: 0; font-size: 28px; font-weight: 700; color: #fff; border: none; padding: 0;">🛠️ SMTP diagnostics and testing</h1>
+        <p style="margin: 10px 0 0 0; opacity: 0.8; font-size: 15px;">Check email settings, send test messages, and troubleshoot connection issues.</p>
+    </div>
+
+    <!-- Email settings -->
+    <div style="background: #fff; padding: 24px; border-radius: 12px; box-shadow: 0 2px 10px rgba(0,0,0,0.05); margin-bottom: 30px; border: 1px solid #e0e0e0;">
+        <h2 style="margin-top: 0; color: #1e2836; font-size: 18px; border-bottom: 2px solid #f4f5f7; padding-bottom: 12px; display: flex; align-items: center; gap: 8px;">
+            ⚙️ Environment variables (SMTP configuration)
+        </h2>
+        <table style="width: 100%; border-collapse: collapse; margin-top: 15px; font-size: 14px;">
+            <thead>
+                <tr style="border-bottom: 1px solid #e0e0e0; text-align: left;">
+                    <th style="padding: 10px; color: #666; font-weight: 600;">Variable</th>
+                    <th style="padding: 10px; color: #666; font-weight: 600;">Value in Django</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for key, val in settings_info.items %}
+                <tr style="border-bottom: 1px solid #f4f5f7;">
+                    <td style="padding: 12px 10px; font-family: monospace; font-weight: bold; color: #555;">{{ key }}</td>
+                    <td style="padding: 12px 10px; font-family: monospace; color: {% if 'Not set' in val or 'Empty' in val %}#d9534f{% else %}#2b3a4a{% endif %}; font-size: 13px;">
+                        {{ val }}
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Notification recipients -->
+    <div style="background: #fff; padding: 24px; border-radius: 12px; box-shadow: 0 2px 10px rgba(0,0,0,0.05); margin-bottom: 30px; border: 1px solid #e0e0e0;">
+        <h2 style="margin-top: 0; color: #1e2836; font-size: 18px; border-bottom: 2px solid #f4f5f7; padding-bottom: 12px;">
+            👥 Notification recipients (EmailSubscriber)
+        </h2>
+        <p style="font-size: 14px; color: #555; margin-bottom: 15px;">
+            Number of active subscribers who receive notifications about new orders or menu selection requests: 
+            <strong>{{ subscribers_info.count }}</strong>
+        </p>
+        {% if subscribers_info.emails %}
+            <div style="display: flex; flex-wrap: wrap; gap: 8px;">
+                {% for email in subscribers_info.emails %}
+                    <span style="background-color: #e3f2fd; color: #0d47a1; padding: 6px 12px; border-radius: 20px; font-size: 13px; font-family: monospace; font-weight: 600; border: 1px solid #bbdefb;">
+                        {{ email }}
+                    </span>
+                {% endfor %}
+            </div>
+        {% else %}
+            <div style="background-color: #fff3cd; color: #856404; padding: 15px; border-radius: 8px; border: 1px solid #ffeeba; font-size: 14px;">
+                ⚠️ <strong>Warning!</strong> The subscriber list is empty. No order notifications will be sent.
+                Add an active subscriber in Django Admin.
+            </div>
+        {% endif %}
+    </div>
+
+    <!-- Interactive test email form -->
+    <div style="background: #fff; padding: 24px; border-radius: 12px; box-shadow: 0 2px 10px rgba(0,0,0,0.05); border: 1px solid #e0e0e0; margin-bottom: 30px;">
+        <h2 style="margin-top: 0; color: #1e2836; font-size: 18px; border-bottom: 2px solid #f4f5f7; padding-bottom: 12px;">
+            🚀 Send a test email (connection test)
+        </h2>
+        <p style="font-size: 14px; color: #555; margin-bottom: 20px;">
+            Sends a test message to the specified email address directly through the Django SMTP client.
+        </p>
+
+        {% if test_status == "success" %}
+            <div style="background-color: #d4edda; color: #155724; padding: 20px; border-radius: 8px; border: 1px solid #c3e6cb; margin-bottom: 20px; font-size: 14px;">
+                🎉 <strong>Success!</strong> The test email was sent to <code>{{ test_email }}</code>.
+                Check your inbox (and spam folder).
+            </div>
+        {% elif test_status == "error" %}
+            <div style="background-color: #f8d7da; color: #721c24; padding: 20px; border-radius: 8px; border: 1px solid #f5c6cb; margin-bottom: 20px; font-size: 14px;">
+                ❌ <strong>SMTP sending error:</strong>
+                <pre style="background: #fff; color: #333; padding: 15px; border-radius: 6px; border: 1px solid #e0e0e0; overflow-x: auto; margin-top: 15px; font-family: monospace; font-size: 12px; line-height: 1.5; white-space: pre-wrap;">{{ test_error }}</pre>
+                <div style="margin-top: 15px;">
+                    💡 <strong>Troubleshooting tips:</strong>
+                    <ul style="margin: 10px 0 0 0; padding-left: 20px;">
+                        <li><strong>AuthenticationFailed (535 5.7.8):</strong> Make sure you use a <u>Yandex app password</u>, not your regular mailbox password.</li>
+                        <li><strong>Yandex settings:</strong> Open Yandex Mail in your browser -> All settings -> Email clients -> enable <u>"Use SMTP to access the server"</u>.</li>
+                        <li><strong>ConnectionTimeout:</strong> Port 465 may be blocked by the server firewall.</li>
+                    </ul>
+                </div>
+            </div>
+        {% endif %}
+
+        <form method="POST" style="display: flex; gap: 15px; align-items: flex-end; flex-wrap: wrap;">
+            {% csrf_token %}
+            <div style="flex: 1; min-width: 250px;">
+                <label for="test_email" style="display: block; font-size: 13px; font-weight: 600; color: #666; margin-bottom: 8px;">Recipient email:</label>
+                <input type="email" name="test_email" id="test_email" value="{{ test_email }}" required
+                       style="width: 100%; padding: 10px 12px; border-radius: 6px; border: 1px solid #ccc; font-size: 14px; box-sizing: border-box; outline: none;">
+            </div>
+            <button type="submit" 
+                    style="background-color: #28a745; color: white; border: none; padding: 12px 24px; border-radius: 6px; font-size: 14px; font-weight: bold; cursor: pointer; transition: background-color 0.2s;">
+                Send a test email
+            </button>
+        </form>
+    </div>
+    
+    <div>
+        <a href="../" style="display: inline-block; font-size: 14px; font-weight: 600; color: #007bff; text-decoration: none;">
+            ← Back to the subscriber list
+        </a>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,187 @@
+@use "../../../styles/mixins" as *;
+@use "../../../styles/variables" as *;
+
+.footer {
+  background-color: #1a1a1a;
+  color: #8c8c8c;
+  padding: 40px;
+  padding-bottom: 50px;
+  font-family: var(--font-golos-text), sans-serif;
+  margin-top: $sections-gap;
+
+  @include mobile {
+    padding: 30px 0;
+    padding-bottom: 100px;
+  }
+}
+
+.container {
+  display: flex;
+  justify-content: space-between;
+  gap: 40px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 $side-gap-l;
+
+  @include mobile {
+    flex-direction: column;
+    gap: 28px;
+    padding: 0 2rem;
+  }
+}
+
+.column {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  gap: 10px;
+
+  &:first-child {
+    flex: 1.5;
+
+    @include mobile {
+      order: 1;
+    }
+  }
+}
+
+.legalInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.text {
+  color: #8c8c8c;
+  font-size: 0.9rem;
+  line-height: 1.5;
+  margin: 0;
+}
+
+.textLink {
+  color: #8c8c8c;
+  font-size: 0.9rem;
+  line-height: 1.5;
+  text-decoration: none;
+  transition: color 0.2s ease;
+
+  @include hover {
+    color: #ffffff;
+  }
+}
+
+.socials {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.socialIconLarge {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+  transition: opacity 0.2s;
+
+  @include hover {
+    opacity: 0.8;
+  }
+}
+
+.socialSeparator {
+  width: 1px;
+  height: 24px;
+  background-color: #333333;
+}
+
+.scrollUpBtn {
+  width: 48px;
+  height: 48px;
+  background: transparent;
+  border: 1px solid #d96c2c;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  padding: 0;
+
+  @include hover {
+    background-color: rgba(217, 108, 44, 0.1);
+  }
+}
+
+.title {
+  font-size: 1rem;
+  font-weight: 400;
+  color: #8c8c8c;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.nav {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.link {
+  color: #8c8c8c;
+  text-decoration: none;
+  font-size: 0.95rem;
+  transition: color 0.2s ease;
+
+  @include hover {
+    color: #ffffff;
+  }
+}
+
+.contactsList {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.contactLink {
+  color: #8c8c8c;
+  text-decoration: none;
+  font-size: 0.95rem;
+  transition: color 0.2s ease;
+
+  @include hover {
+    color: #ffffff;
+  }
+}
+
+.rknText {
+  color: #8c8c8c;
+  font-size: 0.82rem;
+  line-height: 1.5;
+  margin-top: auto;
+  padding-top: 16px;
+
+  @include mobile {
+    margin-top: 6px;
+    padding-top: 6px;
+  }
+}
+
+.rknLink {
+  color: #8c8c8c;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  transition: color 0.2s ease;
+
+  @include hover {
+    color: #ffffff;
+  }
+}
+
+.mobileBreak {
+  display: none;
+
+  @include mobile {
+    display: block;
+  }
+}

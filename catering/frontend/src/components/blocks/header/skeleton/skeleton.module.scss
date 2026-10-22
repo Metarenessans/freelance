@@ -1,0 +1,17 @@
+@use "../../../../styles/mixins" as *;
+@use "../../../../styles/variables" as *;
+
+.headerSkeleton {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: var(--scrollbar-width, 0);
+  z-index: 899;
+  height: 74px;
+  background-color: $transparent-bg;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+
+  @include mobile {
+    height: 56px;
+  }
+}

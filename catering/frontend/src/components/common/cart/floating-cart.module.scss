@@ -1,0 +1,91 @@
+@use "sass:color";
+@use "../../../styles/variables" as *;
+@use "../../../styles/mixins" as *;
+
+.wrapper {
+  position: fixed;
+  bottom: 20px;
+  right: calc(14vw + var(--scrollbar-width, 0px));
+  transform: translateX(50%);
+  cursor: pointer;
+  animation: slideUp 0.3s ease-out;
+  z-index: 999;
+  width: 300px;
+
+  @include mobile {
+    left: 15px;
+    transform: none;
+    bottom: $bottom-buttons-position;
+    width: calc(100% - 30px);
+    transition:
+      width 0.3s ease,
+      left 0.3s ease;
+    animation: slideUpMobile 0.3s ease-out;
+
+    :global(body.has-floating-filter) & {
+      left: 115px;
+      width: calc(100% - 130px);
+    }
+  }
+}
+
+.content {
+  color: $white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 24px;
+  border-radius: $border-radius;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  transition: background-color 0.2s;
+  background-color: rgba($primary, 0.8);
+  -webkit-backdrop-filter: $backdrop-blur;
+  backdrop-filter: $backdrop-blur;
+
+  @include mobile {
+    -webkit-backdrop-filter: $backdrop-blur;
+    backdrop-filter: $backdrop-blur;
+    background-color: rgba($primary, 0.8);
+    will-change: backdrop-filter;
+    transform: translateZ(0);
+    padding: 16px 14px;
+  }
+
+  @include hover {
+    background-color: rgba(color.adjust($primary, $lightness: 5%), 0.95);
+  }
+}
+
+.text {
+  font-weight: 500;
+  font-size: 1.1rem;
+}
+
+.price {
+  font-weight: 700;
+  font-size: 1.1rem;
+}
+
+@keyframes slideUp {
+  from {
+    transform: translate(50%, 100%);
+    opacity: 0;
+  }
+
+  to {
+    transform: translate(50%, 0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideUpMobile {
+  from {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}

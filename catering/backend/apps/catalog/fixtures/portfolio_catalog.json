@@ -1,0 +1,1087 @@
+{
+  "schema_version": 1,
+  "currency": "RUB",
+  "provenance": "Curated catalog-only selection from a live production read-only SQL export (read_only=on). English translations; authentic RUB prices, minimums and options, without currency conversion. Local media references only. No users, orders, settings or credentials.",
+  "sections": [
+    {
+      "slug": "bruschetta-crostini",
+      "name": "Bruschetta & croissants",
+      "source_category_id": 31,
+      "category_slug": "bruschetta-crostini",
+      "products": [
+        {
+          "source_id": 171,
+          "slug": "portfolio-171",
+          "name": "Roast beef bruschetta - minimum 10 pieces",
+          "description": "Sous-vide roast beef, sun-dried tomato, wholegrain mustard and pea shoots.",
+          "price": "200.00",
+          "old_price": null,
+          "min_order_quantity": 10,
+          "image": "products/brusketta_s_rostbif_govyadinoy_khit.webp",
+          "image_sha256": "d08eec9c1b1bbd1165800a31af3c1ce2c47f95d1b1c62ef9d63404219337cd7f",
+          "options": [],
+          "extra_info": []
+        },
+        {
+          "source_id": 173,
+          "slug": "portfolio-173",
+          "name": "Salmon and cucumber bruschetta - minimum 10 pieces",
+          "description": "",
+          "price": "200.00",
+          "old_price": null,
+          "min_order_quantity": 10,
+          "image": "products/brusketta_s_lososem_ogurtsom_khit_ot_6sht.webp",
+          "image_sha256": "6f6828d2d49ba2ca3353a8b857a1c4070c3b7d21702a406b93e93de04b89112f",
+          "options": [],
+          "extra_info": []
+        },
+        {
+          "source_id": 175,
+          "slug": "portfolio-175",
+          "name": "Chicken or prawn Caesar bruschetta - minimum 10 pieces",
+          "description": "Caesar bruschetta with a house dressing, chicken or prawns, lettuce, cherry tomatoes and Parmesan.",
+          "price": "200.00",
+          "old_price": null,
+          "min_order_quantity": 10,
+          "image": "products/brusketta_tsezar_s_kuritsey_ili_krevetkoy_ot_6sht.webp",
+          "image_sha256": "7e4f569c9247f3daeaa31531f6e5eff397158b5363289af3a00399e06819e10b",
+          "options": [
+            {
+              "source_id": 59,
+              "name": "Chicken",
+              "price": "180.00",
+              "old_price": null,
+              "min_order_quantity": null,
+              "is_active": true,
+              "order": 22
+            },
+            {
+              "source_id": 60,
+              "name": "Prawns",
+              "price": "190.00",
+              "old_price": null,
+              "min_order_quantity": null,
+              "is_active": true,
+              "order": 148
+            }
+          ],
+          "extra_info": []
+        },
+        {
+          "source_id": 185,
+          "slug": "portfolio-185",
+          "name": "Camembert bruschetta with nuts, berries and honey - minimum 10 pieces",
+          "description": "",
+          "price": "220.00",
+          "old_price": null,
+          "min_order_quantity": 10,
+          "image": "products/brusketta_s_kalamber_orekhi_yagody_myod_ot_8sht.webp",
+          "image_sha256": "8e0ded6b49cc3f27b3db45d5ad4df34401890d1c7a5b691610d316ab9adaa550",
+          "options": [],
+          "extra_info": []
+        },
+        {
+          "source_id": 187,
+          "slug": "portfolio-187",
+          "name": "Mushroom bruschetta - minimum 10 pieces",
+          "description": "Sliced mushrooms fried in garlic butter, with herbs.",
+          "price": "170.00",
+          "old_price": null,
+          "min_order_quantity": 10,
+          "image": "products/brusketta_s_gribami_ot_6sht.webp",
+          "image_sha256": "39f36eb0deaf2647fb4f964595a49d064233b521847fb26745b30f2d776195e8",
+          "options": [],
+          "extra_info": []
+        },
+        {
+          "source_id": 191,
+          "slug": "portfolio-191",
+          "name": "Prawn bruschetta with avocado mousse - minimum 10 pieces",
+          "description": "",
+          "price": "220.00",
+          "old_price": null,
+          "min_order_quantity": 10,
+          "image": "products/brusketta_s_krevetkami_na_musse_avokado_ot_6sht.webp",
+          "image_sha256": "0549221824c33808fdc2d91c40d357ad0da5396408ca429e29712dc8b8262acc",
+          "options": [],
+          "extra_info": []
+        },
+        {
+          "source_id": 200,
+          "slug": "portfolio-200",
+          "name": "Mini croissant with slow-cooked beef - minimum 8 pieces",
+          "description": "A freshly baked homemade croissant with beef, sun-dried tomato, wholegrain mustard and lettuce.",
+          "price": "220.00",
+          "old_price": null,
+          "min_order_quantity": 8,
+          "image": "products/mini_kruassan_s_tomlenoy_govyadinoy_ot_8sht.webp",
+          "image_sha256": "01b22790cb5202ab7604890c97fdc6aace5af9b21691cef4b542c333aac1d8ab",
+          "options": [],
+          "extra_info": []
+        },
+        {
+          "source_id": 203,
+          "slug": "portfolio-203",
+          "name": "Berry croissants - minimum 8 pieces",
+          "description": "",
+          "price": "220.00",
+          "old_price": null,
+          "min_order_quantity": 6,
+          "image": "products/kruassany_s_yagodami_ot_6sht.webp",
+          "image_sha256": "9d67ec177b5269b64d19388e5f9ec0492d751ae3ce5026aff887ac3f2926c9f2",
+          "options": [],
+          "extra_info": []
+        },
+        {
+          "source_id": 499,
+          "slug": "portfolio-499",
+          "name": "Bacon and scrambled egg croissant - minimum 8 pieces",
+          "description": "",
+          "price": "240.00",
+          "old_price": null,
+          "min_order_quantity": 8,
+          "image": "products/1000432337.webp",
+          "image_sha256": "256c6a1b2abe97bc7bb46de056801e4975dc93829f1325b6dad28c718362bd11",
+          "options": [],
+          "extra_info": []
+        },
+        {
+          "source_id": 169,
+          "slug": "portfolio-169",
+          "name": "Bruschetta selection - minimum 10 pieces of one variety",
+          "description": "Choose beef with wholegrain mustard and sun-dried tomato; salmon with cucumber on spicy mousse; prawns on Tuscan-style mousse with sun-dried tomato; or roasted pepper with pine nuts.",
+          "price": "200.00",
+          "old_price": null,
+          "min_order_quantity": 10,
+          "image": "products/brusketty_shtuchno_ot_6sht_na_vybor.webp",
+          "image_sha256": "e32284be2479fb97e8a19814fbba5d7c2a87ea8e7fb225785c255f3bce13d1f4",
+          "options": [
+            {
+              "source_id": 54,
+              "name": "Salmon",
+              "price": "200.00",
+              "old_price": null,
+              "min_order_quantity": null,
+              "is_active": true,
+              "order": 1
+            },
+            {
+              "source_id": 55,
+              "name": "Prawns",
+              "price": "200.00",
+              "old_price": null,
+              "min_order_quantity": null,
+              "is_active": true,
+              "order": 2
+            },
+            {
+              "source_id": 56,
+              "name": "Roasted pepper",
+              "price": "200.00",
+              "old_price": null,
+              "min_order_quantity": null,
+              "is_active": true,
+              "order": 3
+            },
+            {
+              "source_id": 53,
+              "name": "Beef",
+              "price": "200.00",
+              "old_price": null,
+              "min_order_quantity": null,
+              "is_active": true,
+              "order": 4
+            }
+          ],
+          "extra_info": []
+        },
+        {
+          "source_id": 170,
+          "slug": "portfolio-170",
+          "name": "Premium bruschetta - minimum 10 pieces of one variety",
+          "description": "Bruschetta with house-made mousses: salmon on spicy mousse with cucumber ribbons; prawns on avocado mousse with rocket and masago roe; beef on mustard mousse with pine nuts and lingonberry sauce; crispy bacon on relish mousse with pickled cucumber and cherry tomatoes; or roasted sweet pepper with pine nuts and pistachios.",
+          "price": "230.00",
+          "old_price": null,
+          "min_order_quantity": 10,
+          "image": "products/brusketty_premium_ot_6_sht_odin_vid.webp",
+          "image_sha256": "73bf27e500cc9be70982df5fcf81b68c4fac37f1e11d72321d3245db59b7b2c0",
+          "options": [
+            {
+              "source_id": 57,
+              "name": "Salmon",
+              "price": "230.00",
+              "old_price": null,
+              "min_order_quantity": null,
+              "is_active": true,
+              "order": 21
+            },
+            {
+              "source_id": 58,
+              "name": "Bacon or roasted pepper",
+              "price": "200.00",
+              "old_price": null,
+              "min_order_quantity": null,
+              "is_active": true,
+              "order": 146
+            },
+            {
+              "source_id": 271,
+              "name": "Beef",
+              "price": "230.00",
+              "old_price": null,
+              "min_order_quantity": null,
+              "is_active": true,
+              "order": 147
+            },
+            {
+              "source_id": 272,
+              "name": "Prawns",
+              "price": "230.00",
+              "old_price": null,
+              "min_order_quantity": null,
+              "is_active": true,
+              "order": 148
+            }
+          ],
+          "extra_info": []
+        },
+        {
+          "source_id": 172,
+          "slug": "portfolio-172",
+          "name": "Roast beef crostini - minimum 6 pieces",
+          "description": "A mini version of bruschetta on a baguette round, with roast beef, sun-dried tomatoes, wholegrain mustard and pea shoots.",
+          "price": "180.00",
+          "old_price": null,
+          "min_order_quantity": 6,
+          "image": "products/krostini_s_rostbif_govyadinoy_ot_6sht.webp",
+          "image_sha256": "bcefba3d4d5ff4b878dc539851b7a70a1edafe020f8815e0730873acf180b12c",
+          "options": [],
+          "extra_info": []
+        }
+      ],
+      "source_section_id": 2,
+      "image": "sections/brusketta_s_krevetkami_na_musse_avokado_ot_6sht.webp",
+      "image_sha256": "0549221824c33808fdc2d91c40d357ad0da5396408ca429e29712dc8b8262acc"
+    },
+    {
+      "slug": "canapes",
+      "name": "Canapés & bites",
+      "source_category_id": 32,
+      "category_slug": "canapes",
+      "products": [
+        {
+          "source_id": 210,
+          "slug": "portfolio-210",
+          "name": "Caprese canapés - minimum 10 pieces",
+          "description": "A basil-coated mozzarella ball, cherry tomato, lettuce and black olive.",
+          "price": "130.00",
+          "old_price": null,
+          "min_order_quantity": 10,
+          "image": "products/kanape_kapreze_ot_12sht.webp",
+          "image_sha256": "bfef629fab1ae7e0f7dc0e453a9b034d2a118803c957ea9c48afbca7d4388f5d",
+          "options": [],
+          "extra_info": []
+        },
+        {
+          "source_id": 211,
+          "slug": "portfolio-211",
+          "name": "Provence canapés - minimum 12 pieces",
+          "description": "Cheese, roasted pepper, green and black olives, with a Provence-style spread.",
+          "price": "170.00",
+          "old_price": null,
+          "min_order_quantity": 12,
+          "image": "products/kanape_provans.webp",
+          "image_sha256": "d3f9ff1de74bf0fd04183f4b27bc6c157a2c65039a35b5b482e1defe88982fd8",
+          "options": [],
+          "extra_info": []
+        },
+        {
+          "source_id": 212,
+          "slug": "portfolio-212",
+          "name": "XL Greek canapés - minimum 10 pieces",
+          "description": "The familiar flavours of Greek salad served as bite-sized canapés.",
+          "price": "170.00",
+          "old_price": null,
+          "min_order_quantity": 10,
+          "image": "products/kanape_grecheskoe_xl_ot_10sht.webp",
+          "image_sha256": "b39218d71207fe476f5942fce9d1f82685b972e85ca01481d5ccb0e75ed69958",
+          "options": [],
+          "extra_info": []
+        },
+        {
+          "source_id": 234,
+          "slug": "portfolio-234",
+          "name": "Salmon, Fetaxa cheese and olive canapés - minimum 12 pieces",
+          "description": "",
+          "price": "140.00",
+          "old_price": null,
+          "min_order_quantity": 12,
+          "image": "products/kanape_losos_na_fetaksa_olivka_ot_12sht.webp",
+          "image_sha256": "8ce9a4fe0566918d6378b86c9e197f396843462291cac850e7d9c7124c8b83c0",
+          "options": [],
+          "extra_info": []
+        },
+        {
+          "source_id": 236,
+          "slug": "portfolio-236",
+          "name": "Prawn and pineapple canapés - minimum 12 pieces",
+          "description": "",
+          "price": "160.00",
+          "old_price": null,
+          "min_order_quantity": 12,
+          "image": "products/krevetka_na_ananase_ot_10sht.webp",
+          "image_sha256": "405bd42b22ecde087f0e3dbf1d7c765bafa9a1676a5da6c19f90ca760e0cd8d5",
+          "options": [],
+          "extra_info": []
+        },
+        {
+          "source_id": 238,
+          "slug": "portfolio-238",
+          "name": "Brie, strawberry and grape canapés - minimum 16 pieces",
+          "description": "Brie, strawberry, mint and grapes. Honey included. The source description lists a tasting-boat presentation at 160 per piece; see the separate priced options.",
+          "price": "170.00",
+          "old_price": null,
+          "min_order_quantity": 16,
+          "image": "products/kanape_bri_s_klubnikoy_vinograd_ot_16sht.webp",
+          "image_sha256": "6f1c18b7b4824aff89ac84d45000eaeeeb581806916496bfc74a4b9685724af8",
+          "options": [
+            {
+              "source_id": 82,
+              "name": "16 pieces",
+              "price": "150.00",
+              "old_price": null,
+              "min_order_quantity": null,
+              "is_active": true,
+              "order": 31
+            },
+            {
+              "source_id": 83,
+              "name": "Tasting boats, 16 pieces",
+              "price": "170.00",
+              "old_price": null,
+              "min_order_quantity": null,
+              "is_active": true,
+              "order": 161
+            }
+          ],
+          "extra_info": []
+        },
+        {
+          "source_id": 239,
+          "slug": "portfolio-239",
+          "name": "Cheese balls with caramelised nuts and grapes - minimum 8 pieces",
+          "description": "A cheese ball coated in caramelised nuts, paired with grapes.",
+          "price": "150.00",
+          "old_price": null,
+          "min_order_quantity": 8,
+          "image": "products/chizbol_v_karamelnykh_oreshkakh_s_vinograd_ot_8sht.webp",
+          "image_sha256": "b57b1be8fdb139f071446c8705cc6c2e10fb8be037d18c0d97f56184d4939d99",
+          "options": [],
+          "extra_info": []
+        },
+        {
+          "source_id": 242,
+          "slug": "portfolio-242",
+          "name": "Beef meatball canapés with a bow - 12 pieces",
+          "description": "",
+          "price": "120.00",
+          "old_price": null,
+          "min_order_quantity": 12,
+          "image": "products/kanape_mitbolly_iz_govyadiny_s_bantikom.webp",
+          "image_sha256": "7377cbed3d77e813a0d620c795e7a9f5ab4f9394ead4977fa3f16ef41818e3dc",
+          "options": [],
+          "extra_info": []
+        },
+        {
+          "source_id": 251,
+          "slug": "portfolio-251",
+          "name": "Seasonal fruit canapés - minimum 12 pieces",
+          "description": "Seasonal fruit: grapes, strawberries, kiwi and mint.",
+          "price": "220.00",
+          "old_price": null,
+          "min_order_quantity": null,
+          "image": "products/boks_fruktovye_kanape_frukty_po_sezonu_27sht.webp",
+          "image_sha256": "5392723533915074365004e70c2221a09c67035569dee2ab7dce8764b731a6f5",
+          "options": [
+            {
+              "source_id": 89,
+              "name": "Box of 27 pieces",
+              "price": "4990.00",
+              "old_price": null,
+              "min_order_quantity": null,
+              "is_active": true,
+              "order": 1
+            },
+            {
+              "source_id": 90,
+              "name": "Individual pieces, minimum 10",
+              "price": "190.00",
+              "old_price": null,
+              "min_order_quantity": null,
+              "is_active": true,
+              "order": 2
+            }
+          ],
+          "extra_info": []
+        },
+        {
+          "source_id": 244,
+          "slug": "portfolio-244",
+          "name": "Salami bow and mozzarella canapés - minimum 6 pieces",
+          "description": "Minimum 6 pieces.",
+          "price": "90.00",
+          "old_price": null,
+          "min_order_quantity": 6,
+          "image": "products/kanape_bantiki_salyami_matsarella.webp",
+          "image_sha256": "6a023b8b27a6151bb7a7a675233260e2a0e78cf9b02eddd27e74d214806d1d5f",
+          "options": [],
+          "extra_info": []
+        },
+        {
+          "source_id": 227,
+          "slug": "portfolio-227",
+          "name": "Prawn Caesar canapés - minimum 10 pieces",
+          "description": "A bestseller.",
+          "price": "170.00",
+          "old_price": null,
+          "min_order_quantity": 10,
+          "image": "products/kanape_tsezar_s_krevetkoy_ot_10sht.webp",
+          "image_sha256": "ec9edbc9ea918f2522d89496a7be5791c46dc7c274e42f57f6ccf9119677d819",
+          "options": [],
+          "extra_info": []
+        },
+        {
+          "source_id": 228,
+          "slug": "portfolio-228",
+          "name": "Chicken Caesar canapés - minimum 12 pieces",
+          "description": "A bestseller.",
+          "price": "160.00",
+          "old_price": null,
+          "min_order_quantity": 12,
+          "image": "products/kanape_tsezar_s_kuritsey_ot_12sht.webp",
+          "image_sha256": "07a2b4c99dd83831a0f0ceb98bee6887ac3069c77564cd882ea533b1c892ae20",
+          "options": [],
+          "extra_info": []
+        }
+      ],
+      "source_section_id": 4,
+      "image": "products/boks_kanape_xl_50_sht.webp",
+      "image_sha256": "8a9599e7776751228b3a6a4cb1f08201ee1fd63516db1264dc8deb0b1f405c12"
+    },
+    {
+      "slug": "salads",
+      "name": "Salads",
+      "source_category_id": 36,
+      "category_slug": "salads",
+      "products": [
+        {
+          "source_id": 303,
+          "slug": "portfolio-303",
+          "name": "Mushroom Glade salad - 1,250 g",
+          "description": "A bento-style salad with smoked chicken, potatoes, cheese, carrots, pickled cucumbers, spring onions, honey mushrooms and mayonnaise. Approximate weight: 1-1.2 kg.",
+          "price": "1800.00",
+          "old_price": null,
+          "min_order_quantity": null,
+          "image": "products/salat_gribnaya_polyana1250_gr.webp",
+          "image_sha256": "33a21e067006a74fd4656ac12120d4c47f587b719e02a6c4c53885b0303f6d2e",
+          "options": [],
+          "extra_info": []
+        },
+        {
+          "source_id": 307,
+          "slug": "portfolio-307",
+          "name": "Salmon Mimosa salad roll in carrot sponge - 1,000 g",
+          "description": "A delicate salad with a colourful presentation. Weight: 1-1.2 kg.",
+          "price": "2200.00",
+          "old_price": null,
+          "min_order_quantity": null,
+          "image": "products/salat_mimoza_rulet_biskvit_iz_morkovi_s_lososem1000_gr.webp",
+          "image_sha256": "8ad7cfdf82551d74a8defba606958d6ce2827f49c807fb3992e2dd109e6b91c1",
+          "options": [],
+          "extra_info": []
+        },
+        {
+          "source_id": 308,
+          "slug": "portfolio-308",
+          "name": "Aubergine salad roll - 1,000 g",
+          "description": "A filling of chicken, mushrooms and cheese, garnished with walnuts. Weight: 1-1.2 kg.",
+          "price": "2490.00",
+          "old_price": null,
+          "min_order_quantity": null,
+          "image": "products/salat_rulet_s_baklazhanami1000_gr.webp",
+          "image_sha256": "ed114841436e336251e381daec3a43e91b5fc19409bfa96e9b8195cd077be5db",
+          "options": [],
+          "extra_info": []
+        },
+        {
+          "source_id": 314,
+          "slug": "portfolio-314",
+          "name": "Beef Olivier salad - 1,250 g",
+          "description": "Beef Olivier salad with a festive presentation.",
+          "price": "1800.00",
+          "old_price": null,
+          "min_order_quantity": null,
+          "image": "products/salat_olive_s_govyadinoy1250_gr.webp",
+          "image_sha256": "7a83c0d5bfd46d02556e98a515e0817ab39771c6361596164021c87b6d035f2c",
+          "options": [],
+          "extra_info": []
+        },
+        {
+          "source_id": 317,
+          "slug": "portfolio-317",
+          "name": "Greek salad platter",
+          "description": "Approximately 1 kg.",
+          "price": "1600.00",
+          "old_price": null,
+          "min_order_quantity": null,
+          "image": "products/salat_grecheskiy_rossypyu.webp",
+          "image_sha256": "b23aef4af8496d4b69b4cc46763dc6c04f745c13841baef1efe07da6d8b9334d",
+          "options": [],
+          "extra_info": []
+        },
+        {
+          "source_id": 319,
+          "slug": "portfolio-319",
+          "name": "Chicken Caesar salad bowl",
+          "description": "Classic chicken Caesar salad served in a bowl.",
+          "price": "1900.00",
+          "old_price": null,
+          "min_order_quantity": null,
+          "image": "products/1000437702.webp",
+          "image_sha256": "ea5ffab1b0ad63d4422cb29c6c8ea9e0f1d3b0a2e1e9be01659900fc8d2de9e9",
+          "options": [
+            {
+              "source_id": 146,
+              "name": "Option 1",
+              "price": "1800.00",
+              "old_price": null,
+              "min_order_quantity": null,
+              "is_active": true,
+              "order": 1
+            },
+            {
+              "source_id": 147,
+              "name": "With prawns",
+              "price": "1900.00",
+              "old_price": null,
+              "min_order_quantity": null,
+              "is_active": true,
+              "order": 2
+            }
+          ],
+          "extra_info": []
+        },
+        {
+          "source_id": 324,
+          "slug": "portfolio-324",
+          "name": "Tbilisi beef salad - minimum 8 portions",
+          "description": "Beef, sweet peppers, red kidney beans, coriander or parsley, red onion, nuts and dressing.",
+          "price": "390.00",
+          "old_price": null,
+          "min_order_quantity": null,
+          "image": "products/salat_tbilisi_s_govyadinoy.webp",
+          "image_sha256": "18032b7dc4d0b52c43f038e17be008d9a2b0a2c20b5e9322c73d248f93804b50",
+          "options": [
+            {
+              "source_id": 152,
+              "name": "In a cup",
+              "price": "390.00",
+              "old_price": null,
+              "min_order_quantity": 8,
+              "is_active": true,
+              "order": 57
+            },
+            {
+              "source_id": 153,
+              "name": "Platter, 1 kg",
+              "price": "1900.00",
+              "old_price": null,
+              "min_order_quantity": null,
+              "is_active": true,
+              "order": 195
+            }
+          ],
+          "extra_info": []
+        },
+        {
+          "source_id": 328,
+          "slug": "portfolio-328",
+          "name": "German potato salad - minimum 8 portions",
+          "description": "A hearty salad of baked potatoes, pickled cucumber, pork belly, egg, spring onions, mayonnaise, mustard and herbs. Garnished with crispy fried onions and quail egg.",
+          "price": "260.00",
+          "old_price": null,
+          "min_order_quantity": 8,
+          "image": "products/salat_nemetskiy_kartofelnyy.webp",
+          "image_sha256": "145efe4f35348c04cbbfe48c8e68aa4d4fc8809d445e363ed8847b92279a414d",
+          "options": [],
+          "extra_info": []
+        },
+        {
+          "source_id": 343,
+          "slug": "portfolio-343",
+          "name": "Neptune seafood salad",
+          "description": "Mixed salad leaves, prawns, squid, cherry tomatoes, Parmesan and avocado mousse.",
+          "price": "2490.00",
+          "old_price": null,
+          "min_order_quantity": null,
+          "image": "products/salat_neptun.webp",
+          "image_sha256": "5e2fe2a0de9cb29788fab80fa6bd2d6d99fe10868e462c2f3a5865b0b728cf3e",
+          "options": [],
+          "extra_info": []
+        },
+        {
+          "source_id": 304,
+          "slug": "portfolio-304",
+          "name": "Mushroom Glade salad cups - minimum 8 portions",
+          "description": "",
+          "price": "290.00",
+          "old_price": null,
+          "min_order_quantity": 8,
+          "image": "products/salat_gribnaya_polyana_v_stakanchike.webp",
+          "image_sha256": "493a2d7fbbda1bf3b9227e32c2db0ec59faa7c87d2d6a35cd8a1622aa6294257",
+          "options": [],
+          "extra_info": []
+        },
+        {
+          "source_id": 305,
+          "slug": "portfolio-305",
+          "name": "Beef Olivier salad roll in an egg wrap",
+          "description": "Classic beef Olivier salad presented as a roll in an egg wrap. Approximate weight: 1-1.2 kg.",
+          "price": "2490.00",
+          "old_price": null,
+          "min_order_quantity": null,
+          "image": "products/salat_olive_rulet_osnova_yaichnaya.webp",
+          "image_sha256": "fb221ccef45c1c556d12894f6f31f3d78533edd29998ba12e5d0a4d44192c7b5",
+          "options": [],
+          "extra_info": []
+        },
+        {
+          "source_id": 306,
+          "slug": "portfolio-306",
+          "name": "Olivier salad roll in pea sponge - 1,000 g",
+          "description": "Olivier salad presented as a roll in a sponge made from fresh green peas. The sponge stays firm and holds its shape. Weight: 1-1.2 kg.",
+          "price": "2490.00",
+          "old_price": null,
+          "min_order_quantity": null,
+          "image": "products/salat_olive_rulet_biskvit_iz_goroshka_1000_gr.webp",
+          "image_sha256": "55a695c48da453276519ed8e2b154fce39dcfd67332c2428794dcd3ac1530646",
+          "options": [],
+          "extra_info": []
+        }
+      ],
+      "source_section_id": 6,
+      "image": "sections/salaty_hd.webp",
+      "image_sha256": "145efe4f35348c04cbbfe48c8e68aa4d4fc8809d445e363ed8847b92279a414d"
+    },
+    {
+      "slug": "hot-dishes",
+      "name": "Hot dishes",
+      "source_category_id": 37,
+      "category_slug": "hot-dishes",
+      "products": [
+        {
+          "source_id": 347,
+          "slug": "portfolio-347",
+          "name": "Chicken thigh skewers - minimum 6 pieces",
+          "description": "Juicy chicken thigh skewers with an aromatic house seasoning, sauce, vegetables and salad leaves.",
+          "price": "450.00",
+          "old_price": null,
+          "min_order_quantity": 6,
+          "image": "products/shashlychki_na_shpazhke_iz_file_bedra_kurinye_ot_6sht_sht.webp",
+          "image_sha256": "1e2d1557fc5bcb9a4e3e05c9a84c4a559dba27e67daca673033fc4cd2a4946e3",
+          "options": [
+            {
+              "source_id": 169,
+              "name": "6 chunks",
+              "price": "450.00",
+              "old_price": null,
+              "min_order_quantity": null,
+              "is_active": true,
+              "order": 65
+            },
+            {
+              "source_id": 170,
+              "name": "Mini, 3 chunks",
+              "price": "250.00",
+              "old_price": null,
+              "min_order_quantity": null,
+              "is_active": true,
+              "order": 112
+            }
+          ],
+          "extra_info": []
+        },
+        {
+          "source_id": 352,
+          "slug": "portfolio-352",
+          "name": "Beef lula kebab skewers - minimum 4 pieces",
+          "description": "Selected beef wrapped in bacon (available without bacon), with vegetables and homemade sauce. Minimum 4 pieces.",
+          "price": "450.00",
+          "old_price": null,
+          "min_order_quantity": 4,
+          "image": "products/lyulya_iz_govyadiny_na_shpazhke_ot_4sht.webp",
+          "image_sha256": "538bf40a6756129d91cb1f3b9b4b756eb134ee2c9fea09c3f86ab438b37b2c34",
+          "options": [],
+          "extra_info": []
+        },
+        {
+          "source_id": 354,
+          "slug": "portfolio-354",
+          "name": "Half salmon steak with vegetables - minimum 2 pieces",
+          "description": "",
+          "price": "1490.00",
+          "old_price": null,
+          "min_order_quantity": 2,
+          "image": "products/file_steyk_losososya_s_ovoschami_polovinka.webp",
+          "image_sha256": "ab2837b11254b03cdf360982167dd809e7b0b891e549dceff10037952c2abb75",
+          "options": [],
+          "extra_info": []
+        },
+        {
+          "source_id": 359,
+          "slug": "portfolio-359",
+          "name": "Barbecue ribs with vegetables",
+          "description": "Barbecue ribs, baby potatoes, grilled corn, Korean-style cucumbers and two sauces.",
+          "price": "5490.00",
+          "old_price": null,
+          "min_order_quantity": null,
+          "image": "products/ryobra_barbekyu_kartofel_bebi_kukuruza_gril_koreyskie_ogurchiki_2_sousa.webp",
+          "image_sha256": "d640a9fdac7f4c784116384a95e1de918670c1e25bf47291407a7cbb3a80681c",
+          "options": [],
+          "extra_info": []
+        },
+        {
+          "source_id": 362,
+          "slug": "portfolio-362",
+          "name": "Rustic potato box or individual portions - minimum 10 portions",
+          "description": "House-style rustic potatoes with a sour cream, garlic and dill sauce.",
+          "price": "2190.00",
+          "old_price": null,
+          "min_order_quantity": null,
+          "image": "products/boks_kartofel_po_derevenski_s_sousom.webp",
+          "image_sha256": "35d6848ee7e777ad3683febe114fe00f16b80f06a2c18a9268241f9797da33d5",
+          "options": [
+            {
+              "source_id": 178,
+              "name": "Box",
+              "price": "2190.00",
+              "old_price": null,
+              "min_order_quantity": null,
+              "is_active": true,
+              "order": 69
+            },
+            {
+              "source_id": 179,
+              "name": "130 g portion, minimum 10",
+              "price": "220.00",
+              "old_price": null,
+              "min_order_quantity": null,
+              "is_active": true,
+              "order": 127
+            }
+          ],
+          "extra_info": []
+        },
+        {
+          "source_id": 369,
+          "slug": "portfolio-369",
+          "name": "Baked stuffed mushrooms - minimum 12 pieces",
+          "description": "",
+          "price": "180.00",
+          "old_price": null,
+          "min_order_quantity": 12,
+          "image": "products/griby_farshirovannye_zapechenye_ot_12sht.webp",
+          "image_sha256": "4dd157338b607d35a6fa88ce3c14893c6aeca5f47b6dc76e2323eb78e1fc8520",
+          "options": [],
+          "extra_info": []
+        },
+        {
+          "source_id": 375,
+          "slug": "portfolio-375",
+          "name": "Chicken and mushroom potato gratin - minimum 6 portions",
+          "description": "Baked potatoes filled with minced chicken and mushrooms in cream, topped with a golden cheese crust. 250 g per portion.",
+          "price": "450.00",
+          "old_price": null,
+          "min_order_quantity": 6,
+          "image": "products/kartofelnyy_graten_s_kuritsey_gribami_syrom_portsionno250_gr.webp",
+          "image_sha256": "d841942dfb2e35067cbdd8af788ec3ae1c301fe1f6bc6f798afeb6e69a93319a",
+          "options": [],
+          "extra_info": []
+        },
+        {
+          "source_id": 350,
+          "slug": "portfolio-350",
+          "name": "Teriyaki chicken wings with sauce - 32 pieces",
+          "description": "Lower and middle wing sections, 32 pieces in total, with sauces, vegetables and lettuce. Also enjoyable cold. Baked before dispatch; supplied warm or ready to reheat.",
+          "price": "3990.00",
+          "old_price": null,
+          "min_order_quantity": null,
+          "image": "products/krylyshki_teriyaki_32sht_sous.webp",
+          "image_sha256": "efc4e01e19e93a99c3326c8587009c1e244ab7c320748d2a897700730b3bfb5f",
+          "options": [],
+          "extra_info": []
+        },
+        {
+          "source_id": 367,
+          "slug": "portfolio-367",
+          "name": "Panko langoustine box - 20 or 30 pieces",
+          "description": "Crispy deep-fried prawns in panko breadcrumbs, served with sauces.",
+          "price": "3990.00",
+          "old_price": null,
+          "min_order_quantity": null,
+          "image": "products/boks_langustiny_v_panko_20_ili_30sht.webp",
+          "image_sha256": "5ddb0737f3520f27ed5a14346313cc6cbae898674a90101fa4650ec0bb112a94",
+          "options": [
+            {
+              "source_id": 182,
+              "name": "30 pieces",
+              "price": "4990.00",
+              "old_price": null,
+              "min_order_quantity": null,
+              "is_active": true,
+              "order": 71
+            },
+            {
+              "source_id": 183,
+              "name": "20 pieces",
+              "price": "3490.00",
+              "old_price": null,
+              "min_order_quantity": null,
+              "is_active": true,
+              "order": 134
+            }
+          ],
+          "extra_info": []
+        },
+        {
+          "source_id": 345,
+          "slug": "portfolio-345",
+          "name": "Assorted baked bites box - 50 pieces",
+          "description": "20 cheese and carrot rolls with mushrooms and chicken; 16 teriyaki chicken wings; and 14 potato boats with bacon and cheese.",
+          "price": "5990.00",
+          "old_price": null,
+          "min_order_quantity": null,
+          "image": "products/boks_zapechenyy_k_vida_50sht_khit.webp",
+          "image_sha256": "1e22561ac3ba5f5bc7b69ada48abe7429ad9109ae047cfecfa0099d3e6ccefa6",
+          "options": [],
+          "extra_info": []
+        },
+        {
+          "source_id": 346,
+          "slug": "portfolio-346",
+          "name": "Feast box - 60 pieces",
+          "description": "15 rustic potato pieces; 15 mushrooms with bacon and cheese; 15 mini skewers with 3 chunks each; and 15 canapés with herring mousse, beetroot sponge and cream cheese. Includes two sauces, one white and one red.",
+          "price": "6490.00",
+          "old_price": null,
+          "min_order_quantity": null,
+          "image": "products/boks_zastole_60sht.webp",
+          "image_sha256": "8d23886943f8c981987a16409fe128ffc6b5b65cf36183fc14f88afce854a35a",
+          "options": [],
+          "extra_info": []
+        },
+        {
+          "source_id": 348,
+          "slug": "portfolio-348",
+          "name": "Mini chicken and bacon pinwheel skewers - minimum 9 pieces",
+          "description": "Grilled chicken wrapped in bacon, with an aromatic house marinade and spread. Two pinwheels per skewer.",
+          "price": "290.00",
+          "old_price": null,
+          "min_order_quantity": 9,
+          "image": "products/mini_shashlychki_ulitki_ot_10sht.webp",
+          "image_sha256": "8ced58b438fdab9f5d49f3f2dfc67668f3b3b65fd62deb5b1a9708970cb0ed2b",
+          "options": [],
+          "extra_info": []
+        }
+      ],
+      "source_section_id": 7,
+      "image": "sections/goryachee_hd.webp",
+      "image_sha256": "85ff99564d4543a84eec07e3dd2da25f5dc88f70a1065c2e557f294b91e2d09c"
+    },
+    {
+      "slug": "desserts",
+      "name": "Desserts",
+      "source_category_id": 42,
+      "category_slug": "desserts",
+      "products": [
+        {
+          "source_id": 440,
+          "slug": "portfolio-440",
+          "name": "Berry cheesecake - minimum 8 pieces",
+          "description": "Chocolate and nut or classic cheesecake. Minimum 8 pieces.",
+          "price": "290.00",
+          "old_price": null,
+          "min_order_quantity": 8,
+          "image": "products/chizkeyk_s_yagodami.webp",
+          "image_sha256": "6c7df802466762a6b14aa58fd99c304ae33ca739aab3d1f07793a19a299d279c",
+          "options": [],
+          "extra_info": []
+        },
+        {
+          "source_id": 436,
+          "slug": "portfolio-436",
+          "name": "Panna cotta - minimum 8 portions",
+          "description": "Delicate, creamy panna cotta with seasonal berries, enjoyed by adults and children.",
+          "price": "270.00",
+          "old_price": null,
+          "min_order_quantity": 8,
+          "image": "products/panakotta_ot_8sht.webp",
+          "image_sha256": "a6dbc68d25427911346aadf4aef9c27336759f194d52766c15b00d33796650ee",
+          "options": [],
+          "extra_info": []
+        },
+        {
+          "source_id": 447,
+          "slug": "portfolio-447",
+          "name": "Cream cheese and berry profiteroles - minimum 10 pieces",
+          "description": "Homemade butter-based profiteroles filled with cream cheese and seasonal berries, selected by the pastry chef.",
+          "price": "160.00",
+          "old_price": null,
+          "min_order_quantity": 12,
+          "image": "products/profitroli_s_krem_chiz_i_yagody_ot_10sht.webp",
+          "image_sha256": "540394e532965c5c495d0224bab0d72e25d6d2fb5dc60010dec263fc8796f609",
+          "options": [],
+          "extra_info": []
+        },
+        {
+          "source_id": 453,
+          "slug": "portfolio-453",
+          "name": "Red velvet cake - minimum 12 portions",
+          "description": "Red velvet sponge, raspberry jam, cream cheese, seasonal berries and mint.",
+          "price": "350.00",
+          "old_price": null,
+          "min_order_quantity": 12,
+          "image": "products/krasnyy_barkhat.webp",
+          "image_sha256": "e23747914ee7f016a88029ab1edf154af53ebf0c40b0cbede12c1c96d1773d82",
+          "options": [],
+          "extra_info": []
+        },
+        {
+          "source_id": 459,
+          "slug": "portfolio-459",
+          "name": "Assorted colourful macarons - 36 pieces",
+          "description": "A box of 36 macarons.",
+          "price": "2990.00",
+          "old_price": null,
+          "min_order_quantity": null,
+          "image": "products/makaruns_assorti_tsveta_36.webp",
+          "image_sha256": "ce26adb09080e58ecda647c22e9a91fc0bd3c5784aab63ed9736d91f26d7f46b",
+          "options": [],
+          "extra_info": []
+        },
+        {
+          "source_id": 456,
+          "slug": "portfolio-456",
+          "name": "Oreo dessert in a small glass - minimum 12 portions",
+          "description": "",
+          "price": "220.00",
+          "old_price": null,
+          "min_order_quantity": 12,
+          "image": "products/desert_oreo_v_ryumochke.webp",
+          "image_sha256": "c07c82615a2ce0ac008b1a80ccdde5440ab3e3c3e7a727fc8a842fff4c4c2100",
+          "options": [],
+          "extra_info": []
+        },
+        {
+          "source_id": 452,
+          "slug": "portfolio-452",
+          "name": "Chocolate trifle - minimum 8 portions",
+          "description": "",
+          "price": "290.00",
+          "old_price": null,
+          "min_order_quantity": 8,
+          "image": "products/trayfl_shokoladnyy_ot_6sht.webp",
+          "image_sha256": "cb0ce0ed7cc3c5d5c63f5068ffacd9037f180813e20628f19cee7035cb9f900c",
+          "options": [],
+          "extra_info": []
+        },
+        {
+          "source_id": 438,
+          "slug": "portfolio-438",
+          "name": "Individual honey cakes - minimum 8 portions",
+          "description": "Honey cake layers with cream cheese frosting. Decorated with seasonal fruit and berries selected by the pastry chef.",
+          "price": "390.00",
+          "old_price": null,
+          "min_order_quantity": 8,
+          "image": "products/medovik_portsionnye_ot_6sht.webp",
+          "image_sha256": "8af240a5d86a80c1ffb61c7c4f07bb290711db2ef021b54c128810a3efcd1c35",
+          "options": [],
+          "extra_info": []
+        },
+        {
+          "source_id": 443,
+          "slug": "portfolio-443",
+          "name": "Filo basket with cream cheese and berries - minimum 8 pieces",
+          "description": "A crisp filo pastry basket with cream cheese, seasonal berries or fruit, and mint.",
+          "price": "230.00",
+          "old_price": null,
+          "min_order_quantity": 8,
+          "image": "products/korzinochka_fillo_s_yagodami_ot_8sht.webp",
+          "image_sha256": "4bebc267113612f7c359a27ecaed1e5f613e525c42c93b3f72a3dfd50dff8ce7",
+          "options": [],
+          "extra_info": []
+        },
+        {
+          "source_id": 435,
+          "slug": "portfolio-435",
+          "name": "Berry dessert baskets - box or minimum 8 pieces of one variety",
+          "description": "Seasonal berries and fruit on a cloud of sweet cream cheese.",
+          "price": "3990.00",
+          "old_price": null,
+          "min_order_quantity": null,
+          "image": "products/boks_korzinochki_desertnye_s_yagodami_frukty_4_vida_16sht_ili_odin_vid_8sht.webp",
+          "image_sha256": "cf545810f45092de86a21a5616d7866e38e2e0354b86db27b991b1879e41e307",
+          "options": [
+            {
+              "source_id": 238,
+              "name": "Box of 16 pieces",
+              "price": "3490.00",
+              "old_price": null,
+              "min_order_quantity": null,
+              "is_active": true,
+              "order": 90
+            },
+            {
+              "source_id": 239,
+              "name": "Individual pieces, minimum 8 of one variety",
+              "price": "220.00",
+              "old_price": null,
+              "min_order_quantity": 8,
+              "is_active": true,
+              "order": 132
+            }
+          ],
+          "extra_info": []
+        },
+        {
+          "source_id": 439,
+          "slug": "portfolio-439",
+          "name": "Mini brownie dessert canapés - minimum 24 pieces",
+          "description": "Mini dessert canapés with raspberries on chocolate brownie and cream cheese.",
+          "price": "160.00",
+          "old_price": null,
+          "min_order_quantity": 24,
+          "image": "products/mini_kanape_desert_khit_ot_24sht.webp",
+          "image_sha256": "0d4c963cd4b3fff46025672f1dac3b3be1d4c07672049bc847ccf7575848f817",
+          "options": [],
+          "extra_info": []
+        },
+        {
+          "source_id": 441,
+          "slug": "portfolio-441",
+          "name": "Mini dessert tartlets - minimum 12 pieces",
+          "description": "Cream cheese with seasonal berries, fruit and mint.",
+          "price": "150.00",
+          "old_price": null,
+          "min_order_quantity": 12,
+          "image": "products/mini_tartaletka_desertnaya_ot_12sht.webp",
+          "image_sha256": "070d62c0aef24a15fe18ef678cf44bda18e0d97c991cc75497a0adec8fd9aaa8",
+          "options": [],
+          "extra_info": []
+        }
+      ],
+      "source_section_id": 10,
+      "image": "sections/deserty_hd.webp",
+      "image_sha256": "8af240a5d86a80c1ffb61c7c4f07bb290711db2ef021b54c128810a3efcd1c35"
+    }
+  ]
+}

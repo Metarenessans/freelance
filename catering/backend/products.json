@@ -1,0 +1,55 @@
+{
+  "count": 3,
+  "next": null,
+  "previous": null,
+  "results": [
+    {
+      "id": 1,
+      "name": "Demo appetizer assortment",
+      "category": 1,
+      "category_slug": "demo-menu",
+      "image_url": "",
+      "image": "/media/products/boks_assorti_30sht.webp",
+      "effective_image_url": "/media/products/boks_assorti_30sht.webp",
+      "description": "Demonstration product only. An assortment of bite-sized appetizers.",
+      "price": "100.00",
+      "old_price": null,
+      "is_active": true,
+      "is_featured": true,
+      "order": 1,
+      "extra_info": []
+    },
+    {
+      "id": 2,
+      "name": "Demo bruschetta box",
+      "category": 1,
+      "category_slug": "demo-menu",
+      "image_url": "",
+      "image": "/media/products/boks_brusketty_16sht.webp",
+      "effective_image_url": "/media/products/boks_brusketty_16sht.webp",
+      "description": "Demonstration product only. A selection of bruschetta.",
+      "price": "100.00",
+      "old_price": null,
+      "is_active": true,
+      "is_featured": true,
+      "order": 2,
+      "extra_info": []
+    },
+    {
+      "id": 3,
+      "name": "Demo fruit selection",
+      "category": 1,
+      "category_slug": "demo-menu",
+      "image_url": "",
+      "image": "/media/products/fruktovyy_boks.webp",
+      "effective_image_url": "/media/products/fruktovyy_boks.webp",
+      "description": "Demonstration product only. A seasonal fruit selection.",
+      "price": "100.00",
+      "old_price": null,
+      "is_active": true,
+      "is_featured": true,
+      "order": 3,
+      "extra_info": []
+    }
+  ]
+}

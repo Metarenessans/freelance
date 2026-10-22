@@ -1,0 +1,15 @@
+# Secrets and private runtime artifacts
+.env
+.env.*
+!.env.example
+*.sqlite3
+*.sqlite
+*.db
+*.session*
+*.sql
+*.sql.gz
+*.log
+__pycache__/
+*.pyc
+.venv/
+venv/

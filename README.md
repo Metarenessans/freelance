@@ -29,7 +29,7 @@ Every project in this portfolio is **live, functional, and verifiable hands-on**
 
 | Project | Category | Live Interactive Links | Key Tech Stack | Hands-on Verification |
 | :--- | :--- | :--- | :--- | :--- |
-| **Catering & Event Commerce Platform** | **Full-Stack Flagship** | 🌐 [Web App Demo](https://catering-portfolio-six.vercel.app)<br/>⚡ [Interactive Swagger API](https://catering-portfolio-api.vercel.app/api/docs/)<br/>⚙️ [Django Admin](https://catering-portfolio-api.vercel.app/admin/) | Next.js SSR, Django REST Framework, PostgreSQL, Telegram Bot, Docker, GitHub Actions | Place cart orders, explore live Swagger UI, query live API endpoints, test admin triggers. |
+| **Catering & Event Commerce Platform** | **Full-Stack Flagship** | 🌐 [Web App Demo](https://catering-portfolio-six.vercel.app)<br/>⚡ [Interactive Swagger API](https://catering-portfolio-api.vercel.app/api/docs/)<br/>⚙️ [Django Admin](https://catering-portfolio-api.vercel.app/admin/)<br/>📁 [Source Code](catering/) | Next.js SSR, Django REST Framework, PostgreSQL, Telegram Bot, Docker, GitHub Actions | Place cart orders, explore live Swagger UI, query live API endpoints, test admin triggers. |
 | **BetBoom Campaign Landing** | **Frontend / Interactive** | 🚀 [Live Demo](https://metarenessans.github.io/freelance/bet-boom/)<br/>📁 [Source Code](bet-boom/) | Vanilla JS (ES6+), CSS3 Keyframe Animations, BEM, GitHub Pages CI | Test interactive gamified tiers, responsive layouts, and cross-browser animations. |
 | **DNA Personalized Jewelry** | **Frontend / E-Commerce** | 🚀 [Live Demo](https://metarenessans.github.io/freelance/dna/)<br/>📁 [Source Code](dna/) | Mobile-First Sass / SCSS, Semantic HTML5, GitHub Pages CI | Verify mobile-first responsiveness, product variant selectors, and typography. |
 
@@ -156,6 +156,11 @@ You can verify the entire workflow right now:
 ├── .github/
 │   └── workflows/
 │       └── pages.yml        # CI/CD: Automated testing & GitHub Pages deployment
+├── catering/                # Full-Stack Flagship: Next.js SSR + Django REST + PostgreSQL
+│   ├── frontend/            # Next.js 14 SSR customer interface & reactive cart
+│   ├── backend/             # Django 5 REST Framework API & custom administration
+│   ├── telegram-bot/        # Asynchronous Telegram notification dispatcher (Telethon)
+│   └── tests/               # Security, Cyrillic prevention & publication gates
 ├── bet-boom/                # BetBoom sports community campaign
 │   ├── src/                 # Original source HTML, JS, styles
 │   └── public/              # Shipped demo bundle
@@ -184,10 +189,11 @@ python -m http.server 8000
 ### Running Automated Test Suites
 
 ```sh
-# Run all test suites
+# Run all test suites across all domains
 python -m unittest discover -s tests -v
 python -m unittest discover -s bet-boom/tests -v
 python -m unittest discover -s dna/tests -v
+python -m unittest discover -s catering/tests -v
 ```
 
 ---

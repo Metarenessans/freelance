@@ -1,0 +1,883 @@
+@use "sass:color";
+@use "../../../styles/mixins" as *;
+@use "../../../styles/variables" as *;
+
+.overlay {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(2px);
+  z-index: 999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: fadeIn 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+
+  @include mobile {
+    align-items: flex-end;
+    backdrop-filter: none;
+    background-color: rgba(0, 0, 0, 0.5);
+  }
+}
+
+.link {
+  color: $primary;
+  text-decoration: underline;
+
+  &:hover {
+    color: $primary-hover;
+  }
+}
+
+.embeddedContainer {
+  background: $white;
+  border-radius: 24px;
+  padding: 2.5rem;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  max-width: 680px;
+  margin: 0 auto;
+  width: 100%;
+  position: relative;
+  overflow: visible;
+  overscroll-behavior: auto;
+
+  .innerModal {
+    padding: 0;
+    max-height: none;
+    overflow: visible;
+    overscroll-behavior: auto;
+  }
+
+  .form {
+    overflow: visible;
+    overscroll-behavior: auto;
+    max-height: none;
+    padding-right: 0;
+  }
+
+  @include mobile {
+    padding: 1.5rem 1rem;
+    border-radius: 20px;
+
+    .innerModal {
+      min-height: auto;
+      max-height: none;
+      overflow: visible;
+      overscroll-behavior: auto;
+    }
+
+    .form {
+      overflow: visible;
+      overscroll-behavior: auto;
+      max-height: none;
+      padding: 0;
+    }
+  }
+}
+
+.embeddedHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.5rem;
+  position: relative;
+
+  .title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin: 0;
+    color: $block-bg;
+
+    @include mobile {
+      font-size: 1.25rem;
+    }
+  }
+}
+
+.clearBtnEmbedded {
+  background: none;
+  border: none;
+  color: #ff3b30;
+  font-size: 0.9rem;
+  font-weight: 500;
+  cursor: pointer;
+  padding: 6px 10px;
+  border-radius: 8px;
+  transition: all 0.2s ease;
+
+  &:hover {
+    background-color: rgba(255, 59, 48, 0.08);
+  }
+}
+
+.modal {
+  position: relative;
+  background-color: $white;
+  color: $block-bg;
+  width: 100%;
+  max-width: 600px;
+  border-radius: 20px;
+  overflow: hidden;
+  max-height: 90vh;
+  display: flex;
+  flex-direction: column;
+  animation: scaleUp 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: transform;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+
+  @include mobile {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 1001;
+    max-width: 100%;
+    border-radius: 32px 32px 0 0;
+    min-height: 90vh;
+    max-height: 90vh;
+    overflow: hidden;
+    touch-action: pan-y;
+    animation: slideUpModal 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    padding-bottom: env(safe-area-inset-bottom, 20px);
+  }
+}
+
+.innerModal {
+  padding: 2.5rem;
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+  overscroll-behavior: none;
+  max-height: 90vh;
+  position: relative;
+
+  &::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+  }
+
+  :global(.closeBtn) {
+    position: absolute !important;
+    top: 14px !important;
+    right: 14px !important;
+    margin: 0 !important;
+
+    @media (hover: hover) {
+      &:hover {
+        opacity: 0.8;
+      }
+    }
+
+    &:active {
+      opacity: 0.6;
+    }
+  }
+
+  @include mobile {
+    padding: 0;
+    overflow: hidden;
+    min-height: 84vh;
+    max-height: 84vh;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+  }
+}
+
+.dragHandle {
+  display: none;
+
+  @include mobile {
+    display: block;
+    position: absolute;
+    top: -16px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 48px;
+    height: 6px;
+    border-radius: 3px;
+    background: rgba(255, 255, 255, 0.8);
+    pointer-events: none;
+  }
+}
+
+.clearBtn {
+  position: absolute;
+  top: 14px;
+  left: 14px;
+  z-index: 10;
+  background: none;
+  border: none;
+  color: #ff3b30;
+  font-size: 0.95rem;
+  font-weight: 500;
+  cursor: pointer;
+  padding: 8px 12px;
+  border-radius: 12px;
+  transition: all 0.2s ease;
+
+  &:hover {
+    background-color: rgba(255, 59, 48, 0.1);
+  }
+
+  @include mobile {
+    top: 50%;
+    left: 12px;
+    transform: translateY(-50%);
+  }
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 0.5rem;
+
+  .title {
+    font-size: 1.8rem;
+    font-weight: 700;
+    margin: 0 0 0.35rem;
+    color: $block-bg;
+    letter-spacing: -0.02em;
+
+    @include mobile {
+      font-size: 1.25rem;
+      margin: 0;
+    }
+  }
+
+  @include mobile {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 48px;
+    margin-bottom: 8px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    padding: 14px 24px 12px;
+
+    @include mobile {
+      padding: 14px 24px 14px;
+      margin-bottom: 0;
+    }
+
+    :global(.closeBtn) {
+      position: absolute !important;
+      top: 50% !important;
+      right: 24px !important;
+      transform: translateY(-50%) !important;
+      margin: 0 !important;
+
+      @media (hover: hover) {
+        &:hover {
+          opacity: 0.8;
+        }
+      }
+
+      &:active {
+        opacity: 0.6;
+      }
+    }
+  }
+}
+
+.subtitle {
+  font-size: 0.95rem;
+  color: $gray-text;
+  line-height: 1.4;
+  text-align: center;
+  margin: 0 auto 0.6rem;
+  max-width: 480px;
+  text-wrap: balance;
+
+  @include mobile {
+    font-size: 0.85rem;
+    margin-bottom: 0.5rem;
+  }
+}
+
+.progress {
+  .progressBar {
+    height: 4px;
+    background-color: rgba(0, 0, 0, 0.1);
+    border-radius: 2px;
+    margin-bottom: 0.4rem;
+    overflow: hidden;
+  }
+
+  .progressFill {
+    height: 100%;
+    background-color: $primary;
+    border-radius: 2px;
+    transition: width 0.3s ease;
+  }
+
+  .progressText {
+    font-size: 0.85rem;
+    color: $gray-text;
+    display: block;
+    text-align: right;
+  }
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  overflow-y: auto;
+  overscroll-behavior: none;
+  padding-right: 4px;
+
+  @include mobile {
+    padding: 8px 24px 12px;
+  }
+
+  &::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+
+    @include mobile {
+      background-color: $primary;
+
+      &:hover {
+        background-color: $primary-hover;
+      }
+    }
+  }
+}
+
+.step {
+  display: flex;
+  flex-direction: column;
+  gap: .5rem;
+  animation: fadeIn 0.3s ease;
+
+  @include mobile {
+    gap: 0.5rem;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes scaleUp {
+  from {
+    transform: scale(0.95) translateY(20px);
+    opacity: 0;
+  }
+
+  to {
+    transform: scale(1) translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideUpModal {
+  from {
+    transform: translateY(100%);
+  }
+
+  to {
+    transform: translateY(0);
+  }
+}
+
+.row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+
+  @include mobile {
+    grid-template-columns: 1fr;
+    gap: .5rem;
+  }
+}
+
+.contactRow {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+
+  @include mobile {
+    grid-template-columns: 1fr;
+    gap: .5rem;
+  }
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  scroll-margin-top: 100px;
+
+  label {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: $block-bg;
+  }
+
+  .requiredAsterisk {
+    color: #ff3b30;
+    margin-left: 2px;
+    font-weight: bold;
+    display: inline-block;
+  }
+
+  input[type="text"],
+  input[type="tel"],
+  input[type="number"],
+  input[type="date"] {
+    width: 100%;
+    padding: 0.5rem 1rem;
+    background-color: rgba(0, 0, 0, 0.03);
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    border-radius: 14px;
+    color: $block-bg;
+    font-family: inherit;
+    font-size: 1rem;
+    transition: all $transition-speed;
+
+    &:focus {
+      outline: none;
+      border-color: $primary;
+      background-color: $white;
+      box-shadow: 0 0 0 3px rgba($primary, 0.1);
+    }
+
+    &::placeholder {
+      color: rgba(0, 0, 0, 0.3);
+    }
+
+    @include mobile {
+      padding: 0.5rem .8rem;
+    }
+  }
+
+  &.hasError {
+
+    input[type="text"],
+    input[type="tel"],
+    input[type="number"],
+    input[type="date"] {
+      border: 2px solid #ff2d20 !important;
+      background-color: rgba(255, 45, 32, 0.08) !important;
+      padding: calc(0.5rem - 1px) calc(1rem - 1px) !important;
+
+      @include mobile {
+        padding: calc(0.5rem - 1px) calc(0.8rem - 1px) !important;
+      }
+
+      &:focus {
+        background-color: rgba(255, 45, 32, 0.06) !important;
+        box-shadow: 0 0 0 3px rgba(255, 45, 32, 0.2) !important;
+      }
+    }
+
+    :global([class*="trigger"]) {
+      border: 2px solid #ff2d20 !important;
+      background-color: rgba(255, 45, 32, 0.08) !important;
+      padding: calc(0.5rem - 1px) calc(1rem - 1px) !important;
+
+      @include mobile {
+        padding: calc(0.5rem - 1px) calc(0.8rem - 1px) !important;
+      }
+    }
+  }
+}
+
+.errorText {
+  color: #e02e22;
+  font-size: 0.78rem;
+  font-weight: 500;
+  line-height: 1.2;
+  margin-top: 2px;
+  animation: errorFadeIn 0.2s ease-out;
+
+  @include mobile {
+    font-size: 0.74rem;
+  }
+}
+
+@keyframes errorFadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+
+
+input[type="date"] {
+  &::-webkit-calendar-picker-indicator {
+    filter: none;
+    opacity: 0.5;
+    cursor: pointer;
+  }
+}
+
+.checkboxGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  background-color: rgba(0, 0, 0, 0.02);
+  padding: 1rem;
+  border-radius: 12px;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  max-height: 800px;
+  transition: max-height 0.4s cubic-bezier(0.16, 1, 0.3, 1), padding-bottom 0.3s ease;
+
+  &.wrap {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  &.collapsed {
+    position: relative;
+    max-height: 142px;
+    overflow: hidden;
+    padding-bottom: 2.5rem;
+  }
+}
+
+.servicesContainer {
+  position: relative;
+  width: 100%;
+}
+
+.gradientOverlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 80px;
+  background: linear-gradient(
+    to bottom,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.95) 60%,
+    rgba(255, 255, 255, 1) 100%
+  );
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  z-index: 5;
+  border-radius: 0 0 12px 12px;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+  opacity: 1;
+  visibility: visible;
+
+  &.hidden {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+  }
+}
+
+.showMoreBtn {
+  background: none;
+  border: none;
+  color: $primary;
+  font-weight: 600;
+  font-size: 0.85rem;
+  cursor: pointer;
+  padding: 8px 16px;
+  transition: all 0.2s ease;
+  margin-bottom: 4px;
+  text-decoration: underline;
+
+  &:hover {
+    color: $primary-hover;
+  }
+}
+
+.checkboxRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.learnMoreBtn {
+  background: none;
+  border: none;
+  color: $primary;
+  font-size: 0.85rem;
+  font-weight: 500;
+  cursor: pointer;
+  padding: 0.2rem 0.5rem;
+  transition: opacity 0.2s;
+  flex-shrink: 0;
+
+  &:hover {
+    opacity: 0.8;
+  }
+}
+
+.checkboxLabel,
+.consentLabel {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  cursor: pointer;
+
+  input[type="checkbox"] {
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    border: 2px solid rgba(0, 0, 0, 0.2);
+    border-radius: 6px;
+    background-color: transparent;
+    cursor: pointer;
+    position: relative;
+    flex-shrink: 0;
+    margin-top: 2px;
+    transition: all 0.2s;
+
+    &:checked {
+      background-color: $primary;
+      border-color: $primary;
+
+      &::after {
+        content: "";
+        position: absolute;
+        left: 5px;
+        top: 2px;
+        width: 5px;
+        height: 10px;
+        border: solid white;
+        border-width: 0 2px 2px 0;
+        transform: rotate(45deg);
+      }
+    }
+  }
+
+  .checkboxText {
+    font-size: 0.95rem;
+    color: rgba($block-bg, 0.8);
+    line-height: 1.4;
+
+    @include mobile {
+      font-size: .85rem;
+    }
+  }
+}
+
+.infoButton {
+  background-color: $white;
+  border: 1px solid #ffffff1a;
+  padding: .8rem 1rem;
+  border-radius: 12px;
+}
+
+.consentLabel {
+  display: flex;
+  align-items: center;
+  margin-top: 0.5rem;
+  width: fit-content;
+  scroll-margin-top: 100px;
+
+  &.hasError {
+    input[type="checkbox"] {
+      border: 2px solid #ff2d20 !important;
+      background-color: rgba(255, 45, 32, 0.08) !important;
+    }
+
+    .checkboxText {
+      color: #e02e22;
+    }
+  }
+
+  .checkboxText {
+    font-size: 0.85rem;
+    color: $gray-text;
+  }
+}
+
+.nextBtn,
+.submitBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  text-align: center;
+  margin-top: 1rem;
+  background-color: $primary;
+  color: $white;
+  border: none;
+  border-radius: 12px;
+  padding: 1rem;
+  font-size: 1.05rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all $transition-speed;
+  width: 100%;
+  box-shadow: 0 4px 12px rgba($primary, 0.3);
+
+  @include mobile {
+    margin-top: .5rem;
+  }
+
+  &:hover:not(:disabled) {
+    background-color: color.adjust($primary, $lightness: 5%);
+    box-shadow: 0 6px 16px rgba($primary, 0.4);
+  }
+
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    box-shadow: none;
+    transform: none;
+  }
+}
+
+.actions {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 1rem;
+  margin-top: .1rem;
+
+  @include mobile {
+    grid-template-columns: 1fr;
+    margin-top: .5rem;
+  }
+}
+
+.backBtn {
+  background-color: $white;
+  color: $block-bg;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 12px;
+  padding: 1rem;
+  font-size: 1.05rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all $transition-speed;
+
+  &:hover {
+    background-color: rgba(0, 0, 0, 0.03);
+    border-color: rgba(0, 0, 0, 0.2);
+  }
+
+  @include mobile {
+    order: 2;
+  }
+}
+
+.submitBtn {
+  margin-top: 0;
+
+  @include mobile {
+    order: 1;
+  }
+}
+
+.successMessage {
+  text-align: center;
+  padding: 1rem 0;
+  animation: fadeIn 0.4s ease;
+
+  .successIcon {
+    width: 64px;
+    height: 64px;
+    background-color: #4cd964;
+    color: white;
+    font-size: 2rem;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1.5rem;
+    box-shadow: 0 10px 20px rgba(76, 217, 100, 0.2);
+  }
+
+  h3 {
+    font-size: 1.8rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    color: $block-bg;
+  }
+
+  p {
+    font-size: 1.1rem;
+    color: $gray-text;
+    line-height: 1.5;
+    margin-bottom: 2rem;
+  }
+}
+
+.privacyPolicy {
+  @include mobile {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+.customBudgetWrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 100%;
+
+  input {
+    width: 100%;
+    padding-right: 3.5rem !important;
+  }
+}
+
+.currencySuffix {
+  position: absolute;
+  right: 2.25rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: rgba($block-bg, 0.7);
+  font-weight: 500;
+  font-size: 1rem;
+  pointer-events: none;
+  user-select: none;
+}
+
+.resetBudgetBtn {
+  position: absolute;
+  right: 0.75rem;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  color: rgba(0, 0, 0, 0.4);
+  cursor: pointer;
+  padding: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  transition: all $transition-speed;
+
+  &:hover {
+    color: $primary;
+    background: rgba(0, 0, 0, 0.05);
+  }
+}

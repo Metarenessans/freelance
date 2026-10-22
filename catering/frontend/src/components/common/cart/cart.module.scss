@@ -1,0 +1,44 @@
+@use "sass:color";
+@use "../../../styles/variables" as *;
+@use "../../../styles/mixins" as *;
+
+.cartWrapper {
+  position: relative;
+  margin-right: 0.5rem;
+  cursor: pointer;
+
+  svg {
+    width: 24px;
+    height: 24px;
+    fill: $white;
+    transition: fill 0.3s;
+  }
+
+  .badge {
+    position: absolute;
+    top: -5px;
+    right: -8px;
+    background-color: $white;
+    color: $header-bg;
+    font-size: 0.7rem;
+    font-weight: 700;
+    border-radius: 50%;
+    width: 16px;
+    height: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s;
+  }
+
+  @include hover {
+    svg {
+      fill: $primary;
+    }
+
+    span {
+      background-color: $primary;
+      color: $white;
+    }
+  }
+}
