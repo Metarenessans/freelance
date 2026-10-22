@@ -28,6 +28,7 @@ jobs:
         run: |
           mkdir -p _site/bet-boom _site/dna
           cp index.html _site/index.html
+          cp avatar.png _site/avatar.png
           cp -R bet-boom/public/. _site/bet-boom/
           cp -R dna/. _site/dna/
           rm -rf _site/dna/tests _site/dna/sass

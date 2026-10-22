@@ -100,6 +100,152 @@
 
     a { color: inherit; text-decoration: none; }
 
+    /* Interactive Scroll Progress Indicator */
+    .scroll-progress {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 2.5px;
+      width: 0%;
+      background: var(--text);
+      z-index: 1000;
+      pointer-events: none;
+      transition: width 0.08s linear;
+    }
+
+    /* =========================================================
+       DYNAMIC ENTRANCE & SCROLL REVEAL ANIMATIONS
+       ========================================================= */
+    @keyframes heroEntrance {
+      0% {
+        opacity: 0;
+        transform: translateY(24px);
+        filter: blur(6px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+        filter: blur(0);
+      }
+    }
+
+    .hero-animate-1 {
+      animation: heroEntrance 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+    .hero-animate-2 {
+      animation: heroEntrance 0.75s cubic-bezier(0.16, 1, 0.3, 1) 0.1s forwards;
+      opacity: 0;
+    }
+    .hero-animate-3 {
+      animation: heroEntrance 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.2s forwards;
+      opacity: 0;
+    }
+    .hero-animate-card {
+      animation: heroEntrance 0.85s cubic-bezier(0.16, 1, 0.3, 1) 0.15s forwards;
+      opacity: 0;
+    }
+
+    /* Scroll reveal base primitives */
+    .reveal-on-scroll {
+      opacity: 0;
+      transform: translateY(30px);
+      filter: blur(6px);
+      transition: opacity 0.75s cubic-bezier(0.16, 1, 0.3, 1),
+                  transform 0.75s cubic-bezier(0.16, 1, 0.3, 1),
+                  filter 0.75s cubic-bezier(0.16, 1, 0.3, 1);
+      will-change: opacity, transform, filter;
+    }
+    .reveal-on-scroll.is-revealed {
+      opacity: 1;
+      transform: translateY(0);
+      filter: blur(0);
+    }
+
+    .reveal-scale {
+      opacity: 0;
+      transform: translateY(28px) scale(0.97);
+      filter: blur(6px);
+      transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+                  transform 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+                  filter 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+      will-change: opacity, transform, filter;
+    }
+    .reveal-scale.is-revealed {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+      filter: blur(0);
+    }
+
+    .reveal-slide-left {
+      opacity: 0;
+      transform: translateX(-32px);
+      filter: blur(5px);
+      transition: opacity 0.75s cubic-bezier(0.16, 1, 0.3, 1),
+                  transform 0.75s cubic-bezier(0.16, 1, 0.3, 1),
+                  filter 0.75s cubic-bezier(0.16, 1, 0.3, 1);
+      will-change: opacity, transform, filter;
+    }
+    .reveal-slide-left.is-revealed {
+      opacity: 1;
+      transform: translateX(0);
+      filter: blur(0);
+    }
+
+    .reveal-slide-right {
+      opacity: 0;
+      transform: translateX(32px);
+      filter: blur(5px);
+      transition: opacity 0.75s cubic-bezier(0.16, 1, 0.3, 1),
+                  transform 0.75s cubic-bezier(0.16, 1, 0.3, 1),
+                  filter 0.75s cubic-bezier(0.16, 1, 0.3, 1);
+      will-change: opacity, transform, filter;
+    }
+    .reveal-slide-right.is-revealed {
+      opacity: 1;
+      transform: translateX(0);
+      filter: blur(0);
+    }
+
+    /* Staggered children reveal container */
+    .reveal-stagger-group > * {
+      opacity: 0;
+      transform: translateY(22px);
+      filter: blur(4px);
+      transition: opacity 0.65s cubic-bezier(0.16, 1, 0.3, 1),
+                  transform 0.65s cubic-bezier(0.16, 1, 0.3, 1),
+                  filter 0.65s cubic-bezier(0.16, 1, 0.3, 1);
+      transition-delay: calc(var(--stagger-index, 0) * 85ms);
+      will-change: opacity, transform, filter;
+    }
+    .reveal-stagger-group.is-revealed > * {
+      opacity: 1;
+      transform: translateY(0);
+      filter: blur(0);
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+      }
+      .hero-animate-1,
+      .hero-animate-2,
+      .hero-animate-3,
+      .hero-animate-card,
+      .reveal-on-scroll,
+      .reveal-scale,
+      .reveal-slide-left,
+      .reveal-slide-right,
+      .reveal-stagger-group > * {
+        opacity: 1 !important;
+        transform: none !important;
+        filter: none !important;
+        animation: none !important;
+      }
+    }
+
     .container {
       max-width: 1040px;
       margin: 0 auto;
@@ -223,10 +369,17 @@
     }
 
     /* =========================================================
-       HERO: Clear, Confident Engineering Positioning
+       HERO: Clear, Confident Engineering Positioning & Portrait
        ========================================================= */
     .hero {
-      padding: 68px 0 48px;
+      padding: 64px 0 44px;
+    }
+    .hero-layout {
+      display: grid;
+      grid-template-columns: 1fr 310px;
+      gap: 40px;
+      align-items: center;
+      margin-bottom: 36px;
     }
     .hero-eyebrow {
       display: inline-flex;
@@ -247,20 +400,20 @@
     }
 
     .hero h1 {
-      font-size: clamp(32px, 4.5vw, 48px);
+      font-size: clamp(30px, 4vw, 44px);
       font-weight: 800;
-      line-height: 1.18;
+      line-height: 1.2;
       letter-spacing: -0.03em;
       color: var(--text);
       margin-bottom: 18px;
-      max-width: 820px;
+      max-width: 720px;
     }
     .hero p {
-      font-size: clamp(16px, 1.5vw, 18px);
+      font-size: clamp(15.5px, 1.4vw, 17px);
       color: var(--text-muted);
       line-height: 1.65;
-      max-width: 740px;
-      margin-bottom: 32px;
+      max-width: 640px;
+      margin-bottom: 28px;
     }
 
     .hero-ctas {
@@ -268,7 +421,6 @@
       flex-wrap: wrap;
       gap: 12px;
       align-items: center;
-      margin-bottom: 40px;
     }
     .btn-primary {
       background: var(--btn-primary-bg);
@@ -298,6 +450,115 @@
     .btn-secondary:hover {
       background: var(--surface-elevated);
       border-color: var(--border-hover);
+    }
+
+    /* Stylized Developer Portrait Card */
+    .hero-portrait-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 16px;
+      box-shadow: var(--card-shadow);
+      position: relative;
+      transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), 
+                  box-shadow 0.3s ease, 
+                  border-color 0.3s ease;
+    }
+    .hero-portrait-card:hover {
+      transform: translateY(-4px);
+      border-color: var(--border-hover);
+      box-shadow: 0 16px 36px -10px rgba(0, 0, 0, 0.35);
+    }
+    .portrait-frame {
+      position: relative;
+      border-radius: 14px;
+      overflow: hidden;
+      aspect-ratio: 1 / 1;
+      background: var(--surface-elevated);
+      border: 1px solid var(--border);
+    }
+    .portrait-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .hero-portrait-card:hover .portrait-img {
+      transform: scale(1.03);
+    }
+    .portrait-status-tag {
+      position: absolute;
+      bottom: 10px;
+      left: 10px;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(10, 10, 12, 0.82);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.16);
+      color: #fafafa;
+      font-size: 11.5px;
+      font-weight: 600;
+      padding: 4px 10px;
+      border-radius: 9999px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+    }
+    .portrait-info {
+      margin-top: 14px;
+      padding: 0 2px;
+    }
+    .portrait-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+      margin-bottom: 4px;
+    }
+    .portrait-name {
+      font-weight: 700;
+      font-size: 15px;
+      color: var(--text);
+      letter-spacing: -0.01em;
+    }
+    .portrait-github-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      font-size: 11.5px;
+      font-family: "JetBrains Mono", monospace;
+      font-weight: 600;
+      color: var(--text-muted);
+      background: var(--surface-elevated);
+      border: 1px solid var(--border);
+      padding: 3px 8px;
+      border-radius: 6px;
+      transition: all 0.15s ease;
+    }
+    .portrait-github-badge:hover {
+      color: var(--text);
+      border-color: var(--border-hover);
+    }
+    .portrait-role {
+      font-size: 12px;
+      color: var(--text-subtle);
+      margin-bottom: 10px;
+      font-weight: 500;
+    }
+    .portrait-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 5px;
+    }
+    .portrait-tag {
+      font-size: 10.5px;
+      font-family: "JetBrains Mono", monospace;
+      padding: 2px 7px;
+      border-radius: 4px;
+      background: var(--surface-elevated);
+      border: 1px solid var(--border);
+      color: var(--text-muted);
     }
 
     /* Trust Metrics Strip */
@@ -968,8 +1229,10 @@
       color: var(--text);
     }
 
-    @media (max-width: 820px) {
+    @media (max-width: 860px) {
       .hero { padding: 44px 0 32px; }
+      .hero-layout { grid-template-columns: 1fr; gap: 32px; }
+      .hero-portrait-card { max-width: 320px; margin: 0 auto; }
       .project-card { padding: 22px; }
       .arch-flow-grid { grid-template-columns: 1fr 1fr; }
       .tg-layout { grid-template-columns: 1fr; }
@@ -978,9 +1241,17 @@
       .skills-grid { grid-template-columns: 1fr 1fr; }
       .hire-card { padding: 24px; }
     }
+    @media (max-width: 520px) {
+      .trust-strip { grid-template-columns: 1fr; }
+      .skills-grid { grid-template-columns: 1fr; }
+      .arch-flow-grid { grid-template-columns: 1fr; }
+    }
   </style>
 </head>
 <body>
+
+  <!-- Interactive Scroll Progress Indicator -->
+  <div id="scroll-progress" class="scroll-progress" aria-hidden="true"></div>
 
   <!-- Sticky Top Navigation -->
   <nav>
@@ -1018,20 +1289,64 @@
   <main class="container">
     <!-- Hero Section -->
     <header class="hero">
-      <div class="hero-eyebrow">Production Engineering & Web Systems</div>
-      <h1>Full-stack web applications with Next.js, Django & automated cloud infrastructure.</h1>
-      <p>
-        I deliver production-grade web systems for companies and startups: high-performance React frontends, 
-        transactional Django REST backends, custom administrative tools, and automated Telegram event dispatchers.
-      </p>
-      
-      <div class="hero-ctas">
-        <a class="btn-primary" href="#flagship">Explore Case Study ↓</a>
-        <a class="btn-secondary" href="https://github.com/Metarenessans/freelance" target="_blank" rel="noopener noreferrer">View GitHub Source ↗</a>
+      <div class="hero-layout">
+        <div class="hero-content">
+          <div class="hero-eyebrow hero-animate-1">Production Engineering & Web Systems</div>
+          <h1 class="hero-animate-2">Full-stack web applications with Next.js, Django & automated cloud infrastructure.</h1>
+          <p class="hero-animate-2">
+            I deliver production-grade web systems for companies and startups: high-performance React frontends, 
+            transactional Django REST backends, custom administrative tools, and automated Telegram event dispatchers.
+          </p>
+          
+          <div class="hero-ctas hero-animate-3">
+            <a class="btn-primary" href="#flagship">Explore Case Study ↓</a>
+            <a class="btn-secondary" href="https://github.com/Metarenessans/freelance" target="_blank" rel="noopener noreferrer">View GitHub Source ↗</a>
+          </div>
+        </div>
+
+        <!-- Stylized Developer Portrait Card -->
+        <aside class="hero-portrait-card hero-animate-card" aria-label="Engineer Profile Card">
+          <div class="portrait-frame">
+            <img 
+              src="avatar.png" 
+              alt="Metarenessans — Full-Stack Engineer" 
+              class="portrait-img"
+              width="280"
+              height="280"
+              loading="eager"
+              onerror="this.onerror=null;this.src='https://avatars.githubusercontent.com/u/74054519?v=4';"
+            />
+            <div class="portrait-status-tag">
+              <span class="status-dot"></span>
+              <span>Available for Hire</span>
+            </div>
+          </div>
+          
+          <div class="portrait-info">
+            <div class="portrait-header">
+              <span class="portrait-name">Metarenessans</span>
+              <a class="portrait-github-badge" href="https://github.com/Metarenessans" target="_blank" rel="noopener noreferrer" title="View GitHub Profile">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+                  <path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/>
+                </svg>
+                <span>@Metarenessans</span>
+              </a>
+            </div>
+            
+            <div class="portrait-role">Full-Stack Engineer & System Architect</div>
+            
+            <div class="portrait-tags">
+              <span class="portrait-tag">Python & Django</span>
+              <span class="portrait-tag">Next.js SSR</span>
+              <span class="portrait-tag">PostgreSQL</span>
+              <span class="portrait-tag">Telegram Bots</span>
+            </div>
+          </div>
+        </aside>
       </div>
 
       <!-- Trust Metrics Strip -->
-      <div class="trust-strip">
+      <div class="trust-strip reveal-stagger-group">
         <div class="trust-item">
           <div class="trust-icon">⚡</div>
           <div>
@@ -1065,14 +1380,14 @@
 
     <!-- Flagship Project Showcase -->
     <section class="case-section" id="flagship">
-      <div class="section-header">
+      <div class="section-header reveal-on-scroll">
         <div>
           <h2 class="section-title">Flagship Case Study</h2>
           <p class="section-desc">Live production sandbox demonstrating end-to-end commerce mechanics.</p>
         </div>
       </div>
 
-      <article class="project-card">
+      <article class="project-card reveal-scale">
         <div class="project-header">
           <div class="project-title-area">
             <h3>Catering & Event Commerce Platform</h3>
@@ -1118,7 +1433,7 @@
 
           <!-- Pane 1: Architecture -->
           <div class="c-pane active" id="pane-arch">
-            <div class="arch-flow-grid">
+            <div class="arch-flow-grid reveal-stagger-group">
               <div class="arch-box">
                 <div class="arch-step">01 / FRONTEND</div>
                 <div class="arch-title">Next.js SSR</div>
@@ -1306,7 +1621,7 @@
 
           <!-- Pane 4: Custom Django Admin Suite -->
           <div class="c-pane" id="pane-admin">
-            <div class="admin-cards-grid">
+            <div class="admin-cards-grid reveal-stagger-group">
               <div class="admin-feature-card">
                 <h4>1-Click Telegram Action</h4>
                 <p>Bespoke action buttons embedded directly into the Django order view allowing operators to re-dispatch notifications on demand with audit feedback.</p>
@@ -1327,7 +1642,7 @@
 
     <!-- Client Deliveries Section -->
     <section class="client-section">
-      <div class="section-header">
+      <div class="section-header reveal-on-scroll">
         <div>
           <h2 class="section-title">Client Deliveries</h2>
           <p class="section-desc">Commercial landing pages delivered for client campaigns.</p>
@@ -1336,7 +1651,7 @@
 
       <div class="client-works-grid">
         <!-- BetBoom -->
-        <article class="client-project-card">
+        <article class="client-project-card reveal-slide-left">
           <div>
             <div class="client-project-header">
               <span class="client-label">PROJECT // 01</span>
@@ -1352,7 +1667,7 @@
         </article>
 
         <!-- DNA Jewelry -->
-        <article class="client-project-card">
+        <article class="client-project-card reveal-slide-right">
           <div>
             <div class="client-project-header">
               <span class="client-label">PROJECT // 02</span>
@@ -1370,7 +1685,7 @@
     </section>
 
     <!-- Full-Stack Technical Stack -->
-    <section class="skills-box">
+    <section class="skills-box reveal-on-scroll">
       <div class="section-header" style="margin-bottom:12px;">
         <div>
           <h2 class="section-title">Full-Stack Core Capabilities</h2>
@@ -1378,7 +1693,7 @@
         </div>
       </div>
 
-      <div class="skills-grid">
+      <div class="skills-grid reveal-stagger-group">
         <div class="skill-category">
           <h4>Frontend</h4>
           <ul class="skill-list">
@@ -1419,7 +1734,7 @@
     </section>
 
     <!-- Upwork Direct Collaboration Card -->
-    <section class="hire-card">
+    <section class="hire-card reveal-scale">
       <div class="hire-text">
         <h3>Ready to build your next web application?</h3>
         <p>
@@ -1433,7 +1748,7 @@
     </section>
 
     <!-- Footer -->
-    <footer>
+    <footer class="reveal-on-scroll">
       <div class="footer-inner">
         <span>© Metarenessans. Built for technical and commercial client evaluation.</span>
         <div class="footer-links">
@@ -1563,6 +1878,47 @@
           simBtn.textContent = '⚡ Simulate Live Order Dispatch';
         }, 1500);
       });
+    }
+
+    // 5. Scroll Reveal & Entrance Animations
+    const revealElements = document.querySelectorAll(
+      '.reveal-on-scroll, .reveal-scale, .reveal-slide-left, .reveal-slide-right, .reveal-stagger-group'
+    );
+
+    if ('IntersectionObserver' in window) {
+      const revealObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-revealed');
+            if (entry.target.classList.contains('reveal-stagger-group')) {
+              Array.from(entry.target.children).forEach((child, index) => {
+                child.style.setProperty('--stagger-index', index);
+              });
+            }
+            observer.unobserve(entry.target);
+          }
+        });
+      }, {
+        rootMargin: '0px 0px -40px 0px',
+        threshold: 0.08
+      });
+
+      revealElements.forEach(el => revealObserver.observe(el));
+    } else {
+      revealElements.forEach(el => el.classList.add('is-revealed'));
+    }
+
+    // 6. Interactive Scroll Progress Bar
+    const scrollProgress = document.getElementById('scroll-progress');
+    if (scrollProgress) {
+      const updateScrollProgress = () => {
+        const scrollTop = window.scrollY || document.documentElement.scrollTop;
+        const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+        const progress = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+        scrollProgress.style.width = `${progress}%`;
+      };
+      window.addEventListener('scroll', updateScrollProgress, { passive: true });
+      updateScrollProgress();
     }
   </script>
 
