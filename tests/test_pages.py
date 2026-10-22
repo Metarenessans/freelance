@@ -19,7 +19,7 @@ class PagesTests(unittest.TestCase):
         self.assertIn('Oleg G.', text)
         self.assertIn('reveal-on-scroll', text)
         self.assertIn('cicd-section', text)
-        self.assertIn('badge.svg', text)
+        self.assertIn('Automated CI/CD', text)
 
     def test_flagship_catering_source_present(self):
         self.assertTrue((ROOT / 'catering').is_dir(), 'catering folder must exist in root')
@@ -32,6 +32,13 @@ class PagesTests(unittest.TestCase):
         self.assertTrue((ROOT / 'favicon.ico').is_file(), 'favicon.ico must exist')
         text = (ROOT / 'index.html').read_text(encoding='utf-8') if (ROOT / 'index.html').exists() else ''
         self.assertIn('favicon.svg', text)
+
+    def test_modular_scss_and_compiled_css_present(self):
+        self.assertTrue((ROOT / 'scss/main.scss').is_file(), 'scss/main.scss must exist')
+        self.assertTrue((ROOT / 'scss/_responsive.scss').is_file(), 'scss/_responsive.scss must exist')
+        self.assertTrue((ROOT / 'css/style.css').is_file(), 'css/style.css must exist')
+        text = (ROOT / 'index.html').read_text(encoding='utf-8') if (ROOT / 'index.html').exists() else ''
+        self.assertIn('href="css/style.css"', text)
 
 
 if __name__ == '__main__':

@@ -1,0 +1,18 @@
+// Main Stylesheet Entry Point
+// Modular SCSS architecture for Oleg G. Portfolio
+
+@use "variables" as *;
+@use "base" as *;
+@use "animations" as *;
+@use "nav" as *;
+@use "hero" as *;
+@use "flagship" as *;
+@use "api-explorer" as *;
+@use "telegram" as *;
+@use "admin" as *;
+@use "cicd" as *;
+@use "clients" as *;
+@use "skills" as *;
+@use "hire" as *;
+@use "footer" as *;
+@use "responsive" as *;

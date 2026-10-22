@@ -32,6 +32,8 @@ jobs:
           cp avatar.png _site/avatar.png
           cp favicon* _site/ 2>/dev/null || true
           cp apple-touch-icon.png _site/ 2>/dev/null || true
+          cp -R css _site/css 2>/dev/null || true
+          cp -R scss _site/scss 2>/dev/null || true
           cp -R bet-boom/public/. _site/bet-boom/
           cp -R dna/. _site/dna/
           rm -rf _site/dna/tests _site/dna/sass
