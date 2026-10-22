@@ -16,7 +16,7 @@ class PagesTests(unittest.TestCase):
         self.assertTrue((ROOT / 'avatar.png').is_file(), 'avatar.png must exist in root')
         text = (ROOT / 'index.html').read_text(encoding='utf-8') if (ROOT / 'index.html').exists() else ''
         self.assertIn('avatar.png', text)
-        self.assertIn('Metarenessans', text)
+        self.assertIn('Oleg G.', text)
         self.assertIn('reveal-on-scroll', text)
 
 

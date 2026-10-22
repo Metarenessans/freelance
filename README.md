@@ -1,4 +1,4 @@
-# Full-Stack Engineering & Client Work Portfolio
+# Oleg G. — Full-Stack Engineering & Client Work Portfolio
 
 <div align="center">
 
