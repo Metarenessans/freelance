@@ -18,6 +18,6 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name='section',
             name='seo_title',
-            field=models.CharField(blank=True, default='', help_text='Leave blank to generate automatically (for example: Buffet dishes and appetizers — order delivery in your area)', max_length=255, verbose_name='SEO title (Title)'),
+            field=models.CharField(blank=True, default='', help_text='Leave blank to generate automatically (for example: Buffet dishes and appetizers - order delivery in your area)', max_length=255, verbose_name='SEO title (Title)'),
         ),
     ]

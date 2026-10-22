@@ -13,7 +13,7 @@ import { toPublicMediaUrl } from '@/utils/seo';
 
 export const dynamic = "force-dynamic";
 
-const cartTitle = 'Your cart — catering and buffets | Chef Meal Catering';
+const cartTitle = 'Your cart - catering and buffets | Chef Meal Catering';
 const cartDesc = 'Review your catering order and buffet platters in Naberezhnye Chelny. Choose delivery for your ready-made party food from Chef Meal Catering!';
 
 export async function generateMetadata(): Promise<Metadata> {

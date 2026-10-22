@@ -313,4 +313,4 @@ class MenuRequest(models.Model):
         ordering = ["-created_at"]
 
     def __str__(self):
-        return f"Request No.{self.pk} — {self.name} ({self.format}, {self.date})"
+        return f"Request No.{self.pk} - {self.name} ({self.format}, {self.date})"

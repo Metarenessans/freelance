@@ -27,9 +27,9 @@ def populate_calculate_data(apps, schema_editor):
     budget_data = [
         "Undecided / please advise",
         "up to 15 000 ₽",
-        "15 000 – 30 000 ₽",
-        "30 000 – 50 000 ₽",
-        "50 000 – 100 000 ₽",
+        "15 000 - 30 000 ₽",
+        "30 000 - 50 000 ₽",
+        "50 000 - 100 000 ₽",
         "from 100 000 ₽",
     ]
     for idx, name in enumerate(budget_data, start=1):

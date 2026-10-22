@@ -14,10 +14,10 @@ class Migration(migrations.Migration):
             name='SeoSettings',
             fields=[
                 ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('home_title', models.CharField(blank=True, default='Demo Catering | Buffet and catering delivery in your area', help_text='Home page browser title (50–60 characters recommended). If blank, the system template is used.', max_length=255, verbose_name='Home page title (/)')),
-                ('home_description', models.TextField(blank=True, default='Order catering, banquet and buffet dishes delivered in your area. Enjoy appetizers, bruschetta, canapés and ready-made sets for any celebration from Demo Catering.', help_text='Home page meta description for search engines (140–160 characters recommended).', verbose_name='Home page description (/)')),
-                ('blog_title', models.CharField(blank=True, default='Catering and buffet blog — articles and tips | Demo Catering', help_text='Title of the blog article listing page (50–60 characters recommended).', max_length=255, verbose_name='Blog page title (/blog)')),
-                ('blog_description', models.TextField(blank=True, default='Chef tips on buffet quantities, table settings, food boxes and catering for celebrations in your area. Read the Demo Catering blog!', help_text='Blog page meta description for search engines (140–160 characters recommended).', verbose_name='Blog page description (/blog)')),
+                ('home_title', models.CharField(blank=True, default='Demo Catering | Buffet and catering delivery in your area', help_text='Home page browser title (50-60 characters recommended). If blank, the system template is used.', max_length=255, verbose_name='Home page title (/)')),
+                ('home_description', models.TextField(blank=True, default='Order catering, banquet and buffet dishes delivered in your area. Enjoy appetizers, bruschetta, canapés and ready-made sets for any celebration from Demo Catering.', help_text='Home page meta description for search engines (140-160 characters recommended).', verbose_name='Home page description (/)')),
+                ('blog_title', models.CharField(blank=True, default='Catering and buffet blog - articles and tips | Demo Catering', help_text='Title of the blog article listing page (50-60 characters recommended).', max_length=255, verbose_name='Blog page title (/blog)')),
+                ('blog_description', models.TextField(blank=True, default='Chef tips on buffet quantities, table settings, food boxes and catering for celebrations in your area. Read the Demo Catering blog!', help_text='Blog page meta description for search engines (140-160 characters recommended).', verbose_name='Blog page description (/blog)')),
                 ('updated_at', models.DateTimeField(auto_now=True, verbose_name='Updated at')),
             ],
             options={

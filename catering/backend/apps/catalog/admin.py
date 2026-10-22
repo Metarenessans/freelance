@@ -29,7 +29,7 @@ class CategoryProductInline(SortableInlineAdminMixin, admin.TabularInline):
                 return mark_safe(
                     f'<img src="{url}" width="42" height="42" style="object-fit: cover; border-radius: 6px; box-shadow: 0 1px 3px rgba(0,0,0,0.2);" />'
                 )
-        return "—"
+        return "-"
 
     image_preview.short_description = "Photo"
 
@@ -93,7 +93,7 @@ class SectionAdmin(SortableAdminMixin, MakeFirstAdminMixin, admin.ModelAdmin):
                 "description": (
                     "Search engine optimization for the catalog section.<br>"
                     "If left blank, tags are generated automatically from the section name and categories.<br>"
-                    "Recommended title: 50–60 characters. Recommended description: 140–160 characters."
+                    "Recommended title: 50-60 characters. Recommended description: 140-160 characters."
                 ),
             },
         ),
@@ -148,7 +148,7 @@ class CategoryAdmin(SortableAdminMixin, MakeFirstAdminMixin, admin.ModelAdmin):
 
     def get_sections(self, obj):
         sections = list(obj.sections.values_list("name", flat=True))
-        return ", ".join(sections) if sections else "—"
+        return ", ".join(sections) if sections else "-"
 
     get_sections.short_description = "Sections"
 

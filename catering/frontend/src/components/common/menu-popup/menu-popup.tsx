@@ -39,11 +39,11 @@ const DEFAULT_FOOD_OPTIONS = [
 const CUSTOM_BUDGET_OPTION = "Enter a custom amount";
 
 const DEFAULT_BUDGET_OPTIONS = [
-  "Not sure — please advise",
+  "Not sure - please advise",
   "Under 15,000 ₽",
-  "15 000 – 30 000 ₽",
-  "30 000 – 50 000 ₽",
-  "50 000 – 100 000 ₽",
+  "15 000 - 30 000 ₽",
+  "30 000 - 50 000 ₽",
+  "50 000 - 100 000 ₽",
   "Over 100,000 ₽",
 ];
 
@@ -963,7 +963,7 @@ export const MenuPopup = ({
               <span className={styles.errorText}>Required field</span>
             )}
 
-            {IS_SANDBOX && <p role="note">Test estimate — details are submitted and forwarded to Telegram. Physical event execution is simulated.</p>}
+            {IS_SANDBOX && <p role="note">Test estimate - details are submitted and forwarded to Telegram. Physical event execution is simulated.</p>}
             <div className={styles.actions}>
               <button
                 type="button"

@@ -34,8 +34,8 @@ test('demo mutation guard blocks actual submission execution', async () => {
 test('generated SEO copy has natural word and dash spacing', () => {
   const seo = loadTs('src/utils/seo.ts');
   assert.equal(seo.formatCategoryList(['Salads', 'Canapes']), 'Salads and Canapes');
-  assert.match(seo.buildProductTitle('Canapes'), /Canapes — /);
-  assert.match(seo.getProductAltText({ name: 'Party box' }, '12 pieces'), /\) — delivery of ready-made platters/);
+  assert.match(seo.buildProductTitle('Canapes'), /Canapes - /);
+  assert.match(seo.getProductAltText({ name: 'Party box' }, '12 pieces'), /\) - delivery of ready-made platters/);
   assert.equal(loadTs('src/utils/slugify.ts').slugify('\u0441\u0435\u0442'), 'set');
 });
 test('debug and unrestricted proxy endpoints are unavailable publicly', () => {

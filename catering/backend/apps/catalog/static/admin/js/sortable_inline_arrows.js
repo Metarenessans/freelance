@@ -126,7 +126,7 @@
 
     const badge = document.createElement('span');
     badge.className = 'order-badge';
-    badge.textContent = initialOrder || '—';
+    badge.textContent = initialOrder || '-';
     badge.title = 'Position within category';
 
     wrapper.appendChild(badge);

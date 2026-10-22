@@ -21,10 +21,10 @@ class MenuRequestViewSet(PublicSubmissionMixin, viewsets.ModelViewSet):
     """
     Manage menu planning requests.
     
-    POST  /api/v1/menu-requests/            — create a request (public)
-    GET   /api/v1/menu-requests/            — list requests (admin only)
-    GET   /api/v1/menu-requests/{id}/       — request details (admin only)
-    PATCH /api/v1/menu-requests/{id}/status/ — update status (admin only)
+    POST  /api/v1/menu-requests/            - create a request (public)
+    GET   /api/v1/menu-requests/            - list requests (admin only)
+    GET   /api/v1/menu-requests/{id}/       - request details (admin only)
+    PATCH /api/v1/menu-requests/{id}/status/ - update status (admin only)
     """
     queryset = MenuRequest.objects.all()
     filter_backends = [DjangoFilterBackend, SearchFilter, OrderingFilter]

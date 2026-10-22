@@ -199,13 +199,13 @@ class EmailSubscriberAdmin(admin.ModelAdmin):
         masked_password = "Configured (hidden)" if email_host_password else "Not configured"
 
         settings_info = {
-            "EMAIL_HOST": email_host or "— (Empty)",
-            "EMAIL_PORT": str(email_port) if email_port is not None else "— (Empty)",
+            "EMAIL_HOST": email_host or "- (Empty)",
+            "EMAIL_PORT": str(email_port) if email_port is not None else "- (Empty)",
             "EMAIL_USE_SSL": str(email_use_ssl),
             "EMAIL_USE_TLS": str(email_use_tls),
-            "EMAIL_HOST_USER": email_host_user or "— (Empty)",
+            "EMAIL_HOST_USER": email_host_user or "- (Empty)",
             "EMAIL_HOST_PASSWORD": masked_password,
-            "DEFAULT_FROM_EMAIL": default_from_email or "— (Empty)",
+            "DEFAULT_FROM_EMAIL": default_from_email or "- (Empty)",
         }
 
         # Check active subscribers in database

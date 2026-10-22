@@ -68,8 +68,8 @@ class SystemSettingsAdmin(admin.ModelAdmin):
                 "fields": ["sitemap_cache_minutes", "enable_debug_json_file"],
                 "description": (
                     "Control the cache lifetime for <code>/sitemap.xml</code>.<br>"
-                    "<b>0</b> — generate on demand (force-dynamic): each request fetches fresh data.<br>"
-                    "<b>> 0</b> (e.g. 30 or 60) — cache for the specified number of minutes for maximum speed."
+                    "<b>0</b> - generate on demand (force-dynamic): each request fetches fresh data.<br>"
+                    "<b>> 0</b> (e.g. 30 or 60) - cache for the specified number of minutes for maximum speed."
                 ),
             },
         ),
@@ -230,7 +230,7 @@ class SeoSettingsAdmin(admin.ModelAdmin):
                 "fields": ["home_title", "home_description"],
                 "description": (
                     "Configure the title and description meta tags for the home page.<br>"
-                    "Optimal title: 50–60 characters. Optimal description: 140–160 characters."
+                    "Optimal title: 50-60 characters. Optimal description: 140-160 characters."
                 ),
             },
         ),

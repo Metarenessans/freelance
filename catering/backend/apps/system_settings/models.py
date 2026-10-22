@@ -11,7 +11,7 @@ class SystemSettings(models.Model):
     sitemap_cache_minutes = models.PositiveIntegerField(
         default=0,
         verbose_name="Sitemap cache duration (minutes)",
-        help_text="0 — generate on demand (force-dynamic). A value > 0 (e.g. 30 or 60) caches the sitemap for the specified number of minutes.",
+        help_text="0 - generate on demand (force-dynamic). A value > 0 (e.g. 30 or 60) caches the sitemap for the specified number of minutes.",
     )
     enable_debug_json_file = models.BooleanField(
         default=False,
@@ -162,28 +162,28 @@ class SeoSettings(models.Model):
         blank=True,
         default="Demo Catering | Buffet and catering delivery in your area",
         verbose_name="Home page title (/)",
-        help_text="Home page browser title (50–60 characters recommended). If blank, the system template is used.",
+        help_text="Home page browser title (50-60 characters recommended). If blank, the system template is used.",
     )
     home_description = models.TextField(
         blank=True,
         default="Order catering, banquet and buffet dishes delivered in your area. Enjoy appetizers, bruschetta, canapés and ready-made sets for any celebration from Demo Catering.",
         verbose_name="Home page description (/)",
-        help_text="Home page meta description for search engines (140–160 characters recommended).",
+        help_text="Home page meta description for search engines (140-160 characters recommended).",
     )
 
     # Blog page (/blog)
     blog_title = models.CharField(
         max_length=255,
         blank=True,
-        default="Catering and buffet blog — articles and tips | Demo Catering",
+        default="Catering and buffet blog - articles and tips | Demo Catering",
         verbose_name="Blog page title (/blog)",
-        help_text="Title of the blog article listing page (50–60 characters recommended).",
+        help_text="Title of the blog article listing page (50-60 characters recommended).",
     )
     blog_description = models.TextField(
         blank=True,
         default="Chef tips on buffet quantities, table settings, food boxes and catering for celebrations in your area. Read the Demo Catering blog!",
         verbose_name="Blog page description (/blog)",
-        help_text="Blog page meta description for search engines (140–160 characters recommended).",
+        help_text="Blog page meta description for search engines (140-160 characters recommended).",
     )
 
     updated_at = models.DateTimeField(auto_now=True, verbose_name="Updated at")

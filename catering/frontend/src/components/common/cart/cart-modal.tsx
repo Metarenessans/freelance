@@ -958,7 +958,7 @@ export const CartModal = ({ isOpen, onClose, onSubmit }: CartModalProps) => {
               </span>
             </label>
 
-            {IS_SANDBOX && <p role="note">Test order — details are submitted and forwarded to Telegram. Payment and physical delivery are simulated.</p>}
+            {IS_SANDBOX && <p role="note">Test order - details are submitted and forwarded to Telegram. Payment and physical delivery are simulated.</p>}
             <div className={styles.actions}>
               <button
                 type="button"

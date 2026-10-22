@@ -113,7 +113,7 @@ export async function generateJsonLdForPath(
     } else {
       schemas.article = buildArticleJsonLd({
         pageUrl: baseUrl,
-        headline: "Catering and buffet platter delivery in Naberezhnye Chelny — Chef Meal",
+        headline: "Catering and buffet platter delivery in Naberezhnye Chelny - Chef Meal",
         description: "Explore Chef Meal catering: ready-made buffet platters and party appetizers with delivery across Naberezhnye Chelny.",
         baseUrl,
         imageUrl: `${baseUrl}/logo.png`,
@@ -201,7 +201,7 @@ export async function generateJsonLdForPath(
 
       schemas.article = buildArticleJsonLd({
         pageUrl,
-        headline: `${product.name} — ingredients, presentation and preparation standards`,
+        headline: `${product.name} - ingredients, presentation and preparation standards`,
         description,
         baseUrl,
         imageUrl: prodImg,
@@ -387,7 +387,7 @@ export async function generateJsonLdForPath(
     const calculateConfig = await getCachedCalculateConfig();
     const title =
       calculateConfig.seo_title ||
-      "Online catering menu planner — free banquet and buffet estimate | Chef Meal";
+      "Online catering menu planner - free banquet and buffet estimate | Chef Meal";
     const description =
       calculateConfig.seo_description ||
       "Get a free catering estimate for your event, guest count and budget in Naberezhnye Chelny. A personalized quote in 15 minutes!";
@@ -462,7 +462,7 @@ export async function generateJsonLdForPath(
   if (normalizedPath === "/blog" || normalizedPath === "/blog/") {
     const pageUrl = `${baseUrl}/blog`;
     const title =
-      "Catering blog — articles and tips | Chef Meal Catering";
+      "Catering blog - articles and tips | Chef Meal Catering";
     const description =
       "Chef tips on buffet portions, table settings, party food boxes and event catering in Naberezhnye Chelny. Read the Chef Meal blog!";
 

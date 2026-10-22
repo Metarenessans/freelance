@@ -448,7 +448,7 @@ export const buildProductSchemas = ({
           "@type": "ImageObject",
           url: image,
           name: product.name,
-          caption: `${product.name} — catering Chef Meal Catering`,
+          caption: `${product.name} - catering Chef Meal Catering`,
         },
       }
       : {}),
@@ -626,7 +626,7 @@ export const buildBlogListingSchemas = ({
   articles,
   pageUrl,
   baseUrl = BASE_URL,
-  title = "Catering blog — articles and tips | Chef Meal Catering",
+  title = "Catering blog - articles and tips | Chef Meal Catering",
   description = "Practical chef tips on buffet portions, table settings, party food boxes and off-site events in Naberezhnye Chelny.",
 }: BlogListingJsonLdParams): Record<string, any> => {
   const schemas: Record<string, any> = {};
@@ -1123,7 +1123,7 @@ export const JsonLd: React.FC<JsonLdProps> = ({
       baseUrl,
       title:
         title ||
-        "Catering blog — articles and tips | Chef Meal Catering",
+        "Catering blog - articles and tips | Chef Meal Catering",
       description,
     });
     delete schemas.webpage;

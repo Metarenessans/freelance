@@ -57,7 +57,7 @@ const DesktopHeader = ({ initialCompanyInfo, hideOnScroll }: HeaderVariantProps)
   const max = companyInfo?.max || "";
 
   const companyName = companyInfo?.companyName || "Chef Meal Catering";
-  const logoAlt = `${companyName} — catering and buffet delivery in Naberezhnye Chelny`;
+  const logoAlt = `${companyName} - catering and buffet delivery in Naberezhnye Chelny`;
 
   const navItems = NAV_DATA.map((item) =>
     item.label === "Read our reviews"
@@ -193,7 +193,7 @@ const MobileHeader = ({ initialCompanyInfo, hideOnScroll }: HeaderVariantProps) 
   const max = companyInfo?.max || "";
 
   const companyName = companyInfo?.companyName || "Chef Meal Catering";
-  const logoAlt = `${companyName} — catering and buffet delivery in Naberezhnye Chelny`;
+  const logoAlt = `${companyName} - catering and buffet delivery in Naberezhnye Chelny`;
 
   const navItems = NAV_DATA.map((item) =>
     item.label === "Read our reviews"

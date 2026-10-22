@@ -1,4 +1,4 @@
-# Catering API — sanitized demonstration copy
+# Catering API - sanitized demonstration copy
 
 Python 3.12, Django 5.2, Django REST Framework, SimpleJWT, PostgreSQL and Pillow.
 The API exposes catalog, orders, menu requests, company information, FAQs, blog,

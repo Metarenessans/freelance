@@ -58,15 +58,15 @@
 
     if (len === 0) {
       statusClass = 'char-counter-empty';
-      hintText = `(recommended: ${rule.min}–${rule.max})`;
+      hintText = `(recommended: ${rule.min}-${rule.max})`;
     } else if (len >= rule.min && len <= rule.max) {
       statusClass = 'char-counter-optimal';
       icon = '✓';
-      hintText = `(optimal: ${rule.min}–${rule.max})`;
+      hintText = `(optimal: ${rule.min}-${rule.max})`;
     } else if (len < rule.min) {
       statusClass = 'char-counter-under';
       icon = '📏';
-      hintText = `(recommended: ${rule.min}–${rule.max})`;
+      hintText = `(recommended: ${rule.min}-${rule.max})`;
     } else if (len <= rule.hardLimit) {
       statusClass = 'char-counter-warning';
       icon = '⚠️';

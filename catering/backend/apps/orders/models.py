@@ -7,9 +7,9 @@ class Order(models.Model):
     Order placed through the cart (CartModal).
 
     Frontend constants:
-      MIN_ORDER = 5000 ₽ — minimum order amount
-      DELIVERY_THRESHOLD = 10000 ₽ — free delivery threshold
-      DELIVERY_COST = 1500 ₽ — delivery fee
+      MIN_ORDER = 5000 ₽ - minimum order amount
+      DELIVERY_THRESHOLD = 10000 ₽ - free delivery threshold
+      DELIVERY_COST = 1500 ₽ - delivery fee
     """
 
     class StatusChoices(models.TextChoices):
@@ -87,7 +87,7 @@ class Order(models.Model):
         ordering = ["-created_at"]
 
     def __str__(self):
-        return f"Order №{self.pk} — {self.final_price} ₽ ({self.get_status_display()})"
+        return f"Order №{self.pk} - {self.final_price} ₽ ({self.get_status_display()})"
 
 
 class OrderItem(models.Model):
@@ -110,7 +110,7 @@ class OrderItem(models.Model):
     )
     option = models.ForeignKey("catalog.ProductOption", on_delete=models.SET_NULL, null=True, blank=True)
     option_name = models.CharField(max_length=200, blank=True, default="")
-    # Snapshot fields — data captured when the order is placed
+    # Snapshot fields - data captured when the order is placed
     product_name = models.CharField(max_length=300, verbose_name="Name (snapshot)")
     product_image_url = models.URLField(
         max_length=500, blank=True, default="", verbose_name="Image URL (snapshot)"

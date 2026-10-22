@@ -34,7 +34,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const section = sections.find((s) => s.id === slug);
 
   if (!section) {
-    const fallbackTitle = "Buffet menu — buffet food catalog";
+    const fallbackTitle = "Buffet menu - buffet food catalog";
     const fallbackDesc =
       "Explore buffet platters and appetizers from Chef Meal Catering. Delicious ready-made party food with delivery in Naberezhnye Chelny!";
     return {
@@ -73,7 +73,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 
   const imageUrl = toPublicMediaUrl(companyInfo?.ogImage || section.imageUrl, baseUrl) || undefined;
   const imageAlt = companyInfo?.ogImage
-    ? "Chef Meal Catering — catering and buffet delivery in Naberezhnye Chelny"
+    ? "Chef Meal Catering - catering and buffet delivery in Naberezhnye Chelny"
     : getSectionAltText(section.name);
 
   const fullTitle = title.includes("Chef Meal") ? title : `${title} | Chef Meal Catering`;

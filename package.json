@@ -1,7 +1,7 @@
 {
   "name": "freelance-portfolio",
   "version": "1.0.0",
-  "description": "Portfolio of Oleg G. — Full-Stack Engineer & System Architect",
+  "description": "Portfolio of Oleg G. - Full-Stack Engineer & System Architect",
   "scripts": {
     "test": "node tests/e2e_portfolio.js",
     "test:e2e": "node tests/e2e_portfolio.js",

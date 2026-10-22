@@ -1,4 +1,4 @@
-# Oleg G. — Full-Stack Engineering & Client Work Portfolio
+# Oleg G. - Full-Stack Engineering & Client Work Portfolio
 
 <div align="center">
 
@@ -21,7 +21,7 @@
 
 I build robust, end-to-end web products that combine intuitive, responsive user interfaces with resilient, well-modeled backends and automated deployment pipelines. 
 
-Every project in this portfolio is **live, functional, and verifiable hands-on**. You don't need to guess how my code runs — you can click into the web apps, test API responses, explore custom admin systems, and inspect CI/CD automation directly.
+Every project in this portfolio is **live, functional, and verifiable hands-on**. You don't need to guess how my code runs - you can click into the web apps, test API responses, explore custom admin systems, and inspect CI/CD automation directly.
 
 ---
 

@@ -19,11 +19,11 @@ class OrderViewSet(PublicSubmissionMixin, viewsets.ModelViewSet):
     """
     Order management.
 
-    POST   /api/v1/orders/        — create an order from the cart (public)
-    GET    /api/v1/orders/        — list all orders (admin only)
-    GET    /api/v1/orders/{id}/   — order details (admin only)
-    PATCH  /api/v1/orders/{id}/status/ — update the status (admin only)
-    DELETE /api/v1/orders/{id}/   — delete an order (admin only)
+    POST   /api/v1/orders/        - create an order from the cart (public)
+    GET    /api/v1/orders/        - list all orders (admin only)
+    GET    /api/v1/orders/{id}/   - order details (admin only)
+    PATCH  /api/v1/orders/{id}/status/ - update the status (admin only)
+    DELETE /api/v1/orders/{id}/   - delete an order (admin only)
     """
     queryset = Order.objects.prefetch_related("items").all()
     filter_backends = [DjangoFilterBackend, OrderingFilter]

@@ -169,7 +169,7 @@ SIMPLE_JWT = {
 # ─── DRF Spectacular (Swagger) ───────────────────────────────────────────────
 
 SPECTACULAR_SETTINGS = {
-    "TITLE": "Demo Catering — Catering API",
+    "TITLE": "Demo Catering - Catering API",
     "DESCRIPTION": (
         "REST API for the Demo Catering application.\n\n"
         "Provides access to products, categories, orders, menu-planning requests, "

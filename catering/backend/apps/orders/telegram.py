@@ -26,7 +26,7 @@ def clean_phone_number(phone):
 
 def format_russian_date_and_days(event_date):
     if not event_date:
-        return "—"
+        return "-"
         
     if isinstance(event_date, str):
         try:
@@ -120,7 +120,7 @@ def get_telegram_username_by_phone(phone):
 def get_social_links_str(phone):
     clean_phone = clean_phone_number(phone)
     if not clean_phone:
-        return "—"
+        return "-"
         
     social_links = []
     
@@ -150,26 +150,26 @@ def _send_order_notification_bg(order_id):
         if outbound_disabled() or os.getenv("TELEGRAM_ENABLED", "true").lower() == "false":
             return
         
-        name = order.name or "—"
-        phone = order.phone or "—"
-        contact_method = order.contact_method or "—"
-        guests = order.guests or "—"
+        name = order.name or "-"
+        phone = order.phone or "-"
+        contact_method = order.contact_method or "-"
+        guests = order.guests or "-"
         event_date_str = format_russian_date_and_days(order.event_date)
-        cart_link = order.cart_link or "—"
+        cart_link = order.cart_link or "-"
         
         admin_base_url = os.getenv("ADMIN_BASE_URL", "https://catering-portfolio-api.vercel.app").rstrip("/")
         admin_link = f"{admin_base_url}/admin/orders/order/{order.id}/change/"
         
-        total_price = f"{int(order.total_price)} ₽" if order.total_price is not None else "—"
+        total_price = f"{int(order.total_price)} ₽" if order.total_price is not None else "-"
         
         social_links_str = get_social_links_str(phone)
         
         # Format phone and guests with <code> tag for single-tap copy
-        phone_formatted = f"<code>{phone}</code>" if phone != "—" else "—"
-        guests_formatted = f"<code>{guests}</code>" if guests != "—" else "—"
+        phone_formatted = f"<code>{phone}</code>" if phone != "-" else "-"
+        guests_formatted = f"<code>{guests}</code>" if guests != "-" else "-"
         
         # Format links to be on the next line
-        cart_line = f"Cart:\n{cart_link}" if cart_link != "—" else "Cart: —"
+        cart_line = f"Cart:\n{cart_link}" if cart_link != "-" else "Cart: -"
         admin_line = f"Request in admin: <a href=\"{admin_link}\">open</a>"
         
         message = (
@@ -200,25 +200,25 @@ def _send_menu_request_notification_bg(menu_request_id):
         if outbound_disabled() or os.getenv("TELEGRAM_ENABLED", "true").lower() == "false":
             return
         
-        name = menu_request.name or "—"
-        phone = menu_request.phone or "—"
-        contact_method = menu_request.contact_method or "—"
-        guests = menu_request.guests or "—"
+        name = menu_request.name or "-"
+        phone = menu_request.phone or "-"
+        contact_method = menu_request.contact_method or "-"
+        guests = menu_request.guests or "-"
         event_date_str = format_russian_date_and_days(menu_request.date)
-        event_format = menu_request.format or "—"
+        event_format = menu_request.format or "-"
         
         # Food preferences
         food_prefs = menu_request.food_preferences or []
         if food_prefs:
-            food_prefs_lines = [f"— {pref}" for pref in food_prefs]
+            food_prefs_lines = [f"- {pref}" for pref in food_prefs]
             food_prefs_str = "\n" + "\n".join(food_prefs_lines)
         else:
-            food_prefs_str = " —"
+            food_prefs_str = " -"
         
         admin_base_url = os.getenv("ADMIN_BASE_URL", "https://catering-portfolio-api.vercel.app").rstrip("/")
         
         # Additional services (look up by ID)
-        services_str = "—"
+        services_str = "-"
         service_ids = menu_request.additional_services or []
         if service_ids:
             try:
@@ -236,9 +236,9 @@ def _send_menu_request_notification_bg(menu_request_id):
                         for s in services:
                             if s.linked_product:
                                 prod_url = f"{admin_base_url}/admin/catalog/product/{s.linked_product.id}/change/"
-                                service_lines.append(f"— {s.label} (<a href=\"{prod_url}\">linked product</a>)")
+                                service_lines.append(f"- {s.label} (<a href=\"{prod_url}\">linked product</a>)")
                             else:
-                                service_lines.append(f"— {s.label}")
+                                service_lines.append(f"- {s.label}")
                         services_str = "\n" + "\n".join(service_lines)
             except Exception as e:
                 logger.error(f"Error fetching additional services for Telegram notification: {type(e).__name__}")
@@ -248,11 +248,11 @@ def _send_menu_request_notification_bg(menu_request_id):
         social_links_str = get_social_links_str(phone)
         
         # Format phone and guests with <code> tag for single-tap copy
-        phone_formatted = f"<code>{phone}</code>" if phone != "—" else "—"
-        guests_formatted = f"<code>{guests}</code>" if guests != "—" else "—"
+        phone_formatted = f"<code>{phone}</code>" if phone != "-" else "-"
+        guests_formatted = f"<code>{guests}</code>" if guests != "-" else "-"
         
-        budget = menu_request.budget or "—"
-        budget_line = f"Estimated budget: {budget}\n" if budget != "—" else ""
+        budget = menu_request.budget or "-"
+        budget_line = f"Estimated budget: {budget}\n" if budget != "-" else ""
         
         admin_line = f"Request in admin: <a href=\"{admin_link}\">open</a>"
         

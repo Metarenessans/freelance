@@ -135,7 +135,7 @@ def get_updates(offset: int | None, long_poll_timeout: int = 30) -> list:
         status = exc.response.status_code if exc.response is not None else 0
         if status == 429:
             retry_after = int(exc.response.headers.get("Retry-After", 30))
-            log.warning("429 Too Many Requests — waiting %d seconds.", retry_after)
+            log.warning("429 Too Many Requests - waiting %d seconds.", retry_after)
             time.sleep(retry_after)
         else:
             log.warning("HTTP %d during getUpdates: %s", status, type(exc).__name__)
@@ -147,7 +147,7 @@ def get_updates(offset: int | None, long_poll_timeout: int = 30) -> list:
         log.warning("Connection error during getUpdates: %s", type(exc).__name__)
         return []
     except Exception as exc:
-        log.error("getUpdates — unexpected error: %s", type(exc).__name__)
+        log.error("getUpdates - unexpected error: %s", type(exc).__name__)
         return []
 
 
@@ -295,11 +295,11 @@ def handle_status(chat_id):
 def handle_help(chat_id):
     send_message(chat_id, (
         "📖 <b>Command reference:</b>\n\n"
-        "/start — Authorize and subscribe to notifications\n"
-        "/unsubscribe — Unsubscribe from notifications\n"
-        "/status — Check subscription status\n"
-        "/my_id — Show your Telegram Chat ID\n"
-        "/help — Show this help"
+        "/start - Authorize and subscribe to notifications\n"
+        "/unsubscribe - Unsubscribe from notifications\n"
+        "/status - Check subscription status\n"
+        "/my_id - Show your Telegram Chat ID\n"
+        "/help - Show this help"
     ))
 
 

@@ -15,7 +15,7 @@ export default function NotFound() {
       <div className="mb-8 rounded-2xl overflow-hidden shadow-xl border-4 border-gray-800 max-w-sm w-full min-h-[200px] sm:min-h-[200px] flex items-center justify-center bg-gray-800/50">
         <Image
           src="/fat-cat.gif"
-          alt="404 — Page not found — Chef Meal Catering"
+          alt="404 - Page not found - Chef Meal Catering"
           width={500}
           height={200}
           className={`object-cover w-full h-auto transition-all duration-1000 ease-out ${isLoaded ? 'opacity-100' : 'opacity-0'}`}
@@ -25,7 +25,7 @@ export default function NotFound() {
       </div>
 
       <p className="text-base md:text-lg text-gray-300 mb-8 max-w-md">
-        No worries — use the button below to get back:
+        No worries - use the button below to get back:
       </p>
 
       <Link

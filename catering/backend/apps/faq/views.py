@@ -9,8 +9,8 @@ class FaqItemViewSet(viewsets.ModelViewSet):
     """
     CRUD for FAQ questions.
     
-    GET  /api/v1/faq/  — list questions (public)
-    POST /api/v1/faq/  — create a question (admin only)
+    GET  /api/v1/faq/  - list questions (public)
+    POST /api/v1/faq/  - create a question (admin only)
     """
     queryset = FaqItem.objects.filter(is_active=True)
     serializer_class = FaqItemSerializer

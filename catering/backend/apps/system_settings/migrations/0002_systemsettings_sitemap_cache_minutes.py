@@ -13,6 +13,6 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name='systemsettings',
             name='sitemap_cache_minutes',
-            field=models.PositiveIntegerField(default=0, help_text='0 — generate on demand (force-dynamic). A value > 0 (e.g. 30 or 60) caches the sitemap for the specified number of minutes.', verbose_name='Sitemap cache duration (minutes)'),
+            field=models.PositiveIntegerField(default=0, help_text='0 - generate on demand (force-dynamic). A value > 0 (e.g. 30 or 60) caches the sitemap for the specified number of minutes.', verbose_name='Sitemap cache duration (minutes)'),
         ),
     ]

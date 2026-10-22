@@ -22,7 +22,7 @@ See `frontend/README.md`, `backend/README.md` and `telegram-bot/README.md` for c
 
 - [Open the website](https://catering-portfolio-six.vercel.app)
 - [Browse the product API](https://catering-portfolio-api.vercel.app/api/v1/catalog/products/)
-- [Repository](https://github.com/Metarenessans/catering-portfolio) — private source; the demonstration website is public.
+- [Repository](https://github.com/Metarenessans/catering-portfolio) - private source; the demonstration website is public.
 
 Both applications deploy from this GitHub repository through Vercel, using the `frontend` and `backend` project roots. Pushes to `main` trigger production deployment. The isolated Neon PostgreSQL database contains the curated English product catalog and portfolio-only submissions, never original customers or orders.
 
