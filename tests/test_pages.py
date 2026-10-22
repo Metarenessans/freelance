@@ -14,8 +14,10 @@ class PagesTests(unittest.TestCase):
 
     def test_avatar_and_animations_present(self):
         self.assertTrue((ROOT / 'avatar.png').is_file(), 'avatar.png must exist in root')
+        self.assertTrue((ROOT / 'avatar.webp').is_file(), 'avatar.webp must exist in root')
         text = (ROOT / 'index.html').read_text(encoding='utf-8') if (ROOT / 'index.html').exists() else ''
         self.assertIn('avatar.png', text)
+        self.assertIn('avatar.webp', text)
         self.assertIn('Oleg G.', text)
         self.assertIn('reveal-on-scroll', text)
         self.assertIn('cicd-section', text)
