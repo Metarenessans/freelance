@@ -67,6 +67,7 @@ body {
   -webkit-font-smoothing: antialiased;
   transition: background-color 0.2s ease, color 0.2s ease;
   overflow-x: clip;
+  padding-top: 64px;
 }
 
 a {
@@ -186,13 +187,17 @@ a {
     transform: translateY(0);
   }
 }
-nav {
-  position: sticky;
+header.site-header,
+header,
+.site-header {
+  position: fixed;
   top: 0;
+  left: 0;
+  width: 100%;
   z-index: 100;
   background: var(--nav-bg);
-  backdrop-filter: blur(14px);
-  -webkit-backdrop-filter: blur(14px);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
   border-bottom: 1px solid var(--border);
   transition: background-color 0.2s ease, border-color 0.2s ease;
 }
@@ -1714,6 +1719,9 @@ footer {
   }
 }
 @media (max-width: 480px) {
+  body {
+    padding-top: 56px;
+  }
   .container {
     padding: 0 16px;
   }
