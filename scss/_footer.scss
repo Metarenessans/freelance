@@ -1,0 +1,31 @@
+// Footer & Attribution
+
+footer {
+  border-top: 1px solid var(--border);
+  padding: 32px 0 48px;
+  font-size: 13px;
+  color: var(--text-muted);
+}
+
+.footer {
+  &-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+  }
+
+  &-links {
+    display: flex;
+    gap: 20px;
+
+    a {
+      color: var(--text-muted);
+      transition: color 0.15s ease;
+
+      &:hover {
+        color: var(--text);
+      }
+    }
+  }
+}

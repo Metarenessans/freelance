@@ -1,0 +1,74 @@
+// Client Deliveries & Showcases
+
+.client {
+  &-section {
+    padding: 10px 0 44px;
+  }
+
+  &-works-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+
+  &-project {
+    &-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: all 0.2s ease;
+      box-shadow: var(--card-shadow);
+
+      &:hover {
+        border-color: var(--border-hover);
+      }
+
+      h3 {
+        font-size: 18px;
+        font-weight: 700;
+        color: var(--text);
+        margin-bottom: 6px;
+      }
+
+      p {
+        font-size: 13.5px;
+        color: var(--text-muted);
+        line-height: 1.55;
+        margin-bottom: 20px;
+      }
+    }
+
+    &-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 10px;
+    }
+  }
+
+  &-label {
+    font-family: "JetBrains Mono", monospace;
+    font-size: 11px;
+    color: var(--text-subtle);
+  }
+
+  &-link {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--text);
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    transition: all 0.15s ease;
+    align-self: flex-start;
+
+    &:hover {
+      color: var(--text-muted);
+      transform: translateX(2px);
+    }
+  }
+}

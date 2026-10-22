@@ -1,0 +1,190 @@
+// CI/CD Automation & DevOps Infrastructure
+
+.cicd {
+  &-section {
+    padding: 16px 0 54px;
+  }
+
+  &-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 28px;
+    box-shadow: var(--card-shadow);
+  }
+
+  &-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 14px;
+    margin-bottom: 24px;
+  }
+
+  &-stage {
+    &-card {
+      background: var(--surface-elevated);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 18px 16px;
+      transition: all 0.2s ease;
+      display: flex;
+      flex-direction: column;
+
+      &:hover {
+        border-color: var(--border-hover);
+        transform: translateY(-2px);
+      }
+    }
+
+    &-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 12px;
+    }
+
+    &-step {
+      font-family: "JetBrains Mono", monospace;
+      font-size: 10px;
+      font-weight: 700;
+      color: var(--text-subtle);
+      letter-spacing: 0.08em;
+    }
+
+    &-name {
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 6px;
+    }
+
+    &-desc {
+      font-size: 12px;
+      color: var(--text-muted);
+      line-height: 1.45;
+      margin-bottom: 14px;
+      flex-grow: 1;
+    }
+
+    &-meta {
+      font-family: "JetBrains Mono", monospace;
+      font-size: 11px;
+      color: var(--text-subtle);
+      padding-top: 10px;
+      border-top: 1px solid var(--border);
+
+      code {
+        color: var(--accent);
+        background: transparent;
+        padding: 0;
+      }
+    }
+  }
+
+  &-status-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    font-family: "JetBrains Mono", monospace;
+    font-size: 10px;
+    font-weight: 700;
+    color: var(--accent);
+    background: rgba(34, 197, 94, 0.1);
+    border: 1px solid rgba(34, 197, 94, 0.25);
+    padding: 2px 7px;
+    border-radius: 12px;
+    letter-spacing: 0.04em;
+  }
+
+  &-terminal {
+    background: #09090b;
+    border: 1px solid #27272a;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 8px 24px -4px rgba(0, 0, 0, 0.6);
+
+    &-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 10px 16px;
+      background: #141416;
+      border-bottom: 1px solid #27272a;
+      gap: 12px;
+    }
+
+    &-controls {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    &-title {
+      font-family: "JetBrains Mono", monospace;
+      font-size: 11.5px;
+      color: #a1a1aa;
+      text-align: center;
+      flex: 1;
+    }
+
+    &-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-family: "JetBrains Mono", monospace;
+      font-size: 11px;
+      color: #4ade80;
+      background: rgba(34, 197, 94, 0.12);
+      border: 1px solid rgba(34, 197, 94, 0.3);
+      padding: 2px 8px;
+      border-radius: 4px;
+    }
+
+    &-body {
+      padding: 16px 20px;
+      font-family: "JetBrains Mono", monospace;
+      font-size: 12px;
+      line-height: 1.6;
+      color: #d4d4d8;
+      overflow-x: auto;
+      margin: 0;
+
+      code {
+        color: inherit;
+        background: transparent;
+        padding: 0;
+        font-family: inherit;
+      }
+    }
+  }
+}
+
+.terminal {
+  &-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    display: inline-block;
+
+    &-red { background: #ef4444; }
+    &-yellow { background: #eab308; }
+    &-green { background: #22c55e; }
+  }
+
+  &-status-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: #22c55e;
+    animation: pulseLive 2s infinite ease-in-out;
+  }
+}
+
+.t {
+  &-dim { color: #71717a; }
+  &-prompt { color: #60a5fa; font-weight: 700; }
+  &-cmd { color: #f4f4f5; font-weight: 600; }
+  &-head { color: #fbbf24; font-weight: 700; display: block; margin: 8px 0 4px; }
+  &-ok { color: #4ade80; font-weight: 600; }
+  &-link { color: #93c5fd; text-decoration: underline; text-underline-offset: 3px; }
+}

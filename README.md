@@ -165,8 +165,15 @@ You can verify the entire workflow right now:
 │   ├── src/                 # Original source HTML, JS, styles
 │   └── public/              # Shipped demo bundle
 ├── dna/                     # DNA personalized jewelry e-commerce showcase
+├── scss/                    # Modular SCSS architecture with parent ampersands (&)
+│   ├── main.scss            # Stylesheet entry point (@use partials)
+│   ├── _variables.scss      # Theme variables & design tokens
+│   ├── _responsive.scss     # Viewport breakpoints & mobile optimizations
+│   └── ...                  # Component partials (hero, console, api, cicd, etc.)
+├── css/                     # Compiled CSS assets (style.css, style.min.css)
 ├── tests/                   # Automated regression & catalog tests
 ├── index.html               # Redesigned interactive portfolio hub
+├── package.json             # SCSS compilation scripts & developer tooling
 └── README.md                # Client-facing documentation & project specifications
 ```
 
@@ -184,6 +191,16 @@ python -m http.server 8000
 # Gallery: http://localhost:8000/
 # BetBoom: http://localhost:8000/bet-boom/public/
 # DNA:     http://localhost:8000/dna/
+```
+
+### SCSS Compilation
+
+```sh
+# Compile modular SCSS to css/style.css and css/style.min.css
+npm run build:css
+
+# Watch for SCSS changes during development
+npm run watch:css
 ```
 
 ### Running Automated Test Suites
