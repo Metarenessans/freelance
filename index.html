@@ -1051,8 +1051,18 @@
     }
 
     /* =========================================================
-       CI/CD AUTOMATION SUITE (GitHub Actions)
+       CI/CD AUTOMATION & DEVOPS INFRASTRUCTURE
        ========================================================= */
+    .cicd-section {
+      padding: 16px 0 54px;
+    }
+    .cicd-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 28px;
+      box-shadow: var(--card-shadow);
+    }
     .cicd-suite-intro {
       display: flex;
       justify-content: space-between;
@@ -1076,13 +1086,13 @@
       border-radius: 4px;
     }
 
-    .cicd-flow-grid {
+    .cicd-grid, .cicd-flow-grid {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
       gap: 12px;
       margin-bottom: 20px;
     }
-    .cicd-box {
+    .cicd-stage-card, .cicd-box {
       background: var(--surface-elevated);
       border: 1px solid var(--border);
       border-radius: 8px;
@@ -1092,46 +1102,71 @@
       justify-content: space-between;
       transition: all 0.2s ease;
     }
-    .cicd-box:hover {
+    .cicd-stage-card:hover, .cicd-box:hover {
       border-color: var(--border-hover);
       transform: translateY(-2px);
     }
-    .cicd-step {
+    .cicd-stage-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+      margin-bottom: 8px;
+    }
+    .cicd-stage-step, .cicd-step {
       font-family: "JetBrains Mono", monospace;
       font-size: 10.5px;
       font-weight: 700;
       color: var(--text-subtle);
-      margin-bottom: 6px;
+      margin-bottom: 0;
     }
-    .cicd-title {
+    .cicd-status-pill, .cicd-badge-status {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      font-family: "JetBrains Mono", monospace;
+      font-size: 10.5px;
+      font-weight: 600;
+      color: #16a34a;
+      background: rgba(22, 163, 74, 0.1);
+      border: 1px solid rgba(22, 163, 74, 0.25);
+      border-radius: 4px;
+      padding: 2px 7px;
+      width: fit-content;
+    }
+    .cicd-status-pill .status-dot {
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background: #16a34a;
+    }
+    .cicd-stage-name, .cicd-title {
       font-size: 13.5px;
       font-weight: 700;
       color: var(--text);
       margin-bottom: 6px;
     }
-    .cicd-desc {
+    .cicd-stage-desc, .cicd-desc {
       font-size: 12px;
       color: var(--text-muted);
       line-height: 1.45;
       margin-bottom: 12px;
       flex-grow: 1;
     }
-    .cicd-badge-status {
-      display: inline-flex;
-      align-items: center;
-      gap: 5px;
+    .cicd-stage-meta {
+      font-size: 11px;
+    }
+    .cicd-stage-meta code {
       font-family: "JetBrains Mono", monospace;
       font-size: 11px;
-      font-weight: 600;
-      color: #16a34a;
-      background: rgba(22, 163, 74, 0.1);
-      border: 1px solid rgba(22, 163, 74, 0.25);
+      color: var(--text-subtle);
+      background: var(--bg-subtle);
+      border: 1px solid var(--border);
       border-radius: 4px;
-      padding: 3px 8px;
-      width: fit-content;
+      padding: 2px 6px;
     }
 
-    .cicd-terminal-wrap {
+    .cicd-terminal, .cicd-terminal-wrap {
       background: var(--code-bg);
       border: 1px solid var(--border);
       border-radius: 8px;
@@ -1146,28 +1181,41 @@
       justify-content: space-between;
       gap: 10px;
     }
-    .cicd-term-dots {
+    .cicd-terminal-controls, .cicd-term-dots {
       display: flex;
+      align-items: center;
       gap: 6px;
     }
-    .term-dot {
+    .terminal-dot, .term-dot {
       width: 10px;
       height: 10px;
       border-radius: 50%;
+      display: inline-block;
     }
-    .dot-red { background: #ef4444; }
-    .dot-yellow { background: #f59e0b; }
-    .dot-green { background: #10b981; }
-    .cicd-term-title {
+    .terminal-dot-red, .dot-red { background: #ef4444; }
+    .terminal-dot-yellow, .dot-yellow { background: #f59e0b; }
+    .terminal-dot-green, .dot-green { background: #10b981; }
+    .cicd-terminal-title, .cicd-term-title {
       font-family: "JetBrains Mono", monospace;
       font-size: 11px;
       color: var(--text-subtle);
+      flex: 1;
+      text-align: center;
     }
-    .cicd-term-status {
+    .cicd-terminal-badge, .cicd-term-status {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
       font-family: "JetBrains Mono", monospace;
       font-size: 10.5px;
       font-weight: 700;
       color: #10b981;
+    }
+    .terminal-status-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: #10b981;
     }
     .cicd-terminal-body {
       padding: 16px;
@@ -1181,7 +1229,11 @@
     }
     .t-dim { color: #71717a; }
     .t-prompt { color: #38bdf8; font-weight: 700; }
+    .t-cmd { color: #facc15; font-weight: 600; }
+    .t-head { color: #a78bfa; font-weight: 700; display: block; margin: 4px 0 2px; }
     .t-ok { color: #4ade80; font-weight: 600; }
+    .t-link { color: #38bdf8; text-decoration: underline; text-underline-offset: 3px; }
+    .t-link:hover { color: #7dd3fc; }
 
     /* Trust strip clickable link & pill */
     .trust-item-link {
@@ -1402,7 +1454,7 @@
       .hero-portrait-card { max-width: 320px; margin: 0 auto; }
       .project-card { padding: 22px; }
       .arch-flow-grid { grid-template-columns: 1fr 1fr; }
-      .cicd-flow-grid { grid-template-columns: 1fr 1fr; }
+      .cicd-grid, .cicd-flow-grid { grid-template-columns: 1fr 1fr; }
       .tg-layout { grid-template-columns: 1fr; }
       .admin-cards-grid { grid-template-columns: 1fr; }
       .client-works-grid { grid-template-columns: 1fr; }
@@ -1413,7 +1465,7 @@
       .trust-strip { grid-template-columns: 1fr; }
       .skills-grid { grid-template-columns: 1fr; }
       .arch-flow-grid { grid-template-columns: 1fr; }
-      .cicd-flow-grid { grid-template-columns: 1fr; }
+      .cicd-grid, .cicd-flow-grid { grid-template-columns: 1fr; }
     }
   </style>
 </head>
@@ -1608,7 +1660,6 @@
             <button class="c-tab" data-pane="api">Swagger & API Explorer</button>
             <button class="c-tab" data-pane="tg">Telegram Dispatcher</button>
             <button class="c-tab" data-pane="admin">Django Admin Features</button>
-            <button class="c-tab" data-pane="cicd">CI/CD Pipeline</button>
           </div>
 
           <!-- Pane 1: Architecture -->
@@ -1816,88 +1867,90 @@
               </div>
             </div>
           </div>
+        </div>
+      </article>
+    </section>
 
-          <!-- Pane 5: Automated CI/CD Pipeline & Quality Gate -->
-          <div class="c-pane" id="pane-cicd">
-            <div class="cicd-header">
-              <div class="cicd-header-info">
-                <div class="cicd-header-title-row">
-                  <h4>Automated CI/CD & Quality Gate</h4>
-                  <a class="trust-ci-badge" href="https://github.com/Metarenessans/freelance/actions" target="_blank" rel="noopener noreferrer" title="Live GitHub Actions Workflow Status">
-                    <img src="https://github.com/Metarenessans/freelance/actions/workflows/pages.yml/badge.svg?branch=main" alt="GitHub Actions Workflow Status" />
-                  </a>
-                </div>
-                <span class="cicd-header-desc">Continuous integration running automated Python unittest discovery, translation regression checks, asset bundling, and atomic zero-downtime deployment.</span>
-              </div>
-              <div class="cicd-header-actions">
-                <a class="btn-test btn-test-app" href="https://github.com/Metarenessans/freelance/actions" target="_blank" rel="noopener noreferrer">
-                  View GitHub Actions ↗
-                </a>
-              </div>
+    <!-- Automation & DevOps Infrastructure Section -->
+    <section class="cicd-section reveal-on-scroll" id="automation">
+      <div class="section-header">
+        <div>
+          <div class="section-eyebrow" style="font-size:12px;font-family:'JetBrains Mono',monospace;color:var(--text-subtle);margin-bottom:6px;">AUTOMATION & DEVOPS INFRASTRUCTURE</div>
+          <div style="display:flex;align-items:center;gap:12px;flex-wrap:wrap;">
+            <h2 class="section-title">Automated CI/CD & Quality Gates</h2>
+            <a class="trust-ci-badge" href="https://github.com/Metarenessans/freelance/actions" target="_blank" rel="noopener noreferrer">
+              <img src="https://github.com/Metarenessans/freelance/actions/workflows/pages.yml/badge.svg?branch=main" alt="GitHub Actions Workflow Status" />
+            </a>
+          </div>
+          <p class="section-desc">Production test discovery, secret scanning, and zero-downtime deployment executed on every push via GitHub Actions.</p>
+        </div>
+        <a class="btn-test btn-test-app" href="https://github.com/Metarenessans/freelance/actions" target="_blank" rel="noopener noreferrer">
+          Inspect Live Actions Runs ↗
+        </a>
+      </div>
+      <div class="cicd-card" style="background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:28px;box-shadow:var(--card-shadow);">
+        <!-- 4 Pipeline Stages Grid -->
+        <div class="cicd-grid reveal-stagger-group">
+          <!-- Stage 01: Unit Tests -->
+          <div class="cicd-stage-card">
+            <div class="cicd-stage-top">
+              <span class="cicd-stage-step">STAGE 01</span>
+              <span class="cicd-status-pill"><span class="status-dot"></span>PASSED</span>
             </div>
+            <div class="cicd-stage-name">Unit Tests</div>
+            <div class="cicd-stage-desc">Automated test discovery validating catalog integrity, animation attributes, and multi-domain endpoints.</div>
+            <div class="cicd-stage-meta"><code>python -m unittest</code></div>
+          </div>
 
-            <!-- 4 Pipeline Stages Grid -->
-            <div class="cicd-grid reveal-stagger-group">
-              <!-- Stage 01: Unit Tests -->
-              <div class="cicd-stage-card">
-                <div class="cicd-stage-top">
-                  <span class="cicd-stage-step">STAGE 01</span>
-                  <span class="cicd-status-pill"><span class="status-dot"></span>PASSED</span>
-                </div>
-                <div class="cicd-stage-name">Unit Tests</div>
-                <div class="cicd-stage-desc">Automated test discovery validating catalog integrity, animation attributes, and multi-domain endpoints.</div>
-                <div class="cicd-stage-meta"><code>python -m unittest</code></div>
-              </div>
-
-              <!-- Stage 02: Security Gate -->
-              <div class="cicd-stage-card">
-                <div class="cicd-stage-top">
-                  <span class="cicd-stage-step">STAGE 02</span>
-                  <span class="cicd-status-pill"><span class="status-dot"></span>VERIFIED</span>
-                </div>
-                <div class="cicd-stage-name">Security Gate</div>
-                <div class="cicd-stage-desc">Strict translation integrity check, Cyrillic character prevention, and isolated demo build boundaries.</div>
-                <div class="cicd-stage-meta"><code>test_no_cyrillic</code></div>
-              </div>
-
-              <!-- Stage 03: Asset Compilation -->
-              <div class="cicd-stage-card">
-                <div class="cicd-stage-top">
-                  <span class="cicd-stage-step">STAGE 03</span>
-                  <span class="cicd-status-pill"><span class="status-dot"></span>OPTIMIZED</span>
-                </div>
-                <div class="cicd-stage-name">Asset Compilation</div>
-                <div class="cicd-stage-desc">Static tree assembly, Sass/test exclusion, Jekyll bypass (.nojekyll), and bundle packaging.</div>
-                <div class="cicd-stage-meta"><code>upload-artifact@v3</code></div>
-              </div>
-
-              <!-- Stage 04: Automated Deploy -->
-              <div class="cicd-stage-card">
-                <div class="cicd-stage-top">
-                  <span class="cicd-stage-step">STAGE 04</span>
-                  <span class="cicd-status-pill"><span class="status-dot"></span>ACTIVE</span>
-                </div>
-                <div class="cicd-stage-name">Automated Deploy</div>
-                <div class="cicd-stage-desc">Atomic GitHub Pages release step verifying deployment URL health and environment states.</div>
-                <div class="cicd-stage-meta"><code>deploy-pages@v4</code></div>
-              </div>
+          <!-- Stage 02: Security Gate -->
+          <div class="cicd-stage-card">
+            <div class="cicd-stage-top">
+              <span class="cicd-stage-step">STAGE 02</span>
+              <span class="cicd-status-pill"><span class="status-dot"></span>VERIFIED</span>
             </div>
+            <div class="cicd-stage-name">Security Gate</div>
+            <div class="cicd-stage-desc">Strict translation integrity check, Cyrillic character prevention, and isolated demo build boundaries.</div>
+            <div class="cicd-stage-meta"><code>test_no_cyrillic</code></div>
+          </div>
 
-            <!-- Dark Terminal Window with Authentic Workflow Logs -->
-            <div class="cicd-terminal">
-              <div class="cicd-terminal-header">
-                <div class="cicd-terminal-controls">
-                  <span class="terminal-dot terminal-dot-red"></span>
-                  <span class="terminal-dot terminal-dot-yellow"></span>
-                  <span class="terminal-dot terminal-dot-green"></span>
-                </div>
-                <div class="cicd-terminal-title">runner@github-actions: ~/work/freelance (pages.yml)</div>
-                <div class="cicd-terminal-badge">
-                  <span class="terminal-status-dot"></span>
-                  <span>11/11 Passed • 17s</span>
-                </div>
-              </div>
-              <pre class="cicd-terminal-body"><code><span class="t-dim">Run actions/checkout@v4</span>
+          <!-- Stage 03: Asset Compilation -->
+          <div class="cicd-stage-card">
+            <div class="cicd-stage-top">
+              <span class="cicd-stage-step">STAGE 03</span>
+              <span class="cicd-status-pill"><span class="status-dot"></span>OPTIMIZED</span>
+            </div>
+            <div class="cicd-stage-name">Asset Compilation</div>
+            <div class="cicd-stage-desc">Static tree assembly, Sass/test exclusion, Jekyll bypass (.nojekyll), and bundle packaging.</div>
+            <div class="cicd-stage-meta"><code>upload-artifact@v3</code></div>
+          </div>
+
+          <!-- Stage 04: Automated Deploy -->
+          <div class="cicd-stage-card">
+            <div class="cicd-stage-top">
+              <span class="cicd-stage-step">STAGE 04</span>
+              <span class="cicd-status-pill"><span class="status-dot"></span>ACTIVE</span>
+            </div>
+            <div class="cicd-stage-name">Automated Deploy</div>
+            <div class="cicd-stage-desc">Atomic GitHub Pages release step verifying deployment URL health and environment states.</div>
+            <div class="cicd-stage-meta"><code>deploy-pages@v4</code></div>
+          </div>
+        </div>
+
+        <!-- Dark Terminal Window with Authentic Workflow Logs -->
+        <div class="cicd-terminal">
+          <div class="cicd-terminal-header">
+            <div class="cicd-terminal-controls">
+              <span class="terminal-dot terminal-dot-red"></span>
+              <span class="terminal-dot terminal-dot-yellow"></span>
+              <span class="terminal-dot terminal-dot-green"></span>
+            </div>
+            <div class="cicd-terminal-title">runner@github-actions: ~/work/freelance (pages.yml)</div>
+            <div class="cicd-terminal-badge">
+              <span class="terminal-status-dot"></span>
+              <span>11/11 Passed • 17s</span>
+            </div>
+          </div>
+          <pre class="cicd-terminal-body"><code><span class="t-dim">Run actions/checkout@v4</span>
 <span class="t-dim">Syncing repository to /home/runner/work/freelance/freelance (commit: </span><span class="t-cmd">main</span><span class="t-dim">)</span>
 
 <span class="t-head">▶ Step 1: Validate catalog and translations</span>
@@ -1932,10 +1985,8 @@ test_translated_radio_values_match_image_covers ... <span class="t-ok">ok</span>
 <span class="t-dim">Uploading artifact to GitHub Pages backend...</span>
 <span class="t-dim">Triggering deployment id: pages-run-main-latest</span>
 <span class="t-ok">✓ Deployment successful:</span> <a href="https://metarenessans.github.io/freelance/" target="_blank" rel="noopener noreferrer" class="t-link">https://metarenessans.github.io/freelance/</a> <span class="t-dim">(HTTP 200 OK)</span></code></pre>
-            </div>
-          </div>
         </div>
-      </article>
+      </div>
     </section>
 
     <!-- Client Deliveries Section -->

@@ -18,7 +18,7 @@ class PagesTests(unittest.TestCase):
         self.assertIn('avatar.png', text)
         self.assertIn('Oleg G.', text)
         self.assertIn('reveal-on-scroll', text)
-        self.assertIn('pane-cicd', text)
+        self.assertIn('cicd-section', text)
         self.assertIn('badge.svg', text)
 
 
