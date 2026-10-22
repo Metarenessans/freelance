@@ -55,6 +55,7 @@
 
 html {
   scroll-behavior: smooth;
+  overflow-x: hidden;
 }
 
 body {
@@ -66,6 +67,8 @@ body {
   -webkit-font-smoothing: antialiased;
   transition: background-color 0.2s ease, color 0.2s ease;
   overflow-x: hidden;
+  position: relative;
+  width: 100%;
 }
 
 a {
@@ -177,6 +180,14 @@ a {
   transform: translateY(0);
 }
 
+@media (max-width: 640px) {
+  .reveal-slide-left, .reveal-slide-right {
+    transform: translateY(20px);
+  }
+  .reveal-slide-left.is-revealed, .reveal-slide-right.is-revealed {
+    transform: translateY(0);
+  }
+}
 nav {
   position: sticky;
   top: 0;

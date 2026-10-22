@@ -1,0 +1,56 @@
+# Maestro Mobile UI Flow Specification
+# Target: Oleg G. — Full-Stack Engineering Portfolio
+# Framework: Maestro (mobile.dev)
+# Platform: Mobile Browser (Android Chrome / iOS Safari)
+
+appId: com.android.chrome
+---
+- openLink: https://metarenessans.github.io/freelance/
+- assertVisible: "Oleg G."
+- assertVisible: "Full-Stack Engineer"
+
+# 1. Hero and Navigation
+- assertVisible: "High-performance web applications, resilient APIs, and automated cloud systems."
+- tapOn: "Explore Case Study ↓"
+
+# 2. Flagship Case Study Verification
+- assertVisible: "Catering & Event Commerce Platform"
+- assertVisible: "Live Sandbox:"
+
+# 3. Interactive Console Workspace - Tab 2 (API Explorer)
+- tapOn: "Swagger & API Explorer"
+- assertVisible: "Interactive OpenAPI 3.0"
+- tapOn: "POST /orders/"
+- assertVisible: "HTTP/2 201 Created"
+
+# 4. Interactive Console Workspace - Tab 3 (Telegram Dispatcher & Live Simulation)
+- tapOn: "Telegram Dispatcher"
+- assertVisible: "TELEGRAM DISPATCH BOT"
+- tapOn: "⚡ Simulate Live Order Dispatch"
+- assertVisible: "✓ Notification Dispatched!"
+
+# 5. Interactive Console Workspace - Tab 4 (Django Admin Features)
+- tapOn: "Django Admin Features"
+- assertVisible: "1-Click Telegram Action"
+- assertVisible: "Dish Image Previews"
+
+# 6. CI/CD Infrastructure Section
+- scroll
+- assertVisible: "Automated CI/CD & Quality Gates"
+- assertVisible: "STAGE 01"
+- assertVisible: "STAGE 02"
+- assertVisible: "STAGE 03"
+- assertVisible: "STAGE 04"
+- assertVisible: "17/17 Passed"
+
+# 7. Commercial Showcases & Client Deliveries
+- scroll
+- assertVisible: "Client Deliveries"
+- assertVisible: "BetBoom Campaign Landing"
+- assertVisible: "DNA Personalized Jewelry"
+
+# 8. Core Capabilities & Upwork Direct CTA
+- scroll
+- assertVisible: "Full-Stack Core Capabilities"
+- assertVisible: "Ready to build your next web application?"
+- assertVisible: "Hire Me on Upwork ↗"
