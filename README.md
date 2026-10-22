@@ -29,7 +29,7 @@ Every project in this portfolio is **live, functional, and verifiable hands-on**
 
 | Project | Category | Live Interactive Links | Key Tech Stack | Hands-on Verification |
 | :--- | :--- | :--- | :--- | :--- |
-| **Catering & Event Commerce Platform** | **Full-Stack Flagship** | 🌐 [Web App Demo](https://catering-portfolio-six.vercel.app)<br/>⚡ [Live REST API](https://catering-portfolio-api.vercel.app/api/v1/catalog/products/)<br/>⚙️ [Django Admin](https://catering-portfolio-api.vercel.app/admin/) | Next.js 14, Django REST Framework, PostgreSQL (Neon), Telegram Bot, Docker, GitHub Actions | Place cart orders, verify atomic validation, query live API endpoints, test admin triggers. |
+| **Catering & Event Commerce Platform** | **Full-Stack Flagship** | 🌐 [Web App Demo](https://catering-portfolio-six.vercel.app)<br/>⚡ [Interactive Swagger API](https://catering-portfolio-api.vercel.app/api/docs/)<br/>⚙️ [Django Admin](https://catering-portfolio-api.vercel.app/admin/) | Next.js SSR, Django REST Framework, PostgreSQL, Telegram Bot, Docker, GitHub Actions | Place cart orders, explore live Swagger UI, query live API endpoints, test admin triggers. |
 | **BetBoom Campaign Landing** | **Frontend / Interactive** | 🚀 [Live Demo](https://metarenessans.github.io/freelance/bet-boom/)<br/>📁 [Source Code](bet-boom/) | Vanilla JS (ES6+), CSS3 Keyframe Animations, BEM, GitHub Pages CI | Test interactive gamified tiers, responsive layouts, and cross-browser animations. |
 | **DNA Personalized Jewelry** | **Frontend / E-Commerce** | 🚀 [Live Demo](https://metarenessans.github.io/freelance/dna/)<br/>📁 [Source Code](dna/) | Mobile-First Sass / SCSS, Semantic HTML5, GitHub Pages CI | Verify mobile-first responsiveness, product variant selectors, and typography. |
 
@@ -56,7 +56,7 @@ flowchart LR
         NotifyEngine["Notification Engine\n(Async Dispatcher)"]
     end
 
-    subgraph Storage["Cloud Data (Neon)"]
+    subgraph Storage["Database Layer"]
         DB[("PostgreSQL 17\n(Connection Pooling)")]
     end
 
@@ -121,7 +121,7 @@ Rather than relying on generic auto-generated tables, the administrative dashboa
 
 * **GitHub Actions Workflows:** Automated linting, code translation verification, and unit test discovery on every push.
 * **Dual Vercel Deployments:** Independent build pipelines for Next.js SSR frontend and Django serverless WSGI API.
-* **Database Isolation:** Connected to serverless Neon PostgreSQL with SSL encryption and pooling, keeping portfolio submissions separated from production data.
+* **Database Isolation:** Connected to persistent PostgreSQL with SSL encryption and pooling, keeping portfolio submissions separated from production data.
 * **Docker Compose:** Multi-service local environment replicating production configuration in one command.
 
 ---
@@ -131,7 +131,7 @@ Rather than relying on generic auto-generated tables, the administrative dashboa
 You can verify the entire workflow right now:
 
 1. **Step 1 (Frontend):** Visit the [Catering Live Web App](https://catering-portfolio-six.vercel.app). Browse the menu, add canapés to your cart, and submit a test order with fictional contact info.
-2. **Step 2 (Database & API):** Query the live public REST API at [API Products](https://catering-portfolio-api.vercel.app/api/v1/catalog/products/) to view live JSON schemas and fast response times.
+2. **Step 2 (Swagger & API):** Explore the live [Interactive Swagger UI](https://catering-portfolio-api.vercel.app/api/docs/) covering all 32 endpoints, or test raw endpoints like [API Products](https://catering-portfolio-api.vercel.app/api/v1/catalog/products/).
 3. **Step 3 (Admin Panel):** Inspect the [Django Admin Interface](https://catering-portfolio-api.vercel.app/admin/) to review how staff manage orders and notification triggers.
 4. **Step 4 (Client Landings):** Check out the [BetBoom Promo Demo](https://metarenessans.github.io/freelance/bet-boom/) and [DNA Jewelry Demo](https://metarenessans.github.io/freelance/dna/) to test animation performance and mobile adaptability.
 
@@ -141,10 +141,10 @@ You can verify the entire workflow right now:
 
 | Domain | Core Technologies & Methodologies |
 | :--- | :--- |
-| **Frontend** | **Next.js 14/15, React, TypeScript, Modern JavaScript (ES6+), Tailwind CSS, Sass/SCSS, SSR/SSG, Responsive & Accessible UI** |
+| **Frontend** | **Next.js SSR, React, TypeScript, Modern JavaScript (ES6+), Tailwind CSS, Sass/SCSS, Responsive & Accessible UI** |
 | **Backend** | **Python 3.11+, Django, Django REST Framework (DRF), PostgreSQL, Redis, RESTful API Design, Atomic Transactions** |
 | **Integrations** | **Telegram Bot API, Telethon, Async Webhooks, SMTP Email Notifications, Third-party REST Integrations** |
-| **DevOps & CI/CD** | **GitHub Actions, GitLab CI, Docker, Docker Compose, Vercel, Neon DB, Linux/Nginx, Automated Testing** |
+| **DevOps & CI/CD** | **GitHub Actions, GitLab CI, Docker, Docker Compose, Vercel, PostgreSQL, Linux/Nginx, Automated Testing** |
 | **Code Quality** | **Sanitized Secrets, Comprehensive Unittest Suites, Clean Architecture, Clear Technical Documentation** |
 
 ---

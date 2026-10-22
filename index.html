@@ -1036,7 +1036,7 @@
           <div class="trust-icon">⚡</div>
           <div>
             <div class="trust-label">Full-Stack Architecture</div>
-            <div class="trust-sub">Next.js 14, Django REST & Neon</div>
+            <div class="trust-sub">Next.js SSR, Django REST & PostgreSQL</div>
           </div>
         </div>
         <div class="trust-item">
@@ -1078,9 +1078,9 @@
             <h3>Catering & Event Commerce Platform</h3>
           </div>
           <div class="pills-group">
-            <span class="pill active">Next.js 14</span>
+            <span class="pill active">Next.js SSR</span>
             <span class="pill active">Django REST</span>
-            <span class="pill active">PostgreSQL (Neon)</span>
+            <span class="pill active">PostgreSQL</span>
             <span class="pill">Telegram Bot</span>
             <span class="pill">Docker</span>
             <span class="pill">GitHub Actions CI</span>
@@ -1090,7 +1090,7 @@
         <p class="project-summary">
           An event catering commerce platform engineered with transactional cart checkout, authoritative 
           server-side pricing validation, and operational lead routing. Features an isolated public demonstration 
-          sandbox where clients can place test orders, query live REST API endpoints, and observe automated Telegram alerts.
+          sandbox where clients can place test orders, query live Swagger API documentation, and observe automated Telegram alerts.
         </p>
 
         <!-- Live Sandbox Quick Links -->
@@ -1099,8 +1099,8 @@
           <a class="btn-test btn-test-app" href="https://catering-portfolio-six.vercel.app" target="_blank" rel="noopener noreferrer">
             Launch Web App ↗
           </a>
-          <a class="btn-test btn-test-neutral" href="https://catering-portfolio-api.vercel.app/api/v1/catalog/products/" target="_blank" rel="noopener noreferrer">
-            Browse REST API ↗
+          <a class="btn-test btn-test-neutral" href="https://catering-portfolio-api.vercel.app/api/docs/" target="_blank" rel="noopener noreferrer">
+            Interactive Swagger API ↗
           </a>
           <a class="btn-test btn-test-neutral" href="https://catering-portfolio-api.vercel.app/admin/" target="_blank" rel="noopener noreferrer">
             Django Admin Panel ↗
@@ -1111,7 +1111,7 @@
         <div class="workspace-console">
           <div class="console-nav">
             <button class="c-tab active" data-pane="arch">Architecture Overview</button>
-            <button class="c-tab" data-pane="api">Interactive API Explorer</button>
+            <button class="c-tab" data-pane="api">Swagger & API Explorer</button>
             <button class="c-tab" data-pane="tg">Telegram Dispatcher</button>
             <button class="c-tab" data-pane="admin">Django Admin Features</button>
           </div>
@@ -1121,7 +1121,7 @@
             <div class="arch-flow-grid">
               <div class="arch-box">
                 <div class="arch-step">01 / FRONTEND</div>
-                <div class="arch-title">Next.js 14 SSR</div>
+                <div class="arch-title">Next.js SSR</div>
                 <div class="arch-desc">Responsive customer interface, reactive shopping cart, and form validation.</div>
               </div>
               <div class="arch-box">
@@ -1131,8 +1131,8 @@
               </div>
               <div class="arch-box">
                 <div class="arch-step">03 / STORAGE</div>
-                <div class="arch-title">Neon PostgreSQL</div>
-                <div class="arch-desc">Cloud PostgreSQL 17 with connection pooling, SSL encryption, and isolated demo tables.</div>
+                <div class="arch-title">PostgreSQL</div>
+                <div class="arch-desc">PostgreSQL 17 with connection pooling, SSL encryption, and isolated demo tables.</div>
               </div>
               <div class="arch-box">
                 <div class="arch-step">04 / ALERTS</div>
@@ -1145,8 +1145,21 @@
           <!-- Pane 2: Expanded Interactive REST API Explorer -->
           <div class="c-pane" id="pane-api">
             <div class="api-suite-intro">
-              <h4>Django REST Framework API Endpoints</h4>
-              <span>Select an endpoint below to inspect real live JSON schema responses</span>
+              <div>
+                <h4>Interactive OpenAPI 3.0 & Swagger UI</h4>
+                <span>Comprehensive REST API specification covering 32 endpoints across 8 application domains</span>
+              </div>
+              <div style="display:flex;gap:8px;flex-wrap:wrap;">
+                <a class="btn-test btn-test-app" href="https://catering-portfolio-api.vercel.app/api/docs/" target="_blank" rel="noopener noreferrer">
+                  Open Live Swagger UI ↗
+                </a>
+                <a class="btn-test btn-test-neutral" href="https://catering-portfolio-api.vercel.app/api/redoc/" target="_blank" rel="noopener noreferrer">
+                  Redoc View ↗
+                </a>
+                <a class="btn-test btn-test-neutral" href="https://catering-portfolio-api.vercel.app/api/v1/" target="_blank" rel="noopener noreferrer">
+                  API Root JSON ↗
+                </a>
+              </div>
             </div>
 
             <!-- Route Selector Buttons -->
@@ -1369,7 +1382,7 @@
         <div class="skill-category">
           <h4>Frontend</h4>
           <ul class="skill-list">
-            <li>Next.js 14/15 (SSR / SSG)</li>
+            <li>Next.js SSR</li>
             <li>React & TypeScript</li>
             <li>Tailwind CSS & Sass</li>
             <li>Responsive & Accessible UI</li>
@@ -1380,7 +1393,7 @@
           <ul class="skill-list">
             <li>Python 3.11+</li>
             <li>Django & Django REST</li>
-            <li>PostgreSQL (Neon Cloud)</li>
+            <li>PostgreSQL</li>
             <li>Atomic Transactions</li>
           </ul>
         </div>
