@@ -1,6 +1,5 @@
 "use client";
 
-import { TrustStandards } from "@/components/common/trust-standards";
 
 import React from "react";
 import Link from "next/link";
@@ -360,7 +359,6 @@ export function ArticlePage({
       <main className={styles.main}>
         <Header initialCompanyInfo={initialCompanyInfo} />
         <ArticleContent article={article} />
-        <TrustStandards isNarrow={true} />
         <FloatingCart />
         <Footer
           initialCompanyInfo={initialCompanyInfo}

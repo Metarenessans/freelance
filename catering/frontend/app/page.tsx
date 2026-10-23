@@ -12,7 +12,7 @@ import {
 import { getArticles } from "@/store/services/blogApi";
 import { toPublicMediaUrl } from "@/utils/seo";
 
-export const dynamic = "force-dynamic";
+export const revalidate = 3600;
 
 export async function generateMetadata(): Promise<Metadata> {
   const [companyInfo, seoSettings] = await Promise.all([

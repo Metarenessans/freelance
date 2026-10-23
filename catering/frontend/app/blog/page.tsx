@@ -10,7 +10,7 @@ import {
   getCachedSeoSettings,
 } from "@/components/common/json-ld";
 
-export const dynamic = "force-dynamic";
+export const revalidate = 3600;
 
 export async function generateMetadata(): Promise<Metadata> {
   const [articles, companyInfo, seoSettings] = await Promise.all([

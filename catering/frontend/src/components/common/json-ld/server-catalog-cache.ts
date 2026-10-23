@@ -98,7 +98,7 @@ export async function getCachedSections(): Promise<Section[]> {
   try {
     const apiUrl = getApiUrl();
     const res = await fetch(`${apiUrl}/api/v1/catalog/sections/`, {
-      cache: "no-store",
+      next: { revalidate: 3600, tags: ["catalog", "sections"] },
       headers: API_SSR_HEADERS,
     });
     if (res.ok) {
@@ -139,7 +139,7 @@ export async function getCachedCategories(): Promise<Category[]> {
   try {
     const apiUrl = getApiUrl();
     const res = await fetch(`${apiUrl}/api/v1/catalog/categories/`, {
-      cache: "no-store",
+      next: { revalidate: 3600, tags: ["catalog", "categories"] },
       headers: API_SSR_HEADERS,
     });
     if (res.ok) {
@@ -162,7 +162,7 @@ export async function getCachedProducts(): Promise<Product[]> {
   try {
     const apiUrl = getApiUrl();
     const res = await fetch(`${apiUrl}/api/v1/catalog/products/`, {
-      cache: "no-store",
+      next: { revalidate: 3600, tags: ["catalog", "products"] },
       headers: API_SSR_HEADERS,
     });
     if (res.ok) {
@@ -199,7 +199,7 @@ export async function getCachedCompanyInfo(): Promise<CompanyInfo | undefined> {
   try {
     const apiUrl = getApiUrl();
     const res = await fetch(`${apiUrl}/api/v1/company/`, {
-      cache: "no-store",
+      next: { revalidate: 3600, tags: ["company"] },
       headers: API_SSR_HEADERS,
     });
     if (res.ok) {
@@ -269,7 +269,7 @@ export async function getCachedFaq(): Promise<FaqItem[]> {
   try {
     const apiUrl = getApiUrl();
     const res = await fetch(`${apiUrl}/api/v1/faq/`, {
-      cache: "no-store",
+      next: { revalidate: 3600, tags: ["faq", "company"] },
       headers: API_SSR_HEADERS,
     });
     if (res.ok) {
@@ -292,7 +292,7 @@ export async function getCachedFooterNav(): Promise<FooterNavItem[]> {
   try {
     const apiUrl = getApiUrl();
     const res = await fetch(`${apiUrl}/api/v1/company/footer/`, {
-      cache: "no-store",
+      next: { revalidate: 3600, tags: ["company", "footer"] },
       headers: API_SSR_HEADERS,
     });
     if (res.ok) {
@@ -318,7 +318,7 @@ export async function getCachedLegalDocument(slug: string): Promise<LegalDocumen
   try {
     const apiUrl = getApiUrl();
     const res = await fetch(`${apiUrl}/api/v1/company/documents/${slug}/`, {
-      cache: "no-store",
+      next: { revalidate: 3600, tags: ["company", "legal", `legal-${slug}`] },
       headers: API_SSR_HEADERS,
     });
     if (res.ok) {
@@ -352,7 +352,7 @@ export async function getCachedCalculateConfig(): Promise<CalculatePageConfig> {
   try {
     const apiUrl = getApiUrl();
     const res = await fetch(`${apiUrl}/api/v1/menu-requests/calculate-settings/`, {
-      cache: "no-store",
+      next: { revalidate: 3600, tags: ["calculate"] },
       headers: API_SSR_HEADERS,
     });
     if (res.ok) {
@@ -410,7 +410,7 @@ export async function getCachedSeoSettings(): Promise<SeoSettingsData | undefine
   try {
     const apiUrl = getApiUrl();
     const res = await fetch(`${apiUrl}/api/v1/seo-settings/`, {
-      cache: "no-store",
+      next: { revalidate: 3600, tags: ["seo", "schema"] },
       headers: API_SSR_HEADERS,
     });
     if (res.ok) {
@@ -499,7 +499,7 @@ export async function isDebugJsonFileEnabled(): Promise<boolean> {
   try {
     const apiUrl = getApiUrl();
     const res = await fetch(`${apiUrl}/api/v1/system-settings/`, {
-      cache: "no-store",
+      next: { revalidate: 3600, tags: ["system-settings"] },
       headers: API_SSR_HEADERS,
     });
     if (res.ok) {

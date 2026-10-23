@@ -1,6 +1,5 @@
 "use client";
 
-import { TrustStandards } from "@/components/common/trust-standards";
 
 import React from "react";
 import { AppProvider } from "@/context/app-context";
@@ -32,7 +31,6 @@ export function BlogPage({
       <main style={{ backgroundColor: "var(--background)", minHeight: "100vh" }}>
         <Header initialCompanyInfo={initialCompanyInfo} />
         <BlogCatalog articles={articles} />
-        <TrustStandards />
         <FloatingCart />
         <Footer
           initialCompanyInfo={initialCompanyInfo}

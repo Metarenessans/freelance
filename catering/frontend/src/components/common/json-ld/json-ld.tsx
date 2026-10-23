@@ -712,9 +712,7 @@ export const buildBlogListingSchemas = ({
       },
       inLanguage: "en-US",
       citation: [
-        "https://docs.cntd.ru/document/566276706",
-        "https://docs.cntd.ru/document/1200107325"
-      ],
+                      ],
     };
 
     schemas[`article-image-${articleSlug}`] = {
@@ -831,9 +829,7 @@ export const buildArticleDetailSchemas = ({
     wordCount: wordCount,
     inLanguage: "en-US",
     citation: [
-      "https://docs.cntd.ru/document/566276706",
-      "https://docs.cntd.ru/document/1200107325"
-    ],
+                ],
   };
 
   // ImageObject
@@ -883,9 +879,7 @@ export const buildArticleJsonLd = ({
   datePublished,
   dateModified,
   citation = [
-    "https://docs.cntd.ru/document/566276706",
-    "https://docs.cntd.ru/document/1200107325",
-  ],
+          ],
   about,
 }: ArticleJsonLdParams): Record<string, any> => {
   const nowIso = new Date().toISOString().split("T")[0];

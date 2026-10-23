@@ -1,6 +1,5 @@
 "use client";
 
-import { TrustStandards } from "@/components/common/trust-standards";
 
 import React from "react";
 import styles from "./calculate-page.module.scss";
@@ -118,7 +117,6 @@ export const CalculatePage = ({
               isNarrow={true}
             />
           )}
-          <TrustStandards isNarrow={true} />
         </div>
 
         <FloatingCart />

@@ -1,4 +1,4 @@
-@use "sass:color";
+﻿@use "sass:color";
 @use "../../../../styles/mixins" as *;
 @use "../../../../styles/variables" as *;
 
@@ -84,8 +84,8 @@
     img {
       height: auto;
       object-fit: contain;
-      width: 48px;
-      margin-left: 9px;
+      width: 54px;
+      margin-left: 8px;
       margin-bottom: 4px;
     }
   }

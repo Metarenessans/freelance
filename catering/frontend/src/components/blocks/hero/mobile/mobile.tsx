@@ -54,7 +54,7 @@ export const MobileHero = ({ initialCompanyInfo }: MobileHeroProps = {}) => {
             />
             {isImageLoaded && (
               <div className={styles.logoOverlay}>
-                <NextImage src={logo} alt="Chef Meal Catering logo" width={80} height={80} className={styles.overlayLogoImg} />
+                <NextImage src={logo} alt="Chef Meal Catering logo" width={54} height={30} className={styles.overlayLogoImg} />
               </div>
             )}
           </div>
