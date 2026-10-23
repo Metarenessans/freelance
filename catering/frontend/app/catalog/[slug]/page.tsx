@@ -12,7 +12,16 @@ import {
   getCachedFooterNav,
 } from "@/components/common/json-ld";
 
-export const dynamic = "force-dynamic";
+export const revalidate = 3600;
+
+export async function generateStaticParams() {
+  const sections = await getCachedSections();
+  return sections
+    .filter((s) => Boolean(s.id))
+    .map((s) => ({
+      slug: s.id,
+    }));
+}
 
 import type { Section, Category } from "@/store/services/catalogApi";
 

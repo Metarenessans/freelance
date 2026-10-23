@@ -14,7 +14,27 @@ import {
 } from '@/components/common/json-ld';
 import { getArticles } from '@/store/services/blogApi';
 
-export const dynamic = "force-dynamic";
+export const revalidate = 3600;
+
+export async function generateStaticParams() {
+  const products = await getCachedProducts();
+  const params: { id: string }[] = [];
+  const seen = new Set<string>();
+
+  for (const product of products) {
+    if (product.slug && !seen.has(product.slug)) {
+      seen.add(product.slug);
+      params.push({ id: product.slug });
+    }
+    const strId = String(product.id);
+    if (strId && !seen.has(strId)) {
+      seen.add(strId);
+      params.push({ id: strId });
+    }
+  }
+
+  return params;
+}
 
 import type { Product } from '@/store/services/catalogApi';
 

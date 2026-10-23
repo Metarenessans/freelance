@@ -48,8 +48,9 @@
     }
 
     .logoImage {
-      width: 45px;
-      height: 40px;
+      width: auto;
+      height: 42px;
+      max-height: 42px;
       display: block;
       object-fit: contain;
     }
@@ -183,8 +184,9 @@
     }
 
     .logoImage {
-      width: 38px;
+      width: auto;
       height: 34px;
+      max-height: 34px;
       display: block;
       object-fit: contain;
     }

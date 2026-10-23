@@ -1,7 +1,6 @@
 "use client";
 
 import { useEffect } from "react";
-import { TrustStandards } from "@/components/common/trust-standards";
 
 import { Header } from "@/components/blocks/header";
 import { AppProvider } from "@/context/app-context";
@@ -62,7 +61,6 @@ export default function SectionDetailPage({
               id="other-sections"
               initialSections={initialSections}
             />
-            <TrustStandards />
           </ProtectedZone>
         </div>
 

@@ -94,7 +94,7 @@ export const DesktopHero = ({ initialCompanyInfo }: DesktopHeroProps = {}) => {
             />
             {isImageLoaded && (
               <div className={styles.logoOverlay}>
-                <NextImage src={logo} alt="Chef Meal Catering logo" width={140} height={140} className={styles.overlayLogoImg} />
+                <NextImage src={logo} alt="Chef Meal Catering logo" width={130} height={72} className={styles.overlayLogoImg} />
               </div>
             )}
           </div>

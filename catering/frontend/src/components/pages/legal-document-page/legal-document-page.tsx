@@ -1,6 +1,5 @@
 "use client";
 
-import { TrustStandards } from "@/components/common/trust-standards";
 import React from "react";
 import { Header } from "@/components/blocks/header";
 import { AppProvider } from "@/context/app-context";
@@ -59,7 +58,6 @@ export const LegalDocumentPage = ({
               fallbackContent
             )}
           </div>
-          <TrustStandards isNarrow={true} />
         </div>
 
         <FloatingCart />

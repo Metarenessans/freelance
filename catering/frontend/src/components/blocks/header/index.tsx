@@ -83,8 +83,8 @@ const DesktopHeader = ({ initialCompanyInfo, hideOnScroll }: HeaderVariantProps)
           <Image
             src={logo}
             alt={logoAlt}
-            width={45}
-            height={40}
+            width={76}
+            height={42}
             priority
             className={styles.logoImage}
           />
@@ -222,7 +222,7 @@ const MobileHeader = ({ initialCompanyInfo, hideOnScroll }: HeaderVariantProps) 
           <Image
             src={logo}
             alt={logoAlt}
-            width={38}
+            width={62}
             height={34}
             priority
             className={styles.logoImage}

@@ -9,7 +9,7 @@ import {
   getCachedSections,
 } from '@/components/common/json-ld';
 
-export const dynamic = 'force-dynamic';
+export const revalidate = 3600;
 
 export async function generateMetadata(): Promise<Metadata> {
   const [config, companyInfo] = await Promise.all([

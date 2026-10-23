@@ -2,7 +2,7 @@ import { toPublicMediaUrl } from "@/utils/seo";
 import { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { ArticlePage } from "@/components/pages/article-page";
-import { getArticle } from "@/store/services/blogApi";
+import { getArticle, getArticles } from "@/store/services/blogApi";
 import {
   JsonLd,
   getCachedJsonLd,
@@ -10,7 +10,16 @@ import {
   getCachedFooterNav,
 } from "@/components/common/json-ld";
 
-export const dynamic = "force-dynamic";
+export const revalidate = 3600;
+
+export async function generateStaticParams() {
+  const articles = await getArticles();
+  return articles
+    .filter((a) => Boolean(a.slug))
+    .map((a) => ({
+      slug: a.slug,
+    }));
+}
 
 interface ArticleRouteProps {
   params: Promise<{

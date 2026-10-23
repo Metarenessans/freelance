@@ -49,7 +49,7 @@ export async function getArticles(): Promise<SimpleBlogArticle[]> {
     const baseUrl = getBackendInternalUrl();
     const url = `${baseUrl}/api/v1/blog/articles/`;
     const res = await fetch(url, {
-      cache: "no-store",
+      next: { revalidate: 3600, tags: ['blog'] },
       headers: {
       },
     });
@@ -74,7 +74,7 @@ export async function getArticle(slug: string): Promise<BlogArticle | null> {
     const baseUrl = getBackendInternalUrl();
     const url = `${baseUrl}/api/v1/blog/articles/${slug}/`;
     const res = await fetch(url, {
-      cache: "no-store",
+      next: { revalidate: 3600, tags: ['blog', `blog-${slug}`] },
       headers: {
       },
     });

@@ -1,6 +1,5 @@
 "use client";
 
-import { TrustStandards } from "@/components/common/trust-standards";
 import { HomeDemoNotice } from "@/components/common/home-demo-notice";
 
 import Link from "next/link";
@@ -150,7 +149,6 @@ export default function SectionsPage({
             )}
 
             <Faq initialFaq={initialFaq} />
-            <TrustStandards />
 
 
           </ProtectedZone>
