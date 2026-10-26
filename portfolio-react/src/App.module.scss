@@ -1,0 +1,12 @@
+// App Layout Modular SCSS
+@use "./styles/variables" as *;
+
+.appContainer {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.mainContent {
+  flex: 1;
+}

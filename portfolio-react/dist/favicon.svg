@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#18181b"/>
+      <stop offset="100%" stop-color="#09090b"/>
+    </linearGradient>
+    <linearGradient id="accentGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#38bdf8"/>
+      <stop offset="100%" stop-color="#10b981"/>
+    </linearGradient>
+  </defs>
+  <!-- Background squircle -->
+  <rect x="2" y="2" width="60" height="60" rx="14" ry="14" fill="url(#bgGrad)" stroke="#27272a" stroke-width="2"/>
+  
+  <!-- Stylized Geometric Monogram 'O' -->
+  <rect x="18" y="16" width="28" height="32" rx="9" ry="9" fill="none" stroke="#f4f4f5" stroke-width="5" stroke-linecap="round"/>
+  
+  <!-- Active live status accent dot -->
+  <circle cx="44" cy="42" r="4.5" fill="url(#accentGrad)" stroke="#09090b" stroke-width="1.5"/>
+</svg>

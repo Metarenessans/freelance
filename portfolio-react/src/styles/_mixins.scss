@@ -1,0 +1,37 @@
+// SCSS Mixins for Layout, Flexbox, and Breakpoints
+@use "variables" as *;
+
+@mixin tablet {
+  @media (max-width: #{$bp-tablet}) {
+    @content;
+  }
+}
+
+@mixin mobile {
+  @media (max-width: #{$bp-mobile}) {
+    @content;
+  }
+}
+
+@mixin mobile-sm {
+  @media (max-width: #{$bp-mobile-sm}) {
+    @content;
+  }
+}
+
+@mixin flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@mixin flex-between {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+@mixin mono-code {
+  font-family: $font-mono;
+  font-feature-settings: "liga" 0;
+}

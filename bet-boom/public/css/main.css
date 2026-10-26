@@ -420,6 +420,7 @@ a:not([class]) {
 img,
 picture {
   max-width: 100%;
+  height: auto;
   display: block;
 }
 
@@ -767,7 +768,9 @@ body.scroll-disabled {
 
 body {
   font-family: "Roboto", sans-serif;
-  font-size: 1.6rem;
+  font-size: 16px;
+  font-size: clamp(15px, 1.6rem, 16.5px);
+  line-height: 1.5;
   color: #1e1e20;
   color: var(--primary-color);
 }
@@ -780,8 +783,10 @@ main {
   margin: 0;
   margin-bottom: 2.4rem;
   font-family: "Giorgio Sans LCG", sans-serif;
-  font-size: 6.5rem;
+  font-size: 40px;
+  font-size: clamp(32px, 6.5rem, 65px);
   font-weight: 700;
+  line-height: 1.05;
   text-transform: uppercase;
   text-align: center;
 }
@@ -814,7 +819,8 @@ main {
   border: none;
   color: white;
   font-family: "Roboto", sans-serif;
-  font-size: 1.6rem;
+  font-size: 15px;
+  font-size: clamp(14px, 1.6rem, 16px);
   line-height: 1;
   font-weight: 400;
   font-style: normal;
@@ -905,6 +911,9 @@ main {
   position: relative;
   width: 33.33333%;
   counter-increment: step-counter;
+  font-size: 15px;
+  font-size: clamp(15px, 1.6rem, 16.5px);
+  line-height: 1.45;
 }
 
 @media (max-width: 768px) {
@@ -953,6 +962,10 @@ main {
   border: 0.1rem solid;
   border-radius: 50%;
   margin-bottom: 3.5rem;
+  font-size: 18px;
+  font-size: clamp(16px, 1.8rem, 20px);
+  font-weight: 700;
+  line-height: 1;
 }
 
 .steps-item:last-child::after {
@@ -1145,6 +1158,22 @@ main {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  font-size: 15px;
+  font-size: clamp(14px, 1.55rem, 16px);
+  line-height: 1.4;
+}
+
+.schools-item-row__info .date-and-city {
+  font-size: 13.5px;
+  font-size: clamp(13px, 1.4rem, 14.5px);
+  color: rgba(255, 255, 255, 0.7);
+  line-height: 1.35;
+}
+
+.schools-item-row__info .location {
+  font-size: 15px;
+  font-size: clamp(14px, 1.55rem, 16px);
+  line-height: 1.4;
 }
 
 .schools-item-row__info > * {
@@ -1252,7 +1281,9 @@ main {
   padding: 0;
   text-align: center;
   font-weight: 300;
-  line-height: 2rem;
+  font-size: 15px;
+  font-size: clamp(15px, 1.6rem, 16.5px);
+  line-height: 1.5;
 }
 
 .section1__inner p:first-of-type {
@@ -1262,7 +1293,7 @@ main {
 .section1__inner p:last-of-type {
   margin-top: 2rem;
   margin-bottom: 0;
-  line-height: 2.2rem;
+  line-height: 1.5;
 }
 
 @media (max-width: 768px) {
@@ -1297,7 +1328,9 @@ main {
   position: absolute;
   left: 12.6rem;
   top: 7.4rem;
+  width: auto;
   height: 60.2rem;
+  aspect-ratio: 455 / 602;
   -webkit-user-select: none;
      -moz-user-select: none;
       -ms-user-select: none;
@@ -1316,7 +1349,9 @@ main {
   position: absolute;
   top: 8.9rem;
   right: 13.6rem;
+  width: auto;
   height: 71.7rem;
+  aspect-ratio: 555 / 730;
   -webkit-user-select: none;
      -moz-user-select: none;
       -ms-user-select: none;
@@ -1340,6 +1375,7 @@ main {
           transform: translateX(-50%);
   width: 4.1rem;
   height: 4.1rem;
+  aspect-ratio: 1 / 1;
   fill: black;
 }
 
@@ -1361,9 +1397,10 @@ main {
       -ms-transform: translateX(-50%);
           transform: translateX(-50%);
   margin: 0;
-  font-size: 4.8rem;
+  font-size: 32px;
+  font-size: clamp(22px, 4.8rem, 48px);
   font-weight: 700;
-  line-height: 4.8rem;
+  line-height: 1.15;
 }
 
 .section2__inner .active .bottom-text {
@@ -1403,6 +1440,7 @@ main {
   max-width: initial;
   width: auto !important;
   max-height: 40rem;
+  aspect-ratio: auto;
   -webkit-transition: all .3s ease;
   -o-transition: all .3s ease;
   transition: all .3s ease;
@@ -1513,8 +1551,10 @@ main {
 .form__title {
   margin: 0;
   margin-bottom: 1rem;
-  font-size: 1em;
-  font-weight: normal;
+  font-size: 17px;
+  font-size: clamp(16px, 1.8rem, 18px);
+  font-weight: 500;
+  line-height: 1.35;
 }
 
 .form-step {
@@ -1649,6 +1689,9 @@ main {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  font-size: 15px;
+  font-size: clamp(14.5px, 1.6rem, 16px);
+  line-height: 1.45;
 }
 
 @media (max-width: 768px) {
@@ -1713,6 +1756,9 @@ main {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  font-size: 15px;
+  font-size: clamp(15px, 1.6rem, 16.5px);
+  line-height: 1.45;
 }
 
 .form-step-content4__inner input {
@@ -1722,6 +1768,10 @@ main {
 
 .form-step-content5__inner {
   text-align: center;
+  font-size: 18px;
+  font-size: clamp(17px, 2rem, 20px);
+  font-weight: 500;
+  line-height: 1.35;
 }
 
 .form-step-content5__icon {
@@ -1742,11 +1792,14 @@ main {
 
 .form-step-content input {
   width: 33rem;
+  max-width: 100%;
+  box-sizing: border-box;
   padding: .8rem 1.7rem;
   background-color: white;
   border: 0.1rem solid rgba(30, 30, 32, 0);
   border-radius: 0.4rem;
-  line-height: 1;
+  font-size: 16px;
+  line-height: 1.4;
 }
 
 .form-step-content input[type="number"] {
@@ -1792,12 +1845,15 @@ main {
   overflow: hidden;
   display: inline-block;
   width: 33rem;
+  max-width: 100%;
+  box-sizing: border-box;
   padding: 1rem 1.7rem;
   padding-right: 4rem;
   background-color: white;
   border: 0.1rem solid rgba(30, 30, 32, 0);
   border-radius: 0.4rem;
-  line-height: 1;
+  font-size: 16px;
+  line-height: 1.4;
   text-align: left;
 }
 
@@ -1812,8 +1868,10 @@ main {
   background: none;
   padding: 0;
   border: none;
-  opacity: 0.5;
-  font-size: 1.2rem;
+  opacity: 0.75;
+  font-size: 13.5px;
+  font-size: clamp(13px, 1.4rem, 14.5px);
+  line-height: 1.45;
 }
 
 .form-step-content__prev a, .form-step-content__important a {
@@ -1989,8 +2047,15 @@ main {
 
 .section4-popup__title {
   margin-bottom: 2.8rem;
-  font-size: 4.8rem;
-  line-height: 1;
+  font-size: 32px;
+  font-size: clamp(24px, 4.8rem, 42px);
+  line-height: 1.15;
+}
+
+.section4-popup__content {
+  font-size: 15px;
+  font-size: clamp(15px, 1.6rem, 16.5px);
+  line-height: 1.45;
 }
 
 .section4-popup .stack > * + * {
@@ -2069,8 +2134,10 @@ main {
           transform: translateX(-50%);
   color: white;
   font-family: "Giorgio Sans LCG", sans-serif;
-  font-size: 2.6rem;
+  font-size: 20px;
+  font-size: clamp(16px, 2.6rem, 26px);
   font-weight: 700;
+  line-height: 1;
 }
 
 .map__content {
@@ -2176,6 +2243,7 @@ main {
   max-width: initial !important;
   width: 96.6rem !important;
   height: 40.1rem;
+  aspect-ratio: 966 / 401;
 }
 
 .gallery-item figcaption {
@@ -2193,6 +2261,10 @@ main {
       -ms-flex-align: center;
           align-items: center;
   width: 100%;
+  font-size: 14px;
+  font-size: clamp(13px, 1.45rem, 15px);
+  line-height: 1.4;
+  text-align: center;
 }
 
 .gallery-item figcaption .separator {
@@ -2234,9 +2306,10 @@ main {
 .section6__time {
   margin: 6rem 0;
   font-family: "Giorgio Sans LCG", sans-serif;
-  font-size: 4.8rem;
+  font-size: 32px;
+  font-size: clamp(24px, 4.8rem, 46px);
   font-weight: 700;
-  line-height: 1;
+  line-height: 1.15;
   text-transform: uppercase;
 }
 
@@ -2254,7 +2327,9 @@ main {
   position: absolute;
   left: -6.2rem;
   top: -6rem;
+  width: auto;
   height: 90.3rem;
+  aspect-ratio: 485 / 903;
   -webkit-user-select: none;
      -moz-user-select: none;
       -ms-user-select: none;
@@ -2275,7 +2350,9 @@ main {
   position: absolute;
   right: 12.8rem;
   top: -15rem;
+  width: auto;
   height: 32.3rem;
+  aspect-ratio: 342 / 323;
   -webkit-user-select: none;
      -moz-user-select: none;
       -ms-user-select: none;
@@ -2328,8 +2405,10 @@ main {
   margin-bottom: 1.4rem;
   padding: 0;
   color: rgba(255, 255, 255, 0.7);
-  font-size: 1.4rem;
-  font-weight: 300;
+  font-size: 14px;
+  font-size: clamp(13px, 1.4rem, 14.5px);
+  font-weight: 400;
+  line-height: 1.35;
 }
 
 .footer__inner .terms {
@@ -2351,8 +2430,10 @@ main {
   margin-bottom: 1.5rem;
   padding: 0;
   color: rgba(255, 255, 255, 0.7);
-  font-size: 1.4rem;
+  font-size: 13.5px;
+  font-size: clamp(13px, 1.4rem, 14px);
   font-weight: 300;
+  line-height: 1.35;
 }
 
 .footer__inner .terms__logo img {
@@ -2430,8 +2511,10 @@ main {
   margin-top: 4rem;
   margin-bottom: 4rem;
   text-align: left;
-  line-height: 2rem;
-  color: rgba(255, 255, 255, 0.4);
+  font-size: 13px;
+  font-size: clamp(12.5px, 1.35rem, 13.5px);
+  line-height: 1.5;
+  color: rgba(255, 255, 255, 0.55);
 }
 
 @media (max-width: 768px) {

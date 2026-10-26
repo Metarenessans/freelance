@@ -17,9 +17,10 @@
   
   &__logo {
     margin-bottom: 2.5rem;
+    aspect-ratio: 108 / 106;
 
     @include sm {
-    margin-bottom: 5rem;
+      margin-bottom: 5rem;
     }
   }
   
@@ -27,14 +28,15 @@
     margin:             0!important;
     margin-bottom: 3.8rem!important;
 
-    font-size:  2rem;
+    font-size:   clamp(20px, 2.2vw + 6px, 28px);
     font-weight: 300;
+    line-height: 1.3;
     color: var(--translucent);
     
     text-align: center;
     
     @include sm {
-      font-size:     1.7rem;
+      font-size:     20px;
       margin-bottom: 4.2rem!important;
     }
   }
@@ -82,11 +84,11 @@
     left: 0;
 
     width: 36.2rem;
+    height: auto;
+    aspect-ratio: 362 / 569;
 
     @include sm {
       display: none;
     }
   }
-} 
-
-
+}

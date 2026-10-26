@@ -21,6 +21,10 @@
     width: (100% / 3);
     counter-increment: step-counter;
 
+    font-size: 15px;
+    font-size: clamp(15px, 1.6rem, 16.5px);
+    line-height: 1.45;
+
     @include sm {
       margin-bottom: 4rem;
       width: 100%;
@@ -60,6 +64,11 @@
       border: 0.1rem solid;
       border-radius: 50%;
       margin-bottom: 3.5rem;
+
+      font-size: 18px;
+      font-size: clamp(16px, 1.8rem, 20px);
+      font-weight: 700;
+      line-height: 1;
     }
 
     &:last-child::after {

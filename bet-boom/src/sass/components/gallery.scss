@@ -72,6 +72,7 @@
       max-width: initial !important;
       width:  96.6rem !important;
       height: 40.1rem;
+      aspect-ratio: 966 / 401;
     }
 
     figcaption {
@@ -84,6 +85,11 @@
       justify-content: center;
       align-items: center;
       width: 100%;
+
+      font-size: 14px;
+      font-size: clamp(13px, 1.45rem, 15px);
+      line-height: 1.4;
+      text-align: center;
 
       .separator {
         display: block;

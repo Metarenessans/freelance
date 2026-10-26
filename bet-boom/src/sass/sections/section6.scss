@@ -15,9 +15,10 @@
     margin: 6rem 0;
 
     font-family: "Giorgio Sans LCG", sans-serif;
-    font-size: 4.8rem;
+    font-size: 32px;
+    font-size: clamp(24px, 4.8rem, 46px);
     font-weight: 700;
-    line-height: 1;
+    line-height: 1.15;
     text-transform: uppercase;
 
     @include sm {
@@ -34,7 +35,9 @@
     left: -6.2rem;
     top:  -6rem;
 
+    width: auto;
     height: 90.3rem;
+    aspect-ratio: 485 / 903;
 
     @include no-select();
 
@@ -52,8 +55,10 @@
     right: 12.8rem;
     top:    -15rem;
 
+    width: auto;
     height: 32.3rem;
-    
+    aspect-ratio: 342 / 323;
+
     @include no-select();
 
     @include sm {

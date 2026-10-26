@@ -2,3 +2,8 @@ __pycache__/
 *.py[cod]
 node_modules/
 _site/
+test-results/
+.playwright-mcr/
+*.tmp
+
+dist_videos/

@@ -6,8 +6,10 @@
     margin: 0;
     margin-bottom: 1rem;
 
-    font-size: 1em;
-    font-weight: normal;
+    font-size: 17px;
+    font-size: clamp(16px, 1.8rem, 18px);
+    font-weight: 500;
+    line-height: 1.35;
   }
 
   &-step {
@@ -98,6 +100,9 @@
         &__inner {
           margin: 3rem 0;
           width: 100%;
+          font-size: 15px;
+          font-size: clamp(14.5px, 1.6rem, 16px);
+          line-height: 1.45;
           display: flex;
           justify-content: space-between;
           align-items: center;
@@ -142,6 +147,9 @@
           display: flex;
           flex-direction: column;
           align-items: center;
+          font-size: 15px;
+          font-size: clamp(15px, 1.6rem, 16.5px);
+          line-height: 1.45;
 
           input {
             margin-top: 2.35rem;
@@ -153,6 +161,10 @@
       &5 {
         &__inner {
           text-align: center;
+          font-size: 18px;
+          font-size: clamp(17px, 2rem, 20px);
+          font-weight: 500;
+          line-height: 1.35;
         }
 
         &__icon {
@@ -174,12 +186,15 @@
 
       input {
         width: 33rem;
+        max-width: 100%;
+        box-sizing: border-box;
         padding: .8rem 1.7rem;
         background-color: white;
         border: 0.1rem solid rgba(30, 30, 32, 0);
         border-radius: 0.4rem;
 
-        line-height: 1;
+        font-size: 16px;
+        line-height: 1.4;
 
         &[type="number"] {
           -moz-appearance: textfield;
@@ -218,13 +233,16 @@
 
             display: inline-block;
             width: 33rem;
+            max-width: 100%;
+            box-sizing: border-box;
             padding: 1rem 1.7rem;
             padding-right: 4rem;
             background-color: white;
             border: 0.1rem solid rgba(30, 30, 32, 0);
             border-radius: 0.4rem;
 
-            line-height: 1;
+            font-size: 16px;
+            line-height: 1.4;
             text-align: left;
           }
         }
@@ -244,8 +262,10 @@
         padding: 0;
         border: none;
 
-        opacity: 0.5;
-        font-size: 1.2rem;
+        opacity: 0.75;
+        font-size: 13.5px;
+        font-size: clamp(13px, 1.4rem, 14.5px);
+        line-height: 1.45;
 
         a {
           text-decoration: underline;

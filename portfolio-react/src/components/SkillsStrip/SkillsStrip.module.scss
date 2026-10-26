@@ -1,0 +1,81 @@
+// SkillsStrip Modular SCSS
+@use "../../styles/variables" as *;
+@use "../../styles/mixins" as *;
+
+.skillsBox {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 32px;
+  margin-bottom: 44px;
+  box-shadow: var(--card-shadow);
+
+  @include tablet {
+    padding: 24px;
+  }
+}
+
+.sectionHeader {
+  margin-bottom: 12px;
+}
+
+.sectionTitle {
+  font-size: 24px;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  color: var(--text);
+}
+
+.sectionDesc {
+  font-size: 14.5px;
+  color: var(--text-muted);
+  margin-top: 4px;
+}
+
+.skillsGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  margin-top: 20px;
+
+  @include tablet {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  @include mobile-sm {
+    grid-template-columns: 1fr;
+  }
+}
+
+.skillCategory {
+  h4 {
+    font-size: 13.5px;
+    font-weight: 700;
+    color: var(--text);
+    margin-bottom: 12px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--border);
+    letter-spacing: -0.01em;
+  }
+}
+
+.skillList {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+
+  li {
+    font-size: 13px;
+    color: var(--text-muted);
+    position: relative;
+    padding-left: 14px;
+
+    &::before {
+      content: "-";
+      color: var(--text-subtle);
+      position: absolute;
+      left: 0;
+    }
+  }
+}

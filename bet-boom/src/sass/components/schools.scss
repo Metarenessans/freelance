@@ -133,6 +133,22 @@
         display: flex;
         justify-content: space-between;
         align-items: center;
+        font-size: 15px;
+        font-size: clamp(14px, 1.55rem, 16px);
+        line-height: 1.4;
+
+        .date-and-city {
+          font-size: 13.5px;
+          font-size: clamp(13px, 1.4rem, 14.5px);
+          color: rgba(255, 255, 255, 0.7);
+          line-height: 1.35;
+        }
+
+        .location {
+          font-size: 15px;
+          font-size: clamp(14px, 1.55rem, 16px);
+          line-height: 1.4;
+        }
 
         > * {
           display: flex;

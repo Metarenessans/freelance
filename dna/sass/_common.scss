@@ -1,16 +1,19 @@
 body {
   font-family: 'Futura PT', sans-serif;
-  font-size: 1.5rem;
+  font-size: 16px;
   font-weight: 300;
-  line-height: 1.25;
+  line-height: 1.55;
   color: #293c54;
 
   @include sm {
-    font-size: 1.7rem;
+    font-size: 15px;
+    line-height: 1.5;
   }
 }
 
 p {
+  line-height: inherit;
+
   a {
     color: var(--accent-color);
 
@@ -36,4 +39,3 @@ p {
     display: none;
   }
 }
-  

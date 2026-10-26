@@ -15,6 +15,7 @@
     margin-bottom: 3rem;
     width:  7.1rem;
     height: 6.9rem;
+    aspect-ratio: 43 / 42;
   }
   &__inner {
     color: azure;
@@ -31,11 +32,15 @@
     list-style: none;
 
     li {
+      font-size: 14px;
+      line-height: 1.55;
+
       h4 {
         margin: 0;
 
-        font-size: inherit;
-        font-weight: inherit;
+        font-size: 15px;
+        font-weight: 500;
+        line-height: 1.4;
       }
       
       a {
@@ -55,6 +60,8 @@
       &:nth-child(4) {
         margin-top: 3.8rem;
   
+        font-size: 12px;
+        line-height: 1.4;
         text-transform: uppercase;
       }
     }
