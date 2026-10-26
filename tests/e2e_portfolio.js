@@ -79,6 +79,11 @@ const assert = require('assert');
     let isAdminActive = await page.isVisible('#pane-admin');
     assert.ok(isAdminActive, 'Admin pane should be visible');
 
+    // SEO Tab
+    await page.click('button[data-pane="seo"]');
+    let isSeoActive = await page.isVisible('#pane-seo');
+    assert.ok(isSeoActive, 'SEO pane should be visible');
+
     // Restore Architecture Tab
     await page.click('button[data-pane="arch"]');
     let isArchActive = await page.isVisible('#pane-arch');
@@ -101,6 +106,9 @@ const assert = require('assert');
 
     const dnaLink = await page.getAttribute('a[href="dna/"]', 'href');
     assert.strictEqual(dnaLink, 'dna/');
+
+    const originalSiteLink = await page.getAttribute('a[href="https://chefmil-furshet.ru/"]', 'href');
+    assert.strictEqual(originalSiteLink, 'https://chefmil-furshet.ru/');
 
     const upworkLinks = await page.$$('a[href*="upwork.com/freelancers"]');
     assert.ok(upworkLinks.length >= 2, 'Should contain Upwork CTAs in navbar and footer/hire card');

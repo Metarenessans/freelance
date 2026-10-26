@@ -79,6 +79,15 @@ export const ProjectMatrix: React.FC = () => {
             </a>
             <a
               className={styles.btnTestNeutral}
+              href="https://chefmil-furshet.ru/"
+              target="_blank"
+              rel="noopener noreferrer"
+              title="View original commercial client website"
+            >
+              Original Client Site (chefmil-furshet.ru) ↗
+            </a>
+            <a
+              className={styles.btnTestNeutral}
               href="https://catering-portfolio-api.vercel.app/api/docs/"
               target="_blank"
               rel="noopener noreferrer"
@@ -102,6 +111,23 @@ export const ProjectMatrix: React.FC = () => {
             >
               Source Code ↗
             </a>
+          </div>
+
+          <div className={styles.adminCredStrip}>
+            <span className={styles.credTag}>Demo Admin Credentials:</span>
+            <span className={styles.credItem}><strong>Username:</strong> <code>demo</code></span>
+            <span className={styles.credItem}><strong>Password:</strong> <code>demo</code></span>
+            <span className={styles.credHint}>(Staff access to review order changelists, status filters, and dish image previews)</span>
+          </div>
+
+          <div className={styles.infraNotice}>
+            <div className={styles.infraNoticeIcon}>⚡</div>
+            <div className={styles.infraNoticeContent}>
+              <div className={styles.infraNoticeTitle}>Infrastructure & Hosting Notice</div>
+              <p className={styles.infraNoticeText}>
+                This demonstration sandbox runs on free-tier serverless cloud hosting (Vercel Edge &amp; Neon PostgreSQL), which may introduce initial spin-up latency (cold starts). The original commercial client website (<a href="https://chefmil-furshet.ru/" target="_blank" rel="noopener noreferrer">chefmil-furshet.ru</a>) is deployed on a dedicated, high-performance production server. Comprehensive performance engineering (SSR catalog caching, throttled RAF listeners, debounced session storage, and GPU-composited rendering) has been implemented to maintain fluid interaction across both environments.
+              </p>
+            </div>
           </div>
 
           <Console />

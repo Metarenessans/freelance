@@ -197,6 +197,9 @@
           <a class="btn-test btn-test-app" href="https://catering-portfolio-six.vercel.app" target="_blank" rel="noopener noreferrer">
             Launch Web App ↗
           </a>
+          <a class="btn-test btn-test-neutral" href="https://chefmil-furshet.ru/" target="_blank" rel="noopener noreferrer" title="View original commercial client website">
+            Original Client Site (chefmil-furshet.ru) ↗
+          </a>
           <a class="btn-test btn-test-neutral" href="https://catering-portfolio-api.vercel.app/api/docs/" target="_blank" rel="noopener noreferrer">
             Interactive Swagger API ↗
           </a>
@@ -208,6 +211,25 @@
           </a>
         </div>
 
+        <!-- Demo Admin Credentials Strip -->
+        <div class="admin-cred-strip">
+          <span class="cred-tag">Demo Admin Credentials:</span>
+          <span class="cred-item"><strong>Username:</strong> <code>demo</code></span>
+          <span class="cred-item"><strong>Password:</strong> <code>demo</code></span>
+          <span class="cred-hint">(Staff access to review order changelists, status filters, and dish image previews)</span>
+        </div>
+
+        <!-- Infrastructure & Hosting Notice -->
+        <div class="infra-notice">
+          <div class="infra-notice-icon">⚡</div>
+          <div class="infra-notice-content">
+            <div class="infra-notice-title">Infrastructure & Hosting Notice</div>
+            <p class="infra-notice-text">
+              This demonstration sandbox runs on free-tier serverless cloud hosting (Vercel Edge &amp; Neon PostgreSQL), which may introduce initial spin-up latency (cold starts). The original commercial client website (<a href="https://chefmil-furshet.ru/" target="_blank" rel="noopener noreferrer">chefmil-furshet.ru</a>) is deployed on a dedicated, high-performance production server. Comprehensive performance engineering (SSR catalog caching, throttled RAF listeners, debounced session storage, and GPU-composited rendering) has been implemented to maintain fluid interaction across both environments.
+            </p>
+          </div>
+        </div>
+
         <!-- Interactive Console Workspace -->
         <div class="workspace-console">
           <div class="console-nav">
@@ -215,6 +237,7 @@
             <button class="c-tab" data-pane="api">Swagger & API Explorer</button>
             <button class="c-tab" data-pane="tg">Telegram Dispatcher</button>
             <button class="c-tab" data-pane="admin">Django Admin Features</button>
+            <button class="c-tab" data-pane="seo">SEO & Schema.org Microdata</button>
           </div>
 
           <!-- Pane 1: Architecture -->
@@ -410,6 +433,62 @@
                 <h4>Subscriber & SMTP Tools</h4>
                 <p>Dedicated administration tools to manage Telegram chat subscriber bindings and built-in SMTP diagnostics to test email delivery health.</p>
               </div>
+            </div>
+          </div>
+
+          <!-- Pane 5: Comprehensive SEO & Schema.org Microdata Engine -->
+          <div class="c-pane" id="pane-seo">
+            <div class="seo-grid reveal-stagger-group">
+              <div class="seo-card">
+                <span class="seo-card-badge">SCHEMA.ORG GRAPH</span>
+                <div class="seo-card-title">Interconnected @graph</div>
+                <div class="seo-card-desc">Unified JSON-LD graph linking WebSite, FoodEstablishment, CateringService, Product, Offer, FAQPage, and BreadcrumbList into a coherent semantic web entity.</div>
+              </div>
+              <div class="seo-card">
+                <span class="seo-card-badge">SPA SYNCHRONIZATION</span>
+                <div class="seo-card-title">JsonLdGlobalWatcher</div>
+                <div class="seo-card-desc">Client-side route watcher ensuring Next.js route transitions update document schema markup dynamically without full page reloads, keeping search crawlers in sync.</div>
+              </div>
+              <div class="seo-card">
+                <span class="seo-card-badge">CATALOG CACHE</span>
+                <div class="seo-card-title">Sub-millisecond Metadata</div>
+                <div class="seo-card-desc">Memory-cached server-side catalog hierarchy (server-catalog-cache) generates complete schema objects with zero database queries during client requests.</div>
+              </div>
+              <div class="seo-card">
+                <span class="seo-card-badge">DISCOVERY SUITE</span>
+                <div class="seo-card-title">XML Sitemaps & OpenGraph</div>
+                <div class="seo-card-desc">Automated sitemap.xml route generation, dynamic robots.txt rules, OpenGraph preview cards, Twitter cards, and Yandex / Google search verification tokens.</div>
+              </div>
+            </div>
+
+            <div class="seo-preview-wrap">
+              <div class="seo-preview-header">
+                <span>LIVE STRUCTURED DATA (JSON-LD @graph SAMPLE)</span>
+                <span>SCHEMA.ORG / APPLICATION/LD+JSON</span>
+              </div>
+              <pre class="seo-preview-body"><code>{
+  "<span class="j-key">@context</span>": "<span class="j-str">https://schema.org</span>",
+  "<span class="j-key">@graph</span>": [
+    {
+      "<span class="j-key">@type</span>": "<span class="j-str">FoodEstablishment</span>",
+      "<span class="j-key">@id</span>": "<span class="j-str">https://chefmil-furshet.ru/#organization</span>",
+      "<span class="j-key">name</span>": "<span class="j-str">Chef Meal Catering</span>",
+      "<span class="j-key">servesCuisine</span>": "<span class="j-str">Event Catering, Buffet Platters, Banquet Canapes</span>",
+      "<span class="j-key">telephone</span>": "<span class="j-str">+7 (999) 123-45-67</span>",
+      "<span class="j-key">geo</span>": { "<span class="j-key">@type</span>": "<span class="j-str">GeoCoordinates</span>", "<span class="j-key">latitude</span>": <span class="j-num">55.7436</span>, "<span class="j-key">longitude</span>": <span class="j-num">52.3959</span> }
+    },
+    {
+      "<span class="j-key">@type</span>": "<span class="j-str">Product</span>",
+      "<span class="j-key">name</span>": "<span class="j-str">Assorted Canapes Set</span>",
+      "<span class="j-key">offers</span>": {
+        "<span class="j-key">@type</span>": "<span class="j-str">Offer</span>",
+        "<span class="j-key">price</span>": "<span class="j-str">4200.00</span>",
+        "<span class="j-key">priceCurrency</span>": "<span class="j-str">RUB</span>",
+        "<span class="j-key">availability</span>": "<span class="j-str">https://schema.org/InStock</span>"
+      }
+    }
+  ]
+}</code></pre>
             </div>
           </div>
         </div>

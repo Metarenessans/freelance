@@ -23,6 +23,10 @@
     grid-template-columns: 1fr 1fr;
   }
 
+  .seo-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
   .cicd {
     &-grid {
       grid-template-columns: 1fr 1fr;
@@ -100,6 +104,20 @@
       width: 100%;
       justify-content: center;
     }
+  }
+
+  .admin-cred-strip {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+
+    .cred-hint {
+      margin-left: 0;
+    }
+  }
+
+  .seo-grid {
+    grid-template-columns: 1fr;
   }
 
   .hero {

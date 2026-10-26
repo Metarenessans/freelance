@@ -29,7 +29,7 @@ Every project in this portfolio is **live, functional, and verifiable hands-on**
 
 | Project | Domain | Live Sandboxes & Verification Links | Key Tech Stack | Hands-on Verification (Under 60s) |
 | :--- | :--- | :--- | :--- | :--- |
-| **Catering & Event Commerce** | **Full-Stack Flagship** | 🌐 [Web App Demo](https://catering-portfolio-six.vercel.app)<br/>⚡ [Swagger API Explorer](https://catering-portfolio-api.vercel.app/api/docs/)<br/>⚙️ [Django Admin Cockpit](https://catering-portfolio-api.vercel.app/admin/)<br/>📁 [Source Code](catering/) | Next.js 14 SSR, Django 5 REST, PostgreSQL 17, Telegram Bot, Docker, GitHub Actions | 1. Add dishes to cart & submit transactional test order.<br/>2. Query live 32-endpoint Swagger documentation.<br/>3. Inspect Django admin order changelist & notification trigger. |
+| **Catering & Event Commerce** | **Full-Stack Flagship** | 🌐 [Web App Demo](https://catering-portfolio-six.vercel.app)<br/>🏛️ [Live Original Site](https://chefmil-furshet.ru/)<br/>⚡ [Swagger API Explorer](https://catering-portfolio-api.vercel.app/api/docs/)<br/>⚙️ [Django Admin](https://catering-portfolio-api.vercel.app/admin/) `(demo / demo)`<br/>📁 [Source Code](catering/) | Next.js 14 SSR, Django 5 REST, PostgreSQL 17, Telegram Bot, Docker, GitHub Actions | 1. Add dishes to cart & submit transactional test order.<br/>2. Query live 32-endpoint Swagger documentation.<br/>3. Inspect Django admin order changelist with `demo / demo`. |
 | **BetBoom Campaign Landing** | **Frontend / Interactive** | 🚀 [Live Promo Demo](https://metarenessans.github.io/freelance/bet-boom/)<br/>📁 [Source Code](bet-boom/) | Vanilla JS (ES6+), CSS3 Keyframe Animations, BEM, GitHub Pages CI | 1. Test interactive gamified reward tiers.<br/>2. Inspect 60 FPS hardware-accelerated animations.<br/>3. Verify mobile responsiveness with 0 KB framework bloat. |
 | **DNA Bespoke Jewelry** | **Frontend / E-Commerce** | 🚀 [Live Configurator](https://metarenessans.github.io/freelance/dna/)<br/>📁 [Source Code](dna/) | Mobile-First Sass / SCSS, Dynamic DOM State, Semantic HTML5 | 1. Test multi-step pendant shape & color customizer.<br/>2. Verify zero horizontal layout overflow (320px - 1920px).<br/>3. Inspect modular SCSS architecture with parent ampersands. |
 
@@ -114,6 +114,19 @@ Rather than relying on generic auto-generated tables, the administrative dashboa
 * **Visual Dish Thumbnails (`OrderItemInline`):** Integrated image previews display thumbnail photos of each ordered dish alongside quantities and prices.
 * **Subscriber Management (`TelegramSubscriberAdmin` & `EmailSubscriberAdmin`):** Interface to monitor active notification recipients with integrated SMTP diagnostic checks (`check_smtp_view`).
 * **Authoritative Server Pricing:** Front-end clients cannot modify item prices; the backend independently calculates all sums, applies item options, and commits orders atomically to PostgreSQL.
+
+---
+
+### 🔍 Comprehensive SEO & Schema.org Microdata Suite
+
+To ensure maximum organic search visibility and rich result snippets in search engines, the frontend incorporates an enterprise-grade structured data engine:
+
+* **Interconnected Schema.org `@graph`:** Automatically generates composite JSON-LD entities combining `WebSite`, `FoodEstablishment` / `CateringService`, `Product`, `Offer`, `ItemList`, `FAQPage`, and `BreadcrumbList`.
+* **Dynamic Route Synchronizer (`JsonLdGlobalWatcher`):** In Next.js client-side navigations (SPA transitions), the global watcher dynamically updates the document's `<script type="application/ld+json">` without requiring full browser page reloads.
+* **Sub-millisecond Metadata Caching:** The server-side catalog cache (`server-catalog-cache.ts`) computes and serves complete hierarchical microdata in memory without issuing redundant database queries.
+* **Full Discovery Suite:** Includes dynamic XML sitemaps (`/sitemap.xml`), robots.txt, OpenGraph and Twitter cards, plus Yandex and Google verification tokens.
+
+> **Infrastructure Performance Note:** This demonstration sandbox runs on free-tier serverless cloud hosting (Vercel Edge & Neon PostgreSQL), which may introduce initial spin-up latency (cold starts). The original commercial client website ([chefmil-furshet.ru](https://chefmil-furshet.ru/)) is deployed on a dedicated, high-performance production server. Comprehensive performance engineering (SSR catalog caching, throttled RAF listeners, debounced session storage, and GPU-composited rendering) has been implemented to maintain fluid interaction across both environments.
 
 ---
 
