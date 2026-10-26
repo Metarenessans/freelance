@@ -2,7 +2,11 @@ import React, { useState, useRef, useEffect } from "react";
 import { animate, motion, useMotionValue, PanInfo } from "framer-motion";
 import classNames from "classnames";
 import styles from "./cart-modal.module.scss";
-import { useAppState, useAppActions, IS_DELIVERY_ENABLED } from "@/context/app-context";
+import {
+  useAppState,
+  useAppActions,
+  IS_DELIVERY_ENABLED,
+} from "@/context/app-context";
 import { formatPrice } from "@/utils/formatPrice";
 import { getProductAltText } from "@/utils/seo";
 import { Drawer } from "vaul";
@@ -25,8 +29,9 @@ import { useGetCompanyInfoQuery } from "@/store/services/companyApi";
 import { useRouter } from "next/navigation";
 import { isDateInPast } from "@/utils/date";
 
-const IS_DEMO_MODE = process.env.NEXT_PUBLIC_DEMO_MODE !== 'false';
-const IS_SANDBOX = process.env.NEXT_PUBLIC_PORTFOLIO_ORDERING_ENABLED === 'true';
+const IS_DEMO_MODE = process.env.NEXT_PUBLIC_DEMO_MODE !== "false";
+const IS_SANDBOX =
+  process.env.NEXT_PUBLIC_PORTFOLIO_ORDERING_ENABLED === "true";
 const IS_READ_ONLY = IS_DEMO_MODE && !IS_SANDBOX;
 
 export interface CartSubmitItem {
@@ -63,7 +68,13 @@ interface SwipeableCartItemProps {
   onOpen?: () => void;
 }
 
-const SwipeableCartItem = ({ onDelete, onClick, children, isOpenState, onOpen }: SwipeableCartItemProps) => {
+const SwipeableCartItem = ({
+  onDelete,
+  onClick,
+  children,
+  isOpenState,
+  onOpen,
+}: SwipeableCartItemProps) => {
   const containerRef = useRef<HTMLDivElement>(null);
   const x = useMotionValue(0);
   const [isOpen, setIsOpen] = useState(false);
@@ -76,13 +87,21 @@ const SwipeableCartItem = ({ onDelete, onClick, children, isOpenState, onOpen }:
     }
   }, [isOpenState, isOpen, x]);
 
-  const handleDragEnd = (event: MouseEvent | TouchEvent | PointerEvent, info: PanInfo) => {
+  const handleDragEnd = (
+    event: MouseEvent | TouchEvent | PointerEvent,
+    info: PanInfo,
+  ) => {
     const currentX = x.get();
     const velocityX = info.velocity.x;
     const containerWidth = containerRef.current?.offsetWidth || 300;
     const threshold = -(containerWidth * 0.2); // 20% of width
 
-    const springConfig = { type: "spring" as const, bounce: 0, duration: 0.3, velocity: velocityX };
+    const springConfig = {
+      type: "spring" as const,
+      bounce: 0,
+      duration: 0.3,
+      velocity: velocityX,
+    };
 
     if (isOpen) {
       if (velocityX > 300 || currentX > -40) {
@@ -205,7 +224,15 @@ export const CartModal = ({ isOpen, onClose, onSubmit }: CartModalProps) => {
       if (IS_DEMO_MODE || IS_SANDBOX) {
         // Remove only legacy checkout data, never persisted cart products.
         try {
-          for (const key of ["step", "name", "phone", "contact_method", "consent", "guests", "event_date"]) {
+          for (const key of [
+            "step",
+            "name",
+            "phone",
+            "contact_method",
+            "consent",
+            "guests",
+            "event_date",
+          ]) {
             localStorage.removeItem(`cart_form_${key}`);
           }
         } catch {
@@ -233,7 +260,11 @@ export const CartModal = ({ isOpen, onClose, onSubmit }: CartModalProps) => {
       if (savedGuests) setGuests(savedGuests);
 
       const savedEventDate = localStorage.getItem("cart_form_event_date");
-      if (savedEventDate && savedEventDate !== "null" && savedEventDate !== "undefined") {
+      if (
+        savedEventDate &&
+        savedEventDate !== "null" &&
+        savedEventDate !== "undefined"
+      ) {
         if (!isDateInPast(savedEventDate)) {
           setEventDate(savedEventDate);
         } else {
@@ -252,7 +283,13 @@ export const CartModal = ({ isOpen, onClose, onSubmit }: CartModalProps) => {
 
   // Save to localStorage when form state changes
   React.useEffect(() => {
-    if (IS_DEMO_MODE || IS_SANDBOX || !isLoaded || typeof window === "undefined") return;
+    if (
+      IS_DEMO_MODE ||
+      IS_SANDBOX ||
+      !isLoaded ||
+      typeof window === "undefined"
+    )
+      return;
     localStorage.setItem("cart_form_step", String(step));
     localStorage.setItem("cart_form_name", name);
     localStorage.setItem("cart_form_phone", phone);
@@ -320,7 +357,11 @@ export const CartModal = ({ isOpen, onClose, onSubmit }: CartModalProps) => {
       if (typeof window !== "undefined") {
         const url = new URL(window.location.href);
         url.searchParams.delete("success");
-        window.history.replaceState(null, "", url.pathname + (url.search || ""));
+        window.history.replaceState(
+          null,
+          "",
+          url.pathname + (url.search || ""),
+        );
       }
     }
     setSubmitAttempted(false);
@@ -331,9 +372,13 @@ export const CartModal = ({ isOpen, onClose, onSubmit }: CartModalProps) => {
 
   if (!isOpen && !isMobile) return null;
 
-  const isDeliveryAvailable = IS_DELIVERY_ENABLED ? cartTotalPrice >= DELIVERY_THRESHOLD : false;
+  const isDeliveryAvailable = IS_DELIVERY_ENABLED
+    ? cartTotalPrice >= DELIVERY_THRESHOLD
+    : false;
 
-  const deliveryRemaining = IS_DELIVERY_ENABLED ? Math.max(DELIVERY_THRESHOLD - cartTotalPrice, 0) : 0;
+  const deliveryRemaining = IS_DELIVERY_ENABLED
+    ? Math.max(DELIVERY_THRESHOLD - cartTotalPrice, 0)
+    : 0;
 
   const isMinOrderReached = cartTotalPrice >= MIN_ORDER;
   const minOrderRemaining = Math.max(MIN_ORDER - cartTotalPrice, 0);
@@ -341,7 +386,9 @@ export const CartModal = ({ isOpen, onClose, onSubmit }: CartModalProps) => {
   const handleSubmit = async (e?: React.FormEvent) => {
     if (e) e.preventDefault();
     if (IS_READ_ONLY) {
-      toast.error("Read-only demo: orders and contact collection are disabled.");
+      toast.error(
+        "Read-only demo: orders and contact collection are disabled.",
+      );
       return;
     }
     setSubmitAttempted(true);
@@ -360,7 +407,7 @@ export const CartModal = ({ isOpen, onClose, onSubmit }: CartModalProps) => {
         </div>,
         {
           id: "validation-error",
-        }
+        },
       );
       return;
     }
@@ -378,26 +425,39 @@ export const CartModal = ({ isOpen, onClose, onSubmit }: CartModalProps) => {
       setIsSubmitting(true);
       try {
         await onSubmit({
-          items: cartItems.map(item => ({
+          items: cartItems.map((item) => ({
             id: item.id,
-            productId: item.productId ? (parseInt(item.productId, 10) || null) : null,
-            name: item.name + (item.selectedOption ? ` (${item.selectedOption.name})` : ""),
+            productId: item.productId
+              ? parseInt(item.productId, 10) || null
+              : null,
+            name:
+              item.name +
+              (item.selectedOption ? ` (${item.selectedOption.name})` : ""),
             imageUrl: item.imageUrl,
             priceInfo: item.priceInfo,
             quantity: item.quantity,
-            selectedOption: item.selectedOption ? { id: item.selectedOption.id } : undefined,
+            selectedOption: item.selectedOption
+              ? { id: item.selectedOption.id }
+              : undefined,
           })),
           name,
           phone,
           contact_method: contactMethod,
           cart_link: getShareableCartUrl(cartItems),
           guests: guests || undefined,
-          event_date: (eventDate && eventDate !== "null" && eventDate !== "undefined") ? eventDate : null,
+          event_date:
+            eventDate && eventDate !== "null" && eventDate !== "undefined"
+              ? eventDate
+              : null,
         });
 
         setShowSuccess(true);
         if (!IS_SANDBOX && typeof window !== "undefined") {
-          window.history.replaceState({ isCartModal: true }, "", "/?success=order");
+          window.history.replaceState(
+            { isCartModal: true },
+            "",
+            "/?success=order",
+          );
         }
 
         // Reset the form and step only after a successful order.
@@ -430,7 +490,10 @@ export const CartModal = ({ isOpen, onClose, onSubmit }: CartModalProps) => {
     }
   };
 
-  const deliveryProgress = Math.min((cartTotalPrice / DELIVERY_THRESHOLD) * 100, 100);
+  const deliveryProgress = Math.min(
+    (cartTotalPrice / DELIVERY_THRESHOLD) * 100,
+    100,
+  );
 
   const handleShare = () => {
     const url = getShareableCartUrl(cartItems);
@@ -439,23 +502,26 @@ export const CartModal = ({ isOpen, onClose, onSubmit }: CartModalProps) => {
       toast.success("Cart link copied!", {
         duration: 3000,
         style: {
-          borderRadius: '12px',
-          background: '#333',
-          color: '#fff',
+          borderRadius: "12px",
+          background: "#333",
+          color: "#fff",
         },
         iconTheme: {
-          primary: '#34c759',
-          secondary: '#fff',
+          primary: "#34c759",
+          secondary: "#fff",
         },
       });
     };
 
     const copyToClipboard = () => {
       if (navigator.clipboard && window.isSecureContext) {
-        navigator.clipboard.writeText(url).then(onSuccess).catch((err) => {
-          console.error("Clipboard write failed:", err);
-          fallbackCopy(url, onSuccess);
-        });
+        navigator.clipboard
+          .writeText(url)
+          .then(onSuccess)
+          .catch((err) => {
+            console.error("Clipboard write failed:", err);
+            fallbackCopy(url, onSuccess);
+          });
       } else {
         fallbackCopy(url, onSuccess);
       }
@@ -489,7 +555,8 @@ export const CartModal = ({ isOpen, onClose, onSubmit }: CartModalProps) => {
     // Use a more robust way to hide the element while keeping it "copyable"
     textArea.style.position = "absolute";
     textArea.style.left = "-9999px";
-    textArea.style.top = (window.pageYOffset || document.documentElement.scrollTop) + "px";
+    textArea.style.top =
+      (window.pageYOffset || document.documentElement.scrollTop) + "px";
     textArea.setAttribute("readonly", ""); // Avoid keyboard popup on some devices
 
     document.body.appendChild(textArea);
@@ -523,7 +590,9 @@ export const CartModal = ({ isOpen, onClose, onSubmit }: CartModalProps) => {
       callback();
     } else {
       console.warn("Clipboard copy failed. URL:", text);
-      toast.error("Could not copy the link automatically. You can find it in the browser console (F12).");
+      toast.error(
+        "Could not copy the link automatically. You can find it in the browser console (F12).",
+      );
     }
   };
 
@@ -551,9 +620,15 @@ export const CartModal = ({ isOpen, onClose, onSubmit }: CartModalProps) => {
           )}
           <h2
             onClick={step === 1 ? handleHeaderClick : undefined}
-            style={step === 1 ? { cursor: "pointer", userSelect: "none" } : undefined}
+            style={
+              step === 1 ? { cursor: "pointer", userSelect: "none" } : undefined
+            }
           >
-            {showSuccess ? "Order received" : step === 1 ? "Your cart" : "Checkout"}
+            {showSuccess
+              ? "Order received"
+              : step === 1
+                ? "Your cart"
+                : "Checkout"}
           </h2>
           <div className={styles.rightActions}>
             {!showSuccess && cartItems.length > 0 && step === 1 && (
@@ -570,15 +645,24 @@ export const CartModal = ({ isOpen, onClose, onSubmit }: CartModalProps) => {
         </div>
 
         {IS_READ_ONLY && (
-          <p role="status">Read-only demo: no orders are sent. Contact entry and form storage are disabled. Do not enter personal information.</p>
+          <p role="status">
+            Read-only demo: no orders are sent. Contact entry and form storage
+            are disabled. Do not enter personal information.
+          </p>
         )}
         {showSuccess ? (
           <div className={styles.successMessage}>
             <div style={{ marginBottom: "1.5rem" }}>
               <SuccessCheckmark size={80} />
             </div>
-            <h3>{IS_SANDBOX ? "Test order saved" : "Thank you for your order!"}</h3>
-            <p>{IS_SANDBOX ? "Your test order was saved. A notification has been dispatched to Telegram. Payment and physical delivery are simulated." : "We have received your request and will contact you soon to confirm the details."}</p>
+            <h3>
+              {IS_SANDBOX ? "Test order saved" : "Thank you for your order!"}
+            </h3>
+            <p>
+              {IS_SANDBOX
+                ? "Your test order was saved. A notification has been dispatched to Telegram."
+                : "We have received your request and will contact you soon to confirm the details."}
+            </p>
             <button
               type="button"
               className={styles.successCloseBtn}
@@ -596,7 +680,11 @@ export const CartModal = ({ isOpen, onClose, onSubmit }: CartModalProps) => {
                 const handleDelete = () => {
                   setConfirmItem({
                     id: item.id,
-                    name: item.name + (item.selectedOption ? ` (${item.selectedOption.name})` : ""),
+                    name:
+                      item.name +
+                      (item.selectedOption
+                        ? ` (${item.selectedOption.name})`
+                        : ""),
                   });
                 };
 
@@ -605,9 +693,11 @@ export const CartModal = ({ isOpen, onClose, onSubmit }: CartModalProps) => {
                   openProductModal(item);
                 };
 
-                const itemMinQty = item.selectedOption?.minOrderQuantity !== undefined && item.selectedOption?.minOrderQuantity !== null
-                  ? item.selectedOption.minOrderQuantity
-                  : item.minOrderQuantity;
+                const itemMinQty =
+                  item.selectedOption?.minOrderQuantity !== undefined &&
+                  item.selectedOption?.minOrderQuantity !== null
+                    ? item.selectedOption.minOrderQuantity
+                    : item.minOrderQuantity;
 
                 const itemContent = (
                   <>
@@ -637,9 +727,7 @@ export const CartModal = ({ isOpen, onClose, onSubmit }: CartModalProps) => {
                         <span className={styles.price}>
                           {formatPrice(item.priceInfo.price)} ₽
                           {itemMinQty && (
-                            <span className={styles.priceUnit}>
-                              each
-                            </span>
+                            <span className={styles.priceUnit}>each</span>
                           )}
                         </span>
                         <div
@@ -710,17 +798,20 @@ export const CartModal = ({ isOpen, onClose, onSubmit }: CartModalProps) => {
                                 // If a positive quantity is below the minimum order quantity,
                                 // raise it to the minimum.
                                 setQuantity(item.id, minQty);
-                                toast(`Minimum order quantity: \n ${minQty} pcs`, {
-                                  id: `min-qty-${item.id}`,
-                                  duration: 1500,
-                                  style: {
-                                    textAlign: "center",
-                                    borderRadius: "12px",
-                                    background: "#333",
-                                    color: "#fff",
-                                    fontSize: "0.95rem",
+                                toast(
+                                  `Minimum order quantity: \n ${minQty} pcs`,
+                                  {
+                                    id: `min-qty-${item.id}`,
+                                    duration: 1500,
+                                    style: {
+                                      textAlign: "center",
+                                      borderRadius: "12px",
+                                      background: "#333",
+                                      color: "#fff",
+                                      fontSize: "0.95rem",
+                                    },
                                   },
-                                });
+                                );
                               }
                             }}
                           />
@@ -784,10 +875,22 @@ export const CartModal = ({ isOpen, onClose, onSubmit }: CartModalProps) => {
                     })}
                   >
                     <div className={styles.progressHeader}>
-                      <span className={styles.progressLabel} style={{ color: "inherit", fontSize: "0.95rem", fontWeight: 600 }}>
-                        {isDeliveryAvailable ? "Free delivery" : `Delivery fee: ${formatPrice(DELIVERY_COST)} ₽`}
+                      <span
+                        className={styles.progressLabel}
+                        style={{
+                          color: "inherit",
+                          fontSize: "0.95rem",
+                          fontWeight: 600,
+                        }}
+                      >
+                        {isDeliveryAvailable
+                          ? "Free delivery"
+                          : `Delivery fee: ${formatPrice(DELIVERY_COST)} ₽`}
                       </span>
-                      <span className={styles.progressStatus} style={{ fontSize: "0.85rem", opacity: 0.8 }}>
+                      <span
+                        className={styles.progressStatus}
+                        style={{ fontSize: "0.85rem", opacity: 0.8 }}
+                      >
                         {isDeliveryAvailable
                           ? "Available"
                           : `Spend this much more for free delivery: ${formatPrice(deliveryRemaining)} ₽`}
@@ -825,13 +928,24 @@ export const CartModal = ({ isOpen, onClose, onSubmit }: CartModalProps) => {
           </div>
         ) : IS_READ_ONLY ? (
           <div className={styles.step}>
-            <p>Checkout is unavailable in this demo. You can still browse, edit, and share your cart.</p>
-            <button type="button" className={styles.backBtn} onClick={() => setStep(1)}>Back to cart</button>
+            <p>
+              Checkout is unavailable in this demo. You can still browse, edit,
+              and share your cart.
+            </p>
+            <button
+              type="button"
+              className={styles.backBtn}
+              onClick={() => setStep(1)}
+            >
+              Back to cart
+            </button>
           </div>
         ) : (
           <form onSubmit={handleSubmit} className={styles.step} noValidate>
             <div className={styles.contactRow}>
-              <div className={`${styles.field} ${submitAttempted && isFieldInvalid("name") ? styles.hasError : ""}`}>
+              <div
+                className={`${styles.field} ${submitAttempted && isFieldInvalid("name") ? styles.hasError : ""}`}
+              >
                 <label>
                   Your name <span className={styles.requiredAsterisk}>*</span>
                 </label>
@@ -847,7 +961,9 @@ export const CartModal = ({ isOpen, onClose, onSubmit }: CartModalProps) => {
                 )}
               </div>
 
-              <div className={`${styles.field} ${submitAttempted && isFieldInvalid("phone") ? styles.hasError : ""}`}>
+              <div
+                className={`${styles.field} ${submitAttempted && isFieldInvalid("phone") ? styles.hasError : ""}`}
+              >
                 <label>
                   Phone <span className={styles.requiredAsterisk}>*</span>
                 </label>
@@ -855,20 +971,14 @@ export const CartModal = ({ isOpen, onClose, onSubmit }: CartModalProps) => {
                   <IMaskInput
                     mask="+7 (000) 000-00-00"
                     value={phone}
-                    onAccept={(value: string) =>
-                      setPhone(value)
-                    }
+                    onAccept={(value: string) => setPhone(value)}
                     onFocus={() => {
                       if (!phone) {
                         setPhone("+7 (");
                       }
                     }}
                     onBlur={() => {
-                      if (
-                        phone === "7" ||
-                        phone === "+7 (" ||
-                        phone === "+7"
-                      ) {
+                      if (phone === "7" || phone === "+7 (" || phone === "+7") {
                         setPhone("");
                       }
                     }}
@@ -887,9 +997,12 @@ export const CartModal = ({ isOpen, onClose, onSubmit }: CartModalProps) => {
               </div>
             </div>
 
-            <div className={`${styles.field} ${submitAttempted && isFieldInvalid("contactMethod") ? styles.hasError : ""}`}>
+            <div
+              className={`${styles.field} ${submitAttempted && isFieldInvalid("contactMethod") ? styles.hasError : ""}`}
+            >
               <label>
-                How should we contact you? <span className={styles.requiredAsterisk}>*</span>
+                How should we contact you?{" "}
+                <span className={styles.requiredAsterisk}>*</span>
               </label>
               <ProtectedZone>
                 <Select
@@ -927,7 +1040,9 @@ export const CartModal = ({ isOpen, onClose, onSubmit }: CartModalProps) => {
                 />
               </div>
 
-              <div className={`${styles.field} ${dateError || (submitAttempted && Boolean(eventDate && isDateInPast(eventDate))) ? styles.hasError : ""}`}>
+              <div
+                className={`${styles.field} ${dateError || (submitAttempted && Boolean(eventDate && isDateInPast(eventDate))) ? styles.hasError : ""}`}
+              >
                 <label>Approximate event date</label>
                 <ProtectedZone>
                   <DatePicker
@@ -937,11 +1052,17 @@ export const CartModal = ({ isOpen, onClose, onSubmit }: CartModalProps) => {
                       if (val) setDateError(false);
                     }}
                     placeholder="Select a date"
-                    hasError={dateError || (submitAttempted && Boolean(eventDate && isDateInPast(eventDate)))}
+                    hasError={
+                      dateError ||
+                      (submitAttempted &&
+                        Boolean(eventDate && isDateInPast(eventDate)))
+                    }
                   />
                 </ProtectedZone>
                 {dateError && (
-                  <span className={styles.errorText}>This field is required</span>
+                  <span className={styles.errorText}>
+                    This field is required
+                  </span>
                 )}
               </div>
             </div>
@@ -953,12 +1074,27 @@ export const CartModal = ({ isOpen, onClose, onSubmit }: CartModalProps) => {
                 onChange={(e) => setConsent(e.target.checked)}
                 required
               />
-              <span className={`${styles.checkboxText} ${styles.privacyPolicy}`}>
-                I agree to the <a className={styles.link} target="_blank" href="/privacy-policy" rel="noopener noreferrer">privacy policy</a>
+              <span
+                className={`${styles.checkboxText} ${styles.privacyPolicy}`}
+              >
+                I agree to the{" "}
+                <a
+                  className={styles.link}
+                  target="_blank"
+                  href="/privacy-policy"
+                  rel="noopener noreferrer"
+                >
+                  privacy policy
+                </a>
               </span>
             </label>
 
-            {IS_SANDBOX && <p role="note">Test order - details are submitted and forwarded to Telegram. Payment and order execution are simulated.</p>}
+            {IS_SANDBOX && (
+              <p role="note">
+                Test order - details are submitted and forwarded to Telegram.
+                Payment and order execution are simulated.
+              </p>
+            )}
             <div className={styles.actions}>
               <button
                 type="button"
@@ -1012,7 +1148,11 @@ export const CartModal = ({ isOpen, onClose, onSubmit }: CartModalProps) => {
 
   if (isMobile) {
     return (
-      <Drawer.Root open={isOpen} onOpenChange={(open) => !open && handleClose()} repositionInputs={false}>
+      <Drawer.Root
+        open={isOpen}
+        onOpenChange={(open) => !open && handleClose()}
+        repositionInputs={false}
+      >
         <Drawer.Portal>
           <Drawer.Overlay className={styles.overlay} />
           <Drawer.Content className={styles.modal} aria-describedby={undefined}>
