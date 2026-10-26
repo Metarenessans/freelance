@@ -24,5 +24,4 @@ python main.py
 
 The expected default result is an informational message that Telegram is disabled.
 The legacy GitLab deployment job is disabled. Deploy a worker only after explicitly
-reviewing its new environment and resolving the go-live findings in
-`../backend/SECURITY_AUDIT.md`. No messages were sent during verification.
+reviewing its new environment and configuration settings. No messages were sent during verification.

@@ -12,4 +12,4 @@ Use a supported Node.js release. Run `npm ci`, copy `.env.example` to `.env.loca
 - `npm run build`
 - `npm run lint`
 
-Read [FRONTEND_LOCALIZATION.md](FRONTEND_LOCALIZATION.md) for limitations, API dependencies, safety controls and demo deployment requirements. This copy does not contain a working database or fabricate API responses. Orders and quote requests are disabled by default.
+This application relies on the demo Django API for live data and does not fabricate API responses. Orders and quote requests are disabled by default.

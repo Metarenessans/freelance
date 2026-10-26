@@ -10,13 +10,11 @@ An English-language publication copy of a catering web application, with a Next.
 
 ## Security
 
-This copy does not inherit the original Git history. Local environment files, database exports, authenticated sessions and private server instructions must not be published. Review `SECURITY.md` and the component audit reports before deployment.
-
-Use the component `.env.example` files to create local configuration. Provide fresh secrets through your hosting provider's environment configuration. Never connect a public preview to the original production database or original messaging credentials.
+Local environment files, private server credentials, database exports, and sensitive credentials must not be published. Use the component `.env.example` files to create local configuration. Provide fresh secrets through your hosting provider's environment configuration. Never connect a public preview to live production databases or third-party messaging credentials.
 
 ## Development
 
-See `frontend/README.md`, `backend/README.md` and `telegram-bot/README.md` for component-specific instructions. Install dependencies in this copy, not in the original application folder.
+See `frontend/README.md`, `backend/README.md` and `telegram-bot/README.md` for component-specific instructions.
 
 ## Live portfolio
 
@@ -32,4 +30,4 @@ Cart orders and menu requests are submitted to the real Django API and stored in
 
 The server resolves product/option prices from its own catalog, validates quantities and saves orders atomically. Public submissions have shared database-backed limits. Payments, Telegram, email and outbound revalidation remain disabled. Do not treat the portfolio as a production ordering service.
 
-See `DEPLOYMENT.md` for architecture, environment configuration and validation gates. The first commit was created only after sanitization, redacted secret scanning and independent scoped approval. The original local project remains unchanged.
+Both applications deploy independently with isolated databases, environment variables, and automated verification gates.

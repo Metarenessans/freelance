@@ -1,4 +1,4 @@
-# Catering API - sanitized demonstration copy
+# Catering API
 
 Python 3.12, Django 5.2, Django REST Framework, SimpleJWT, PostgreSQL and Pillow.
 The API exposes catalog, orders, menu requests, company information, FAQs, blog,
@@ -69,6 +69,3 @@ persistent PostgreSQL database. Existing daemon-thread notifications are not a
 reliable serverless queue. Keep integrations disabled, or replace them with durable
 jobs/webhooks before enabling notifications. The optional long-polling bot needs
 its own appropriately configured worker runtime; it is not part of the Django HTTP handler.
-
-See `SECURITY_AUDIT.md` for verified checks, deployment blockers and limitations.
-See `LOCALIZATION_REMAINING.md` for backend text still requiring English translation.
