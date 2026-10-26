@@ -5,8 +5,8 @@ Run with:
 """
 from html.parser import HTMLParser
 from pathlib import Path
-from PIL import Image
 import re
+import struct
 import unittest
 import xml.etree.ElementTree as ET
 
@@ -18,6 +18,41 @@ CYRILLIC = re.compile(
     + chr(0xA640) + "-" + chr(0xA69F)
     + "]"
 )
+
+
+def _get_intrinsic_image_size(asset_path: Path):
+    suffix = asset_path.suffix.lower()
+    if suffix == ".svg":
+        tree = ET.parse(asset_path)
+        r = tree.getroot()
+        vb = r.attrib.get("viewBox")
+        if vb:
+            parts = vb.split()
+            return round(float(parts[2])), round(float(parts[3]))
+        return round(float(r.attrib["width"])), round(float(r.attrib["height"]))
+
+    with open(asset_path, "rb") as f:
+        head = f.read(64)
+        if suffix == ".png":
+            w, h = struct.unpack(">II", head[16:24])
+            return w, h
+        if suffix in (".jpg", ".jpeg"):
+            f.seek(0)
+            data = f.read()
+            i = 0
+            while i < len(data) - 1:
+                if data[i] == 0xFF:
+                    marker = data[i + 1]
+                    if marker in (0xC0, 0xC1, 0xC2, 0xC3, 0xC5, 0xC6, 0xC7, 0xC9, 0xCA, 0xCB, 0xCD, 0xCE, 0xCF):
+                        h, w = struct.unpack(">HH", data[i + 5 : i + 9])
+                        return w, h
+                    if marker not in (0xD8, 0xD9, 0x01, 0x00) and not (0xD0 <= marker <= 0xD7):
+                        length = struct.unpack(">H", data[i + 2 : i + 4])[0]
+                        i += 2 + length
+                        continue
+                i += 1
+            raise ValueError(f"SOF marker not found in {asset_path}")
+    raise ValueError(f"Unsupported image format: {suffix}")
 
 
 class ClsAndTypographyTests(unittest.TestCase):
@@ -54,19 +89,7 @@ class ClsAndTypographyTests(unittest.TestCase):
             asset_path = (ROOT / src.lstrip("./")).resolve()
             self.assertTrue(asset_path.is_file(), f"Image asset does not exist on disk: {src}")
 
-            if asset_path.suffix.lower() == ".svg":
-                tree = ET.parse(asset_path)
-                r = tree.getroot()
-                vb = r.attrib.get("viewBox")
-                if vb:
-                    parts = vb.split()
-                    actual_w, actual_h = round(float(parts[2])), round(float(parts[3]))
-                else:
-                    actual_w = round(float(r.attrib["width"]))
-                    actual_h = round(float(r.attrib["height"]))
-            else:
-                with Image.open(asset_path) as im:
-                    actual_w, actual_h = im.size
+            actual_w, actual_h = _get_intrinsic_image_size(asset_path)
 
             self.assertEqual(
                 (int(w), int(h)),
