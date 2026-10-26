@@ -147,14 +147,29 @@
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  gap: 12px;
-  padding: 10px 16px;
+  justify-content: space-between;
+  gap: 14px;
+  padding: 12px 16px;
   background: var(--surface-elevated);
   border: 1px solid var(--border);
-  border-radius: 8px;
-  margin-bottom: 16px;
+  border-radius: 9px;
+  margin-bottom: 18px;
   font-size: 13px;
   color: var(--text-muted);
+
+  .admin-cred-actions {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .admin-cred-details {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 12px;
+  }
 
   .cred-tag {
     font-family: "JetBrains Mono", monospace;
@@ -183,7 +198,6 @@
   .cred-hint {
     font-size: 12px;
     color: var(--text-subtle);
-    margin-left: auto;
   }
 }
 

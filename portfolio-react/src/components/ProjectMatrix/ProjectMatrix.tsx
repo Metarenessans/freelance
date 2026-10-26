@@ -75,7 +75,7 @@ export const ProjectMatrix: React.FC = () => {
               target="_blank"
               rel="noopener noreferrer"
             >
-              Launch Web App ↗
+              Launch Demo App ↗
             </a>
             <a
               className={styles.btnTestNeutral}
@@ -85,22 +85,6 @@ export const ProjectMatrix: React.FC = () => {
               title="View original commercial client website"
             >
               Original Client Site (chefmil-furshet.ru) ↗
-            </a>
-            <a
-              className={styles.btnTestNeutral}
-              href="https://catering-portfolio-api.vercel.app/api/docs/"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Interactive Swagger API ↗
-            </a>
-            <a
-              className={styles.btnTestNeutral}
-              href="https://catering-portfolio-api.vercel.app/admin/"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Django Admin Panel ↗
             </a>
             <a
               className={styles.btnTestNeutral}
@@ -114,10 +98,30 @@ export const ProjectMatrix: React.FC = () => {
           </div>
 
           <div className={styles.adminCredStrip}>
-            <span className={styles.credTag}>Demo Admin Credentials:</span>
-            <span className={styles.credItem}><strong>Username:</strong> <code>demo</code></span>
-            <span className={styles.credItem}><strong>Password:</strong> <code>demo</code></span>
-            <span className={styles.credHint}>(Staff access to review order changelists, status filters, and dish image previews)</span>
+            <div className={styles.adminCredDetails}>
+              <span className={styles.credTag}>Demo Admin Credentials:</span>
+              <span className={styles.credItem}><strong>Username:</strong> <code>demo</code></span>
+              <span className={styles.credItem}><strong>Password:</strong> <code>demo</code></span>
+              <span className={styles.credHint}>(Staff access to review order changelists, status filters, and dish image previews)</span>
+            </div>
+            <div className={styles.adminCredActions}>
+              <a
+                className={styles.btnTestNeutral}
+                href="https://catering-portfolio-api.vercel.app/admin/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Django Admin Panel ↗
+              </a>
+              <a
+                className={styles.btnTestNeutral}
+                href="https://catering-portfolio-api.vercel.app/api/docs/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Interactive Swagger API ↗
+              </a>
+            </div>
           </div>
 
           <div className={styles.infraNotice}>

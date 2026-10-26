@@ -134,14 +134,29 @@
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  gap: 12px;
-  padding: 10px 16px;
+  justify-content: space-between;
+  gap: 14px;
+  padding: 12px 16px;
   background: var(--surface-elevated);
   border: 1px solid var(--border);
-  border-radius: 8px;
-  margin-bottom: 16px;
+  border-radius: 9px;
+  margin-bottom: 18px;
   font-size: 13px;
   color: var(--text-muted);
+
+  .adminCredActions {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .adminCredDetails {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 12px;
+  }
 
   .credTag {
     font-family: "JetBrains Mono", monospace;
@@ -170,13 +185,16 @@
   .credHint {
     font-size: 12px;
     color: var(--text-subtle);
-    margin-left: auto;
   }
 
   @include mobile {
     flex-direction: column;
     align-items: flex-start;
-    gap: 8px;
+    gap: 12px;
+
+    .adminCredActions {
+      width: 100%;
+    }
 
     .credHint {
       margin-left: 0;

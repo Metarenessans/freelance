@@ -113,7 +113,11 @@
   .admin-cred-strip {
     flex-direction: column;
     align-items: flex-start;
-    gap: 8px;
+    gap: 12px;
+
+    .admin-cred-actions {
+      width: 100%;
+    }
 
     .cred-hint {
       margin-left: 0;

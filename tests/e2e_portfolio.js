@@ -127,6 +127,20 @@ const assert = require('assert');
 
     const upworkLinks = await page.$$('a[href*="upwork.com/freelancers"]');
     assert.ok(upworkLinks.length >= 2, 'Should contain Upwork CTAs in navbar and footer/hire card');
+
+    // Flagship Demo App link
+    const demoAppBtn = await page.locator('.action-bar a.btn-test-app');
+    const demoAppText = await demoAppBtn.innerText();
+    assert.ok(demoAppText.includes('Launch Demo App'), 'Main flagship button should say Launch Demo App');
+    const demoAppHref = await demoAppBtn.getAttribute('href');
+    assert.strictEqual(demoAppHref, 'https://catering-portfolio-six.vercel.app');
+
+    // Admin Credentials Strip and relocated action buttons
+    const adminPanelLink = await page.locator('.admin-cred-strip .admin-cred-actions a[href*="/admin/"]').getAttribute('href');
+    assert.strictEqual(adminPanelLink, 'https://catering-portfolio-api.vercel.app/admin/');
+
+    const swaggerLink = await page.locator('.admin-cred-strip .admin-cred-actions a[href*="/api/docs/"]').getAttribute('href');
+    assert.strictEqual(swaggerLink, 'https://catering-portfolio-api.vercel.app/api/docs/');
   });
 
   // 6. Mobile Responsiveness & Zero Horizontal Overflow at 360px
