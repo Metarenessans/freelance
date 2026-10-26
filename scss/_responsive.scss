@@ -27,6 +27,10 @@
     grid-template-columns: 1fr 1fr;
   }
 
+  .vitals-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
   .cicd {
     &-grid {
       grid-template-columns: 1fr 1fr;
@@ -117,6 +121,10 @@
   }
 
   .seo-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .vitals-grid {
     grid-template-columns: 1fr;
   }
 

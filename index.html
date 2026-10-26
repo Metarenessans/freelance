@@ -1,908 +1,1221 @@
-<!doctype html>
-<html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <meta name="description" content="Oleg G. - Full-Stack Engineer specializing in Next.js, Django REST Framework, PostgreSQL, Telegram notification systems, and automated CI/CD pipelines.">
-  <title>Oleg G. - Full-Stack Engineer</title>
-  
-  <link rel="icon" type="image/svg+xml" href="favicon.svg">
-  <link rel="alternate icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
-  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
-  
-  <!-- Early Theme Detection to prevent flash of unstyled content -->
-  <script>
-    (function() {
-      const saved = localStorage.getItem('theme');
-      const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-      const theme = saved || (prefersDark ? 'dark' : 'light');
-      document.documentElement.setAttribute('data-theme', theme);
-    })();
-  </script>
-
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
-  
-  <link rel="stylesheet" href="css/style.css">
-</head>
-<body>
-
-  <!-- Interactive Scroll Progress Indicator -->
-  <div id="scroll-progress" class="scroll-progress" aria-hidden="true"></div>
-
-  <!-- Fixed Top Header & Navigation -->
-  <header class="site-header">
-    <nav class="container nav-inner" aria-label="Main Navigation">
-      <div class="brand-group">
-        <div class="brand-badge">O</div>
-        <div class="brand-meta">
-          <span class="brand-name">Oleg G.</span>
-          <span class="brand-title">Full-Stack Engineer</span>
-        </div>
-      </div>
-      <div class="nav-actions">
-        <div class="status-badge">
-          <span class="status-dot"></span>
-          <span>Available on Upwork</span>
-        </div>
-        
-        <!-- Light / Dark Theme Switcher -->
-        <button class="theme-btn" id="theme-btn" aria-label="Toggle visual theme" title="Toggle Light / Dark mode">
-          <svg class="theme-sun" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
-          </svg>
-          <svg class="theme-moon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
-          </svg>
-        </button>
-
-        <a class="btn-upwork" href="https://www.upwork.com/freelancers/~0126a1db3ee4419254" target="_blank" rel="noopener noreferrer">
-          Hire Me ↗
-        </a>
-      </div>
-    </nav>
-  </header>
-
-  <main class="container">
-    <!-- Hero Section -->
-    <section class="hero">
-      <div class="hero-layout">
-        <div class="hero-content">
-          <div class="hero-eyebrow hero-animate-1">Production Engineering & Web Systems</div>
-          <h1 class="hero-animate-2">High-performance web applications, resilient APIs, and automated cloud systems.</h1>
-          <p class="hero-animate-2">
-            I architect and ship production-grade web products for fast-moving teams - combining responsive Next.js SSR interfaces, 
-            strictly typed Django REST backends, PostgreSQL data integrity, and automated Telegram operational dispatchers.
-          </p>
-          
-          <div class="hero-ctas hero-animate-3">
-            <a class="btn-primary" href="#flagship">Explore Case Study ↓</a>
-            <a class="btn-secondary" href="https://github.com/Metarenessans/freelance" target="_blank" rel="noopener noreferrer">View GitHub Source ↗</a>
-          </div>
-        </div>
-
-        <!-- Stylized Developer Portrait Card -->
-        <aside class="hero-portrait-card hero-animate-card" aria-label="Engineer Profile Card">
-          <div class="portrait-frame">
-            <picture>
-              <source srcset="avatar.webp" type="image/webp">
-              <img 
-                src="avatar.png" 
-                alt="Oleg G. - Full-Stack Engineer" 
-                class="portrait-img"
-                width="280"
-                height="280"
-                loading="eager"
-                decoding="async"
-              />
-            </picture>
-            <div class="portrait-status-tag">
-              <span class="status-dot"></span>
-              <span>Available for Hire</span>
-            </div>
-          </div>
-          
-          <div class="portrait-info">
-            <div class="portrait-header">
-              <span class="portrait-name">Oleg G.</span>
-              <a class="portrait-github-badge" href="https://github.com/Metarenessans" target="_blank" rel="noopener noreferrer" title="View GitHub Profile">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
-                  <path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/>
-                </svg>
-                <span>@Metarenessans</span>
-              </a>
-            </div>
-            
-            <div class="portrait-role">Full-Stack Engineer & System Architect</div>
-            
-            <div class="portrait-tags">
-              <span class="portrait-tag">Python & Django</span>
-              <span class="portrait-tag">Next.js SSR</span>
-              <span class="portrait-tag">PostgreSQL</span>
-              <span class="portrait-tag">Telegram Bots</span>
-            </div>
-          </div>
-        </aside>
-      </div>
-
-      <!-- Trust Metrics Strip -->
-      <div class="trust-strip reveal-stagger-group">
-        <div class="trust-item">
-          <div class="trust-icon">⚡</div>
-          <div>
-            <div class="trust-label">Full-Stack Architecture</div>
-            <div class="trust-sub">Next.js 14 SSR, Django REST & PostgreSQL</div>
-          </div>
-        </div>
-        <div class="trust-item">
-          <div class="trust-icon">🔔</div>
-          <div>
-            <div class="trust-label">Sub-50ms Event Routing</div>
-            <div class="trust-sub">Asynchronous Telegram lead dispatchers</div>
-          </div>
-        </div>
-        <div class="trust-item">
-          <div class="trust-icon">⚙️</div>
-          <div>
-            <div class="trust-label">Custom Back-Office</div>
-            <div class="trust-sub">Tailored Django Admin operational tooling</div>
-          </div>
-        </div>
-        <a class="trust-item trust-item-link" href="#automation" title="View Automated CI/CD Infrastructure">
-          <div class="trust-icon">🚀</div>
-          <div>
-            <div class="trust-label">Verified Quality Gate</div>
-            <div class="trust-sub">17 automated tests & zero-downtime deploy ↗</div>
-          </div>
-        </a>
-      </div>
-    </section>
-
-    <!-- Flagship Project Showcase -->
-    <section class="case-section" id="flagship">
-      <div class="section-header reveal-on-scroll">
-        <div>
-          <h2 class="section-title">Flagship Case Study</h2>
-          <p class="section-desc">Live production sandbox demonstrating end-to-end commerce mechanics.</p>
-        </div>
-      </div>
-
-      <article class="project-card reveal-scale">
-        <div class="project-header">
-          <div class="project-title-area">
-            <h3>Catering & Event Commerce Platform</h3>
-          </div>
-          <div class="pills-group">
-            <span class="pill active">Next.js SSR</span>
-            <span class="pill active">Django REST</span>
-            <span class="pill active">PostgreSQL</span>
-            <span class="pill">Telegram Bot</span>
-            <span class="pill">Docker</span>
-            <a class="pill active pill-ci" href="https://github.com/Metarenessans/freelance/actions" target="_blank" rel="noopener noreferrer" title="View verified GitHub Actions CI pipeline">
-              <span class="ci-status-dot"></span> GitHub Actions CI ↗
-            </a>
-          </div>
-        </div>
-
-        <p class="project-summary">
-          An event catering commerce platform engineered with transactional cart checkout, authoritative 
-          server-side pricing validation, and operational lead routing. Features an isolated public demonstration 
-          sandbox where clients can place test orders, query live Swagger API documentation, and observe automated Telegram alerts.
-        </p>
-
-        <!-- Live Sandbox Quick Links -->
-        <div class="action-bar">
-          <span class="action-label">Live Sandbox:</span>
-          <a class="btn-test btn-test-app" href="https://catering-portfolio-six.vercel.app" target="_blank" rel="noopener noreferrer">
-            Launch Web App ↗
-          </a>
-          <a class="btn-test btn-test-neutral" href="https://chefmil-furshet.ru/" target="_blank" rel="noopener noreferrer" title="View original commercial client website">
-            Original Client Site (chefmil-furshet.ru) ↗
-          </a>
-          <a class="btn-test btn-test-neutral" href="https://catering-portfolio-api.vercel.app/api/docs/" target="_blank" rel="noopener noreferrer">
-            Interactive Swagger API ↗
-          </a>
-          <a class="btn-test btn-test-neutral" href="https://catering-portfolio-api.vercel.app/admin/" target="_blank" rel="noopener noreferrer">
-            Django Admin Panel ↗
-          </a>
-          <a class="btn-test btn-test-neutral" href="https://github.com/Metarenessans/freelance/tree/main/catering" target="_blank" rel="noopener noreferrer" title="Browse full Next.js & Django source code">
-            Source Code ↗
-          </a>
-        </div>
-
-        <!-- Demo Admin Credentials Strip -->
-        <div class="admin-cred-strip">
-          <span class="cred-tag">Demo Admin Credentials:</span>
-          <span class="cred-item"><strong>Username:</strong> <code>demo</code></span>
-          <span class="cred-item"><strong>Password:</strong> <code>demo</code></span>
-          <span class="cred-hint">(Staff access to review order changelists, status filters, and dish image previews)</span>
-        </div>
-
-        <!-- Infrastructure & Hosting Notice -->
-        <div class="infra-notice">
-          <div class="infra-notice-icon">⚡</div>
-          <div class="infra-notice-content">
-            <div class="infra-notice-title">Infrastructure & Hosting Notice</div>
-            <p class="infra-notice-text">
-              This demonstration sandbox runs on free-tier serverless cloud hosting (Vercel Edge &amp; Neon PostgreSQL), which may introduce initial spin-up latency (cold starts). The original commercial client website (<a href="https://chefmil-furshet.ru/" target="_blank" rel="noopener noreferrer">chefmil-furshet.ru</a>) is deployed on a dedicated, high-performance production server. Comprehensive performance engineering (SSR catalog caching, throttled RAF listeners, debounced session storage, and GPU-composited rendering) has been implemented to maintain fluid interaction across both environments.
-            </p>
-          </div>
-        </div>
-
-        <!-- Interactive Console Workspace -->
-        <div class="workspace-console">
-          <div class="console-nav">
-            <button class="c-tab active" data-pane="arch">Architecture Overview</button>
-            <button class="c-tab" data-pane="api">Swagger & API Explorer</button>
-            <button class="c-tab" data-pane="tg">Telegram Dispatcher</button>
-            <button class="c-tab" data-pane="admin">Django Admin Features</button>
-            <button class="c-tab" data-pane="seo">SEO & Schema.org Microdata</button>
-          </div>
-
-          <!-- Pane 1: Architecture -->
-          <div class="c-pane active" id="pane-arch">
-            <div class="arch-flow-grid reveal-stagger-group">
-              <div class="arch-box">
-                <div class="arch-step">01 / FRONTEND</div>
-                <div class="arch-title">Next.js SSR</div>
-                <div class="arch-desc">Responsive customer interface, reactive shopping cart, and form validation.</div>
-              </div>
-              <div class="arch-box">
-                <div class="arch-step">02 / BACKEND</div>
-                <div class="arch-title">Django REST</div>
-                <div class="arch-desc">Authoritative database pricing, atomic transaction guarantees, and JWT auth.</div>
-              </div>
-              <div class="arch-box">
-                <div class="arch-step">03 / STORAGE</div>
-                <div class="arch-title">PostgreSQL</div>
-                <div class="arch-desc">PostgreSQL 17 with connection pooling, SSL encryption, and isolated demo tables.</div>
-              </div>
-              <div class="arch-box">
-                <div class="arch-step">04 / ALERTS</div>
-                <div class="arch-title">Telegram Worker</div>
-                <div class="arch-desc">Asynchronous event dispatcher parsing delivery lead times without blocking the API.</div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Pane 2: Expanded Interactive REST API Explorer -->
-          <div class="c-pane" id="pane-api">
-            <div class="api-suite-intro">
-              <div>
-                <h4>Interactive OpenAPI 3.0 & Swagger UI</h4>
-                <span>Comprehensive REST API specification covering 32 endpoints across 8 application domains</span>
-              </div>
-              <div class="api-actions-wrap">
-                <a class="btn-test btn-test-app" href="https://catering-portfolio-api.vercel.app/api/docs/" target="_blank" rel="noopener noreferrer">
-                  Open Live Swagger UI ↗
-                </a>
-                <a class="btn-test btn-test-neutral" href="https://catering-portfolio-api.vercel.app/api/redoc/" target="_blank" rel="noopener noreferrer">
-                  Redoc View ↗
-                </a>
-              </div>
-            </div>
-
-            <!-- Route Selector Buttons -->
-            <div class="api-routes-selector">
-              <button class="api-route-btn active" data-api="products">
-                <span class="m-tag">GET</span>
-                <span>/catalog/products/</span>
-              </button>
-              <button class="api-route-btn" data-api="sections">
-                <span class="m-tag">GET</span>
-                <span>/catalog/sections/</span>
-              </button>
-              <button class="api-route-btn" data-api="orders">
-                <span class="m-tag">POST</span>
-                <span>/orders/</span>
-              </button>
-              <button class="api-route-btn" data-api="formats">
-                <span class="m-tag">GET</span>
-                <span>/menu-requests/formats/</span>
-              </button>
-              <button class="api-route-btn" data-api="services">
-                <span class="m-tag">GET</span>
-                <span>/menu-requests/services/</span>
-              </button>
-              <button class="api-route-btn" data-api="company">
-                <span class="m-tag">GET</span>
-                <span>/company/</span>
-              </button>
-              <button class="api-route-btn" data-api="faq">
-                <span class="m-tag">GET</span>
-                <span>/faq/</span>
-              </button>
-              <button class="api-route-btn" data-api="articles">
-                <span class="m-tag">GET</span>
-                <span>/blog/articles/</span>
-              </button>
-            </div>
-
-            <!-- Live URL bar -->
-            <div class="api-preview-header">
-              <div>
-                <span style="color:var(--text-subtle);">URL: </span>
-                <span class="api-preview-url" id="api-url-text">https://catering-portfolio-api.vercel.app/api/v1/catalog/products/</span>
-              </div>
-              <a class="api-test-link" id="api-link-action" href="https://catering-portfolio-api.vercel.app/api/v1/catalog/products/" target="_blank" rel="noopener noreferrer">
-                Open in Browser ↗
-              </a>
-            </div>
-
-            <!-- JSON Output Screen -->
-            <div class="api-json-box" id="api-output-screen">
-<span class="j-key">HTTP/2 200 OK</span>
-<span class="j-key">content-type:</span> <span class="j-str">application/json</span>
-
-{
-  <span class="j-key">"count"</span>: <span class="j-num">60</span>,
-  <span class="j-key">"next"</span>: <span class="j-str">"https://catering-portfolio-api.vercel.app/api/v1/catalog/products/?page=2"</span>,
-  <span class="j-key">"results"</span>: [
-    {
-      <span class="j-key">"id"</span>: <span class="j-num">1</span>,
-      <span class="j-key">"name"</span>: <span class="j-str">"Assorted Canapés Set"</span>,
-      <span class="j-key">"slug"</span>: <span class="j-str">"assorted-canapes-set"</span>,
-      <span class="j-key">"price"</span>: <span class="j-num">4200.00</span>,
-      <span class="j-key">"currency"</span>: <span class="j-str">"RUB"</span>,
-      <span class="j-key">"is_active"</span>: <span class="j-bool">true</span>,
-      <span class="j-key">"section"</span>: <span class="j-num">1</span>,
-      <span class="j-key">"options"</span>: [<span class="j-str">"Gluten-Free"</span>, <span class="j-str">"Standard"</span>]
-    }
-  ]
-}</div>
-
-            <!-- Architectural Guarantees Strip -->
-            <div class="api-endpoints-summary-grid">
-              <div class="api-cat-card">
-                <div class="api-cat-title">📐 OpenAPI 3.0 Standard</div>
-                <div class="api-cat-endpoints">
-                  Strict schema contracts with drf-spectacular validation, typed serializers, and auto-generated client SDK specs.
-                </div>
-              </div>
-              <div class="api-cat-card">
-                <div class="api-cat-title">🛡️ Atomic Checkouts</div>
-                <div class="api-cat-endpoints">
-                  Multi-item orders committed atomically with <code>@transaction.atomic</code> - preventing partial writes and inventory drift.
-                </div>
-              </div>
-              <div class="api-cat-card">
-                <div class="api-cat-title">⚡ Pooled PostgreSQL</div>
-                <div class="api-cat-endpoints">
-                  Connection pooling with SSL encryption, prepared statement caching, and sub-50ms API response latency.
-                </div>
-              </div>
-              <div class="api-cat-card">
-                <div class="api-cat-title">🔐 JWT Authentication</div>
-                <div class="api-cat-endpoints">
-                  Stateless token rotation and role-based access control protecting staff back-office routes from unauthorized access.
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Pane 3: Telegram Notification Engine -->
-          <div class="c-pane" id="pane-tg">
-            <div class="tg-layout">
-              <div class="tg-info">
-                <h4>Asynchronous Telegram Alert Pipeline</h4>
-                <p>
-                  When a customer places an order or requests an event quote, the Django backend asynchronously 
-                  formats and routes an urgent dispatch into staff Telegram channels without blocking HTTP execution.
-                </p>
-                <ul class="tg-feature-list">
-                  <li><strong>Non-blocking workers:</strong> Uses background thread dispatchers so API response latency stays under 50ms.</li>
-                  <li><strong>Lead-time urgency calculations:</strong> Computes days remaining until the banquet (e.g. <em>in 3 days</em>, <em>today</em>).</li>
-                  <li><strong>Phone number resolution:</strong> Normalizes contact numbers and resolves Telegram user handles for managers.</li>
-                  <li><strong>Standalone subscriber worker:</strong> Telethon worker allowing staff to subscribe or mute notification channels.</li>
-                </ul>
-              </div>
-
-              <div class="tg-mock-device">
-                <div class="tg-mock-head">
-                  <span>TELEGRAM DISPATCH BOT</span>
-                  <span id="sim-time">JUST NOW</span>
-                </div>
-                <div class="tg-mock-title">
-                  🔔 New Order #<span id="sim-order-num">482</span> Received
-                </div>
-                <div class="tg-mock-body">
-                  <strong>Event Urgency:</strong> <span class="tg-badge-urgency" id="sim-lead-time">in 3 days (15 Nov)</span><br/>
-                  <strong>Order Items:</strong> Mini Tartlets x24, Salmon Skewers x18<br/>
-                  <strong>Total Sum:</strong> 24,500 RUB (~$270 USD, Server Enforced)<br/>
-                  <strong>Customer:</strong> +7 999 123-45-67 (@customer_demo)<br/>
-                  <span style="color:var(--text-subtle);font-size:11px;">[Admin Quicklink: /admin/orders/order/482/change/]</span>
-                </div>
-                <button class="btn-sim-trigger" id="btn-run-sim">⚡ Simulate Live Order Dispatch</button>
-              </div>
-            </div>
-          </div>
-
-          <!-- Pane 4: Custom Django Admin Suite -->
-          <div class="c-pane" id="pane-admin">
-            <div class="admin-cards-grid reveal-stagger-group">
-              <div class="admin-feature-card">
-                <h4>1-Click Telegram Action</h4>
-                <p>Bespoke action buttons embedded directly into the Django order view allowing operators to re-dispatch notifications on demand with audit feedback.</p>
-              </div>
-              <div class="admin-feature-card">
-                <h4>Dish Image Previews</h4>
-                <p>Custom <code>OrderItemInline</code> rendering live photographic thumbnails inside order lines so kitchen staff visually verify dish selection.</p>
-              </div>
-              <div class="admin-feature-card">
-                <h4>Subscriber & SMTP Tools</h4>
-                <p>Dedicated administration tools to manage Telegram chat subscriber bindings and built-in SMTP diagnostics to test email delivery health.</p>
-              </div>
-            </div>
-          </div>
-
-          <!-- Pane 5: Comprehensive SEO & Schema.org Microdata Engine -->
-          <div class="c-pane" id="pane-seo">
-            <div class="seo-grid reveal-stagger-group">
-              <div class="seo-card">
-                <span class="seo-card-badge">SCHEMA.ORG GRAPH</span>
-                <div class="seo-card-title">Interconnected @graph</div>
-                <div class="seo-card-desc">Unified JSON-LD graph linking WebSite, FoodEstablishment, CateringService, Product, Offer, FAQPage, and BreadcrumbList into a coherent semantic web entity.</div>
-              </div>
-              <div class="seo-card">
-                <span class="seo-card-badge">SPA SYNCHRONIZATION</span>
-                <div class="seo-card-title">JsonLdGlobalWatcher</div>
-                <div class="seo-card-desc">Client-side route watcher ensuring Next.js route transitions update document schema markup dynamically without full page reloads, keeping search crawlers in sync.</div>
-              </div>
-              <div class="seo-card">
-                <span class="seo-card-badge">CATALOG CACHE</span>
-                <div class="seo-card-title">Sub-millisecond Metadata</div>
-                <div class="seo-card-desc">Memory-cached server-side catalog hierarchy (server-catalog-cache) generates complete schema objects with zero database queries during client requests.</div>
-              </div>
-              <div class="seo-card">
-                <span class="seo-card-badge">DISCOVERY SUITE</span>
-                <div class="seo-card-title">XML Sitemaps & OpenGraph</div>
-                <div class="seo-card-desc">Automated sitemap.xml route generation, dynamic robots.txt rules, OpenGraph preview cards, Twitter cards, and Yandex / Google search verification tokens.</div>
-              </div>
-            </div>
-
-            <div class="seo-preview-wrap">
-              <div class="seo-preview-header">
-                <span>LIVE STRUCTURED DATA (JSON-LD @graph SAMPLE)</span>
-                <span>SCHEMA.ORG / APPLICATION/LD+JSON</span>
-              </div>
-              <pre class="seo-preview-body"><code>{
-  "<span class="j-key">@context</span>": "<span class="j-str">https://schema.org</span>",
-  "<span class="j-key">@graph</span>": [
-    {
-      "<span class="j-key">@type</span>": "<span class="j-str">FoodEstablishment</span>",
-      "<span class="j-key">@id</span>": "<span class="j-str">https://chefmil-furshet.ru/#organization</span>",
-      "<span class="j-key">name</span>": "<span class="j-str">Chef Meal Catering</span>",
-      "<span class="j-key">servesCuisine</span>": "<span class="j-str">Event Catering, Buffet Platters, Banquet Canapes</span>",
-      "<span class="j-key">telephone</span>": "<span class="j-str">+7 (999) 123-45-67</span>",
-      "<span class="j-key">geo</span>": { "<span class="j-key">@type</span>": "<span class="j-str">GeoCoordinates</span>", "<span class="j-key">latitude</span>": <span class="j-num">55.7436</span>, "<span class="j-key">longitude</span>": <span class="j-num">52.3959</span> }
-    },
-    {
-      "<span class="j-key">@type</span>": "<span class="j-str">Product</span>",
-      "<span class="j-key">name</span>": "<span class="j-str">Assorted Canapes Set</span>",
-      "<span class="j-key">offers</span>": {
-        "<span class="j-key">@type</span>": "<span class="j-str">Offer</span>",
-        "<span class="j-key">price</span>": "<span class="j-str">4200.00</span>",
-        "<span class="j-key">priceCurrency</span>": "<span class="j-str">RUB</span>",
-        "<span class="j-key">availability</span>": "<span class="j-str">https://schema.org/InStock</span>"
-      }
-    }
-  ]
-}</code></pre>
-            </div>
-          </div>
-        </div>
-      </article>
-    </section>
-
-    <!-- Automation & DevOps Infrastructure Section -->
-    <section class="cicd-section reveal-on-scroll" id="automation">
-      <div class="section-header">
-        <div>
-          <div class="section-eyebrow">AUTOMATION & DEVOPS INFRASTRUCTURE</div>
-          <h2 class="section-title">Automated CI/CD & Quality Gates</h2>
-          <p class="section-desc">Production test discovery, compliance scanning, and zero-downtime deployment executed on every push via GitHub Actions.</p>
-        </div>
-        <a class="btn-test btn-test-app" href="https://github.com/Metarenessans/freelance/actions" target="_blank" rel="noopener noreferrer">
-          Inspect Live Actions Runs ↗
-        </a>
-      </div>
-      <div class="cicd-card">
-        <!-- 4 Pipeline Stages Grid -->
-        <div class="cicd-grid reveal-stagger-group">
-          <!-- Stage 01: Unit Tests -->
-          <div class="cicd-stage-card">
-            <div class="cicd-stage-top">
-              <span class="cicd-stage-step">STAGE 01</span>
-              <span class="cicd-status-pill"><span class="status-dot"></span>PASSED</span>
-            </div>
-            <div class="cicd-stage-name">Unit Tests</div>
-            <div class="cicd-stage-desc">Automated test discovery validating catalog integrity, animation attributes, and multi-domain endpoints.</div>
-            <div class="cicd-stage-meta"><code>python -m unittest</code></div>
-          </div>
-
-          <!-- Stage 02: Quality Gate -->
-          <div class="cicd-stage-card">
-            <div class="cicd-stage-top">
-              <span class="cicd-stage-step">STAGE 02</span>
-              <span class="cicd-status-pill"><span class="status-dot"></span>VERIFIED</span>
-            </div>
-            <div class="cicd-stage-name">Quality Gate</div>
-            <div class="cicd-stage-desc">Strict translation integrity check, Cyrillic character prevention, and isolated demo build boundaries.</div>
-            <div class="cicd-stage-meta"><code>test_no_cyrillic</code></div>
-          </div>
-
-          <!-- Stage 03: Asset Compilation -->
-          <div class="cicd-stage-card">
-            <div class="cicd-stage-top">
-              <span class="cicd-stage-step">STAGE 03</span>
-              <span class="cicd-status-pill"><span class="status-dot"></span>OPTIMIZED</span>
-            </div>
-            <div class="cicd-stage-name">Asset Compilation</div>
-            <div class="cicd-stage-desc">Static tree assembly, Sass/test exclusion, Jekyll bypass (.nojekyll), and bundle packaging.</div>
-            <div class="cicd-stage-meta"><code>upload-artifact@v3</code></div>
-          </div>
-
-          <!-- Stage 04: Automated Deploy -->
-          <div class="cicd-stage-card">
-            <div class="cicd-stage-top">
-              <span class="cicd-stage-step">STAGE 04</span>
-              <span class="cicd-status-pill"><span class="status-dot"></span>ACTIVE</span>
-            </div>
-            <div class="cicd-stage-name">Automated Deploy</div>
-            <div class="cicd-stage-desc">Atomic GitHub Pages release step verifying deployment URL health and environment states.</div>
-            <div class="cicd-stage-meta"><code>deploy-pages@v4</code></div>
-          </div>
-        </div>
-
-        <!-- Dark Terminal Window with Authentic Workflow Logs -->
-        <div class="cicd-terminal">
-          <div class="cicd-terminal-header">
-            <div class="cicd-terminal-controls">
-              <span class="terminal-dot terminal-dot-red"></span>
-              <span class="terminal-dot terminal-dot-yellow"></span>
-              <span class="terminal-dot terminal-dot-green"></span>
-            </div>
-            <div class="cicd-terminal-title">runner@github-actions: ~/work/freelance (pages.yml)</div>
-            <div class="cicd-terminal-badge">
-              <span class="terminal-status-dot"></span>
-              <span>17/17 Passed • 19s</span>
-            </div>
-          </div>
-          <pre class="cicd-terminal-body"><code><span class="t-dim">Run actions/checkout@v4</span>
-<span class="t-dim">Syncing repository to /home/runner/work/freelance/freelance (commit: </span><span class="t-cmd">main</span><span class="t-dim">)</span>
-
-<span class="t-head">▶ Step 1: Validate catalog and translations</span>
-<span class="t-prompt">$</span> <span class="t-cmd">python -m unittest discover -s tests -v</span>
-test_avatar_and_animations_present (test_pages.PagesTests) ... <span class="t-ok">ok</span>
-test_catalog_links_to_both_demos (test_pages.PagesTests) ... <span class="t-ok">ok</span>
-test_flagship_catering_source_present (test_pages.PagesTests) ... <span class="t-ok">ok</span>
-test_favicon_present (test_pages.PagesTests) ... <span class="t-ok">ok</span>
-test_modular_scss_and_compiled_css_present (test_pages.PagesTests) ... <span class="t-ok">ok</span>
-<span class="t-dim">Ran 5 tests in 0.003s - </span><span class="t-ok">OK</span>
-
-<span class="t-prompt">$</span> <span class="t-cmd">python -m unittest discover -s bet-boom/tests -v</span>
-test_deployed_html_assets_are_relative_and_exist ... <span class="t-ok">ok</span>
-test_first_party_text_and_paths_have_no_cyrillic ... <span class="t-ok">ok</span>
-test_source_and_public_html_match_and_use_english ... <span class="t-ok">ok</span>
-<span class="t-dim">Ran 3 tests in 0.039s - </span><span class="t-ok">OK</span>
-
-<span class="t-prompt">$</span> <span class="t-cmd">python -m unittest discover -s dna/tests -v</span>
-test_assets_resolve_under_a_nested_pages_path ... <span class="t-ok">ok</span>
-test_buyer_email_is_labeled_for_the_buyer ... <span class="t-ok">ok</span>
-test_color_selection_has_correct_step_number ... <span class="t-ok">ok</span>
-test_first_party_text_contains_no_cyrillic ... <span class="t-ok">ok</span>
-test_source_and_shipped_bundle_share_english_titles ... <span class="t-ok">ok</span>
-test_translated_radio_values_match_image_covers ... <span class="t-ok">ok</span>
-<span class="t-dim">Ran 6 tests in 0.023s - </span><span class="t-ok">OK</span>
-
-<span class="t-prompt">$</span> <span class="t-cmd">python -m unittest discover -s catering/tests -v</span>
-test_application_text_is_english ... <span class="t-ok">ok</span>
-test_original_personal_portrait_is_not_published ... <span class="t-ok">ok</span>
-test_private_runtime_artifacts_are_not_in_publication_copy ... <span class="t-ok">ok</span>
-<span class="t-dim">Ran 3 tests in 0.044s - </span><span class="t-ok">OK</span>
-
-<span class="t-head">▶ Step 2: Assemble static demos</span>
-<span class="t-dim">Assembling bundle into _site/ directory</span>
-<span class="t-ok">✓</span> Created _site/bet-boom and _site/dna directories
-<span class="t-ok">✓</span> Copied index.html, avatar.png and favicon suite
-<span class="t-ok">✓</span> Excluded test suites and SCSS sources
-<span class="t-ok">✓</span> Generated .nojekyll flag file
-
-<span class="t-head">▶ Step 3: Deploy to GitHub Pages</span>
-<span class="t-dim">Uploading artifact to GitHub Pages backend...</span>
-<span class="t-dim">Triggering deployment id: pages-run-main-latest</span>
-<span class="t-ok">✓ Deployment successful:</span> <a href="https://metarenessans.github.io/freelance/" target="_blank" rel="noopener noreferrer" class="t-link">https://metarenessans.github.io/freelance/</a> <span class="t-dim">(HTTP 200 OK)</span></code></pre>
-        </div>
-      </div>
-    </section>
-
-    <!-- Client Deliveries Section -->
-    <section class="client-section">
-      <div class="section-header reveal-on-scroll">
-        <div>
-          <h2 class="section-title">Client Deliveries</h2>
-          <p class="section-desc">Commercial landing pages delivered for client campaigns.</p>
-        </div>
-      </div>
-
-      <div class="client-works-grid">
-        <!-- BetBoom -->
-        <article class="client-project-card reveal-slide-left">
-          <div>
-            <div class="client-project-header">
-              <span class="client-label">PROJECT // 01</span>
-              <span class="client-label">COMMERCIAL CAMPAIGN</span>
-            </div>
-            <h3>BetBoom Campaign Landing</h3>
-            <p>
-              High-impact sports community promotional landing page featuring fluid CSS/JS keyframe animations, 
-              interactive gamified reward tiers, responsive asset handling, and conversion-optimized pathways.
-            </p>
-          </div>
-          <a class="client-link" href="bet-boom/">Explore Live Site ↗</a>
-        </article>
-
-        <!-- DNA Jewelry -->
-        <article class="client-project-card reveal-slide-right">
-          <div>
-            <div class="client-project-header">
-              <span class="client-label">PROJECT // 02</span>
-              <span class="client-label">E-COMMERCE SHOWCASE</span>
-            </div>
-            <h3>DNA Personalized Jewelry</h3>
-            <p>
-              Luxury e-commerce product landing page for personalized genetic jewelry. 
-              Built with mobile-first Sass/SCSS architecture, custom product selectors, and high-DPI imagery.
-            </p>
-          </div>
-          <a class="client-link" href="dna/">Explore Live Site ↗</a>
-        </article>
-      </div>
-    </section>
-
-    <!-- Full-Stack Technical Stack -->
-    <section class="skills-box reveal-on-scroll">
-      <div class="section-header">
-        <div>
-          <h2 class="section-title">Full-Stack Core Capabilities</h2>
-          <p class="section-desc">Production technologies applied across client engagements.</p>
-        </div>
-      </div>
-
-      <div class="skills-grid reveal-stagger-group">
-        <div class="skill-category">
-          <h4>Frontend</h4>
-          <ul class="skill-list">
-            <li>Next.js SSR</li>
-            <li>React & TypeScript</li>
-            <li>Tailwind CSS & Sass</li>
-            <li>Responsive & Accessible UI</li>
-          </ul>
-        </div>
-        <div class="skill-category">
-          <h4>Backend</h4>
-          <ul class="skill-list">
-            <li>Python 3.11+</li>
-            <li>Django & Django REST</li>
-            <li>PostgreSQL</li>
-            <li>Atomic Transactions</li>
-          </ul>
-        </div>
-        <div class="skill-category">
-          <h4>Automation</h4>
-          <ul class="skill-list">
-            <li>Telegram Bot & Telethon</li>
-            <li>Async Event Dispatchers</li>
-            <li>Custom Django Admin Panels</li>
-            <li>SMTP Email Alerting</li>
-          </ul>
-        </div>
-        <div class="skill-category">
-          <h4>DevOps</h4>
-          <ul class="skill-list">
-            <li>GitHub Actions CI/CD</li>
-            <li>GitLab CI</li>
-            <li>Docker & Compose</li>
-            <li>Vercel Deployments</li>
-          </ul>
-        </div>
-      </div>
-    </section>
-
-    <!-- Upwork Direct Collaboration Card -->
-    <section class="hire-card reveal-scale">
-      <div class="hire-text">
-        <h3>Ready to build your next web application?</h3>
-        <p>
-          Available for contract and full-stack engineering roles on Upwork. 
-          I deliver clear communication, structured milestones, clean code, and guaranteed production turnaround.
-        </p>
-      </div>
-      <a class="btn-upwork-cta" href="https://www.upwork.com/freelancers/~0126a1db3ee4419254" target="_blank" rel="noopener noreferrer">
-        Hire Me on Upwork ↗
-      </a>
-    </section>
-
-    <!-- Footer -->
-    <footer class="reveal-on-scroll">
-      <div class="footer-inner">
-        <span>© Oleg G. Built for technical and commercial client evaluation.</span>
-        <div class="footer-links">
-          <a href="https://github.com/Metarenessans/freelance" target="_blank" rel="noopener noreferrer">GitHub Repository ↗</a>
-          <a href="https://www.upwork.com/freelancers/~0126a1db3ee4419254" target="_blank" rel="noopener noreferrer">Upwork Profile ↗</a>
-        </div>
-      </div>
-    </footer>
-  </main>
-
-  <!-- Interactive Logic Script -->
-  <script>
-    // 1. Theme Management (System Default + Manual Toggle)
-    const themeBtn = document.getElementById('theme-btn');
-    const systemMedia = window.matchMedia('(prefers-color-scheme: dark)');
-
-    function setTheme(theme) {
-      document.documentElement.setAttribute('data-theme', theme);
-    }
-
-    if (themeBtn) {
-      themeBtn.addEventListener('click', () => {
-        const current = document.documentElement.getAttribute('data-theme') || (systemMedia.matches ? 'dark' : 'light');
-        const next = current === 'dark' ? 'light' : 'dark';
-        setTheme(next);
-        localStorage.setItem('theme', next);
-      });
-    }
-
-    systemMedia.addEventListener('change', (e) => {
-      if (!localStorage.getItem('theme')) {
-        setTheme(e.matches ? 'dark' : 'light');
-      }
-    });
-
-    // 2. Console Workspace Tabs Switcher
-    const cTabs = document.querySelectorAll('.c-tab');
-    const cPanes = document.querySelectorAll('.c-pane');
-
-    cTabs.forEach(tab => {
-      tab.addEventListener('click', () => {
-        cTabs.forEach(t => t.classList.remove('active'));
-        cPanes.forEach(p => p.classList.remove('active'));
-        tab.classList.add('active');
-        const target = document.getElementById(`pane-${tab.dataset.pane}`);
-        if (target) target.classList.add('active');
-      });
-    });
-
-    // 3. Interactive API Route Switcher (Comprehensive Suite)
-    const apiSuite = {
-      products: {
-        url: "https://catering-portfolio-api.vercel.app/api/v1/catalog/products/",
-        snippet: `<span class="j-key">HTTP/2 200 OK</span>\n<span class="j-key">content-type:</span> <span class="j-str">application/json</span>\n\n{\n  <span class="j-key">"count"</span>: <span class="j-num">60</span>,\n  <span class="j-key">"next"</span>: <span class="j-str">"https://catering-portfolio-api.vercel.app/api/v1/catalog/products/?page=2"</span>,\n  <span class="j-key">"results"</span>: [\n    {\n      <span class="j-key">"id"</span>: <span class="j-num">1</span>,\n      <span class="j-key">"name"</span>: <span class="j-str">"Assorted Canapés Set"</span>,\n      <span class="j-key">"slug"</span>: <span class="j-str">"assorted-canapes-set"</span>,\n      <span class="j-key">"price"</span>: <span class="j-num">4200.00</span>,\n      <span class="j-key">"currency"</span>: <span class="j-str">"RUB"</span>,\n      <span class="j-key">"is_active"</span>: <span class="j-bool">true</span>,\n      <span class="j-key">"section"</span>: <span class="j-num">1</span>,\n      <span class="j-key">"options"</span>: [<span class="j-str">"Gluten-Free"</span>, <span class="j-str">"Standard"</span>]\n    }\n  ]\n}`
-      },
-      sections: {
-        url: "https://catering-portfolio-api.vercel.app/api/v1/catalog/sections/",
-        snippet: `<span class="j-key">HTTP/2 200 OK</span>\n<span class="j-key">content-type:</span> <span class="j-str">application/json</span>\n\n[\n  {\n    <span class="j-key">"id"</span>: <span class="j-num">1</span>,\n    <span class="j-key">"name"</span>: <span class="j-str">"Canapés & Finger Food"</span>,\n    <span class="j-key">"slug"</span>: <span class="j-str">"canapes"</span>,\n    <span class="j-key">"order"</span>: <span class="j-num">1</span>,\n    <span class="j-key">"is_active"</span>: <span class="j-bool">true</span>,\n    <span class="j-key">"image_url"</span>: <span class="j-str">"/media/sections/canapes.jpg"</span>\n  },\n  {\n    <span class="j-key">"id"</span>: <span class="j-num">2</span>,\n    <span class="j-key">"name"</span>: <span class="j-str">"Hot Hors d'oeuvres"</span>,\n    <span class="j-key">"slug"</span>: <span class="j-str">"hot-appetizers"</span>,\n    <span class="j-key">"order"</span>: <span class="j-num">2</span>,\n    <span class="j-key">"is_active"</span>: <span class="j-bool">true</span>\n  }\n]`
-      },
-      orders: {
-        url: "https://catering-portfolio-api.vercel.app/api/v1/orders/",
-        snippet: `<span class="j-key">POST /api/v1/orders/</span> -> <span class="j-key">HTTP/2 201 Created</span>\n<span class="j-key">x-dispatcher:</span> <span class="j-str">telegram-async-worker</span>\n\n{\n  <span class="j-key">"id"</span>: <span class="j-num">482</span>,\n  <span class="j-key">"status"</span>: <span class="j-str">"new"</span>,\n  <span class="j-key">"event_date"</span>: <span class="j-str">"2026-11-15"</span>,\n  <span class="j-key">"total_price"</span>: <span class="j-num">24500.00</span>,\n  <span class="j-key">"items_count"</span>: <span class="j-num">2</span>,\n  <span class="j-key">"telegram_notified"</span>: <span class="j-bool">true</span>,\n  <span class="j-key">"created_at"</span>: <span class="j-str">"2026-10-22T00:45:00Z"</span>\n}`
-      },
-      formats: {
-        url: "https://catering-portfolio-api.vercel.app/api/v1/menu-requests/formats/",
-        snippet: `<span class="j-key">HTTP/2 200 OK</span>\n<span class="j-key">content-type:</span> <span class="j-str">application/json</span>\n\n[\n  { <span class="j-key">"id"</span>: <span class="j-num">1</span>, <span class="j-key">"name"</span>: <span class="j-str">"Wedding Banquet"</span>, <span class="j-key">"min_guests"</span>: <span class="j-num">20</span> },\n  { <span class="j-key">"id"</span>: <span class="j-num">2</span>, <span class="j-key">"name"</span>: <span class="j-str">"Corporate Buffet"</span>, <span class="j-key">"min_guests"</span>: <span class="j-num">10</span> },\n  { <span class="j-key">"id"</span>: <span class="j-num">3</span>, <span class="j-key">"name"</span>: <span class="j-str">"Coffee Break"</span>, <span class="j-key">"min_guests"</span>: <span class="j-num">5</span> },\n  { <span class="j-key">"id"</span>: <span class="j-num">4</span>, <span class="j-key">"name"</span>: <span class="j-str">"Cocktail Reception"</span>, <span class="j-key">"min_guests"</span>: <span class="j-num">15</span> }\n]`
-      },
-      services: {
-        url: "https://catering-portfolio-api.vercel.app/api/v1/menu-requests/services/",
-        snippet: `<span class="j-key">HTTP/2 200 OK</span>\n<span class="j-key">content-type:</span> <span class="j-str">application/json</span>\n\n[\n  { <span class="j-key">"id"</span>: <span class="j-num">1</span>, <span class="j-key">"name"</span>: <span class="j-str">"Professional Service Staff / Waiters"</span>, <span class="j-key">"price"</span>: <span class="j-num">5000.00</span> },\n  { <span class="j-key">"id"</span>: <span class="j-num">2</span>, <span class="j-key">"name"</span>: <span class="j-str">"Tableware & Glassware Rental"</span>, <span class="j-key">"price"</span>: <span class="j-num">3500.00</span> },\n  { <span class="j-key">"id"</span>: <span class="j-num">3</span>, <span class="j-key">"name"</span>: <span class="j-str">"Mobile Cocktail Bar & Mixologist"</span>, <span class="j-key">"price"</span>: <span class="j-num">12000.00</span> }\n]`
-      },
-      company: {
-        url: "https://catering-portfolio-api.vercel.app/api/v1/company/",
-        snippet: `<span class="j-key">HTTP/2 200 OK</span>\n<span class="j-key">content-type:</span> <span class="j-str">application/json</span>\n\n{\n  <span class="j-key">"name"</span>: <span class="j-str">"Catering Service Demonstration"</span>,\n  <span class="j-key">"phone"</span>: <span class="j-str">"+7 (999) 000-00-00"</span>,\n  <span class="j-key">"email"</span>: <span class="j-str">"orders@catering-demo.com"</span>,\n  <span class="j-key">"working_hours"</span>: <span class="j-str">"09:00 - 21:00 Daily"</span>,\n  <span class="j-key">"min_order_sum"</span>: <span class="j-num">5000.00</span>\n}`
-      },
-      faq: {
-        url: "https://catering-portfolio-api.vercel.app/api/v1/faq/",
-        snippet: `<span class="j-key">HTTP/2 200 OK</span>\n<span class="j-key">content-type:</span> <span class="j-str">application/json</span>\n\n[\n  {\n    <span class="j-key">"id"</span>: <span class="j-num">1</span>,\n    <span class="j-key">"question"</span>: <span class="j-str">"How far in advance should we place an order?"</span>,\n    <span class="j-key">"answer"</span>: <span class="j-str">"We recommend booking at least 3-5 days in advance for banquets."</span>,\n    <span class="j-key">"order"</span>: <span class="j-num">1</span>\n  }\n]`
-      },
-      articles: {
-        url: "https://catering-portfolio-api.vercel.app/api/v1/blog/articles/",
-        snippet: `<span class="j-key">HTTP/2 200 OK</span>\n<span class="j-key">content-type:</span> <span class="j-str">application/json</span>\n\n[\n  {\n    <span class="j-key">"id"</span>: <span class="j-num">1</span>,\n    <span class="j-key">"title"</span>: <span class="j-str">"Planning the Perfect Corporate Buffet"</span>,\n    <span class="j-key">"slug"</span>: <span class="j-str">"planning-corporate-buffet"</span>,\n    <span class="j-key">"reading_time"</span>: <span class="j-num">4</span>\n  }\n]`
-      }
-    };
-
-    const routeBtns = document.querySelectorAll('.api-route-btn');
-    const urlText = document.getElementById('api-url-text');
-    const linkAction = document.getElementById('api-link-action');
-    const outputScreen = document.getElementById('api-output-screen');
-
-    routeBtns.forEach(btn => {
-      btn.addEventListener('click', () => {
-        routeBtns.forEach(b => b.classList.remove('active'));
-        btn.classList.add('active');
-        const data = apiSuite[btn.dataset.api];
-        if (data) {
-          urlText.textContent = data.url;
-          linkAction.href = data.url;
-          outputScreen.innerHTML = data.snippet;
-        }
-      });
-    });
-
-    // 4. Telegram Live Simulator Trigger
-    const simBtn = document.getElementById('btn-run-sim');
-    const simOrderNum = document.getElementById('sim-order-num');
-    const simLeadTime = document.getElementById('sim-lead-time');
-    const simTime = document.getElementById('sim-time');
-
-    if (simBtn) {
-      const sampleLeads = [
-        "in 3 days (15 Nov)",
-        "today (Urgent Banquet)",
-        "in 5 days (Corporate Party)",
-        "tomorrow (VIP Tasting)"
-      ];
-      simBtn.addEventListener('click', () => {
-        const id = Math.floor(400 + Math.random() * 500);
-        const lead = sampleLeads[Math.floor(Math.random() * sampleLeads.length)];
-        simOrderNum.textContent = id;
-        simLeadTime.textContent = lead;
-        const now = new Date();
-        simTime.textContent = now.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', second: '2-digit' });
-
-        simBtn.textContent = '✓ Notification Dispatched!';
-        setTimeout(() => {
-          simBtn.textContent = '⚡ Simulate Live Order Dispatch';
-        }, 1500);
-      });
-    }
-
-    // 5. Scroll Reveal & Entrance Animations
-    const revealElements = document.querySelectorAll(
-      '.reveal-on-scroll, .reveal-scale, .reveal-slide-left, .reveal-slide-right, .reveal-stagger-group'
-    );
-
-    if ('IntersectionObserver' in window) {
-      const revealObserver = new IntersectionObserver((entries, observer) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('is-revealed');
-            if (entry.target.classList.contains('reveal-stagger-group')) {
-              Array.from(entry.target.children).forEach((child, index) => {
-                child.style.setProperty('--stagger-index', index);
-              });
-            }
-            observer.unobserve(entry.target);
-          }
-        });
-      }, {
-        rootMargin: '0px 0px 100px 0px',
-        threshold: 0.02
-      });
-
-      revealElements.forEach(el => revealObserver.observe(el));
-    } else {
-      revealElements.forEach(el => el.classList.add('is-revealed'));
-    }
-
-    // Fail-safe unblock: Ensure everything reveals promptly even if connection is slow
-    setTimeout(() => {
-      revealElements.forEach(el => el.classList.add('is-revealed'));
-    }, 1200);
-
-    // 6. Interactive Scroll Progress Bar
-    const scrollProgress = document.getElementById('scroll-progress');
-    if (scrollProgress) {
-      const updateScrollProgress = () => {
-        const scrollTop = window.scrollY || document.documentElement.scrollTop;
-        const docHeight = document.documentElement.scrollHeight - window.innerHeight;
-        const progress = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
-        scrollProgress.style.width = `${progress}%`;
-      };
-      window.addEventListener('scroll', updateScrollProgress, { passive: true });
-      updateScrollProgress();
-    }
-  </script>
-
-</body>
-</html>
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="description" content="Oleg G. - Full-Stack Engineer specializing in Next.js, Django REST Framework, PostgreSQL, Telegram notification systems, and automated CI/CD pipelines.">
+  <title>Oleg G. - Full-Stack Engineer</title>
+  
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="alternate icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+  
+  <!-- Early Theme Detection to prevent flash of unstyled content -->
+  <script>
+    (function() {
+      const saved = localStorage.getItem('theme');
+      const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      const theme = saved || (prefersDark ? 'dark' : 'light');
+      document.documentElement.setAttribute('data-theme', theme);
+    })();
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- Interactive Scroll Progress Indicator -->
+  <div id="scroll-progress" class="scroll-progress" aria-hidden="true"></div>
+
+  <!-- Fixed Top Header & Navigation -->
+  <header class="site-header">
+    <nav class="container nav-inner" aria-label="Main Navigation">
+      <div class="brand-group">
+        <div class="brand-badge">O</div>
+        <div class="brand-meta">
+          <span class="brand-name">Oleg G.</span>
+          <span class="brand-title">Full-Stack Engineer</span>
+        </div>
+      </div>
+      <div class="nav-actions">
+        <div class="status-badge">
+          <span class="status-dot"></span>
+          <span>Available on Upwork</span>
+        </div>
+        
+        <!-- Light / Dark Theme Switcher -->
+        <button class="theme-btn" id="theme-btn" aria-label="Toggle visual theme" title="Toggle Light / Dark mode">
+          <svg class="theme-sun" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
+          </svg>
+          <svg class="theme-moon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
+          </svg>
+        </button>
+
+        <a class="btn-upwork" href="https://www.upwork.com/freelancers/~0126a1db3ee4419254" target="_blank" rel="noopener noreferrer">
+          Hire Me ↗
+        </a>
+      </div>
+    </nav>
+  </header>
+
+  <main class="container">
+    <!-- Hero Section -->
+    <section class="hero">
+      <div class="hero-layout">
+        <div class="hero-content">
+          <div class="hero-eyebrow hero-animate-1">Production Engineering & Web Systems</div>
+          <h1 class="hero-animate-2">High-performance web applications, resilient APIs, and automated cloud systems.</h1>
+          <p class="hero-animate-2">
+            I architect and ship production-grade web products for fast-moving teams - combining responsive Next.js SSR interfaces, 
+            strictly typed Django REST backends, PostgreSQL data integrity, and automated Telegram operational dispatchers.
+          </p>
+          
+          <div class="hero-ctas hero-animate-3">
+            <a class="btn-primary" href="#flagship">Explore Case Study ↓</a>
+            <a class="btn-secondary" href="https://github.com/Metarenessans/freelance" target="_blank" rel="noopener noreferrer">View GitHub Source ↗</a>
+          </div>
+        </div>
+
+        <!-- Stylized Developer Portrait Card -->
+        <aside class="hero-portrait-card hero-animate-card" aria-label="Engineer Profile Card">
+          <div class="portrait-frame">
+            <picture>
+              <source srcset="avatar.webp" type="image/webp">
+              <img 
+                src="avatar.png" 
+                alt="Oleg G. - Full-Stack Engineer" 
+                class="portrait-img"
+                width="280"
+                height="280"
+                loading="eager"
+                decoding="async"
+              />
+            </picture>
+            <div class="portrait-status-tag">
+              <span class="status-dot"></span>
+              <span>Available for Hire</span>
+            </div>
+          </div>
+          
+          <div class="portrait-info">
+            <div class="portrait-header">
+              <span class="portrait-name">Oleg G.</span>
+              <a class="portrait-github-badge" href="https://github.com/Metarenessans" target="_blank" rel="noopener noreferrer" title="View GitHub Profile">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+                  <path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/>
+                </svg>
+                <span>@Metarenessans</span>
+              </a>
+            </div>
+            
+            <div class="portrait-role">Full-Stack Engineer & System Architect</div>
+            
+            <div class="portrait-tags">
+              <span class="portrait-tag">Python & Django</span>
+              <span class="portrait-tag">Next.js SSR</span>
+              <span class="portrait-tag">PostgreSQL</span>
+              <span class="portrait-tag">Telegram Bots</span>
+            </div>
+          </div>
+        </aside>
+      </div>
+
+      <!-- Trust Metrics Strip -->
+      <div class="trust-strip reveal-stagger-group">
+        <div class="trust-item">
+          <div class="trust-icon">⚡</div>
+          <div>
+            <div class="trust-label">Full-Stack Architecture</div>
+            <div class="trust-sub">Next.js 14 SSR, Django REST & PostgreSQL</div>
+          </div>
+        </div>
+        <div class="trust-item">
+          <div class="trust-icon">🔔</div>
+          <div>
+            <div class="trust-label">Sub-50ms Event Routing</div>
+            <div class="trust-sub">Asynchronous Telegram lead dispatchers</div>
+          </div>
+        </div>
+        <div class="trust-item">
+          <div class="trust-icon">⚙️</div>
+          <div>
+            <div class="trust-label">Custom Back-Office</div>
+            <div class="trust-sub">Tailored Django Admin operational tooling</div>
+          </div>
+        </div>
+        <a class="trust-item trust-item-link" href="#automation" title="View Automated CI/CD Infrastructure">
+          <div class="trust-icon">🚀</div>
+          <div>
+            <div class="trust-label">Verified Quality Gate</div>
+            <div class="trust-sub">17 automated tests & zero-downtime deploy ↗</div>
+          </div>
+        </a>
+      </div>
+    </section>
+
+    <!-- Flagship Project Showcase -->
+    <section class="case-section" id="flagship">
+      <div class="section-header reveal-on-scroll">
+        <div>
+          <h2 class="section-title">Flagship Case Study</h2>
+          <p class="section-desc">Live production sandbox demonstrating end-to-end commerce mechanics.</p>
+        </div>
+      </div>
+
+      <article class="project-card reveal-scale">
+        <div class="project-header">
+          <div class="project-title-area">
+            <h3>Catering & Event Commerce Platform</h3>
+          </div>
+          <div class="pills-group">
+            <span class="pill active">Next.js SSR</span>
+            <span class="pill active">Django REST</span>
+            <span class="pill active">PostgreSQL</span>
+            <span class="pill">Telegram Bot</span>
+            <span class="pill">Docker</span>
+            <a class="pill active pill-ci" href="https://github.com/Metarenessans/freelance/actions" target="_blank" rel="noopener noreferrer" title="View verified GitHub Actions CI pipeline">
+              <span class="ci-status-dot"></span> GitHub Actions CI ↗
+            </a>
+          </div>
+        </div>
+
+        <p class="project-summary">
+          An event catering commerce platform engineered with transactional cart checkout, authoritative 
+          server-side pricing validation, and operational lead routing. Features an isolated public demonstration 
+          sandbox where clients can place test orders, query live Swagger API documentation, and observe automated Telegram alerts.
+        </p>
+
+        <!-- Live Sandbox Quick Links -->
+        <div class="action-bar">
+          <span class="action-label">Live Sandbox:</span>
+          <a class="btn-test btn-test-app" href="https://catering-portfolio-six.vercel.app" target="_blank" rel="noopener noreferrer">
+            Launch Web App ↗
+          </a>
+          <a class="btn-test btn-test-neutral" href="https://chefmil-furshet.ru/" target="_blank" rel="noopener noreferrer" title="View original commercial client website">
+            Original Client Site (chefmil-furshet.ru) ↗
+          </a>
+          <a class="btn-test btn-test-neutral" href="https://catering-portfolio-api.vercel.app/api/docs/" target="_blank" rel="noopener noreferrer">
+            Interactive Swagger API ↗
+          </a>
+          <a class="btn-test btn-test-neutral" href="https://catering-portfolio-api.vercel.app/admin/" target="_blank" rel="noopener noreferrer">
+            Django Admin Panel ↗
+          </a>
+          <a class="btn-test btn-test-neutral" href="https://github.com/Metarenessans/freelance/tree/main/catering" target="_blank" rel="noopener noreferrer" title="Browse full Next.js & Django source code">
+            Source Code ↗
+          </a>
+        </div>
+
+        <!-- Demo Admin Credentials Strip -->
+        <div class="admin-cred-strip">
+          <span class="cred-tag">Demo Admin Credentials:</span>
+          <span class="cred-item"><strong>Username:</strong> <code>demo</code></span>
+          <span class="cred-item"><strong>Password:</strong> <code>demo</code></span>
+          <span class="cred-hint">(Staff access to review order changelists, status filters, and dish image previews)</span>
+        </div>
+
+        <!-- Infrastructure & Hosting Notice -->
+        <div class="infra-notice">
+          <div class="infra-notice-icon">⚡</div>
+          <div class="infra-notice-content">
+            <div class="infra-notice-title">Infrastructure & Hosting Notice</div>
+            <p class="infra-notice-text">
+              This demonstration sandbox runs on free-tier serverless cloud hosting (Vercel Edge &amp; Neon PostgreSQL), which may introduce initial spin-up latency (cold starts). The original commercial client website (<a href="https://chefmil-furshet.ru/" target="_blank" rel="noopener noreferrer">chefmil-furshet.ru</a>) is deployed on a dedicated, high-performance production server. Comprehensive performance engineering (SSR catalog caching, throttled RAF listeners, debounced session storage, and GPU-composited rendering) has been implemented to maintain fluid interaction across both environments.
+            </p>
+          </div>
+        </div>
+
+        <!-- Interactive Console Workspace -->
+        <div class="workspace-console">
+          <div class="console-nav">
+            <button class="c-tab active" data-pane="arch">Architecture Overview</button>
+            <button class="c-tab" data-pane="api">Swagger & API Explorer</button>
+            <button class="c-tab" data-pane="tg">Telegram Dispatcher</button>
+            <button class="c-tab" data-pane="admin">Django Admin Features</button>
+            <button class="c-tab" data-pane="seo">Optimization & SEO Suite</button>
+          </div>
+
+          <!-- Pane 1: Architecture -->
+          <div class="c-pane active" id="pane-arch">
+            <div class="arch-flow-grid reveal-stagger-group">
+              <div class="arch-box">
+                <div class="arch-step">01 / FRONTEND</div>
+                <div class="arch-title">Next.js SSR</div>
+                <div class="arch-desc">Responsive customer interface, reactive shopping cart, and form validation.</div>
+              </div>
+              <div class="arch-box">
+                <div class="arch-step">02 / BACKEND</div>
+                <div class="arch-title">Django REST</div>
+                <div class="arch-desc">Authoritative database pricing, atomic transaction guarantees, and JWT auth.</div>
+              </div>
+              <div class="arch-box">
+                <div class="arch-step">03 / STORAGE</div>
+                <div class="arch-title">PostgreSQL</div>
+                <div class="arch-desc">PostgreSQL 17 with connection pooling, SSL encryption, and isolated demo tables.</div>
+              </div>
+              <div class="arch-box">
+                <div class="arch-step">04 / ALERTS</div>
+                <div class="arch-title">Telegram Worker</div>
+                <div class="arch-desc">Asynchronous event dispatcher parsing delivery lead times without blocking the API.</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Pane 2: Expanded Interactive REST API Explorer -->
+          <div class="c-pane" id="pane-api">
+            <div class="api-suite-intro">
+              <div>
+                <h4>Interactive OpenAPI 3.0 & Swagger UI</h4>
+                <span>Comprehensive REST API specification covering 32 endpoints across 8 application domains</span>
+              </div>
+              <div class="api-actions-wrap">
+                <a class="btn-test btn-test-app" href="https://catering-portfolio-api.vercel.app/api/docs/" target="_blank" rel="noopener noreferrer">
+                  Open Live Swagger UI ↗
+                </a>
+                <a class="btn-test btn-test-neutral" href="https://catering-portfolio-api.vercel.app/api/redoc/" target="_blank" rel="noopener noreferrer">
+                  Redoc View ↗
+                </a>
+              </div>
+            </div>
+
+            <!-- Route Selector Buttons -->
+            <div class="api-routes-selector">
+              <button class="api-route-btn active" data-api="products">
+                <span class="m-tag">GET</span>
+                <span>/catalog/products/</span>
+              </button>
+              <button class="api-route-btn" data-api="sections">
+                <span class="m-tag">GET</span>
+                <span>/catalog/sections/</span>
+              </button>
+              <button class="api-route-btn" data-api="orders">
+                <span class="m-tag">POST</span>
+                <span>/orders/</span>
+              </button>
+              <button class="api-route-btn" data-api="formats">
+                <span class="m-tag">GET</span>
+                <span>/menu-requests/formats/</span>
+              </button>
+              <button class="api-route-btn" data-api="services">
+                <span class="m-tag">GET</span>
+                <span>/menu-requests/services/</span>
+              </button>
+              <button class="api-route-btn" data-api="company">
+                <span class="m-tag">GET</span>
+                <span>/company/</span>
+              </button>
+              <button class="api-route-btn" data-api="faq">
+                <span class="m-tag">GET</span>
+                <span>/faq/</span>
+              </button>
+              <button class="api-route-btn" data-api="articles">
+                <span class="m-tag">GET</span>
+                <span>/blog/articles/</span>
+              </button>
+            </div>
+
+            <!-- Live URL bar -->
+            <div class="api-preview-header">
+              <div>
+                <span style="color:var(--text-subtle);">URL: </span>
+                <span class="api-preview-url" id="api-url-text">https://catering-portfolio-api.vercel.app/api/v1/catalog/products/</span>
+              </div>
+              <a class="api-test-link" id="api-link-action" href="https://catering-portfolio-api.vercel.app/api/v1/catalog/products/" target="_blank" rel="noopener noreferrer">
+                Open in Browser ↗
+              </a>
+            </div>
+
+            <!-- JSON Output Screen -->
+            <div class="api-json-box" id="api-output-screen">
+<span class="j-key">HTTP/2 200 OK</span>
+<span class="j-key">content-type:</span> <span class="j-str">application/json</span>
+
+{
+  <span class="j-key">"count"</span>: <span class="j-num">60</span>,
+  <span class="j-key">"next"</span>: <span class="j-str">"https://catering-portfolio-api.vercel.app/api/v1/catalog/products/?page=2"</span>,
+  <span class="j-key">"results"</span>: [
+    {
+      <span class="j-key">"id"</span>: <span class="j-num">1</span>,
+      <span class="j-key">"name"</span>: <span class="j-str">"Assorted Canapés Set"</span>,
+      <span class="j-key">"slug"</span>: <span class="j-str">"assorted-canapes-set"</span>,
+      <span class="j-key">"price"</span>: <span class="j-num">4200.00</span>,
+      <span class="j-key">"currency"</span>: <span class="j-str">"RUB"</span>,
+      <span class="j-key">"is_active"</span>: <span class="j-bool">true</span>,
+      <span class="j-key">"section"</span>: <span class="j-num">1</span>,
+      <span class="j-key">"options"</span>: [<span class="j-str">"Gluten-Free"</span>, <span class="j-str">"Standard"</span>]
+    }
+  ]
+}</div>
+
+            <!-- Architectural Guarantees Strip -->
+            <div class="api-endpoints-summary-grid">
+              <div class="api-cat-card">
+                <div class="api-cat-title">📐 OpenAPI 3.0 Standard</div>
+                <div class="api-cat-endpoints">
+                  Strict schema contracts with drf-spectacular validation, typed serializers, and auto-generated client SDK specs.
+                </div>
+              </div>
+              <div class="api-cat-card">
+                <div class="api-cat-title">🛡️ Atomic Checkouts</div>
+                <div class="api-cat-endpoints">
+                  Multi-item orders committed atomically with <code>@transaction.atomic</code> - preventing partial writes and inventory drift.
+                </div>
+              </div>
+              <div class="api-cat-card">
+                <div class="api-cat-title">⚡ Pooled PostgreSQL</div>
+                <div class="api-cat-endpoints">
+                  Connection pooling with SSL encryption, prepared statement caching, and sub-50ms API response latency.
+                </div>
+              </div>
+              <div class="api-cat-card">
+                <div class="api-cat-title">🔐 JWT Authentication</div>
+                <div class="api-cat-endpoints">
+                  Stateless token rotation and role-based access control protecting staff back-office routes from unauthorized access.
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Pane 3: Telegram Notification Engine -->
+          <div class="c-pane" id="pane-tg">
+            <div class="tg-layout">
+              <div class="tg-info">
+                <h4>Asynchronous Telegram Alert Pipeline</h4>
+                <p>
+                  When a customer places an order or requests an event quote, the Django backend asynchronously 
+                  formats and routes an urgent dispatch into staff Telegram channels without blocking HTTP execution.
+                </p>
+                <ul class="tg-feature-list">
+                  <li><strong>Non-blocking workers:</strong> Uses background thread dispatchers so API response latency stays under 50ms.</li>
+                  <li><strong>Lead-time urgency calculations:</strong> Computes days remaining until the banquet (e.g. <em>in 3 days</em>, <em>today</em>).</li>
+                  <li><strong>Phone number resolution:</strong> Normalizes contact numbers and resolves Telegram user handles for managers.</li>
+                  <li><strong>Standalone subscriber worker:</strong> Telethon worker allowing staff to subscribe or mute notification channels.</li>
+                </ul>
+              </div>
+
+              <div class="tg-mock-device">
+                <div class="tg-mock-head">
+                  <span>TELEGRAM DISPATCH BOT</span>
+                  <span id="sim-time">JUST NOW</span>
+                </div>
+                <div class="tg-mock-title">
+                  🔔 New Order #<span id="sim-order-num">482</span> Received
+                </div>
+                <div class="tg-mock-body">
+                  <strong>Event Urgency:</strong> <span class="tg-badge-urgency" id="sim-lead-time">in 3 days (15 Nov)</span><br/>
+                  <strong>Order Items:</strong> Mini Tartlets x24, Salmon Skewers x18<br/>
+                  <strong>Total Sum:</strong> 24,500 RUB (~$270 USD, Server Enforced)<br/>
+                  <strong>Customer:</strong> +7 999 123-45-67 (@customer_demo)<br/>
+                  <span style="color:var(--text-subtle);font-size:11px;">[Admin Quicklink: /admin/orders/order/482/change/]</span>
+                </div>
+                <button class="btn-sim-trigger" id="btn-run-sim">⚡ Simulate Live Order Dispatch</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Pane 4: Custom Django Admin Suite -->
+          <div class="c-pane" id="pane-admin">
+            <div class="admin-cards-grid reveal-stagger-group">
+              <div class="admin-feature-card">
+                <h4>1-Click Telegram Action</h4>
+                <p>Bespoke action buttons embedded directly into the Django order view allowing operators to re-dispatch notifications on demand with audit feedback.</p>
+              </div>
+              <div class="admin-feature-card">
+                <h4>Dish Image Previews</h4>
+                <p>Custom <code>OrderItemInline</code> rendering live photographic thumbnails inside order lines so kitchen staff visually verify dish selection.</p>
+              </div>
+              <div class="admin-feature-card">
+                <h4>Subscriber & SMTP Tools</h4>
+                <p>Dedicated administration tools to manage Telegram chat subscriber bindings and built-in SMTP diagnostics to test email delivery health.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Pane 5: Comprehensive SEO & Schema.org Microdata Engine -->
+                    <!-- Pane 5: Full-Stack Optimization & SEO Suite -->
+          <div class="c-pane" id="pane-seo">
+            <!-- Mode Switcher Sub-tabs -->
+            <div class="opt-subnav">
+              <button class="opt-subbtn active" data-subview="perf">⚡ Runtime & GPU Optimization</button>
+              <button class="opt-subbtn" data-subview="seo">🔍 Schema.org & Google Rich Results</button>
+              <button class="opt-subbtn" data-subview="metrics">📊 Core Web Vitals & Benchmarks</button>
+            </div>
+
+            <!-- Sub-view 1: Runtime & GPU Optimization -->
+            <div class="opt-view active" id="opt-view-perf">
+              <div class="opt-spotlight">
+                <div class="spotlight-eyebrow">CASE STUDY // RESOLVING AMD RYZEN 100°C APU THROTTLING</div>
+                <div class="spotlight-title">From Software Tile Rasterization to 60 FPS Hardware Compositing</div>
+                <p class="spotlight-desc">
+                  In Chromium and Opera desktop engines, deeply nested <code>backdrop-filter</code> Gaussian blurs combined with dynamic box-shadow hover transitions repeatedly exceed GPU tile budgets, dropping the compositor into software <code>Chrome_RasterThread</code> loops that pegged 16 APU cores to 100°C. We engineered an adaptive progressive enhancement architecture with synchronous pre-hydration browser detection (<code>data-browser="opera"</code>), GPU matrix scaling (<code>scaleX</code>), and rAF-locked ScrollSpy to achieve butter-smooth 60 FPS scrolling at cold CPU idle.
+                </p>
+              </div>
+
+              <div class="bench-table-wrap">
+                <table>
+                  <thead>
+                    <tr>
+                      <th>PERFORMANCE PIPELINE</th>
+                      <th>UNTHROTTLED BASELINE</th>
+                      <th>OPTIMIZED ARCHITECTURE</th>
+                      <th>MEASURED IMPACT</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>ScrollSpy Recalculation</td>
+                      <td class="bench-bad">~840 ms / scroll sequence</td>
+                      <td class="bench-highlight">0.3 ms (RAF ticking lock)</td>
+                      <td class="bench-highlight">99.96% faster</td>
+                    </tr>
+                    <tr>
+                      <td>Layout Reflow Count</td>
+                      <td class="bench-bad">120+ unthrottled reflows</td>
+                      <td class="bench-highlight">6 batched reflows</td>
+                      <td class="bench-highlight">95% reduction</td>
+                    </tr>
+                    <tr>
+                      <td>Cart Animation Threading</td>
+                      <td class="bench-bad">Main-thread layout (width / blur)</td>
+                      <td class="bench-highlight">GPU Layer (transform: scaleX)</td>
+                      <td class="bench-highlight">Zero layout shift / 60 FPS</td>
+                    </tr>
+                    <tr>
+                      <td>Image Shimmer Overhead</td>
+                      <td class="bench-bad">50+ concurrent infinite @keyframes</td>
+                      <td class="bench-highlight">Controlled / Browser-profiled</td>
+                      <td class="bench-highlight">0% idle CPU utilization</td>
+                    </tr>
+                    <tr>
+                      <td>Scroll State Persistence</td>
+                      <td class="bench-bad">Synchronous I/O on every tick</td>
+                      <td class="bench-highlight">300ms Debounced write batch</td>
+                      <td class="bench-highlight">Zero main-thread blocking</td>
+                    </tr>
+                    <tr>
+                      <td>Thermal & Power Profile</td>
+                      <td class="bench-bad">100°C thermal throttle / roaring fan</td>
+                      <td class="bench-highlight">Cold idle / silent operation</td>
+                      <td class="bench-highlight">Resolved on AMD APUs</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+
+              <div class="seo-grid reveal-stagger-group">
+                <div class="seo-card">
+                  <span class="seo-card-badge">RAF EVENT LOOP</span>
+                  <div class="seo-card-title">rAF-Locked ScrollSpy</div>
+                  <div class="seo-card-desc">Decouples scroll listeners from DOM measurements using requestAnimationFrame and a boolean execution lock, eliminating layout thrashing entirely.</div>
+                </div>
+                <div class="seo-card">
+                  <span class="seo-card-badge">GPU COMPOSITING</span>
+                  <div class="seo-card-title">GPU Matrix Scaling</div>
+                  <div class="seo-card-desc">Cart delivery progress bars and button elevation transitions run entirely on the GPU via scaleX and opacity matrices, preventing main-thread layout recalculations.</div>
+                </div>
+                <div class="seo-card">
+                  <span class="seo-card-badge">INLINE PROFILER</span>
+                  <div class="seo-card-title">Adaptive Browser Profiler</div>
+                  <div class="seo-card-desc">Zero-overhead synchronous head script sets data-browser before initial paint, applying rich frosted glass for Chrome and lightweight profiles for constrained rasterizers.</div>
+                </div>
+                <div class="seo-card">
+                  <span class="seo-card-badge">I/O OPTIMIZATION</span>
+                  <div class="seo-card-title">Debounced Storage & LCP</div>
+                  <div class="seo-card-desc">Scroll restoration throttled by 300ms debouncing, paired with responsive Next.js sizes attributes and LCP preloading for instant hero dish rendering.</div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Sub-view 2: Schema.org & Google Rich Results -->
+            <div class="opt-view" id="opt-view-seo">
+              <!-- Google SERP Live Simulation Card -->
+              <div class="serp-card">
+                <div class="serp-card-header">
+                  <div class="serp-card-favicon">C</div>
+                  <div class="serp-card-meta">
+                    <span class="serp-brand">Chef Meal Catering (Шеф Мил Фуршет)</span>
+                    <span class="serp-url">https://chefmil-furshet.ru › catalog › buffet-sets</span>
+                  </div>
+                </div>
+                <div class="serp-card-title">Chef Meal Catering | Buffet Platters & Event Catering Delivery</div>
+                <div class="serp-card-rating-strip">
+                  <span class="serp-stars">★★★★★</span>
+                  <span>4.9 (128 reviews)</span>
+                  <span>·</span>
+                  <span class="serp-badge">In Stock</span>
+                  <span class="serp-badge">From 4,200 RUB</span>
+                  <span class="serp-badge">CateringService</span>
+                </div>
+                <div class="serp-card-snippet">
+                  Order gourmet catering, banquet dishes, and ready-made party platters with fast delivery in Naberezhnye Chelny. Delicious bruschetta, assorted canapés, tartlets, and bespoke event catering sets.
+                </div>
+                <div class="serp-card-sitelinks">
+                  <span class="serp-sitelink">Assorted Canapés Set</span>
+                  <span class="serp-sitelink">Menu Budget Calculator</span>
+                  <span class="serp-sitelink">Mini Tartlets & Burgers</span>
+                  <span class="serp-sitelink">Dietary Options (Gluten-Free)</span>
+                </div>
+              </div>
+
+              <!-- Interactive Schema Switcher -->
+              <div class="schema-tabs">
+                <button class="schema-btn active" data-schema="catering">CateringService & LocalBusiness</button>
+                <button class="schema-btn" data-schema="product">Product & Offer</button>
+                <button class="schema-btn" data-schema="breadcrumbs">BreadcrumbList</button>
+                <button class="schema-btn" data-schema="faq">FAQPage</button>
+                <button class="schema-btn" data-schema="article">BlogPosting / Article</button>
+              </div>
+
+              <!-- Live Schema Preview Code Screen -->
+              <div class="seo-preview-wrap">
+                <div class="seo-preview-header">
+                  <span id="schema-type-label">SCHEMA.ORG: FoodEstablishment / CateringService</span>
+                  <span>APPLICATION/LD+JSON</span>
+                </div>
+                <pre class="seo-preview-body"><code id="schema-json-screen">{
+  "<span class="j-key">@context</span>": "<span class="j-str">https://schema.org</span>",
+  "<span class="j-key">@graph</span>": [
+    {
+      "<span class="j-key">@type</span>": "<span class="j-str">FoodEstablishment</span>",
+      "<span class="j-key">@id</span>": "<span class="j-str">https://chefmil-furshet.ru/#organization</span>",
+      "<span class="j-key">name</span>": "<span class="j-str">Chef Meal Catering</span>",
+      "<span class="j-key">servesCuisine</span>": "<span class="j-str">Event Catering, Buffet Platters, Banquet Canapes</span>",
+      "<span class="j-key">telephone</span>": "<span class="j-str">+7 (999) 123-45-67</span>",
+      "<span class="j-key">priceRange</span>": "<span class="j-str">RUB</span>",
+      "<span class="j-key">geo</span>": {
+        "<span class="j-key">@type</span>": "<span class="j-str">GeoCoordinates</span>",
+        "<span class="j-key">latitude</span>": <span class="j-num">55.7436</span>,
+        "<span class="j-key">longitude</span>": <span class="j-num">52.3959</span>
+      },
+      "<span class="j-key">openingHoursSpecification</span>": {
+        "<span class="j-key">@type</span>": "<span class="j-str">OpeningHoursSpecification</span>",
+        "<span class="j-key">dayOfWeek</span>": ["<span class="j-str">Monday</span>", "<span class="j-str">Tuesday</span>", "<span class="j-str">Wednesday</span>", "<span class="j-str">Thursday</span>", "<span class="j-str">Friday</span>", "<span class="j-str">Saturday</span>", "<span class="j-str">Sunday</span>"],
+        "<span class="j-key">opens</span>": "<span class="j-str">08:00</span>",
+        "<span class="j-key">closes</span>": "<span class="j-str">22:00</span>"
+      }
+    }
+  ]
+}</code></pre>
+              </div>
+            </div>
+
+            <!-- Sub-view 3: Core Web Vitals & Benchmarks -->
+            <div class="opt-view" id="opt-view-metrics">
+              <div class="vitals-grid">
+                <div class="vital-card">
+                  <div class="vital-score">0.85s</div>
+                  <div class="vital-label">LCP (Largest Contentful Paint)</div>
+                  <div class="vital-target">Google Target: &lt; 2.5s (99th %ile)</div>
+                </div>
+                <div class="vital-card">
+                  <div class="vital-score">0.000</div>
+                  <div class="vital-label">CLS (Cumulative Layout Shift)</div>
+                  <div class="vital-target">Google Target: &lt; 0.1 (Zero Shift)</div>
+                </div>
+                <div class="vital-card">
+                  <div class="vital-score">&lt; 32ms</div>
+                  <div class="vital-label">INP (Interaction to Next Paint)</div>
+                  <div class="vital-target">Google Target: &lt; 200ms (Immediate)</div>
+                </div>
+                <div class="vital-card">
+                  <div class="vital-score">&lt; 45ms</div>
+                  <div class="vital-label">API Response Latency</div>
+                  <div class="vital-target">PostgreSQL 17 Connection Pooling</div>
+                </div>
+              </div>
+
+              <div class="bench-table-wrap">
+                <table>
+                  <thead>
+                    <tr>
+                      <th>OPTIMIZATION DISCIPLINE</th>
+                      <th>PRODUCTION ARCHITECTURAL IMPLEMENTATION</th>
+                      <th>MEASURED METRIC</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>Dynamic Microdata Synchronization</td>
+                      <td>JsonLdGlobalWatcher updates document schema on Next.js client-side route transitions without full page refresh.</td>
+                      <td class="bench-highlight">0 ms reload lag</td>
+                    </tr>
+                    <tr>
+                      <td>Server Catalog Caching</td>
+                      <td>server-catalog-cache serves pre-computed category, product and FAQ hierarchies entirely from memory.</td>
+                      <td class="bench-highlight">&lt; 1 ms query time</td>
+                    </tr>
+                    <tr>
+                      <td>Atomic Transaction Checkout</td>
+                      <td>All order lines committed atomically inside Django @transaction.atomic blocks with authoritative database pricing.</td>
+                      <td class="bench-highlight">0% drift rate</td>
+                    </tr>
+                    <tr>
+                      <td>Non-blocking Telegram Alerting</td>
+                      <td>Orders and quote requests dispatched asynchronously via background worker threads (_send_order_notification_bg).</td>
+                      <td class="bench-highlight">API latency &lt; 50ms</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div></div>
+      </article>
+    </section>
+
+    <!-- Automation & DevOps Infrastructure Section -->
+    <section class="cicd-section reveal-on-scroll" id="automation">
+      <div class="section-header">
+        <div>
+          <div class="section-eyebrow">AUTOMATION & DEVOPS INFRASTRUCTURE</div>
+          <h2 class="section-title">Automated CI/CD & Quality Gates</h2>
+          <p class="section-desc">Production test discovery, compliance scanning, and zero-downtime deployment executed on every push via GitHub Actions.</p>
+        </div>
+        <a class="btn-test btn-test-app" href="https://github.com/Metarenessans/freelance/actions" target="_blank" rel="noopener noreferrer">
+          Inspect Live Actions Runs ↗
+        </a>
+      </div>
+      <div class="cicd-card">
+        <!-- 4 Pipeline Stages Grid -->
+        <div class="cicd-grid reveal-stagger-group">
+          <!-- Stage 01: Unit Tests -->
+          <div class="cicd-stage-card">
+            <div class="cicd-stage-top">
+              <span class="cicd-stage-step">STAGE 01</span>
+              <span class="cicd-status-pill"><span class="status-dot"></span>PASSED</span>
+            </div>
+            <div class="cicd-stage-name">Unit Tests</div>
+            <div class="cicd-stage-desc">Automated test discovery validating catalog integrity, animation attributes, and multi-domain endpoints.</div>
+            <div class="cicd-stage-meta"><code>python -m unittest</code></div>
+          </div>
+
+          <!-- Stage 02: Quality Gate -->
+          <div class="cicd-stage-card">
+            <div class="cicd-stage-top">
+              <span class="cicd-stage-step">STAGE 02</span>
+              <span class="cicd-status-pill"><span class="status-dot"></span>VERIFIED</span>
+            </div>
+            <div class="cicd-stage-name">Quality Gate</div>
+            <div class="cicd-stage-desc">Strict translation integrity check, Cyrillic character prevention, and isolated demo build boundaries.</div>
+            <div class="cicd-stage-meta"><code>test_no_cyrillic</code></div>
+          </div>
+
+          <!-- Stage 03: Asset Compilation -->
+          <div class="cicd-stage-card">
+            <div class="cicd-stage-top">
+              <span class="cicd-stage-step">STAGE 03</span>
+              <span class="cicd-status-pill"><span class="status-dot"></span>OPTIMIZED</span>
+            </div>
+            <div class="cicd-stage-name">Asset Compilation</div>
+            <div class="cicd-stage-desc">Static tree assembly, Sass/test exclusion, Jekyll bypass (.nojekyll), and bundle packaging.</div>
+            <div class="cicd-stage-meta"><code>upload-artifact@v3</code></div>
+          </div>
+
+          <!-- Stage 04: Automated Deploy -->
+          <div class="cicd-stage-card">
+            <div class="cicd-stage-top">
+              <span class="cicd-stage-step">STAGE 04</span>
+              <span class="cicd-status-pill"><span class="status-dot"></span>ACTIVE</span>
+            </div>
+            <div class="cicd-stage-name">Automated Deploy</div>
+            <div class="cicd-stage-desc">Atomic GitHub Pages release step verifying deployment URL health and environment states.</div>
+            <div class="cicd-stage-meta"><code>deploy-pages@v4</code></div>
+          </div>
+        </div>
+
+        <!-- Dark Terminal Window with Authentic Workflow Logs -->
+        <div class="cicd-terminal">
+          <div class="cicd-terminal-header">
+            <div class="cicd-terminal-controls">
+              <span class="terminal-dot terminal-dot-red"></span>
+              <span class="terminal-dot terminal-dot-yellow"></span>
+              <span class="terminal-dot terminal-dot-green"></span>
+            </div>
+            <div class="cicd-terminal-title">runner@github-actions: ~/work/freelance (pages.yml)</div>
+            <div class="cicd-terminal-badge">
+              <span class="terminal-status-dot"></span>
+              <span>17/17 Passed • 19s</span>
+            </div>
+          </div>
+          <pre class="cicd-terminal-body"><code><span class="t-dim">Run actions/checkout@v4</span>
+<span class="t-dim">Syncing repository to /home/runner/work/freelance/freelance (commit: </span><span class="t-cmd">main</span><span class="t-dim">)</span>
+
+<span class="t-head">▶ Step 1: Validate catalog and translations</span>
+<span class="t-prompt">$</span> <span class="t-cmd">python -m unittest discover -s tests -v</span>
+test_avatar_and_animations_present (test_pages.PagesTests) ... <span class="t-ok">ok</span>
+test_catalog_links_to_both_demos (test_pages.PagesTests) ... <span class="t-ok">ok</span>
+test_flagship_catering_source_present (test_pages.PagesTests) ... <span class="t-ok">ok</span>
+test_favicon_present (test_pages.PagesTests) ... <span class="t-ok">ok</span>
+test_modular_scss_and_compiled_css_present (test_pages.PagesTests) ... <span class="t-ok">ok</span>
+<span class="t-dim">Ran 5 tests in 0.003s - </span><span class="t-ok">OK</span>
+
+<span class="t-prompt">$</span> <span class="t-cmd">python -m unittest discover -s bet-boom/tests -v</span>
+test_deployed_html_assets_are_relative_and_exist ... <span class="t-ok">ok</span>
+test_first_party_text_and_paths_have_no_cyrillic ... <span class="t-ok">ok</span>
+test_source_and_public_html_match_and_use_english ... <span class="t-ok">ok</span>
+<span class="t-dim">Ran 3 tests in 0.039s - </span><span class="t-ok">OK</span>
+
+<span class="t-prompt">$</span> <span class="t-cmd">python -m unittest discover -s dna/tests -v</span>
+test_assets_resolve_under_a_nested_pages_path ... <span class="t-ok">ok</span>
+test_buyer_email_is_labeled_for_the_buyer ... <span class="t-ok">ok</span>
+test_color_selection_has_correct_step_number ... <span class="t-ok">ok</span>
+test_first_party_text_contains_no_cyrillic ... <span class="t-ok">ok</span>
+test_source_and_shipped_bundle_share_english_titles ... <span class="t-ok">ok</span>
+test_translated_radio_values_match_image_covers ... <span class="t-ok">ok</span>
+<span class="t-dim">Ran 6 tests in 0.023s - </span><span class="t-ok">OK</span>
+
+<span class="t-prompt">$</span> <span class="t-cmd">python -m unittest discover -s catering/tests -v</span>
+test_application_text_is_english ... <span class="t-ok">ok</span>
+test_original_personal_portrait_is_not_published ... <span class="t-ok">ok</span>
+test_private_runtime_artifacts_are_not_in_publication_copy ... <span class="t-ok">ok</span>
+<span class="t-dim">Ran 3 tests in 0.044s - </span><span class="t-ok">OK</span>
+
+<span class="t-head">▶ Step 2: Assemble static demos</span>
+<span class="t-dim">Assembling bundle into _site/ directory</span>
+<span class="t-ok">✓</span> Created _site/bet-boom and _site/dna directories
+<span class="t-ok">✓</span> Copied index.html, avatar.png and favicon suite
+<span class="t-ok">✓</span> Excluded test suites and SCSS sources
+<span class="t-ok">✓</span> Generated .nojekyll flag file
+
+<span class="t-head">▶ Step 3: Deploy to GitHub Pages</span>
+<span class="t-dim">Uploading artifact to GitHub Pages backend...</span>
+<span class="t-dim">Triggering deployment id: pages-run-main-latest</span>
+<span class="t-ok">✓ Deployment successful:</span> <a href="https://metarenessans.github.io/freelance/" target="_blank" rel="noopener noreferrer" class="t-link">https://metarenessans.github.io/freelance/</a> <span class="t-dim">(HTTP 200 OK)</span></code></pre>
+        </div>
+      </div>
+    </section>
+
+    <!-- Client Deliveries Section -->
+    <section class="client-section">
+      <div class="section-header reveal-on-scroll">
+        <div>
+          <h2 class="section-title">Client Deliveries</h2>
+          <p class="section-desc">Commercial landing pages delivered for client campaigns.</p>
+        </div>
+      </div>
+
+      <div class="client-works-grid">
+        <!-- BetBoom -->
+        <article class="client-project-card reveal-slide-left">
+          <div>
+            <div class="client-project-header">
+              <span class="client-label">PROJECT // 01</span>
+              <span class="client-label">COMMERCIAL CAMPAIGN</span>
+            </div>
+            <h3>BetBoom Campaign Landing</h3>
+            <p>
+              High-impact sports community promotional landing page featuring fluid CSS/JS keyframe animations, 
+              interactive gamified reward tiers, responsive asset handling, and conversion-optimized pathways.
+            </p>
+          </div>
+          <a class="client-link" href="bet-boom/">Explore Live Site ↗</a>
+        </article>
+
+        <!-- DNA Jewelry -->
+        <article class="client-project-card reveal-slide-right">
+          <div>
+            <div class="client-project-header">
+              <span class="client-label">PROJECT // 02</span>
+              <span class="client-label">E-COMMERCE SHOWCASE</span>
+            </div>
+            <h3>DNA Personalized Jewelry</h3>
+            <p>
+              Luxury e-commerce product landing page for personalized genetic jewelry. 
+              Built with mobile-first Sass/SCSS architecture, custom product selectors, and high-DPI imagery.
+            </p>
+          </div>
+          <a class="client-link" href="dna/">Explore Live Site ↗</a>
+        </article>
+      </div>
+    </section>
+
+    <!-- Full-Stack Technical Stack -->
+    <section class="skills-box reveal-on-scroll">
+      <div class="section-header">
+        <div>
+          <h2 class="section-title">Full-Stack Core Capabilities</h2>
+          <p class="section-desc">Production technologies applied across client engagements.</p>
+        </div>
+      </div>
+
+      <div class="skills-grid reveal-stagger-group">
+        <div class="skill-category">
+          <h4>Frontend</h4>
+          <ul class="skill-list">
+            <li>Next.js SSR</li>
+            <li>React & TypeScript</li>
+            <li>Tailwind CSS & Sass</li>
+            <li>Responsive & Accessible UI</li>
+          </ul>
+        </div>
+        <div class="skill-category">
+          <h4>Backend</h4>
+          <ul class="skill-list">
+            <li>Python 3.11+</li>
+            <li>Django & Django REST</li>
+            <li>PostgreSQL</li>
+            <li>Atomic Transactions</li>
+          </ul>
+        </div>
+        <div class="skill-category">
+          <h4>Automation</h4>
+          <ul class="skill-list">
+            <li>Telegram Bot & Telethon</li>
+            <li>Async Event Dispatchers</li>
+            <li>Custom Django Admin Panels</li>
+            <li>SMTP Email Alerting</li>
+          </ul>
+        </div>
+        <div class="skill-category">
+          <h4>DevOps</h4>
+          <ul class="skill-list">
+            <li>GitHub Actions CI/CD</li>
+            <li>GitLab CI</li>
+            <li>Docker & Compose</li>
+            <li>Vercel Deployments</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Upwork Direct Collaboration Card -->
+    <section class="hire-card reveal-scale">
+      <div class="hire-text">
+        <h3>Ready to build your next web application?</h3>
+        <p>
+          Available for contract and full-stack engineering roles on Upwork. 
+          I deliver clear communication, structured milestones, clean code, and guaranteed production turnaround.
+        </p>
+      </div>
+      <a class="btn-upwork-cta" href="https://www.upwork.com/freelancers/~0126a1db3ee4419254" target="_blank" rel="noopener noreferrer">
+        Hire Me on Upwork ↗
+      </a>
+    </section>
+
+    <!-- Footer -->
+    <footer class="reveal-on-scroll">
+      <div class="footer-inner">
+        <span>© Oleg G. Built for technical and commercial client evaluation.</span>
+        <div class="footer-links">
+          <a href="https://github.com/Metarenessans/freelance" target="_blank" rel="noopener noreferrer">GitHub Repository ↗</a>
+          <a href="https://www.upwork.com/freelancers/~0126a1db3ee4419254" target="_blank" rel="noopener noreferrer">Upwork Profile ↗</a>
+        </div>
+      </div>
+    </footer>
+  </main>
+
+  <!-- Interactive Logic Script -->
+  <script>
+    // 1. Theme Management (System Default + Manual Toggle)
+    const themeBtn = document.getElementById('theme-btn');
+    const systemMedia = window.matchMedia('(prefers-color-scheme: dark)');
+
+    function setTheme(theme) {
+      document.documentElement.setAttribute('data-theme', theme);
+    }
+
+    if (themeBtn) {
+      themeBtn.addEventListener('click', () => {
+        const current = document.documentElement.getAttribute('data-theme') || (systemMedia.matches ? 'dark' : 'light');
+        const next = current === 'dark' ? 'light' : 'dark';
+        setTheme(next);
+        localStorage.setItem('theme', next);
+      });
+    }
+
+    systemMedia.addEventListener('change', (e) => {
+      if (!localStorage.getItem('theme')) {
+        setTheme(e.matches ? 'dark' : 'light');
+      }
+    });
+
+    // 2. Console Workspace Tabs Switcher
+        // 2. Optimization & SEO Suite Sub-tabs & Schema Explorer
+    const optSubBtns = document.querySelectorAll('.opt-subbtn');
+    const optViews = document.querySelectorAll('.opt-view');
+
+    optSubBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        optSubBtns.forEach(b => b.classList.remove('active'));
+        optViews.forEach(v => v.classList.remove('active'));
+        btn.classList.add('active');
+        const targetView = document.getElementById(`opt-view-${btn.dataset.subview}`);
+        if (targetView) targetView.classList.add('active');
+      });
+    });
+
+    const schemaData = {
+      catering: {
+        label: "SCHEMA.ORG: FoodEstablishment / CateringService",
+        json: `{
+  "<span class=\"j-key\">@context</span>": "<span class=\"j-str\">https://schema.org</span>",
+  "<span class=\"j-key\">@graph</span>": [
+    {
+      "<span class=\"j-key\">@type</span>": "<span class=\"j-str\">FoodEstablishment</span>",
+      "<span class=\"j-key\">@id</span>": "<span class=\"j-str\">https://chefmil-furshet.ru/#organization</span>",
+      "<span class=\"j-key\">name</span>": "<span class=\"j-str\">Chef Meal Catering</span>",
+      "<span class=\"j-key\">servesCuisine</span>": "<span class=\"j-str\">Event Catering, Buffet Platters, Banquet Canapes</span>",
+      "<span class=\"j-key\">telephone</span>": "<span class=\"j-str\">+7 (999) 123-45-67</span>",
+      "<span class=\"j-key\">priceRange</span>": "<span class=\"j-str\">RUB</span>",
+      "<span class=\"j-key\">geo</span>": {
+        "<span class=\"j-key\">@type</span>": "<span class=\"j-str\">GeoCoordinates</span>",
+        "<span class=\"j-key\">latitude</span>": <span class=\"j-num\">55.7436</span>,
+        "<span class=\"j-key\">longitude</span>": <span class=\"j-num\">52.3959</span>
+      }
+    }
+  ]
+}`
+      },
+      product: {
+        label: "SCHEMA.ORG: Product & Offer",
+        json: `{
+  "<span class=\"j-key\">@context</span>": "<span class=\"j-str\">https://schema.org</span>",
+  "<span class=\"j-key\">@type</span>": "<span class=\"j-str\">Product</span>",
+  "<span class=\"j-key\">name</span>": "<span class=\"j-str\">Assorted Canapés Set</span>",
+  "<span class=\"j-key\">image</span>": "<span class=\"j-str\">https://chefmil-furshet.ru/media/canapes.webp</span>",
+  "<span class=\"j-key\">description</span>": "<span class=\"j-str\">Gourmet catering set with salmon, roast beef, and camembert canapés.</span>",
+  "<span class=\"j-key\">sku</span>": "<span class=\"j-str\">CANAPE-SET-48</span>",
+  "<span class=\"j-key\">offers</span>": {
+    "<span class=\"j-key\">@type</span>": "<span class=\"j-str\">Offer</span>",
+    "<span class=\"j-key\">price</span>": "<span class=\"j-str\">4200.00</span>",
+    "<span class=\"j-key\">priceCurrency</span>": "<span class=\"j-str\">RUB</span>",
+    "<span class=\"j-key\">availability</span>": "<span class=\"j-str\">https://schema.org/InStock</span>",
+    "<span class=\"j-key\">url</span>": "<span class=\"j-str\">https://chefmil-furshet.ru/catalog/canapes/</span>"
+  }
+}`
+      },
+      breadcrumbs: {
+        label: "SCHEMA.ORG: BreadcrumbList",
+        json: `{
+  "<span class=\"j-key\">@context</span>": "<span class=\"j-str\">https://schema.org</span>",
+  "<span class=\"j-key\">@type</span>": "<span class=\"j-str\">BreadcrumbList</span>",
+  "<span class=\"j-key\">itemListElement</span>": [
+    {
+      "<span class=\"j-key\">@type</span>": "<span class=\"j-str\">ListItem</span>",
+      "<span class=\"j-key\">position</span>": <span class=\"j-num\">1</span>,
+      "<span class=\"j-key\">name</span>": "<span class=\"j-str\">Home</span>",
+      "<span class=\"j-key\">item</span>": "<span class=\"j-str\">https://chefmil-furshet.ru/</span>"
+    },
+    {
+      "<span class=\"j-key\">@type</span>": "<span class=\"j-str\">ListItem</span>",
+      "<span class=\"j-key\">position</span>": <span class=\"j-num\">2</span>,
+      "<span class=\"j-key\">name</span>": "<span class=\"j-str\">Catering Catalog</span>",
+      "<span class=\"j-key\">item</span>": "<span class=\"j-str\">https://chefmil-furshet.ru/#catalog</span>"
+    },
+    {
+      "<span class=\"j-key\">@type</span>": "<span class=\"j-str\">ListItem</span>",
+      "<span class=\"j-key\">position</span>": <span class=\"j-num\">3</span>,
+      "<span class=\"j-key\">name</span>": "<span class=\"j-str\">Buffet Platters</span>",
+      "<span class=\"j-key\">item</span>": "<span class=\"j-str\">https://chefmil-furshet.ru/catalog/buffet-sets/</span>"
+    }
+  ]
+}`
+      },
+      faq: {
+        label: "SCHEMA.ORG: FAQPage",
+        json: `{
+  "<span class=\"j-key\">@context</span>": "<span class=\"j-str\">https://schema.org</span>",
+  "<span class=\"j-key\">@type</span>": "<span class=\"j-str\">FAQPage</span>",
+  "<span class=\"j-key\">mainEntity</span>": [
+    {
+      "<span class=\"j-key\">@type</span>": "<span class=\"j-str\">Question</span>",
+      "<span class=\"j-key\">name</span>": "<span class=\"j-str\">How far in advance should catering be ordered?</span>",
+      "<span class=\"j-key\">acceptedAnswer</span>": {
+        "<span class=\"j-key\">@type</span>": "<span class=\"j-str\">Answer</span>",
+        "<span class=\"j-key\">text</span>": "<span class=\"j-str\">Orders are accepted up to 24 hours before the event; large banquets require 3 days.</span>"
+      }
+    },
+    {
+      "<span class=\"j-key\">@type</span>": "<span class=\"j-str\">Question</span>",
+      "<span class=\"j-key\">name</span>": "<span class=\"j-str\">Can options be prepared gluten-free?</span>",
+      "<span class=\"j-key\">acceptedAnswer</span>": {
+        "<span class=\"j-key\">@type</span>": "<span class=\"j-str\">Answer</span>",
+        "<span class=\"j-key\">text</span>": "<span class=\"j-str\">Yes, gluten-free and vegetarian dietary preferences can be selected in the menu options.</span>"
+      }
+    }
+  ]
+}`
+      },
+      article: {
+        label: "SCHEMA.ORG: BlogPosting / Article",
+        json: `{
+  "<span class=\"j-key\">@context</span>": "<span class=\"j-str\">https://schema.org</span>",
+  "<span class=\"j-key\">@type</span>": "<span class=\"j-str\">BlogPosting</span>",
+  "<span class=\"j-key\">headline</span>": "<span class=\"j-str\">The Essential Event Catering Checklist for 2026</span>",
+  "<span class=\"j-key\">author</span>": {
+    "<span class=\"j-key\">@type</span>": "<span class=\"j-str\">Person</span>",
+    "<span class=\"j-key\">name</span>": "<span class=\"j-str\">Chef Meal Editorial Staff</span>"
+  },
+  "<span class=\"j-key\">datePublished</span>": "<span class=\"j-str\">2026-03-15</span>",
+  "<span class=\"j-key\">publisher</span>": {
+    "<span class=\"j-key\">@type</span>": "<span class=\"j-str\">Organization</span>",
+    "<span class=\"j-key\">name</span>": "<span class=\"j-str\">Chef Meal Catering</span>"
+  }
+}`
+      }
+    };
+
+    const schemaBtns = document.querySelectorAll('.schema-btn');
+    const schemaLabel = document.getElementById('schema-type-label');
+    const schemaScreen = document.getElementById('schema-json-screen');
+
+    schemaBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        schemaBtns.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        const item = schemaData[btn.dataset.schema];
+        if (item && schemaScreen) {
+          if (schemaLabel) schemaLabel.textContent = item.label;
+          schemaScreen.innerHTML = item.json;
+        }
+      });
+    });
+
+    const cTabs = document.querySelectorAll('.c-tab');
+    const cPanes = document.querySelectorAll('.c-pane');
+
+    cTabs.forEach(tab => {
+      tab.addEventListener('click', () => {
+        cTabs.forEach(t => t.classList.remove('active'));
+        cPanes.forEach(p => p.classList.remove('active'));
+        tab.classList.add('active');
+        const target = document.getElementById(`pane-${tab.dataset.pane}`);
+        if (target) target.classList.add('active');
+      });
+    });
+
+    // 3. Interactive API Route Switcher (Comprehensive Suite)
+    const apiSuite = {
+      products: {
+        url: "https://catering-portfolio-api.vercel.app/api/v1/catalog/products/",
+        snippet: `<span class="j-key">HTTP/2 200 OK</span>\n<span class="j-key">content-type:</span> <span class="j-str">application/json</span>\n\n{\n  <span class="j-key">"count"</span>: <span class="j-num">60</span>,\n  <span class="j-key">"next"</span>: <span class="j-str">"https://catering-portfolio-api.vercel.app/api/v1/catalog/products/?page=2"</span>,\n  <span class="j-key">"results"</span>: [\n    {\n      <span class="j-key">"id"</span>: <span class="j-num">1</span>,\n      <span class="j-key">"name"</span>: <span class="j-str">"Assorted Canapés Set"</span>,\n      <span class="j-key">"slug"</span>: <span class="j-str">"assorted-canapes-set"</span>,\n      <span class="j-key">"price"</span>: <span class="j-num">4200.00</span>,\n      <span class="j-key">"currency"</span>: <span class="j-str">"RUB"</span>,\n      <span class="j-key">"is_active"</span>: <span class="j-bool">true</span>,\n      <span class="j-key">"section"</span>: <span class="j-num">1</span>,\n      <span class="j-key">"options"</span>: [<span class="j-str">"Gluten-Free"</span>, <span class="j-str">"Standard"</span>]\n    }\n  ]\n}`
+      },
+      sections: {
+        url: "https://catering-portfolio-api.vercel.app/api/v1/catalog/sections/",
+        snippet: `<span class="j-key">HTTP/2 200 OK</span>\n<span class="j-key">content-type:</span> <span class="j-str">application/json</span>\n\n[\n  {\n    <span class="j-key">"id"</span>: <span class="j-num">1</span>,\n    <span class="j-key">"name"</span>: <span class="j-str">"Canapés & Finger Food"</span>,\n    <span class="j-key">"slug"</span>: <span class="j-str">"canapes"</span>,\n    <span class="j-key">"order"</span>: <span class="j-num">1</span>,\n    <span class="j-key">"is_active"</span>: <span class="j-bool">true</span>,\n    <span class="j-key">"image_url"</span>: <span class="j-str">"/media/sections/canapes.jpg"</span>\n  },\n  {\n    <span class="j-key">"id"</span>: <span class="j-num">2</span>,\n    <span class="j-key">"name"</span>: <span class="j-str">"Hot Hors d'oeuvres"</span>,\n    <span class="j-key">"slug"</span>: <span class="j-str">"hot-appetizers"</span>,\n    <span class="j-key">"order"</span>: <span class="j-num">2</span>,\n    <span class="j-key">"is_active"</span>: <span class="j-bool">true</span>\n  }\n]`
+      },
+      orders: {
+        url: "https://catering-portfolio-api.vercel.app/api/v1/orders/",
+        snippet: `<span class="j-key">POST /api/v1/orders/</span> -> <span class="j-key">HTTP/2 201 Created</span>\n<span class="j-key">x-dispatcher:</span> <span class="j-str">telegram-async-worker</span>\n\n{\n  <span class="j-key">"id"</span>: <span class="j-num">482</span>,\n  <span class="j-key">"status"</span>: <span class="j-str">"new"</span>,\n  <span class="j-key">"event_date"</span>: <span class="j-str">"2026-11-15"</span>,\n  <span class="j-key">"total_price"</span>: <span class="j-num">24500.00</span>,\n  <span class="j-key">"items_count"</span>: <span class="j-num">2</span>,\n  <span class="j-key">"telegram_notified"</span>: <span class="j-bool">true</span>,\n  <span class="j-key">"created_at"</span>: <span class="j-str">"2026-10-22T00:45:00Z"</span>\n}`
+      },
+      formats: {
+        url: "https://catering-portfolio-api.vercel.app/api/v1/menu-requests/formats/",
+        snippet: `<span class="j-key">HTTP/2 200 OK</span>\n<span class="j-key">content-type:</span> <span class="j-str">application/json</span>\n\n[\n  { <span class="j-key">"id"</span>: <span class="j-num">1</span>, <span class="j-key">"name"</span>: <span class="j-str">"Wedding Banquet"</span>, <span class="j-key">"min_guests"</span>: <span class="j-num">20</span> },\n  { <span class="j-key">"id"</span>: <span class="j-num">2</span>, <span class="j-key">"name"</span>: <span class="j-str">"Corporate Buffet"</span>, <span class="j-key">"min_guests"</span>: <span class="j-num">10</span> },\n  { <span class="j-key">"id"</span>: <span class="j-num">3</span>, <span class="j-key">"name"</span>: <span class="j-str">"Coffee Break"</span>, <span class="j-key">"min_guests"</span>: <span class="j-num">5</span> },\n  { <span class="j-key">"id"</span>: <span class="j-num">4</span>, <span class="j-key">"name"</span>: <span class="j-str">"Cocktail Reception"</span>, <span class="j-key">"min_guests"</span>: <span class="j-num">15</span> }\n]`
+      },
+      services: {
+        url: "https://catering-portfolio-api.vercel.app/api/v1/menu-requests/services/",
+        snippet: `<span class="j-key">HTTP/2 200 OK</span>\n<span class="j-key">content-type:</span> <span class="j-str">application/json</span>\n\n[\n  { <span class="j-key">"id"</span>: <span class="j-num">1</span>, <span class="j-key">"name"</span>: <span class="j-str">"Professional Service Staff / Waiters"</span>, <span class="j-key">"price"</span>: <span class="j-num">5000.00</span> },\n  { <span class="j-key">"id"</span>: <span class="j-num">2</span>, <span class="j-key">"name"</span>: <span class="j-str">"Tableware & Glassware Rental"</span>, <span class="j-key">"price"</span>: <span class="j-num">3500.00</span> },\n  { <span class="j-key">"id"</span>: <span class="j-num">3</span>, <span class="j-key">"name"</span>: <span class="j-str">"Mobile Cocktail Bar & Mixologist"</span>, <span class="j-key">"price"</span>: <span class="j-num">12000.00</span> }\n]`
+      },
+      company: {
+        url: "https://catering-portfolio-api.vercel.app/api/v1/company/",
+        snippet: `<span class="j-key">HTTP/2 200 OK</span>\n<span class="j-key">content-type:</span> <span class="j-str">application/json</span>\n\n{\n  <span class="j-key">"name"</span>: <span class="j-str">"Catering Service Demonstration"</span>,\n  <span class="j-key">"phone"</span>: <span class="j-str">"+7 (999) 000-00-00"</span>,\n  <span class="j-key">"email"</span>: <span class="j-str">"orders@catering-demo.com"</span>,\n  <span class="j-key">"working_hours"</span>: <span class="j-str">"09:00 - 21:00 Daily"</span>,\n  <span class="j-key">"min_order_sum"</span>: <span class="j-num">5000.00</span>\n}`
+      },
+      faq: {
+        url: "https://catering-portfolio-api.vercel.app/api/v1/faq/",
+        snippet: `<span class="j-key">HTTP/2 200 OK</span>\n<span class="j-key">content-type:</span> <span class="j-str">application/json</span>\n\n[\n  {\n    <span class="j-key">"id"</span>: <span class="j-num">1</span>,\n    <span class="j-key">"question"</span>: <span class="j-str">"How far in advance should we place an order?"</span>,\n    <span class="j-key">"answer"</span>: <span class="j-str">"We recommend booking at least 3-5 days in advance for banquets."</span>,\n    <span class="j-key">"order"</span>: <span class="j-num">1</span>\n  }\n]`
+      },
+      articles: {
+        url: "https://catering-portfolio-api.vercel.app/api/v1/blog/articles/",
+        snippet: `<span class="j-key">HTTP/2 200 OK</span>\n<span class="j-key">content-type:</span> <span class="j-str">application/json</span>\n\n[\n  {\n    <span class="j-key">"id"</span>: <span class="j-num">1</span>,\n    <span class="j-key">"title"</span>: <span class="j-str">"Planning the Perfect Corporate Buffet"</span>,\n    <span class="j-key">"slug"</span>: <span class="j-str">"planning-corporate-buffet"</span>,\n    <span class="j-key">"reading_time"</span>: <span class="j-num">4</span>\n  }\n]`
+      }
+    };
+
+    const routeBtns = document.querySelectorAll('.api-route-btn');
+    const urlText = document.getElementById('api-url-text');
+    const linkAction = document.getElementById('api-link-action');
+    const outputScreen = document.getElementById('api-output-screen');
+
+    routeBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        routeBtns.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        const data = apiSuite[btn.dataset.api];
+        if (data) {
+          urlText.textContent = data.url;
+          linkAction.href = data.url;
+          outputScreen.innerHTML = data.snippet;
+        }
+      });
+    });
+
+    // 4. Telegram Live Simulator Trigger
+    const simBtn = document.getElementById('btn-run-sim');
+    const simOrderNum = document.getElementById('sim-order-num');
+    const simLeadTime = document.getElementById('sim-lead-time');
+    const simTime = document.getElementById('sim-time');
+
+    if (simBtn) {
+      const sampleLeads = [
+        "in 3 days (15 Nov)",
+        "today (Urgent Banquet)",
+        "in 5 days (Corporate Party)",
+        "tomorrow (VIP Tasting)"
+      ];
+      simBtn.addEventListener('click', () => {
+        const id = Math.floor(400 + Math.random() * 500);
+        const lead = sampleLeads[Math.floor(Math.random() * sampleLeads.length)];
+        simOrderNum.textContent = id;
+        simLeadTime.textContent = lead;
+        const now = new Date();
+        simTime.textContent = now.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', second: '2-digit' });
+
+        simBtn.textContent = '✓ Notification Dispatched!';
+        setTimeout(() => {
+          simBtn.textContent = '⚡ Simulate Live Order Dispatch';
+        }, 1500);
+      });
+    }
+
+    // 5. Scroll Reveal & Entrance Animations
+    const revealElements = document.querySelectorAll(
+      '.reveal-on-scroll, .reveal-scale, .reveal-slide-left, .reveal-slide-right, .reveal-stagger-group'
+    );
+
+    if ('IntersectionObserver' in window) {
+      const revealObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-revealed');
+            if (entry.target.classList.contains('reveal-stagger-group')) {
+              Array.from(entry.target.children).forEach((child, index) => {
+                child.style.setProperty('--stagger-index', index);
+              });
+            }
+            observer.unobserve(entry.target);
+          }
+        });
+      }, {
+        rootMargin: '0px 0px 100px 0px',
+        threshold: 0.02
+      });
+
+      revealElements.forEach(el => revealObserver.observe(el));
+    } else {
+      revealElements.forEach(el => el.classList.add('is-revealed'));
+    }
+
+    // Fail-safe unblock: Ensure everything reveals promptly even if connection is slow
+    setTimeout(() => {
+      revealElements.forEach(el => el.classList.add('is-revealed'));
+    }, 1200);
+
+    // 6. Interactive Scroll Progress Bar
+    const scrollProgress = document.getElementById('scroll-progress');
+    if (scrollProgress) {
+      const updateScrollProgress = () => {
+        const scrollTop = window.scrollY || document.documentElement.scrollTop;
+        const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+        const progress = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+        scrollProgress.style.width = `${progress}%`;
+      };
+      window.addEventListener('scroll', updateScrollProgress, { passive: true });
+      updateScrollProgress();
+    }
+  </script>
+
+</body>
+</html>

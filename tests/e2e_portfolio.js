@@ -79,10 +79,25 @@ const assert = require('assert');
     let isAdminActive = await page.isVisible('#pane-admin');
     assert.ok(isAdminActive, 'Admin pane should be visible');
 
-    // SEO Tab
+    // Optimization & SEO Suite Tab
     await page.click('button[data-pane="seo"]');
-    let isSeoActive = await page.isVisible('#pane-seo');
-    assert.ok(isSeoActive, 'SEO pane should be visible');
+    let isOptActive = await page.isVisible('#pane-seo');
+    assert.ok(isOptActive, 'Optimization & SEO pane should be visible');
+
+    // Sub-view 2: SEO & Rich Results
+    await page.click('button[data-subview="seo"]');
+    let isSeoViewActive = await page.isVisible('#opt-view-seo');
+    assert.ok(isSeoViewActive, 'SEO subview should be visible');
+
+    // Interactive Schema Switcher
+    await page.click('button[data-schema="product"]');
+    let schemaText = await page.textContent('#schema-json-screen');
+    assert.ok(schemaText.includes('Product'), 'Schema preview should update to Product');
+
+    // Sub-view 3: Metrics
+    await page.click('button[data-subview="metrics"]');
+    let isMetricsActive = await page.isVisible('#opt-view-metrics');
+    assert.ok(isMetricsActive, 'Metrics subview should be visible');
 
     // Restore Architecture Tab
     await page.click('button[data-pane="arch"]');
