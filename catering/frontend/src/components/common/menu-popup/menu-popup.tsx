@@ -963,7 +963,7 @@ export const MenuPopup = ({
               <span className={styles.errorText}>Required field</span>
             )}
 
-            {IS_SANDBOX && <p role="note">Test estimate - details are submitted and forwarded to Telegram. Physical event execution is simulated.</p>}
+            {IS_SANDBOX && <p role="note">Test estimate - details are submitted and forwarded to Telegram.</p>}
             <div className={styles.actions}>
               <button
                 type="button"
@@ -990,7 +990,7 @@ export const MenuPopup = ({
             </div>
             <h3>{IS_SANDBOX ? "Test estimate saved" : "Thank you for your request!"}</h3>
             <p>
-              {IS_SANDBOX ? "Your test estimate was saved. A notification has been dispatched to Telegram. Physical event execution is simulated." : "We are putting together menu options for your event. We will contact you soon with your menu."}
+              {IS_SANDBOX ? "Your test estimate was saved. A notification has been dispatched to Telegram." : "We are putting together menu options for your event. We will contact you soon with your menu."}
             </p>
             <Link
               href="/#catalog"

@@ -1092,7 +1092,6 @@ export const CartModal = ({ isOpen, onClose, onSubmit }: CartModalProps) => {
             {IS_SANDBOX && (
               <p role="note">
                 Test order - details are submitted and forwarded to Telegram.
-                Payment and order execution are simulated.
               </p>
             )}
             <div className={styles.actions}>
