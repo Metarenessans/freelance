@@ -130,10 +130,14 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 CORS_ALLOW_ALL_ORIGINS = DEBUG  # Allow all origins only in local development.
 
-CORS_ALLOWED_ORIGINS = os.getenv(
-    "CORS_ALLOWED_ORIGINS", 
-    "http://localhost:3000,http://127.0.0.1:3000,http://localhost:3001,http://127.0.0.1:3001"
-).split(",")
+CORS_ALLOWED_ORIGINS = [
+    origin.strip() for origin in os.getenv(
+        "CORS_ALLOWED_ORIGINS", 
+        "https://catering-portfolio-six.vercel.app,https://metarenessans.github.io,http://localhost:3000,http://127.0.0.1:3000"
+    ).split(",") if origin.strip()
+]
+if "https://metarenessans.github.io" not in CORS_ALLOWED_ORIGINS:
+    CORS_ALLOWED_ORIGINS.append("https://metarenessans.github.io")
 CORS_ALLOW_CREDENTIALS = True
 CORS_ALLOW_PRIVATE_NETWORK = True
 

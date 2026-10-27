@@ -812,21 +812,21 @@
 
                 <div class="tg-mock-title">
 
-                  🔔 New Order #<span id="sim-order-num">482</span> Received
+                  🔔 New Order #<span id="sim-order-num">20</span> Received
 
                 </div>
 
                 <div class="tg-mock-body">
 
-                  <strong>Event Urgency:</strong> <span class="tg-badge-urgency" id="sim-lead-time">in 3 days (15 Nov)</span><br/>
+                  <strong>Event Urgency:</strong> <span class="tg-badge-urgency" id="sim-lead-time">in 3 days (Cocktail Reception)</span><br/>
 
-                  <strong>Order Items:</strong> Mini Tartlets x24, Salmon Skewers x18<br/>
+                  <strong>Order Items:</strong> <span id="sim-items">Roast Beef Bruschetta x15, Salmon Bruschetta x15, Berry Filo x12, Chicken Skewers x10</span><br/>
 
-                  <strong>Total Sum:</strong> 24,500 RUB (~$270 USD, Server Enforced)<br/>
+                  <strong>Total Sum:</strong> <span id="sim-total-sum">11,260 RUB (~$125 USD, Server Enforced)</span><br/>
 
                   <strong>Customer:</strong> +7 937 589-33-24 (@zero_neitrino)<br/>
 
-                  <span style="color:var(--text-subtle);font-size:11px;">[Admin Quicklink: /admin/orders/order/12/change/]</span>
+                  <span style="color:var(--text-subtle);font-size:11px;">[Admin Quicklink: <a class="bench-inline-link" id="sim-admin-link" href="https://catering-portfolio-api.vercel.app/admin/orders/order/20/change/" target="_blank" rel="noopener noreferrer">/admin/orders/order/<span id="sim-admin-id">20</span>/change/ ↗</a>]</span>
 
                 </div>
 
@@ -2173,7 +2173,7 @@ test_private_runtime_artifacts_are_not_in_publication_copy ... <span class="t-ok
 
 
 
-    // 4. Telegram Live Simulator Trigger
+    // 4. Telegram Live Simulator Trigger (Dynamic orders & Live API dispatch)
 
     const simBtn = document.getElementById('btn-run-sim');
 
@@ -2183,45 +2183,321 @@ test_private_runtime_artifacts_are_not_in_publication_copy ... <span class="t-ok
 
     const simTime = document.getElementById('sim-time');
 
+    const simItems = document.getElementById('sim-items');
+
+    const simTotalSum = document.getElementById('sim-total-sum');
+
+    const simAdminLink = document.getElementById('sim-admin-link');
+
+    const simAdminId = document.getElementById('sim-admin-id');
+
 
 
     if (simBtn) {
 
-      const sampleLeads = [
+      const dynamicOrders = [
 
-        "in 3 days (15 Nov)",
+        {
 
-        "today (Urgent Banquet)",
+          lead: "tomorrow (VIP Banquet)",
 
-        "in 5 days (Corporate Party)",
+          itemsText: "Salmon Steaks x6, Lula Kebabs x8, Olivier Salad Rolls x2, Berry Filo x16",
 
-        "tomorrow (VIP Tasting)"
+          guests: "10-12 guests",
+
+          eventDate: "2026-11-02",
+
+          comment: "Live portfolio dispatch simulation: VIP Banquet",
+
+          cartLink: "https://catering-portfolio-six.vercel.app/cart?cart=33%3A6%2C32%3A8%2C59%3A2%2C48%3A16",
+
+          items: [
+
+            { productId: 33, quantity: 6 },
+
+            { productId: 32, quantity: 8 },
+
+            { productId: 59, quantity: 2 },
+
+            { productId: 48, quantity: 16 }
+
+          ]
+
+        },
+
+        {
+
+          lead: "in 5 days (Corporate Buffet)",
+
+          itemsText: "Chicken Skewers x18, Lula Kebabs x12, Roast Beef Bruschetta x20, Salmon Bruschetta x20",
+
+          guests: "25-30 guests",
+
+          eventDate: "2026-11-18",
+
+          comment: "Live portfolio dispatch simulation: Corporate Buffet",
+
+          cartLink: "https://catering-portfolio-six.vercel.app/cart?cart=31%3A18%3A12%2C32%3A12%2C4%3A20%2C5%3A20",
+
+          items: [
+
+            { productId: 31, quantity: 18, selectedOption: { id: 12 } },
+
+            { productId: 32, quantity: 12 },
+
+            { productId: 4, quantity: 20 },
+
+            { productId: 5, quantity: 20 }
+
+          ]
+
+        },
+
+        {
+
+          lead: "today (Urgent Executive Lounge)",
+
+          itemsText: "Salmon Steaks x5, Olivier Salad Rolls x3, Beef Lula Kebabs x6",
+
+          guests: "8-10 guests",
+
+          eventDate: "2026-10-27",
+
+          comment: "Live portfolio dispatch simulation: Urgent Lounge",
+
+          cartLink: "https://catering-portfolio-six.vercel.app/cart?cart=33%3A5%2C59%3A3%2C32%3A6",
+
+          items: [
+
+            { productId: 33, quantity: 5 },
+
+            { productId: 59, quantity: 3 },
+
+            { productId: 32, quantity: 6 }
+
+          ]
+
+        },
+
+        {
+
+          lead: "in 4 days (Signature Chef Tasting)",
+
+          itemsText: "Chicken Skewers x6, Lula Kebabs x5, Salmon Steaks x5, Olivier Rolls x3, Berry Filo x8",
+
+          guests: "12-15 guests",
+
+          eventDate: "2026-11-12",
+
+          comment: "Live portfolio dispatch simulation: Chef Tasting",
+
+          cartLink: "https://catering-portfolio-six.vercel.app/cart?cart=31%3A6%3A12%2C32%3A5%2C33%3A5%2C59%3A3%2C48%3A8",
+
+          items: [
+
+            { productId: 31, quantity: 6, selectedOption: { id: 12 } },
+
+            { productId: 32, quantity: 5 },
+
+            { productId: 33, quantity: 5 },
+
+            { productId: 59, quantity: 3 },
+
+            { productId: 48, quantity: 8 }
+
+          ]
+
+        },
+
+        {
+
+          lead: "in 3 days (Cocktail Reception)",
+
+          itemsText: "Roast Beef Bruschetta x15, Salmon Bruschetta x15, Berry Filo x12, Chicken Skewers x10",
+
+          guests: "15-20 guests",
+
+          eventDate: "2026-11-15",
+
+          comment: "Live portfolio dispatch simulation: Cocktail Reception",
+
+          cartLink: "https://catering-portfolio-six.vercel.app/cart?cart=4%3A15%2C5%3A15%2C48%3A12%2C31%3A10%3A12",
+
+          items: [
+
+            { productId: 4, quantity: 15 },
+
+            { productId: 5, quantity: 15 },
+
+            { productId: 48, quantity: 12 },
+
+            { productId: 31, quantity: 10, selectedOption: { id: 12 } }
+
+          ]
+
+        }
 
       ];
 
-      simBtn.addEventListener('click', () => {
 
-        const id = Math.floor(400 + Math.random() * 500);
 
-        const lead = sampleLeads[Math.floor(Math.random() * sampleLeads.length)];
+      let currentOrderIdx = 0;
 
-        simOrderNum.textContent = id;
-
-        simLeadTime.textContent = lead;
-
-        const now = new Date();
-
-        simTime.textContent = now.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', second: '2-digit' });
+      let isSimulating = false;
 
 
 
-        simBtn.textContent = '✓ Notification Dispatched!';
+      simBtn.addEventListener('click', async () => {
 
-        setTimeout(() => {
+        if (isSimulating) return;
 
-          simBtn.textContent = '⚡ Simulate Live Order Dispatch';
+        isSimulating = true;
 
-        }, 1500);
+
+
+        const orderData = dynamicOrders[currentOrderIdx % dynamicOrders.length];
+
+        currentOrderIdx++;
+
+
+
+        simBtn.disabled = true;
+
+        simBtn.textContent = '✓ Notification Dispatched (Calling Telegram API...)';
+
+
+
+        const payload = {
+
+          name: "Oleg G. (Portfolio Simulator)",
+
+          phone: "+79375893324",
+
+          contact_method: "Telegram (@zero_neitrino)",
+
+          guests: orderData.guests,
+
+          event_date: orderData.eventDate,
+
+          comment: orderData.comment,
+
+          cart_link: orderData.cartLink,
+
+          items: orderData.items
+
+        };
+
+
+
+        try {
+
+          const resp = await fetch('https://catering-portfolio-api.vercel.app/api/v1/orders/', {
+
+            method: 'POST',
+
+            headers: {
+
+              'Content-Type': 'application/json'
+
+            },
+
+            body: JSON.stringify(payload)
+
+          });
+
+
+
+          const now = new Date();
+
+          simTime.textContent = now.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', second: '2-digit' });
+
+          simLeadTime.textContent = orderData.lead;
+
+          if (simItems) simItems.textContent = orderData.itemsText;
+
+
+
+          if (resp.ok) {
+
+            const data = await resp.json();
+
+            const orderId = data.id || Math.floor(400 + Math.random() * 500);
+
+            const totalRub = Number(data.total_price || data.final_price || 0);
+
+            const usdEquiv = Math.round(totalRub / 90);
+
+
+
+            simOrderNum.textContent = orderId;
+
+            if (simTotalSum) {
+
+              simTotalSum.textContent = `${totalRub.toLocaleString()} RUB (~$${usdEquiv} USD, Server Enforced)`;
+
+            }
+
+            if (simAdminLink) {
+
+              simAdminLink.href = `https://catering-portfolio-api.vercel.app/admin/orders/order/${orderId}/change/`;
+
+            }
+
+            if (simAdminId) {
+
+              simAdminId.textContent = orderId;
+
+            }
+
+
+
+            simBtn.textContent = `✓ Notification Dispatched to Telegram (Order #${orderId})!`;
+
+          } else {
+
+            const fallbackId = Math.floor(500 + Math.random() * 400);
+
+            simOrderNum.textContent = fallbackId;
+
+            if (simAdminId) simAdminId.textContent = fallbackId;
+
+            if (simAdminLink) {
+
+              simAdminLink.href = `https://catering-portfolio-api.vercel.app/admin/orders/order/${fallbackId}/change/`;
+
+            }
+
+            simBtn.textContent = resp.status === 429 ? '✓ Notification Dispatched (Rate-Limited)' : '✓ Notification Dispatched (Simulated Order)!';
+
+          }
+
+        } catch (err) {
+
+          const fallbackId = Math.floor(500 + Math.random() * 400);
+
+          simOrderNum.textContent = fallbackId;
+
+          if (simAdminId) simAdminId.textContent = fallbackId;
+
+          if (simItems) simItems.textContent = orderData.itemsText;
+
+          simLeadTime.textContent = orderData.lead;
+
+          simBtn.textContent = '✓ Notification Dispatched (Offline Simulation)!';
+
+        } finally {
+
+          setTimeout(() => {
+
+            simBtn.textContent = '⚡ Simulate Live Order Dispatch';
+
+            simBtn.disabled = false;
+
+            isSimulating = false;
+
+          }, 2500);
+
+        }
 
       });
 
