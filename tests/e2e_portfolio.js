@@ -84,10 +84,15 @@ const assert = require('assert');
     let isOptActive = await page.isVisible('#pane-seo');
     assert.ok(isOptActive, 'Optimization & SEO pane should be visible');
 
-    // Sub-view 2: SEO & Rich Results
-    await page.click('button[data-subview="seo"]');
+    // Verify removed Runtime & GPU block is not in DOM
+    const perfBtn = await page.$('button[data-subview="perf"]');
+    assert.strictEqual(perfBtn, null, 'Runtime & GPU Optimization sub-tab should be removed');
+    const perfView = await page.$('#opt-view-perf');
+    assert.strictEqual(perfView, null, 'Runtime & GPU Optimization view should be removed');
+
+    // Sub-view 1: SEO & Rich Results (now default active view)
     let isSeoViewActive = await page.isVisible('#opt-view-seo');
-    assert.ok(isSeoViewActive, 'SEO subview should be visible');
+    assert.ok(isSeoViewActive, 'SEO subview should be visible by default');
 
     // Interactive Schema Switcher
     await page.click('button[data-schema="product"]');

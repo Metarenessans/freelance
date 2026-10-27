@@ -445,98 +445,12 @@
           <div class="c-pane" id="pane-seo">
             <!-- Mode Switcher Sub-tabs -->
             <div class="opt-subnav">
-              <button class="opt-subbtn active" data-subview="perf">⚡ Runtime & GPU Optimization</button>
-              <button class="opt-subbtn" data-subview="seo">🔍 Schema.org & Google Rich Results</button>
+              <button class="opt-subbtn active" data-subview="seo">🔍 Schema.org & Google Rich Results</button>
               <button class="opt-subbtn" data-subview="metrics">📊 Core Web Vitals & Benchmarks</button>
             </div>
 
-            <!-- Sub-view 1: Runtime & GPU Optimization -->
-            <div class="opt-view active" id="opt-view-perf">
-              <div class="opt-spotlight">
-                <div class="spotlight-eyebrow">CASE STUDY // RESOLVING AMD RYZEN 100°C APU THROTTLING</div>
-                <div class="spotlight-title">From Software Tile Rasterization to 60 FPS Hardware Compositing</div>
-                <p class="spotlight-desc">
-                  In Chromium and Opera desktop engines, deeply nested <code>backdrop-filter</code> Gaussian blurs combined with dynamic box-shadow hover transitions repeatedly exceed GPU tile budgets, dropping the compositor into software <code>Chrome_RasterThread</code> loops that pegged 16 APU cores to 100°C. We engineered an adaptive progressive enhancement architecture with synchronous pre-hydration browser detection (<code>data-browser="opera"</code>), GPU matrix scaling (<code>scaleX</code>), and rAF-locked ScrollSpy to achieve butter-smooth 60 FPS scrolling at cold CPU idle.
-                </p>
-              </div>
-
-              <div class="bench-table-wrap">
-                <table>
-                  <thead>
-                    <tr>
-                      <th>PERFORMANCE PIPELINE</th>
-                      <th>UNTHROTTLED BASELINE</th>
-                      <th>OPTIMIZED ARCHITECTURE</th>
-                      <th>MEASURED IMPACT</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <td>ScrollSpy Recalculation</td>
-                      <td class="bench-bad">~840 ms / scroll sequence</td>
-                      <td class="bench-highlight">0.3 ms (RAF ticking lock)</td>
-                      <td class="bench-highlight">99.96% faster</td>
-                    </tr>
-                    <tr>
-                      <td>Layout Reflow Count</td>
-                      <td class="bench-bad">120+ unthrottled reflows</td>
-                      <td class="bench-highlight">6 batched reflows</td>
-                      <td class="bench-highlight">95% reduction</td>
-                    </tr>
-                    <tr>
-                      <td>Cart Animation Threading</td>
-                      <td class="bench-bad">Main-thread layout (width / blur)</td>
-                      <td class="bench-highlight">GPU Layer (transform: scaleX)</td>
-                      <td class="bench-highlight">Zero layout shift / 60 FPS</td>
-                    </tr>
-                    <tr>
-                      <td>Image Shimmer Overhead</td>
-                      <td class="bench-bad">50+ concurrent infinite @keyframes</td>
-                      <td class="bench-highlight">Controlled / Browser-profiled</td>
-                      <td class="bench-highlight">0% idle CPU utilization</td>
-                    </tr>
-                    <tr>
-                      <td>Scroll State Persistence</td>
-                      <td class="bench-bad">Synchronous I/O on every tick</td>
-                      <td class="bench-highlight">300ms Debounced write batch</td>
-                      <td class="bench-highlight">Zero main-thread blocking</td>
-                    </tr>
-                    <tr>
-                      <td>Thermal & Power Profile</td>
-                      <td class="bench-bad">100°C thermal throttle / roaring fan</td>
-                      <td class="bench-highlight">Cold idle / silent operation</td>
-                      <td class="bench-highlight">Resolved on AMD APUs</td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
-
-              <div class="seo-grid reveal-stagger-group">
-                <div class="seo-card">
-                  <span class="seo-card-badge">RAF EVENT LOOP</span>
-                  <div class="seo-card-title">rAF-Locked ScrollSpy</div>
-                  <div class="seo-card-desc">Decouples scroll listeners from DOM measurements using requestAnimationFrame and a boolean execution lock, eliminating layout thrashing entirely.</div>
-                </div>
-                <div class="seo-card">
-                  <span class="seo-card-badge">GPU COMPOSITING</span>
-                  <div class="seo-card-title">GPU Matrix Scaling</div>
-                  <div class="seo-card-desc">Cart delivery progress bars and button elevation transitions run entirely on the GPU via scaleX and opacity matrices, preventing main-thread layout recalculations.</div>
-                </div>
-                <div class="seo-card">
-                  <span class="seo-card-badge">INLINE PROFILER</span>
-                  <div class="seo-card-title">Adaptive Browser Profiler</div>
-                  <div class="seo-card-desc">Zero-overhead synchronous head script sets data-browser before initial paint, applying rich frosted glass for Chrome and lightweight profiles for constrained rasterizers.</div>
-                </div>
-                <div class="seo-card">
-                  <span class="seo-card-badge">I/O OPTIMIZATION</span>
-                  <div class="seo-card-title">Debounced Storage & LCP</div>
-                  <div class="seo-card-desc">Scroll restoration throttled by 300ms debouncing, paired with responsive Next.js sizes attributes and LCP preloading for instant hero dish rendering.</div>
-                </div>
-              </div>
-            </div>
-
-            <!-- Sub-view 2: Schema.org & Google Rich Results -->
-            <div class="opt-view" id="opt-view-seo">
+            <!-- Sub-view: Schema.org & Google Rich Results -->
+            <div class="opt-view active" id="opt-view-seo">
               <!-- Google SERP Live Simulation Card -->
               <div class="serp-card">
                 <div class="serp-card-header">
