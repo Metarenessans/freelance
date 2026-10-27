@@ -1,3 +1,4 @@
+import os
 import re
 from decimal import Decimal
 from django.db import transaction
@@ -120,9 +121,10 @@ class OrderCreateSerializer(serializers.Serializer):
         if total_price < MIN_ORDER:
             raise serializers.ValidationError(f"The minimum order amount is {MIN_ORDER}.")
         delivery_cost = Decimal("0.00") if total_price >= DELIVERY_THRESHOLD else Decimal(str(DELIVERY_COST)).quantize(Decimal("0.01"))
-        # Cart URLs duplicate contact/cart state and are unnecessary for portfolio records.
-        if portfolio_enabled():
-            validated_data["cart_link"] = ""
+        if not validated_data.get("cart_link") and resolved:
+            frontend_url = os.getenv("FRONTEND_URL", "https://catering-portfolio-six.vercel.app").rstrip("/")
+            encoded_items = ",".join(f"{p.id}:{q}" + (f":{opt.id}" if opt else "") for p, opt, _, q in resolved)
+            validated_data["cart_link"] = f"{frontend_url}/?cart={encoded_items}"
         order = Order.objects.create(**validated_data, is_demo=portfolio_enabled(),
                                      total_price=total_price, delivery_cost=delivery_cost,
                                      final_price=total_price + delivery_cost)
