@@ -480,6 +480,34 @@
                 </div>
               </div>
 
+              <!-- Search Engine Crawl & Indexing Infrastructure (robots.txt & sitemap.xml) -->
+              <div class="crawl-discovery-strip">
+                <div class="crawl-card">
+                  <div class="crawl-card-header">
+                    <span class="crawl-badge">SEARCH DIRECTIVES</span>
+                    <a class="crawl-link" href="https://catering-portfolio-six.vercel.app/robots.txt" target="_blank" rel="noopener noreferrer">
+                      Live robots.txt ↗
+                    </a>
+                  </div>
+                  <div class="crawl-card-title">Automated robots.txt Directives</div>
+                  <p class="crawl-card-desc">
+                    Engineered with Next.js <code>app/robots.ts</code>. Directs search crawlers to catalog sections, media, and blog content while protecting administrative and customer cart endpoints (<code>/admin/</code>, <code>/api/</code>, <code>/cart</code>) to preserve crawler budget. References the primary sitemap index.
+                  </p>
+                </div>
+                <div class="crawl-card">
+                  <div class="crawl-card-header">
+                    <span class="crawl-badge">XML SEARCH INDEX</span>
+                    <a class="crawl-link" href="https://catering-portfolio-six.vercel.app/sitemap.xml" target="_blank" rel="noopener noreferrer">
+                      Live sitemap.xml ↗
+                    </a>
+                  </div>
+                  <div class="crawl-card-title">Dynamic XML Sitemap Hierarchy</div>
+                  <p class="crawl-card-desc">
+                    Generated dynamically via Next.js <code>app/sitemap.ts</code>. Queries Django REST API to automatically index all catalog categories, individual dish URLs, and blog articles with server cache TTL control (<code>sitemap_cache_minutes</code>).
+                  </p>
+                </div>
+              </div>
+
               <!-- Interactive Schema Switcher -->
               <div class="schema-tabs">
                 <button class="schema-btn active" data-schema="catering">CateringService & LocalBusiness</button>
@@ -487,12 +515,15 @@
                 <button class="schema-btn" data-schema="breadcrumbs">BreadcrumbList</button>
                 <button class="schema-btn" data-schema="faq">FAQPage</button>
                 <button class="schema-btn" data-schema="article">BlogPosting / Article</button>
+                <button class="schema-btn" data-schema="robots">robots.txt Directives</button>
+                <button class="schema-btn" data-schema="sitemap">sitemap.xml (Sample Index)</button>
               </div>
 
               <!-- Live Schema Preview Code Screen -->
               <div class="seo-preview-wrap">
                 <div class="seo-preview-header">
                   <span id="schema-type-label">SCHEMA.ORG: FoodEstablishment / CateringService</span>
+                  <a class="crawl-link" id="schema-ext-link" href="https://catering-portfolio-six.vercel.app/robots.txt" target="_blank" rel="noopener noreferrer" style="display: none;">Open Live URL ↗</a>
                   <span>APPLICATION/LD+JSON</span>
                 </div>
                 <pre class="seo-preview-body"><code id="schema-json-screen">{
@@ -557,6 +588,11 @@
                     </tr>
                   </thead>
                   <tbody>
+                    <tr>
+                      <td>Search Crawl & Indexing Directives</td>
+                      <td>Next.js automated robots.txt and dynamic XML sitemap (app/sitemap.ts) auto-syncing dish slugs and blog routes with cache TTL.</td>
+                      <td class="bench-highlight"><a class="bench-inline-link" href="https://catering-portfolio-six.vercel.app/robots.txt" target="_blank" rel="noopener noreferrer">robots.txt ↗</a> &bull; <a class="bench-inline-link" href="https://catering-portfolio-six.vercel.app/sitemap.xml" target="_blank" rel="noopener noreferrer">sitemap.xml ↗</a></td>
+                    </tr>
                     <tr>
                       <td>Dynamic Microdata Synchronization</td>
                       <td>JsonLdGlobalWatcher updates document schema on Next.js client-side route transitions without full page refresh.</td>
@@ -974,12 +1010,23 @@ test_private_runtime_artifacts_are_not_in_publication_copy ... <span class="t-ok
     "<span class=\"j-key\">name</span>": "<span class=\"j-str\">Chef Meal Catering</span>"
   }
 }`
+      },
+      robots: {
+        label: "SEARCH ENGINE DIRECTIVES: robots.txt (app/robots.ts)",
+        liveUrl: "https://catering-portfolio-six.vercel.app/robots.txt",
+        json: `<span class=\"j-key\">User-Agent:</span> <span class=\"j-str\">*</span>\n<span class=\"j-key\">Allow:</span> <span class=\"j-str\">/</span>\n<span class=\"j-key\">Allow:</span> <span class=\"j-str\">/_next/</span>\n<span class=\"j-key\">Allow:</span> <span class=\"j-str\">/media/</span>\n<span class=\"j-key\">Allow:</span> <span class=\"j-str\">/static/</span>\n<span class=\"j-key\">Disallow:</span> <span class=\"j-str\">/admin/</span>\n<span class=\"j-key\">Disallow:</span> <span class=\"j-str\">/api/</span>\n<span class=\"j-key\">Disallow:</span> <span class=\"j-str\">/cart</span>\n\n<span class=\"j-key\">Sitemap:</span> <span class=\"j-str\">https://catering-portfolio-six.vercel.app/sitemap.xml</span>`
+      },
+      sitemap: {
+        label: "DYNAMIC XML SEARCH INDEX: sitemap.xml (app/sitemap.ts)",
+        liveUrl: "https://catering-portfolio-six.vercel.app/sitemap.xml",
+        json: `&lt;?<span class=\"j-key\">xml</span> <span class=\"j-str\">version=\"1.0\" encoding=\"UTF-8\"</span>?&gt;\n&lt;<span class=\"j-key\">urlset</span> <span class=\"j-str\">xmlns=\"http://www.sitemaps.org/schemas/sitemap/0.9\"</span>&gt;\n  &lt;<span class=\"j-key\">url</span>&gt;\n    &lt;<span class=\"j-key\">loc</span>&gt;<span class=\"j-str\">https://catering-portfolio-six.vercel.app/</span>&lt;/<span class=\"j-key\">loc</span>&gt;\n    &lt;<span class=\"j-key\">changefreq</span>&gt;<span class=\"j-str\">daily</span>&lt;/<span class=\"j-key\">changefreq</span>&gt;\n    &lt;<span class=\"j-key\">priority</span>&gt;<span class=\"j-num\">1.0</span>&lt;/<span class=\"j-key\">priority</span>&gt;\n  &lt;/<span class=\"j-key\">url</span>&gt;\n  &lt;<span class=\"j-key\">url</span>&gt;\n    &lt;<span class=\"j-key\">loc</span>&gt;<span class=\"j-str\">https://catering-portfolio-six.vercel.app/calculate</span>&lt;/<span class=\"j-key\">loc</span>&gt;\n    &lt;<span class=\"j-key\">changefreq</span>&gt;<span class=\"j-str\">weekly</span>&lt;/<span class=\"j-key\">changefreq</span>&gt;\n    &lt;<span class=\"j-key\">priority</span>&gt;<span class=\"j-num\">0.8</span>&lt;/<span class=\"j-key\">priority</span>&gt;\n  &lt;/<span class=\"j-key\">url</span>&gt;\n  &lt;<span class=\"j-key\">url</span>&gt;\n    &lt;<span class=\"j-key\">loc</span>&gt;<span class=\"j-str\">https://catering-portfolio-six.vercel.app/catalog/party</span>&lt;/<span class=\"j-key\">loc</span>&gt;\n    &lt;<span class=\"j-key\">changefreq</span>&gt;<span class=\"j-str\">weekly</span>&lt;/<span class=\"j-key\">changefreq</span>&gt;\n    &lt;<span class=\"j-key\">priority</span>&gt;<span class=\"j-num\">0.9</span>&lt;/<span class=\"j-key\">priority</span>&gt;\n  &lt;/<span class=\"j-key\">url</span>&gt;\n  &lt;<span class=\"j-key\">url</span>&gt;\n    &lt;<span class=\"j-key\">loc</span>&gt;<span class=\"j-str\">https://catering-portfolio-six.vercel.app/product/assorted-canapes</span>&lt;/<span class=\"j-key\">loc</span>&gt;\n    &lt;<span class=\"j-key\">changefreq</span>&gt;<span class=\"j-str\">weekly</span>&lt;/<span class=\"j-key\">changefreq</span>&gt;\n    &lt;<span class=\"j-key\">priority</span>&gt;<span class=\"j-num\">0.8</span>&lt;/<span class=\"j-key\">priority</span>&gt;\n  &lt;/<span class=\"j-key\">url</span>&gt;\n&lt;/<span class=\"j-key\">urlset</span>&gt;`
       }
     };
 
     const schemaBtns = document.querySelectorAll('.schema-btn');
     const schemaLabel = document.getElementById('schema-type-label');
     const schemaScreen = document.getElementById('schema-json-screen');
+    const schemaExtLink = document.getElementById('schema-ext-link');
 
     schemaBtns.forEach(btn => {
       btn.addEventListener('click', () => {
@@ -989,6 +1036,15 @@ test_private_runtime_artifacts_are_not_in_publication_copy ... <span class="t-ok
         if (item && schemaScreen) {
           if (schemaLabel) schemaLabel.textContent = item.label;
           schemaScreen.innerHTML = item.json;
+          if (schemaExtLink) {
+            if (item.liveUrl) {
+              schemaExtLink.href = item.liveUrl;
+              schemaExtLink.textContent = item.liveUrl.endsWith('robots.txt') ? 'Open Live robots.txt ↗' : 'Open Live sitemap.xml ↗';
+              schemaExtLink.style.display = 'inline-flex';
+            } else {
+              schemaExtLink.style.display = 'none';
+            }
+          }
         }
       });
     });

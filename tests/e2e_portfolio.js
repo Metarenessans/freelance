@@ -94,15 +94,45 @@ const assert = require('assert');
     let isSeoViewActive = await page.isVisible('#opt-view-seo');
     assert.ok(isSeoViewActive, 'SEO subview should be visible by default');
 
+    // Verify Crawl Discovery Strip (robots.txt & sitemap.xml)
+    const crawlCards = await page.$$('.crawl-discovery-strip .crawl-card');
+    assert.strictEqual(crawlCards.length, 2, 'Should render 2 crawl discovery cards (robots.txt & sitemap.xml)');
+
+    const robotsLink = await page.getAttribute('.crawl-discovery-strip a[href*="robots.txt"]', 'href');
+    assert.strictEqual(robotsLink, 'https://catering-portfolio-six.vercel.app/robots.txt');
+
+    const sitemapLink = await page.getAttribute('.crawl-discovery-strip a[href*="sitemap.xml"]', 'href');
+    assert.strictEqual(sitemapLink, 'https://catering-portfolio-six.vercel.app/sitemap.xml');
+
     // Interactive Schema Switcher
     await page.click('button[data-schema="product"]');
     let schemaText = await page.textContent('#schema-json-screen');
     assert.ok(schemaText.includes('Product'), 'Schema preview should update to Product');
 
+    // Switch to robots.txt Directives preview
+    await page.click('button[data-schema="robots"]');
+    let robotsText = await page.textContent('#schema-json-screen');
+    assert.ok(robotsText.includes('User-Agent:'), 'Schema preview should show robots.txt directives');
+    const robotsLiveBtn = await page.textContent('#schema-ext-link');
+    assert.ok(robotsLiveBtn.includes('Open Live robots.txt'), 'Header link should show Open Live robots.txt');
+
+    // Switch to sitemap.xml preview
+    await page.click('button[data-schema="sitemap"]');
+    let sitemapText = await page.textContent('#schema-json-screen');
+    assert.ok(sitemapText.includes('urlset'), 'Schema preview should show sitemap.xml structure');
+    const sitemapLiveBtn = await page.textContent('#schema-ext-link');
+    assert.ok(sitemapLiveBtn.includes('Open Live sitemap.xml'), 'Header link should show Open Live sitemap.xml');
+
     // Sub-view 3: Metrics
     await page.click('button[data-subview="metrics"]');
     let isMetricsActive = await page.isVisible('#opt-view-metrics');
     assert.ok(isMetricsActive, 'Metrics subview should be visible');
+
+    // Check Metrics table row for Crawl Directives
+    const metricsHtml = await page.innerHTML('#opt-view-metrics');
+    assert.ok(metricsHtml.includes('Search Crawl &amp; Indexing Directives') || metricsHtml.includes('Search Crawl & Indexing Directives'), 'Metrics table should include Search Crawl row');
+    assert.ok(metricsHtml.includes('robots.txt ↗'), 'Metrics table should link to robots.txt');
+    assert.ok(metricsHtml.includes('sitemap.xml ↗'), 'Metrics table should link to sitemap.xml');
 
     // Restore Architecture Tab
     await page.click('button[data-pane="arch"]');
