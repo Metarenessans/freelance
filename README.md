@@ -4,14 +4,14 @@
 
 [![Upwork: Available for Hire](https://img.shields.io/badge/Upwork-Available%20for%20Hire-14a800?style=for-the-badge&logo=upwork&logoColor=white)](https://www.upwork.com/freelancers/~0126a1db3ee4419254)
 [![Role: Full-Stack Engineer](https://img.shields.io/badge/Role-Full--Stack%20%7C%20Frontend%20%7C%20Backend%20%7C%20CI%2FCD-6366f1?style=for-the-badge)](https://github.com/Metarenessans)
-[![CI/CD Status](https://img.shields.io/github/actions/workflow/status/Metarenessans/freelance/pages.yml?branch=main&label=CI%2FCD%20Deploy&style=for-the-badge)](https://github.com/Metarenessans/freelance/actions)
-[![Live Portfolio Gallery](https://img.shields.io/badge/Live%20Gallery-metarenessans.github.io%2Ffreelance-0ea5e9?style=for-the-badge)](https://metarenessans.github.io/freelance/)
+[![CI/CD Status](https://img.shields.io/github/actions/workflow/status/Metarenessans/portfolio/pages.yml?branch=main&label=CI%2FCD%20Deploy&style=for-the-badge)](https://github.com/Metarenessans/portfolio/actions)
+[![Live Portfolio Gallery](https://img.shields.io/badge/Live%20Gallery-metarenessans.github.io%2Ffreelance-0ea5e9?style=for-the-badge)](https://metarenessans.github.io/portfolio/)
 
 <br/>
 
 **Production-grade Web Applications • Modern React/Next.js Frontends • Resilient Django REST Backends • Asynchronous Telegram Bots • Automated CI/CD Pipelines**
 
-[🚀 Explore Live Portfolio Hub](https://metarenessans.github.io/freelance/) • [💼 Hire Me on Upwork](https://www.upwork.com/freelancers/~0126a1db3ee4419254)
+[🚀 Explore Live Portfolio Hub](https://metarenessans.github.io/portfolio/) • [💼 Hire Me on Upwork](https://www.upwork.com/freelancers/~0126a1db3ee4419254)
 
 </div>
 
@@ -30,8 +30,8 @@ Every project in this portfolio is **live, functional, and verifiable hands-on**
 | Project | Domain | Live Sandboxes & Verification Links | Key Tech Stack | Hands-on Verification (Under 60s) |
 | :--- | :--- | :--- | :--- | :--- |
 | **Catering & Event Commerce** | **Full-Stack Flagship** | 🌐 [Web App Demo](https://catering-portfolio-six.vercel.app)<br/>🏛️ [Live Original Site](https://chefmil-furshet.ru/)<br/>⚡ [Swagger API Explorer](https://catering-portfolio-api.vercel.app/api/docs/)<br/>⚙️ [Django Admin](https://catering-portfolio-api.vercel.app/admin/) `(demo / demo)`<br/>📁 [Source Code](catering/) | Next.js 14 SSR, Django 5 REST, PostgreSQL 17, Telegram Bot, Docker, GitHub Actions | 1. Add dishes to cart & submit transactional test order.<br/>2. Query live 32-endpoint Swagger documentation.<br/>3. Inspect Django admin order changelist with `demo / demo`. |
-| **BetBoom Campaign Landing** | **Frontend / Interactive** | 🚀 [Live Promo Demo](https://metarenessans.github.io/freelance/bet-boom/)<br/>📁 [Source Code](bet-boom/) | Vanilla JS (ES6+), CSS3 Keyframe Animations, BEM, GitHub Pages CI | 1. Test interactive gamified reward tiers.<br/>2. Inspect 60 FPS hardware-accelerated animations.<br/>3. Verify mobile responsiveness with 0 KB framework bloat. |
-| **DNA Bespoke Jewelry** | **Frontend / E-Commerce** | 🚀 [Live Configurator](https://metarenessans.github.io/freelance/dna/)<br/>📁 [Source Code](dna/) | Mobile-First Sass / SCSS, Dynamic DOM State, Semantic HTML5 | 1. Test multi-step pendant shape & color customizer.<br/>2. Verify zero horizontal layout overflow (320px - 1920px).<br/>3. Inspect modular SCSS architecture with parent ampersands. |
+| **BetBoom Campaign Landing** | **Frontend / Interactive** | 🚀 [Live Promo Demo](https://metarenessans.github.io/portfolio/bet-boom/)<br/>📁 [Source Code](bet-boom/) | Vanilla JS (ES6+), CSS3 Keyframe Animations, BEM, GitHub Pages CI | 1. Test interactive gamified reward tiers.<br/>2. Inspect 60 FPS hardware-accelerated animations.<br/>3. Verify mobile responsiveness with 0 KB framework bloat. |
+| **DNA Bespoke Jewelry** | **Frontend / E-Commerce** | 🚀 [Live Configurator](https://metarenessans.github.io/portfolio/dna/)<br/>📁 [Source Code](dna/) | Mobile-First Sass / SCSS, Dynamic DOM State, Semantic HTML5 | 1. Test multi-step pendant shape & color customizer.<br/>2. Verify zero horizontal layout overflow (320px - 1920px).<br/>3. Inspect modular SCSS architecture with parent ampersands. |
 
 ---
 
@@ -104,6 +104,12 @@ The backend features an asynchronous notification dispatcher designed so custome
 4. **Standalone Subscriber Worker (`telegram-bot/main.py`):**
    * Built on `telethon`/polling, allowing managers and operations staff to subscribe/unsubscribe to real-time order streams via bot commands.
 
+> [!TIP]
+> **How to Receive Live Order Alerts on Your Phone:**
+> 1. Register your Telegram username in [Django Admin Subscribers](https://catering-portfolio-api.vercel.app/admin/orders/telegramsubscriber/add/) (enter username without @ and ensure *Active* is checked).
+> 2. Open [@cate_portfolio_notification_bot](https://t.me/cate_portfolio_notification_bot) in Telegram and send /start to bind your Chat ID.
+> 3. Place a demo order on [Catering Live Demo](https://catering-portfolio-six.vercel.app/) or click *Simulate Live Order Dispatch* on the portfolio console to receive instant notifications!
+
 ---
 
 ### 🛠️ Custom Django Administration Suite
@@ -147,13 +153,13 @@ In addition to the flagship full-stack catering platform, this repository contai
 * **Goal & Architecture:** High-conversion promotional interface built with **Vanilla JS (ES6+)** and **hardware-accelerated CSS3 keyframe animations**.
 * **Zero-Framework Performance:** Eliminates 100+ KB of framework overhead to deliver instantaneous initial paint and locked 60 FPS scrolling on mobile devices.
 * **Interactive Features:** Dynamic reward tier switching, modal dialogues, and responsive PSD-to-HTML implementation.
-* **Live Sandbox:** [Open BetBoom Demo ↗](https://metarenessans.github.io/freelance/bet-boom/)
+* **Live Sandbox:** [Open BetBoom Demo ↗](https://metarenessans.github.io/portfolio/bet-boom/)
 
 ### 2. DNA Personalized Jewelry DTC Configurator
 * **Goal & Architecture:** Luxury e-commerce product customizer built with a **strict Mobile-First Sass/SCSS architecture** and semantic HTML5.
 * **Bespoke Product Builder:** Multi-step wizard syncing radio controls with dynamic SVG/raster image previews and real-time DOM price updates.
 * **Responsive Precision:** Zero horizontal layout overflow across all mobile viewports (verified at 320px, 360px, 375px, 390px, and 414px).
-* **Live Sandbox:** [Open DNA Jewelry Demo ↗](https://metarenessans.github.io/freelance/dna/)
+* **Live Sandbox:** [Open DNA Jewelry Demo ↗](https://metarenessans.github.io/portfolio/dna/)
 
 ---
 

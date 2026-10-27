@@ -1455,6 +1455,53 @@ header,
 .tg-feature-list li strong {
   color: var(--text);
 }
+.tg-setup-card {
+  margin-top: 16px;
+  background: var(--surface-elevated);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 14px 16px;
+}
+.tg-setup-card .tg-setup-title {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--text);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 8px;
+}
+.tg-setup-card ol {
+  margin: 0;
+  padding-left: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.tg-setup-card ol li {
+  font-size: 12px;
+  color: var(--text-muted);
+  line-height: 1.5;
+}
+.tg-setup-card ol li strong {
+  color: var(--text);
+}
+.tg-setup-card ol li code {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  padding: 1px 4px;
+  border-radius: 4px;
+  font-size: 11px;
+  font-family: "JetBrains Mono", monospace;
+}
+.tg-setup-card ol li a {
+  color: var(--text);
+  text-decoration: underline;
+  word-break: break-all;
+}
+.tg-setup-card ol li a:hover {
+  color: var(--accent);
+}
 .tg-mock-device {
   background: var(--surface-elevated);
   border-radius: 10px;
