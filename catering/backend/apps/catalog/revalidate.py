@@ -9,22 +9,19 @@ logger = logging.getLogger(__name__)
 
 
 def notify_frontend_revalidate(event_type: str = "all", slug: str = ""):
-    if (os.getenv("REVALIDATION_ENABLED", "false").lower() != "true"
-            or os.getenv("DEMO_MODE", "true").lower() != "false"
-            or os.getenv("PORTFOLIO_ORDERING_ENABLED", "false").lower() == "true"):
+    if os.getenv("REVALIDATION_ENABLED", "false").lower() != "true":
         return
     """
-    Send an asynchronous webhook to the Next.js frontend
-    to lazily invalidate structured data and page caches.
-    Runs in a background daemon thread without blocking saves in the Django admin.
+    Send a webhook to the Next.js frontend to lazily invalidate structured data and page caches.
+    In serverless environments (Vercel), dispatches inline to avoid frozen background threads.
     """
     def _send():
         try:
             from apps.system_settings.models import SystemSettings
             sys_settings = SystemSettings.load()
-            frontend_url = sys_settings.get_frontend_url()
-            secret = sys_settings.get_revalidation_secret()
-            url = f"{frontend_url}/api/revalidate-schema"
+            frontend_url = sys_settings.get_frontend_url() or getattr(settings, "FRONTEND_URL", "https://catering-portfolio-six.vercel.app")
+            secret = sys_settings.get_revalidation_secret() or getattr(settings, "REVALIDATION_SECRET", "")
+            url = f"{frontend_url.rstrip('/')}/api/revalidate-schema"
 
             payload = json.dumps({
                 "secret": secret,
@@ -46,5 +43,9 @@ def notify_frontend_revalidate(event_type: str = "all", slug: str = ""):
         except Exception as e:
             # Do not propagate errors: frontend network failures must never break the Django admin
             logger.warning(f"Could not notify frontend about revalidation ({event_type}:{slug}): {e}")
+
+    if os.getenv("VERCEL"):
+        _send()
+        return
 
     threading.Thread(target=_send, daemon=True).start()
