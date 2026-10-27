@@ -182,3 +182,5 @@ __pycache__/
 venv/
 dump/
 media/documents/
+
+.vercel

@@ -18,6 +18,13 @@ def order_post_save(sender, instance, created, **kwargs):
     if os.getenv("TELEGRAM_ENABLED", "true").lower() == "false" and os.getenv("EMAIL_ENABLED", "false").lower() != "true":
         return
 
+    # In serverless environments like Vercel, background daemon threads are immediately frozen
+    # when the response finishes. Run notification dispatches inline without blocking.
+    if os.getenv("VERCEL"):
+        _safe_send_tg(instance)
+        _safe_send_email(instance)
+        return
+
     def run_notifications():
         tg_thread = threading.Thread(
             target=_safe_send_tg,

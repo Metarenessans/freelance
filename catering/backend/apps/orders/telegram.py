@@ -144,7 +144,8 @@ def _send_order_notification_bg(order_id):
     """Build and send an order notification in the background."""
     try:
         # Allow the Django transaction to complete
-        time.sleep(0.5)
+        if not os.getenv("VERCEL"):
+            time.sleep(0.5)
         from .models import Order
         order = Order.objects.get(id=order_id)
         if outbound_disabled() or os.getenv("TELEGRAM_ENABLED", "true").lower() == "false":
@@ -194,7 +195,8 @@ def _send_menu_request_notification_bg(menu_request_id):
     """Build and send a menu selection notification in the background."""
     try:
         # Allow the Django transaction to complete
-        time.sleep(0.5)
+        if not os.getenv("VERCEL"):
+            time.sleep(0.5)
         from ..menu_requests.models import MenuRequest
         menu_request = MenuRequest.objects.get(id=menu_request_id)
         if outbound_disabled() or os.getenv("TELEGRAM_ENABLED", "true").lower() == "false":
@@ -280,6 +282,9 @@ def send_order_telegram_notification(order):
     """Sends notification about a new order asynchronously."""
     if outbound_disabled() or os.getenv("TELEGRAM_ENABLED", "true").lower() == "false":
         return
+    if os.getenv("VERCEL"):
+        _send_order_notification_bg(order.id)
+        return
     threading.Thread(
         target=_send_order_notification_bg,
         args=(order.id,),
@@ -289,6 +294,9 @@ def send_order_telegram_notification(order):
 def send_menu_request_telegram_notification(menu_request):
     """Sends notification about a new menu request asynchronously."""
     if outbound_disabled() or os.getenv("TELEGRAM_ENABLED", "true").lower() == "false":
+        return
+    if os.getenv("VERCEL"):
+        _send_menu_request_notification_bg(menu_request.id)
         return
     threading.Thread(
         target=_send_menu_request_notification_bg,
