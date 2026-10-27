@@ -116,12 +116,23 @@ const assert = require('assert');
     const robotsLiveBtn = await page.textContent('#schema-ext-link');
     assert.ok(robotsLiveBtn.includes('Open Live robots.txt'), 'Header link should show Open Live robots.txt');
 
-    // Switch to sitemap.xml preview
-    await page.click('button[data-schema="sitemap"]');
+    // Switch to sitemap.xml preview (real 69-URL production sitemap)
+    const sitemapBtn = await page.locator('button[data-schema="sitemap"]');
+    const sitemapBtnText = await sitemapBtn.innerText();
+    assert.strictEqual(sitemapBtnText.trim(), 'sitemap.xml', 'Button should be titled sitemap.xml without sample indicator');
+    assert.ok(!sitemapBtnText.includes('Sample'), 'Button must not contain the word Sample');
+
+    await sitemapBtn.click();
     let sitemapText = await page.textContent('#schema-json-screen');
     assert.ok(sitemapText.includes('urlset'), 'Schema preview should show sitemap.xml structure');
+    assert.ok(sitemapText.includes('portfolio-171'), 'Schema preview should show real production product slug');
+    assert.ok(sitemapText.includes('how-to-calculate-party-food-portions'), 'Schema preview should show real blog article slug');
+    assert.ok(sitemapText.includes('bruschetta-crostini'), 'Schema preview should show real category slug');
+
     const sitemapLiveBtn = await page.textContent('#schema-ext-link');
     assert.ok(sitemapLiveBtn.includes('Open Live sitemap.xml'), 'Header link should show Open Live sitemap.xml');
+    const mimeText = await page.textContent('#schema-mime-label');
+    assert.strictEqual(mimeText.trim(), 'APPLICATION/XML', 'Header should show APPLICATION/XML for sitemap');
 
     // Sub-view 3: Metrics
     await page.click('button[data-subview="metrics"]');
