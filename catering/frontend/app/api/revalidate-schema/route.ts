@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import { invalidateSchemaCache } from "@/components/common/json-ld/schema-cache";
+import { invalidateCatalogDataCache } from "@/components/common/json-ld/server-catalog-cache";
 import { revalidatePath, revalidateTag } from "next/cache";
 
 export const dynamic = "force-dynamic";
@@ -15,23 +16,29 @@ function isAuthorized(received?: string | null): boolean {
 
 function purgeTag(tag: string) {
   try {
-    revalidateTag(tag, { expire: 0 });
+    revalidateTag(tag, "max");
   } catch (e) {
-    // ignore
+    try {
+      (revalidateTag as any)(tag);
+    } catch {
+      // ignore
+    }
   }
 }
 
 function triggerRevalidation(type?: string, slug?: string) {
   try {
+    revalidatePath("/");
+    revalidatePath("/", "page");
     revalidatePath("/", "layout");
     revalidatePath("/catalog/[slug]", "page");
     if (slug) {
-      revalidatePath(`/catalog/${slug}`);
-      revalidatePath(`/product/${slug}`);
-      revalidatePath(`/blog/${slug}`);
+      revalidatePath(`/catalog/${slug}`, "page");
+      revalidatePath(`/product/${slug}`, "page");
+      revalidatePath(`/blog/${slug}`, "page");
     }
-    revalidatePath("/blog");
-    revalidatePath("/calculate");
+    revalidatePath("/blog", "page");
+    revalidatePath("/calculate", "page");
     purgeTag("catalog");
     purgeTag("sections");
     purgeTag("products");
@@ -58,14 +65,15 @@ export async function POST(req: NextRequest) {
     }
 
     const { type, slug } = body;
-    const result = invalidateSchemaCache({ type, slug });
+    const schemaResult = invalidateSchemaCache({ type, slug });
+    invalidateCatalogDataCache({ type, slug });
 
     triggerRevalidation(type, slug);
 
     return NextResponse.json({
       ok: true,
       message: `Schema cache invalidated for ${type || "all"}`,
-      details: result,
+      details: schemaResult,
     });
   } catch (e) {
     return NextResponse.json({ error: String(e) }, { status: 500 });
@@ -82,13 +90,14 @@ export async function GET(req: NextRequest) {
 
   const type = url.searchParams.get("type") || "all";
   const slug = url.searchParams.get("slug") || "";
-  const result = invalidateSchemaCache({ type, slug });
+  const schemaResult = invalidateSchemaCache({ type, slug });
+  invalidateCatalogDataCache({ type, slug });
 
   triggerRevalidation(type, slug);
 
   return NextResponse.json({
     ok: true,
     message: `Schema cache invalidated for ${type}`,
-    details: result,
+    details: schemaResult,
   });
 }

@@ -9,7 +9,9 @@ logger = logging.getLogger(__name__)
 
 
 def notify_frontend_revalidate(event_type: str = "all", slug: str = ""):
-    if os.getenv("REVALIDATION_ENABLED", "false").lower() != "true":
+    raw_val = os.getenv("REVALIDATION_ENABLED", "false")
+    clean_val = str(raw_val).strip().strip('"\'').lower()
+    if clean_val not in ("true", "1", "yes"):
         return
     """
     Send a webhook to the Next.js frontend to lazily invalidate structured data and page caches.
@@ -19,8 +21,8 @@ def notify_frontend_revalidate(event_type: str = "all", slug: str = ""):
         try:
             from apps.system_settings.models import SystemSettings
             sys_settings = SystemSettings.load()
-            frontend_url = sys_settings.get_frontend_url() or getattr(settings, "FRONTEND_URL", "https://catering-portfolio-six.vercel.app")
-            secret = sys_settings.get_revalidation_secret() or getattr(settings, "REVALIDATION_SECRET", "")
+            frontend_url = (sys_settings.get_frontend_url() or getattr(settings, "FRONTEND_URL", "https://catering-portfolio-six.vercel.app") or "https://catering-portfolio-six.vercel.app").strip().strip('"\'')
+            secret = (sys_settings.get_revalidation_secret() or getattr(settings, "REVALIDATION_SECRET", "") or "catering_reval_token_2026_metarenessans").strip().strip('"\'')
             url = f"{frontend_url.rstrip('/')}/api/revalidate-schema"
 
             payload = json.dumps({
@@ -35,7 +37,7 @@ def notify_frontend_revalidate(event_type: str = "all", slug: str = ""):
                 headers={"Content-Type": "application/json"},
                 method="POST",
             )
-            with urllib.request.urlopen(req, timeout=3) as resp:
+            with urllib.request.urlopen(req, timeout=5) as resp:
                 if resp.status == 200:
                     logger.info(f"Frontend revalidation triggered successfully for {event_type}:{slug}")
                 else:
