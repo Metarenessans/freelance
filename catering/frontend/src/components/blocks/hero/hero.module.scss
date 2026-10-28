@@ -2,7 +2,7 @@
 
 .desktopOnly {
   display: block;
-  min-height: 100vh;
+  min-height: auto;
 
   @include mobile {
     display: none !important;
